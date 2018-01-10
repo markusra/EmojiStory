@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-
 // Import Bootstrap Components
 import { Button } from 'reactstrap';
 
 class Welcome extends Component {
   render() {
+
     return (
       <div className="container">
         <header className="App-header">
@@ -16,6 +16,7 @@ class Welcome extends Component {
         <Button 
           color="success"
           className="col"
+          href="/finish"
         >Cool</Button>
 
       </div>
