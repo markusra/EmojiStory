@@ -1,25 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import AppContainer from "../../components/AppContainer";
+
 // Import Bootstrap Components
-import { Button } from 'reactstrap';
+import { Button } from "reactstrap";
 
 class Welcome extends Component {
   render() {
-
     return (
-      <div className="container">
-        <header className="App-header">
-          <h1 className="App-title">Survey – Emoji-based Authentication</h1>
-        </header>
-        <p className="App-intro">
-        Hei på du!</p>
+      <AppContainer appTitle="EmojiStory">
+        <p>
+          This is so awesome! :-D
+        </p>
 
-        <Button 
-          color="success"
-          className="col"
-          href="/finish"
-        >Cool</Button>
-
-      </div>
+        <Button color="success" className="col" href="/finish">
+          Cool
+        </Button>
+      </AppContainer>
     );
   }
 }

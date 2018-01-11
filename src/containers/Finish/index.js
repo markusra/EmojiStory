@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import firebase from '../../firebase'; 
+import firebase from '../../firebase';
+import AppContainer from "../../components/AppContainer";
 
 class Finish extends Component { 
   render() {
@@ -15,11 +16,13 @@ class Finish extends Component {
     personsRef.push(person);
 
     return (
-      <div className="container">
-        <header className="App-header">
-          <h1 className="App-title">Finished – Saved to database</h1>
-        </header>
-      </div>
+        <AppContainer appTitle="Survey Finished!">
+          
+            <p>
+            You finished the survey and your answers are send to us. Thank you!
+          </p>
+          
+        </AppContainer>
     );
   }
 }

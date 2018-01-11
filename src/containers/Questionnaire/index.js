@@ -1,37 +1,62 @@
-import React, { Component } from 'react';
-import * as Survey from 'survey-react';
-
-// Import Bootstrap Components
-import { Button } from 'reactstrap';
+import React, { Component } from "react";
+import * as Survey from "survey-react";
+import history from "../../history";
 
 class Questionnaire extends Component {
   constructor() {
     super();
     this.surveyJson = {
+      locale: "en",
       pages: [
         {
-          name: "page1",
-          questions: [
+          elements: [
+            {
+              type: "radiogroup",
+              choices: ["Female", "Male", "Other", "Rather not say"],
+              isRequired: true,
+              name: "Gender"
+            }
+          ],
+          name: "page1"
+        },
+        {
+          elements: [
             {
               type: "text",
-              name: "age",
-              title: "enter age"
+              isRequired: true,
+              name: "Age",
+              placeHolder: "13",
+              validators: [
+                {
+                  type: "numeric",
+                  maxValue: 120,
+                  minValue: 0
+                }
+              ]
             }
-          ]
+          ],
+          name: "page2"
         }
-      ]
-    }
+      ],
+      showCompletedPage: false,
+      showPageTitles: false
+    };
   }
 
   sendDataToServer(survey) {
+    // eslint-disable-next-line
     var resultAsString = JSON.stringify(survey.data);
-    alert(resultAsString); //send Ajax request to your web server.
+
+    history.push("/finish");
   }
 
   render() {
     return (
       <div className="container">
-        <Survey.Survey json={this.surveyJson} onComplete={this.sendDataToServer} />
+        <Survey.Survey
+          json={this.surveyJson}
+          onComplete={this.sendDataToServer}
+        />
       </div>
     );
   }
