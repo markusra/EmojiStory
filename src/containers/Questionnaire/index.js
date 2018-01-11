@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import * as Survey from 'survey-react';
-
-// Import Bootstrap Components
-import { Button } from 'reactstrap';
+import firebase from '../../firebase'; 
 
 class Questionnaire extends Component {
   constructor() {
@@ -16,22 +14,31 @@ class Questionnaire extends Component {
               type: "text",
               name: "age",
               title: "enter age"
-            }
+            },
+            {
+              type: "text",
+              name: "gender",
+              title: "enter gender"
+            },
           ]
         }
       ]
     }
   }
 
-  sendDataToServer(survey) {
-    var resultAsString = JSON.stringify(survey.data);
-    alert(resultAsString); //send Ajax request to your web server.
+  sendDataToDB(survey) {
+    var json = survey.data
+    var database = firebase.database();
+
+    const personsRef = database.ref('users');
+    
+    personsRef.push(json);
   }
 
   render() {
     return (
       <div className="container">
-        <Survey.Survey json={this.surveyJson} onComplete={this.sendDataToServer} />
+        <Survey.Survey json={this.surveyJson} onComplete={this.sendDataToDB} />
       </div>
     );
   }

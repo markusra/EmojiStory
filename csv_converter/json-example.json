@@ -1,0 +1,16 @@
+{
+  "users" : {
+    "-L2_W1II7-Tt-mjD-tC1" : {
+      "age" : "13",
+      "gender" : "female"
+    },
+    "-L2_W3n68GbAq0_nNCGq" : {
+      "age" : "18",
+      "gender" : "male"
+    },
+    "-L2_ZPMsx_zNIknze6Qu" : {
+      "age" : "56",
+      "gender" : "other"
+    }
+  }
+}
