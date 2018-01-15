@@ -10,7 +10,7 @@ body {
     margin-top: 30px;
     padding: 0 !important;
     width: 500px !important;
-    height: 700px !important;
+    height: 600px !important;
     border: 1px solid #1B212C 
   }
 
@@ -43,7 +43,7 @@ body {
   padding: 15px;
 }
 
-.navButton {
+.app-footer {
   position: absolute;
   padding: 0px 15px 15px 15px;
   bottom: 0;

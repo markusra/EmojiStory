@@ -9,10 +9,14 @@ class AppContent extends Component {
           <div className="app-header">
             <h3 className="app-title">{this.props.appTitle}</h3>
           </div>
-          <div className="app-body">{this.props.children[0]}</div>
-          {this.props.children.length > 1
-            ? this.props.children[1]
-            : null}
+          <div className="app-body">
+            {this.props.children.length > 1
+              ? this.props.children[0]
+              : this.props.children}
+          </div>
+          <div className="app-footer">
+            {this.props.children.length > 1 ? this.props.children[1] : null}
+          </div>
         </div>
       </Fragment>
     );
