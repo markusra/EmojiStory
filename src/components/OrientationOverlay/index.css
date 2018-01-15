@@ -22,8 +22,8 @@
   height: 100%
 }
 
-@media (orientation: landscape) {
+@media screen and (min-width: 320px) and (max-width: 850px) and (orientation: landscape) {
   .orientation-overlay {
-    display: inline;
+    display: block;
   }
 }
