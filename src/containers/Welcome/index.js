@@ -35,11 +35,9 @@ class Welcome extends Component {
         </AppBody>
 
         <AppFooter>
-          <div className="navButton">
             <Button color="success" className="col" href="/emojistory">
               START
             </Button>
-          </div>
         </AppFooter>
       
       </AppContainer>

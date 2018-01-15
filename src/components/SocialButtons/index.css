@@ -119,11 +119,3 @@ a.btn-social,
 {
     background-color: #6bd079;
 }
-
-.col {
-    flex-basis: inherit;
-    flex-grow: 0;
-    padding: 0;
-    margin: 0;
-    width: inherit
-}
