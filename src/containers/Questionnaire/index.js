@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import * as Survey from "survey-react";
-import history from "../../history";
+import React, { Component } from 'react';
+import * as Survey from 'survey-react';
+import firebase from '../../firebase'; 
 
 class Questionnaire extends Component {
   constructor() {
@@ -23,19 +23,15 @@ class Questionnaire extends Component {
           elements: [
             {
               type: "text",
-              isRequired: true,
-              name: "Age",
-              placeHolder: "13",
-              validators: [
-                {
-                  type: "numeric",
-                  maxValue: 120,
-                  minValue: 0
-                }
-              ]
-            }
-          ],
-          name: "page2"
+              name: "age",
+              title: "enter age"
+            },
+            {
+              type: "text",
+              name: "gender",
+              title: "enter gender"
+            },
+          ]
         }
       ],
       showCompletedPage: false,
@@ -43,20 +39,19 @@ class Questionnaire extends Component {
     };
   }
 
-  sendDataToServer(survey) {
-    // eslint-disable-next-line
-    var resultAsString = JSON.stringify(survey.data);
+  sendDataToDB(survey) {
+    var json = survey.data
+    var database = firebase.database();
 
-    history.push("/finish");
+    const personsRef = database.ref('users');
+    
+    personsRef.push(json);
   }
 
   render() {
     return (
       <div className="container">
-        <Survey.Survey
-          json={this.surveyJson}
-          onComplete={this.sendDataToServer}
-        />
+        <Survey.Survey json={this.surveyJson} onComplete={this.sendDataToDB} />
       </div>
     );
   }
