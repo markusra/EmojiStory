@@ -1,0 +1,29 @@
+.orientation-overlay {
+  display: none;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background-color: #1b212c;
+}
+
+.orientation-overlay .text {
+  color: white;
+  padding-bottom: 15px
+}
+
+.orientation-overlay .verticalAlign {
+  border: 3px solid white;
+}
+
+.overlay-container {
+  height: 100%
+}
+
+@media screen and (min-width: 320px) and (max-width: 850px) and (orientation: landscape) {
+  .orientation-overlay {
+    display: block;
+  }
+}
