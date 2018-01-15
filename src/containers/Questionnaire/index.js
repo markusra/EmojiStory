@@ -6,10 +6,21 @@ class Questionnaire extends Component {
   constructor() {
     super();
     this.surveyJson = {
+      locale: "en",
       pages: [
         {
-          name: "page1",
-          questions: [
+          elements: [
+            {
+              type: "radiogroup",
+              choices: ["Female", "Male", "Other", "Rather not say"],
+              isRequired: true,
+              name: "Gender"
+            }
+          ],
+          name: "page1"
+        },
+        {
+          elements: [
             {
               type: "text",
               name: "age",
@@ -22,8 +33,10 @@ class Questionnaire extends Component {
             },
           ]
         }
-      ]
-    }
+      ],
+      showCompletedPage: false,
+      showPageTitles: false
+    };
   }
 
   sendDataToDB(survey) {
