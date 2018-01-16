@@ -66,3 +66,12 @@ body {
   box-shadow: 0px -3px 15px white
 }
 
+.padding-h-5{
+  padding-right: 5px !important;
+  padding-left: 5px !important;
+}
+
+.padding-h-15{
+  padding-right: 15px !important;
+  padding-left: 15px !important;
+}

@@ -35,11 +35,10 @@ class Welcome extends Component {
         </AppBody>
 
         <AppFooter>
-            <Button color="success" className="col" href="/emojistory">
-              START
-            </Button>
+          <Button color="success" size="lg" href="/emojistory" block>
+            Start
+          </Button>
         </AppFooter>
-      
       </AppContainer>
     );
   }
