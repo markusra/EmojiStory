@@ -14,9 +14,6 @@ body {
     border: 1px solid #1B212C 
   }
 
-  .app-body {
-    text-align: justify
-  }
 }
 
 @media (max-width: 499px) { 
@@ -39,23 +36,33 @@ body {
 }
 */
 
+.navbar-brand {
+  margin-right: 0 !important
+}
+
 .app-header {
-  background-color: #1B212C 
+  background-color: #1B212C;
+  color: white;
+
 }
 
 .app-title {
-  padding: 15px;
-  color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .app-body {
-  padding: 15px;
+  padding: 15px 15px 50px 15px;
+  text-align: justify
 }
 
 .app-footer {
   position: absolute;
-  padding: 0px 15px 15px 15px;
+  padding: 10px 15px 15px 15px;
   bottom: 0;
   width: 100%;
+  background-color: white;
+  box-shadow: 0px -3px 15px white
 }
 
