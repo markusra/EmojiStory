@@ -8,15 +8,15 @@ class AppContent extends Component {
       <Fragment>
         <OrientationOverlay />
         <div className="container app-container">
-          <div className="app-header">
-            <h3 className="app-title">{this.props.appTitle}</h3>
-          </div>
+          <nav className="navbar app-header sticky-top">
+            <h1 className="navbar-brand mb-0 app-title">{this.props.appTitle}</h1>
+          </nav>
           <div className="app-body">
             {this.props.children.length > 1
               ? this.props.children[0]
               : this.props.children}
           </div>
-          <div className="app-footer stickyFooter">
+          <div className="app-footer">
             {this.props.children.length > 1 ? this.props.children[1] : null}
           </div>
         </div>

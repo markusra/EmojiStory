@@ -119,3 +119,8 @@ a.btn-social,
 {
     background-color: #6bd079;
 }
+
+.social-row {
+  margin-right: 30px !important;
+  margin-left: 30px !important;
+}

@@ -5,10 +5,10 @@ class SocialButtons extends Component {
   render() {
     return (
       <Fragment>
-        <div className="row justify-content-center">
+        <div className="row social-row justify-content-center">
           <b>Share the survey</b>
         </div>
-        <div className="row justify-content-center">
+        <div className="row social-row justify-content-center">
             <a
               href="https://www.facebook.com/sharer/sharer.php?u=https://emoji.rauhut.no/"
               className="btn-social btn-facebook"
