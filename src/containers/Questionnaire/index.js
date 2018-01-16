@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as Survey from 'survey-react';
 import firebase from '../../firebase'; 
 import "./index.css";
+import history from"../../history"
 
 class Questionnaire extends Component {
   constructor() {
@@ -22,9 +23,6 @@ class Questionnaire extends Component {
         classes.body = "panel-body";
         classes.header = "panel-heading";
     });
-
-    model.onComplete.add(function(result) {
-    });
   }
 
   sendDataToDB(survey) {
@@ -39,15 +37,11 @@ class Questionnaire extends Component {
 
   render() {
     var model = new Survey.Model(this.surveyJson);
-    model.onComplete.add(function(result) {
-      // window.location.href = '/finish';
-      setTimeout(function() { 
-        window.location.href = '/finish';
-      }, 1000);
+    model.onComplete.add(function() {
+      history.push("/finish");
     });
     return (
       // <Survey.Survey json={this.surveyJson} onComplete={this.sendDataToDB} />
-
       <div className="container questionnaire-container">
         <Survey.Survey model={model} onComplete={this.sendDataToDB} />
       </div>
