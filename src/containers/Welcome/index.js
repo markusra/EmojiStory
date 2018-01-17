@@ -36,7 +36,7 @@ class Welcome extends Component {
 
         <AppFooter>
           <Button color="success" size="lg" href="/emojistory" block>
-            Start
+            Start the survey
           </Button>
         </AppFooter>
       </AppContainer>

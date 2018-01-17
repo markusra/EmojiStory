@@ -4,21 +4,33 @@ import OrientationOverlay from "./OrientationOverlay/index";
 
 class AppContent extends Component {
   render() {
+   
+    if (this.props.appStyle === "emojiQuestion") {
+      this.appType = "emoji";
+    } else {
+      this.appType = "app";
+    }
+
     return (
       <Fragment>
         <OrientationOverlay />
-        <div className="container app-container">
-          <nav className="navbar app-header sticky-top">
-            <h1 className="navbar-brand mb-0 app-title">{this.props.appTitle}</h1>
+
+        <div className={"container " + this.appType + "-container"}>
+          <nav className={"navbar " + this.appType + "-header sticky-top"}>
+            <h1 className={"navbar-brand mb-0 " + this.appType + "-title"}>
+              {this.props.appTitle}
+            </h1>
           </nav>
-          <div className="app-body">
+          <div className={this.appType + "-body"}>
             {this.props.children.length > 1
               ? this.props.children[0]
               : this.props.children}
           </div>
-          <div className="app-footer">
-            {this.props.children.length > 1 ? this.props.children[1] : null}
-          </div>
+          {this.props.children.length > 1 ? (
+            <div className={this.appType + "-footer"}>
+              {this.props.children[1]}{" "}
+            </div>
+          ) : null}
         </div>
       </Fragment>
     );
@@ -27,6 +39,7 @@ class AppContent extends Component {
 
 AppContent.propTypes = {
   appTitle: PropTypes.string,
+  appStyle: PropTypes.string,
   children: PropTypes.any
 };
 

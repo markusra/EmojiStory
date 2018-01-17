@@ -18,8 +18,9 @@ body {
 
 @media (max-width: 499px) { 
   .app-container {
-    max-width: 500px !important;
-    padding: 0 !important
+    position: absolute;
+    padding: 0 !important;
+    height: 100vh;
   }
 
   .app-footer {
@@ -54,7 +55,7 @@ body {
 
 .app-body {
   padding: 15px 15px 50px 15px;
-  text-align: justify
+  text-align: justify;
 }
 
 .app-footer {
@@ -63,7 +64,7 @@ body {
   bottom: 0;
   width: 100%;
   background-color: white;
-  box-shadow: 0px -3px 15px white
+  box-shadow: 0px -2px 20px 0px white;
 }
 
 .padding-h-5{
