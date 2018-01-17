@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import * as Survey from 'survey-react';
-import firebase from '../../firebase'; 
 import "./index.css";
 import history from"../../history"
+import { sendDataToDB } from '../../services/sendDataToDB';
 
 class Questionnaire extends Component {
   constructor() {
@@ -25,25 +25,16 @@ class Questionnaire extends Component {
     });
   }
 
-  sendDataToDB(survey) {
-    var json = survey.data
-    var database = firebase.database();
-
-    const personsRef = database.ref('users');
-    
-    personsRef.push(json);
-
-  }
-
   render() {
     var model = new Survey.Model(this.surveyJson);
     model.onComplete.add(function() {
       history.push("/finish");
+      sendDataToDB(model.data);
     });
     return (
       // <Survey.Survey json={this.surveyJson} onComplete={this.sendDataToDB} />
       <div className="container questionnaire-container">
-        <Survey.Survey model={model} onComplete={this.sendDataToDB} />
+        <Survey.Survey model={model} />
       </div>
     );
   }
