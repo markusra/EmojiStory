@@ -1,14 +1,13 @@
-import firebase from '..//firebase'; 
+import firebase from "..//firebase";
 
-export const sendDataToDB = (email) => {
-  firebase.database().ref('users').set({
-    email: email
-  });
-}
-
-// export const sendDataToDB = (json) => {
-//   var database = firebase.database();
-//   const personsRef = database.ref('users');
-//   personsRef.push(json);
-
-// }
+export const sendDataToDB = (Email, Age, Nationality, EmojiUse) => {
+  firebase
+    .database()
+    .ref("users")
+    .push({
+      email: Email,
+      age: Age,
+      nationality: Nationality,
+      emojiUse: EmojiUse
+    });
+};
