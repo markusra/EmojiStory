@@ -6,16 +6,31 @@ import "./index.css";
 import { Button } from "reactstrap";
 
 class EmojiQuestion extends Component {
+  constructor(props) {
+    super(props);
+    this.renderAnswerOptions= this.renderAnswerOptions.bind(this);
+  }
+
+  renderAnswerOptions(key) {
+    return (
+      <Button
+        color="answer"
+        size="lg"
+        key={key.emojiID}
+        onClick={() => this.props.onAnswerSelected(key)}
+        block
+      >
+        {key.text}
+      </Button>
+    );
+  }
+
   render() {
     return (
       <Fragment>
-        <h2>{this.props.question}</h2>
+        <h2>{this.props.question}…</h2>
 
-        {this.props.answers.map((item, index) => (
-          <Button color="answer" size="lg" key={index} block>
-            {item}
-          </Button>
-        ))}
+        {this.props.answerOptions.map(this.renderAnswerOptions)}
       </Fragment>
     );
   }
@@ -23,7 +38,8 @@ class EmojiQuestion extends Component {
 
 EmojiQuestion.propTypes = {
   question: PropTypes.string,
-  answers: PropTypes.array
+  answerOptions: PropTypes.array,
+  onAnswerSelected: PropTypes.func
 };
 
 export default EmojiQuestion;

@@ -7,7 +7,6 @@
     height: 600px !important;
     border: 1px solid #1B212C 
   }
-
 }
 
 @media (max-width: 499px) { 
@@ -18,6 +17,10 @@
 
   .emoji-footer {
     position: fixed !important;
+  }
+
+  body {
+    background-color: #1B212C
   }
 
 }

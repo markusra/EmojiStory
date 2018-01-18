@@ -1,0 +1,44 @@
+.emoji-overlay {
+  transition: opacity 0.5s;
+  opacity: 1;
+  position: fixed;
+  height: 600px;
+  width: 400px;
+  z-index: 9998;
+  background-color: #1b212c;
+}
+
+.emoji-overlay .hide {
+  opacity: 0;
+  pointer-events:none;
+}
+
+.emoji-overlay .text {
+  color: white;
+}
+
+.emoji-overlay .verticalAlign {
+  border: 3px solid white;
+}
+
+.emoji-overlay-container {
+  height: 100%;
+  padding: 0;
+}
+
+@media (max-width: 499px) {
+  .emoji-overlay {
+    height: 100%;
+    width: 100%;
+  }
+  .emoji-overlay .footer {
+    position: fixed !important;
+  }
+}
+
+.emoji-overlay .footer {
+  position: absolute;
+  padding: 10px 15px 15px 15px;
+  bottom: 0;
+  width: 100%;
+}

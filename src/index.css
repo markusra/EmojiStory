@@ -4,19 +4,18 @@ body {
   font-family: sans-serif;
 }
 
-@media (min-width: 500px) { 
+@media (min-width: 500px) {
   .app-container {
     position: relative;
     margin-top: 30px;
     padding: 0 !important;
     width: 500px !important;
     height: 600px !important;
-    border: 1px solid #1B212C 
+    border: 1px solid #1b212c;
   }
-
 }
 
-@media (max-width: 499px) { 
+@media (max-width: 499px) {
   .app-container {
     position: absolute;
     padding: 0 !important;
@@ -26,7 +25,6 @@ body {
   .app-footer {
     position: fixed !important;
   }
-
 }
 
 /*@media (max-height: 499px) { 
@@ -38,13 +36,12 @@ body {
 */
 
 .navbar-brand {
-  margin-right: 0 !important
+  margin-right: 0 !important;
 }
 
 .app-header {
-  background-color: #1B212C;
+  background-color: #1b212c;
   color: white;
-
 }
 
 .app-title {
@@ -67,12 +64,23 @@ body {
   box-shadow: 0px -2px 20px 0px white;
 }
 
-.padding-h-5{
+.padding-h-5 {
   padding-right: 5px !important;
   padding-left: 5px !important;
 }
 
-.padding-h-15{
+.padding-h-15 {
   padding-right: 15px !important;
   padding-left: 15px !important;
+}
+
+.fade-in {
+  transition: opacity 0.2s !important;
+  opacity: 1 !important;
+}
+
+.fade-out {
+  opacity: 0 !important;
+  transition: opacity 0.2s !important;
+  pointer-events:none !important;
 }
