@@ -1,0 +1,73 @@
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
+
+
+.btn-social
+{
+    border-radius: 50%;
+    color: #811818 !important;
+    display: inline-block;
+    height: 54px;
+    line-height: 54px;
+    margin: 8px 4px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color .3s;
+    webkit-transition: background-color .3s;
+    width: 54px;
+}
+
+
+.btn-social2
+{
+    border-radius: 50%;
+    color: #3909aa !important;
+    display: inline-block;
+    height: 54px;
+    line-height: 54px;
+    margin: 8px 4px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color .3s;
+    webkit-transition: background-color .3s;
+    width: 54px;
+}
+
+@media (max-width: 500px) { 
+  .female-styling {
+    font-size: 35vh;
+    padding-right: 5vw;
+    padding-top: 17vh;
+  }
+  
+  .male-styling {
+    font-size: 35vh;
+    padding-top: 17vh;
+  }
+
+}
+
+@media (min-width: 499px) { 
+  .female-styling {
+    font-size: 250px;
+    margin-right: 10px;
+    margin-top: 80px;
+  }
+  
+  .male-styling {
+    font-size: 250px;
+    margin-top: 80px;
+  }
+
+}
+h4 {
+  text-align: center;
+  margin-top: 3vh;
+  }
+
+.pointer{
+     cursor: pointer;
+}
+
+.btn-style2 {
+   margin-bottom: 10px;
+}

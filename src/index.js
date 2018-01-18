@@ -13,6 +13,8 @@ import NotFound from "./containers/NotFound/index";
 import Finish from "./containers/Finish/index";
 import SurveyJS from "./containers/Questionnaire/surveyjs";
 import Survey from "./containers/Questionnaire/index";
+import Gender from "./containers/Gender/index";
+import ITBackground from "./containers/ITBackground/index";
 
 ReactDOM.render(
   <Router history={history}>
@@ -23,6 +25,8 @@ ReactDOM.render(
         <Route exact path="/finish" component={Finish} />
         <Route exact path="/surveyjs" component={SurveyJS} />
         <Route exact path="/survey" component={Survey} />
+        <Route exact path="/gender" component={Gender} />
+        <Route exact path="/itbackground" component={ITBackground} />
         <Route component={NotFound} />
       </Switch>
     </div>
