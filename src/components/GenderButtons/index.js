@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
-
+import history from "../../history";
 import "./index.css";
+
 
 class GenderButtons extends Component {
   constructor(props) {
@@ -25,6 +26,10 @@ class GenderButtons extends Component {
     });
   }
 
+  componentDidUpdate() {
+    console.log(this.state.gender);
+  }
+
   render() {
     return (
       <Fragment>
@@ -32,6 +37,7 @@ class GenderButtons extends Component {
           <div
             onClick={() => {
               this.setFemale();
+              history.push("/itbackground");
             }}
           >
             <i
@@ -42,6 +48,7 @@ class GenderButtons extends Component {
           <div
             onClick={() => {
               this.setMale();
+              history.push("/itbackground");
             }}
           >
             <i className="fa fa-male male-styling pointer" aria-hidden="true" />

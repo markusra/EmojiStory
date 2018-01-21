@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button } from "reactstrap";
-import Questionnaire from "../../components/form";
+import Questionnaire from "../../components/Questionnaire";
 import AppContainer from "../../components/AppContainer";
 import AppBody from "../../components/AppBody";
 import AppFooter from "../../components/AppFooter";

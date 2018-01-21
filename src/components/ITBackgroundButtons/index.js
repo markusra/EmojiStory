@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Button } from "reactstrap";
+import history from "../../history";
 import "./index.css";
 
 class ITBackgroundButtons extends Component {
@@ -32,13 +33,14 @@ class ITBackgroundButtons extends Component {
   render() {
     return (
       <Fragment>
-        <div className="row justify-content-center">
+        <div className="">
           <Button
             color="success"
-            style={{marginRight: "100px"}}
+            style={{fontSize: "2rem", height: "100px"}}
             block
             onClick={() => {
               this.setYes();
+              history.push("/survey");
             }}
           >
             Yes
@@ -46,15 +48,17 @@ class ITBackgroundButtons extends Component {
 
           <Button
             color="danger"
+            style={{fontSize: "2rem", height: "100px"}}
             block
             onClick={() => {
               this.setNo();
+              history.push("/survey");
             }}
           >
             No
           </Button>
         </div>
-      </Fragment>
+       </Fragment>
     );
   }
 }

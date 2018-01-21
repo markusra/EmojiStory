@@ -11,12 +11,16 @@ class Gender extends Component {
           <h4>
             What is your gender?
           </h4>
-          <GenderButtons />
+          <GenderButtons>
+            
+          </GenderButtons>
         </AppBody>
 
       </AppContainer>
     );
   }
 }
+
+
 
 export default Gender;
