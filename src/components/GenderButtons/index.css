@@ -1,37 +1,5 @@
 @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
 
-
-.btn-social
-{
-    border-radius: 50%;
-    color: #811818 !important;
-    display: inline-block;
-    height: 54px;
-    line-height: 54px;
-    margin: 8px 4px;
-    text-align: center;
-    text-decoration: none;
-    transition: background-color .3s;
-    webkit-transition: background-color .3s;
-    width: 54px;
-}
-
-
-.btn-social2
-{
-    border-radius: 50%;
-    color: #3909aa !important;
-    display: inline-block;
-    height: 54px;
-    line-height: 54px;
-    margin: 8px 4px;
-    text-align: center;
-    text-decoration: none;
-    transition: background-color .3s;
-    webkit-transition: background-color .3s;
-    width: 54px;
-}
-
 @media (max-width: 500px) { 
   .female-styling {
     font-size: 35vh;

@@ -25,32 +25,34 @@ class ITBackgroundButtons extends Component {
     });
   }
 
+  componentDidUpdate() {
+    console.log(this.state.itBackground);
+  }
+
   render() {
     return (
       <Fragment>
         <div className="row justify-content-center">
-          <div className="btn-group-vertical">
           <Button
             color="success"
-            className="col btn-style2"
+            style={{marginRight: "100px"}}
+            block
             onClick={() => {
               this.setYes();
             }}
           >
             Yes
           </Button>
+
           <Button
             color="danger"
-            className="col"
+            block
             onClick={() => {
               this.setNo();
             }}
           >
             No
           </Button>
-
-          </div>
-          
         </div>
       </Fragment>
     );
