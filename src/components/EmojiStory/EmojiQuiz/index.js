@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+
+// Connect to Redux store
+import {connect} from 'react-redux'
+import { changeTest } from '../../../actions'
+
 import quizQuestions from "../../../api/quizset_1";
 import EmojiQuestion from "../EmojiQuestion/index";
 import EmojiContainer from "../EmojiContainer";
@@ -93,7 +98,27 @@ class EmojiQuiz extends Component {
 EmojiQuiz.propTypes = {
   handleAnswerClick: PropTypes.func,
   question: PropTypes.string,
-  answers: PropTypes.array
+  answers: PropTypes.array,
+  test: PropTypes.string,
+  changeTest: PropTypes.func
 };
 
-export default EmojiQuiz;
+const mapStateToProps = state => {
+  return {
+    test : state.test,
+    test2: state.test2
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    changeTest : (text, text2) => {
+    dispatch(changeTest(text, text2))
+  }
+}
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(EmojiQuiz)
