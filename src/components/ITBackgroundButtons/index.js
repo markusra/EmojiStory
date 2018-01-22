@@ -1,34 +1,9 @@
 import React, { Component, Fragment } from "react";
 import { Button } from "reactstrap";
-import history from "../../history";
 import "./index.css";
+import PropTypes from "prop-types";
 
 class ITBackgroundButtons extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      itBackground: ""
-    };
-
-    this.setYes = this.setYes.bind(this);
-    this.setNo = this.setNo.bind(this);
-  }
-
-  setYes() {
-    this.setState({
-      itBackground: "yes"
-    });
-  }
-
-  setNo() {
-    this.setState({
-      itBackground: "no"
-    });
-  }
-
-  componentDidUpdate() {
-    console.log(this.state.itBackground);
-  }
 
   render() {
     return (
@@ -39,8 +14,7 @@ class ITBackgroundButtons extends Component {
             style={{fontSize: "2rem", height: "100px"}}
             block
             onClick={() => {
-              this.setYes();
-              history.push("/survey");
+              this.props.onYesClick();
             }}
           >
             Yes
@@ -51,8 +25,7 @@ class ITBackgroundButtons extends Component {
             style={{fontSize: "2rem", height: "100px"}}
             block
             onClick={() => {
-              this.setNo();
-              history.push("/survey");
+              this.props.onNoClick();
             }}
           >
             No
@@ -62,5 +35,10 @@ class ITBackgroundButtons extends Component {
     );
   }
 }
+
+ITBackgroundButtons.propTypes = {
+  onYesClick: PropTypes.func,
+  onNoClick: PropTypes.func
+};
 
 export default ITBackgroundButtons;

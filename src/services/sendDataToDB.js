@@ -1,6 +1,6 @@
 import firebase from "..//firebase";
 
-export const sendDataToDB = (Email, Age, Nationality, EmojiUse) => {
+export const sendDataToDB = (Email, Age, Nationality, EmojiUse, Gender, ItBackground) => {
   firebase
     .database()
     .ref("users")
@@ -8,6 +8,8 @@ export const sendDataToDB = (Email, Age, Nationality, EmojiUse) => {
       email: Email,
       age: Age,
       nationality: Nationality,
-      emojiUse: EmojiUse
+      emojiUse: EmojiUse,
+      gender: Gender,
+      itBackground: ItBackground
     });
 };

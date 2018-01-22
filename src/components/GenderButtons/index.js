@@ -1,13 +1,12 @@
 import React, { Component, Fragment } from "react";
-import history from "../../history";
 import "./index.css";
-
+import PropTypes from "prop-types";
 
 class GenderButtons extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      gender: ""
+      gender: "hei"
     };
 
     this.setFemale = this.setFemale.bind(this);
@@ -26,18 +25,13 @@ class GenderButtons extends Component {
     });
   }
 
-  componentDidUpdate() {
-    console.log(this.state.gender);
-  }
-
   render() {
     return (
       <Fragment>
         <div className="row justify-content-center">
           <div
             onClick={() => {
-              this.setFemale();
-              history.push("/itbackground");
+              this.props.onFemaleClick();
             }}
           >
             <i
@@ -47,8 +41,7 @@ class GenderButtons extends Component {
           </div>
           <div
             onClick={() => {
-              this.setMale();
-              history.push("/itbackground");
+              this.props.onMaleClick();
             }}
           >
             <i className="fa fa-male male-styling pointer" aria-hidden="true" />
@@ -58,5 +51,10 @@ class GenderButtons extends Component {
     );
   }
 }
+
+GenderButtons.propTypes = {
+  onFemaleClick: PropTypes.func,
+  onMaleClick: PropTypes.func
+};
 
 export default GenderButtons;

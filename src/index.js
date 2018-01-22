@@ -14,6 +14,7 @@ import Finish from "./containers/Finish/index";
 import Survey from "./containers/Survey/index";
 import Gender from "./containers/Gender/index";
 import ITBackground from "./containers/ITBackground/index";
+import Survey2 from "./containers/survey2";
 
 ReactDOM.render(
   <Router history={history}>
@@ -25,10 +26,12 @@ ReactDOM.render(
         <Route exact path="/survey" component={Survey} />
         <Route exact path="/gender" component={Gender} />
         <Route exact path="/itbackground" component={ITBackground} />
+        <Route exact path="/survey2" component={Survey2} />
         <Route component={NotFound} />
       </Switch>
     </div>
   </Router>,
   document.getElementById("root")
 );
+
 registerServiceWorker();

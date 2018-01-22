@@ -1,30 +1,13 @@
 import React, { Component } from "react";
 import { Form, FormGroup, Label, Input } from "reactstrap";
-import { sendDataToDB } from "../services/sendDataToDB";
-import history from "../history";
+import PropTypes from "prop-types";
 
 class Questionnaire extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      age: "",
-      nationality: "",
-      emojiUse: "",
       countries: []
     };
-
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit() {
-    sendDataToDB(
-      this.state.email,
-      this.state.age,
-      this.state.nationality,
-      this.state.emojiUse
-    );
-    history.push("/finish");
   }
 
   buildOptions() {
@@ -60,7 +43,7 @@ class Questionnaire extends Component {
 
   render() {
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <Form>
         <FormGroup>
           <Label for="exampleEmail">Email</Label>
           <Input
@@ -68,8 +51,8 @@ class Questionnaire extends Component {
             name="email"
             id="exampleEmail"
             placeholder="email@example.com"
-            value={this.state.email}
-            onChange={e => this.setState({ email: e.target.value })}
+            value={this.props.email}
+            onChange={e => this.props.onEmailChange(e.target.value)}
           />
         </FormGroup>
         <FormGroup>
@@ -79,8 +62,8 @@ class Questionnaire extends Component {
             name="age"
             id="exampleAge"
             placeholder="age"
-            value={this.state.age}
-            onChange={e => this.setState({ age: e.target.value })}
+            value={this.props.age}
+            onChange={e => this.props.onAgeChange(e.target.value)}
           />
         </FormGroup>
         <FormGroup>
@@ -89,8 +72,8 @@ class Questionnaire extends Component {
             type="select"
             name="select"
             id="exampleSelect"
-            value={this.state.nationality}
-            onChange={e => this.setState({ nationality: e.target.value })}
+            value={this.props.nationality}
+            onChange={e => this.props.onNationalityChange(e.target.value)}
           >
             {this.buildOptions()}
           </Input>
@@ -99,27 +82,57 @@ class Questionnaire extends Component {
           <Label for="emojiUse">How often do you use emojis?</Label>
           <FormGroup check>
             <Label check>
-              <Input type="radio" name="radio1" value = "Several times a day" onChange={e => this.setState({ emojiUse: e.target.value })}/> Several times a day
+              <Input
+                type="radio"
+                name="radio1"
+                value="Several times a day"
+                onChange={e => this.props.onEmojiUseChange(e.target.value)}
+              />{" "}
+              Several times a day
             </Label>
           </FormGroup>
           <FormGroup check>
             <Label check>
-              <Input type="radio" name="radio1" value = "Once a day" onChange={e => this.setState({ emojiUse: e.target.value })} /> Once a day
+              <Input
+                type="radio"
+                name="radio1"
+                value="Once a day"
+                onChange={e => this.props.onEmojiUseChange(e.target.value)}
+              />{" "}
+              Once a day
             </Label>
           </FormGroup>
           <FormGroup check>
             <Label check>
-              <Input type="radio" name="radio1" value = "Several times a week" onChange={e => this.setState({ emojiUse: e.target.value })} /> Several times a week
+              <Input
+                type="radio"
+                name="radio1"
+                value="Several times a week"
+                onChange={e => this.props.onEmojiUseChange(e.target.value)}
+              />{" "}
+              Several times a week
             </Label>
           </FormGroup>
           <FormGroup check>
             <Label check>
-              <Input type="radio" name="radio1" value = "Once a week" onChange={e => this.setState({ emojiUse: e.target.value })} /> Once a week
+              <Input
+                type="radio"
+                name="radio1"
+                value="Once a week"
+                onChange={e => this.props.onEmojiUseChange(e.target.value)}
+              />{" "}
+              Once a week
             </Label>
           </FormGroup>
           <FormGroup check>
             <Label check>
-              <Input type="radio" name="radio1" value = "Never" onChange={e => this.setState({ emojiUse: e.target.value })} /> Never
+              <Input
+                type="radio"
+                name="radio1"
+                value="Never"
+                onChange={e => this.props.onEmojiUseChange(e.target.value)}
+              />{" "}
+              Never
             </Label>
           </FormGroup>
         </FormGroup>
@@ -127,5 +140,16 @@ class Questionnaire extends Component {
     );
   }
 }
+
+Questionnaire.propTypes = {
+  onEmailChange: PropTypes.func,
+  email: PropTypes.string,
+  age: PropTypes.string,
+  onAgeChange: PropTypes.func,
+  nationality: PropTypes.string,
+  onNationalityChange: PropTypes.func,
+  emojiUse: PropTypes.string,
+  onEmojiUseChange: PropTypes.func
+};
 
 export default Questionnaire;
