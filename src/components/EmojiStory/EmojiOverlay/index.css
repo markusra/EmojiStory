@@ -13,8 +13,13 @@
   pointer-events:none;
 }
 
-.emoji-overlay .text {
+.emoji-overlay .question {
   color: white;
+}
+
+.emoji-overlay .answer {
+  color: white;
+  margin-top: 10px
 }
 
 .emoji-overlay .verticalAlign {

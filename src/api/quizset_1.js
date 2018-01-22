@@ -5,23 +5,28 @@ var questions = [
     answers: [
       {
         emojiID: "1",
-        text: "China"
+        text: "China",
+        src: "1f1e8-1f1f3.svg"
       },
       {
         emojiID: "2",
-        text: "Norway"
+        text: "Norway",
+        src: "1f1e7-1f1fb.svg"
       },
       {
         emojiID: "3",
-        text: "Germany"
+        text: "Germany",
+        src: "1f1e7-1f1fb.svg"
       },
       {
         emojiID: "4",
-        text: "Egypt"
+        text: "Egypt",
+        src: "1f1e7-1f1fb.svg"
       },
       {
         emojiID: "5",
-        text: "Vietnam"
+        text: "Vietnam",
+        src: "1f1e7-1f1fb.svg"
       }
     ]
   },
@@ -30,23 +35,28 @@ var questions = [
     answers: [
       {
         emojiID: "1",
-        text: "Happy"
+        text: "Happy",
+        src: ""
       },
       {
         emojiID: "2",
-        text: "Sad"
+        text: "Sad",
+        src: ""
       },
       {
         emojiID: "3",
-        text: "Hungry"
+        text: "Hungry",
+        src: ""
       },
       {
         emojiID: "4",
-        text: "Tired"
+        text: "Tired",
+        src: ""
       },
       {
         emojiID: "5",
-        text: "Sleepy"
+        text: "Sleepy",
+        src: ""
       }
     ]
   },
@@ -55,23 +65,28 @@ var questions = [
     answers: [
       {
         emojiID: "1",
-        text: "Grapes"
+        text: "Grapes",
+        src: ""
       },
       {
         emojiID: "2",
-        text: "Mushrooms"
+        text: "Mushrooms",
+        src: ""
       },
       {
         emojiID: "3",
-        text: "Bacon"
+        text: "Bacon",
+        src: ""
       },
       {
         emojiID: "4",
-        text: "Sushi"
+        text: "Sushi",
+        src: ""
       },
       {
         emojiID: "5",
-        text: "Cheese"
+        text: "Cheese",
+        src: ""
       }
     ]
   },

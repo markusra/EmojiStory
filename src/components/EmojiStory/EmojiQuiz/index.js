@@ -16,6 +16,7 @@ class EmojiQuiz extends Component {
       counter: 0,
       questionId: 1,
       question: "",
+      overlayQuestion: "",
       answerOptions: [],
       answerOverlay: false,
       chosenAnswer: []
@@ -46,7 +47,7 @@ class EmojiQuiz extends Component {
   }
 
   handleAnswerClick(answer) {
-    this.setState({ answerOverlay: true, chosenAnswer: answer });
+    this.setState({ overlayQuestion: this.state.question, answerOverlay: true, chosenAnswer: answer });
   }
 
   handleBackClick() {
@@ -54,8 +55,8 @@ class EmojiQuiz extends Component {
   }
 
   handleContinueClick() {
-    this.setNextQuestion();
     this.setState({ answerOverlay: false });
+    this.setNextQuestion();
   }
 
   render() {
@@ -68,6 +69,7 @@ class EmojiQuiz extends Component {
           visible={this.state.answerOverlay}
           onBackClick={this.handleBackClick}
           onContinueClick={this.handleContinueClick}
+          question={this.state.overlayQuestion}
           answer={this.state.chosenAnswer}
         />
         <AppBody>
