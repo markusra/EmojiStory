@@ -1,14 +1,36 @@
 import React, { Component } from "react";
 import { Form, FormGroup, Label, Input } from "reactstrap";
+import { AvForm, AvField, AvGroup, AvInput, AvFeedback } from 'availity-reactstrap-validation';
 import PropTypes from "prop-types";
 
 class FinalQuestions extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      countries: []
+      countries: [],
+      email2: false
     };
+    this.handleValidSubmit = this.handleValidSubmit.bind(this);
+    this.handleInvalidSubmit = this.handleInvalidSubmit.bind(this);
   }
+
+  validateForm() {
+    var hasErrors = false;
+
+    if (this.props.email === '') {
+      this.setError("email", "Please enter your email address");
+      hasErrors = true;
+    } else this.setError("email", null)
+
+    if (this.props.email !== /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/) {
+      this.setError("email", "Please enter a valid email address");
+      hasErrors = true;
+    } else this.setError("email", null)
+
+
+    return !hasErrors;
+  }
+
 
   buildOptions() {
     var countries = [];
@@ -41,31 +63,46 @@ class FinalQuestions extends Component {
       });
   }
 
+  handleValidSubmit(event, values) {
+    console.log("Valid")
+    this.setState({email2: values.email});
+  }
+
+  handleInvalidSubmit(event, errors, values) {
+    console.log("invalid")
+    this.setState({email2: values.email, error: true});
+  }
+
   render() {
     return (
-      <Form>
-        <FormGroup>
+      <AvForm onValidSubmit={this.handleValidSubmit() && console.log("Heisann")} onInvalidSubmit={this.handleInvalidSubmit() && console.log("Snakkes")}>
+        <AvGroup>
           <Label for="exampleEmail">Email</Label>
-          <Input
+          <AvInput
+            label="Email address"
             type="email"
             name="email"
             id="exampleEmail"
             placeholder="email@example.com"
             value={this.props.email}
             onChange={e => this.props.onEmailChange(e.target.value)}
+            required
+
           />
-        </FormGroup>
-        <FormGroup>
+          <AvFeedback>Email is required</AvFeedback>
+        </AvGroup>
+        <AvGroup>
           <Label for="exampleAge">Age</Label>
-          <Input
-            type="age"
+          <AvInput
+            type="number"
             name="age"
             id="exampleAge"
             placeholder="age"
             value={this.props.age}
             onChange={e => this.props.onAgeChange(e.target.value)}
+            required
           />
-        </FormGroup>
+        </AvGroup>
         <FormGroup>
           <Label for="exampleSelect">Where do you come from?</Label>
           <Input
@@ -136,7 +173,7 @@ class FinalQuestions extends Component {
             </Label>
           </FormGroup>
         </FormGroup>
-      </Form>
+      </AvForm>
     );
   }
 }

@@ -95,7 +95,7 @@ class Survey extends Component {
 
   toFinishPage() {
     this.setState({
-      page: "finish"
+      // page: "finish"
     });
   }
 

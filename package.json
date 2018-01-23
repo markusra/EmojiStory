@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "availity-reactstrap-validation": "^1.4.3",
     "babel-eslint": "^7.2.3",
     "bootstrap": "^4.0.0-beta.3",
     "eslint": "^3.19.0",
