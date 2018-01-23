@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import AppContainer from "../../components/AppContainer";
-import AppBody from "../../components/AppBody";
-import GenderButtons from "../../components/GenderButtons/index";
+import AppContainer from "../../AppContainer";
+import AppBody from "../../AppBody";
+import GenderButtons from "./GenderButtons/index";
 import PropTypes from "prop-types";
 
 class Gender extends Component {

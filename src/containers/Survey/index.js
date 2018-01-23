@@ -1,59 +1,134 @@
 import React, { Component } from "react";
-import { Button } from "reactstrap";
-import Questionnaire from "../../components/Questionnaire";
-import AppContainer from "../../components/AppContainer";
-import AppBody from "../../components/AppBody";
-import AppFooter from "../../components/AppFooter";
-import PropTypes from "prop-types";
+import Gender from "../../components/Survey/Gender/index";
+import ITBackground from "../../components/Survey/ITBackground/index";
+import FinalQuestionsContainer from "../../components/Survey/FinalQuestionsContainer";
+import { sendDataToDB } from "../../services/sendDataToDB";
+import Finish from "../Finish/index";
 
 class Survey extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      page: "gender",
+      email: "",
+      age: "",
+      nationality: "",
+      emojiUse: "",
+      gender: "",
+      itBackground: ""
+    };
+    this.setITBackgroundTrue = this.setITBackgroundTrue.bind(this);
+    this.setITBackgroundFalse = this.setITBackgroundFalse.bind(this);
+    this.setFemale = this.setFemale.bind(this);
+    this.setMale = this.setMale.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.setEmail = this.setEmail.bind(this);
+    this.setAge = this.setAge.bind(this);
+    this.setNationality = this.setNationality.bind(this);
+    this.setEmojiUse = this.setEmojiUse.bind(this);
+    this.toFinishPage = this.toFinishPage.bind(this);
+  }
+
+  handleSubmit() {
+    sendDataToDB(
+      this.state.email,
+      this.state.age,
+      this.state.nationality,
+      this.state.emojiUse,
+      this.state.gender,
+      this.state.itBackground
+    );
+  }
+
+  setAge(value) {
+    this.setState({
+      age: value
+    });
+  }
+
+  setEmail(value) {
+    this.setState({
+      email: value
+    });
+  }
+
+  setNationality(value) {
+    this.setState({
+      nationality: value
+    });
+  }
+
+  setEmojiUse(value) {
+    this.setState({
+      emojiUse: value
+    });
+  }
+
+  setITBackgroundTrue() {
+    this.setState({
+      page: "questions",
+      itBackground: "yes"
+    });
+  }
+
+  setITBackgroundFalse() {
+    this.setState({
+      page: "questions",
+      itBackground: "no"
+    });
+  }
+
+  setFemale() {
+    this.setState({
+      gender: "female",
+      page: "itbackground"
+    });
+  }
+
+  setMale() {
+    this.setState({
+      gender: "male",
+      page: "itbackground"
+    });
+  }
+
+  toFinishPage() {
+    this.setState({
+      page: "finish"
+    });
+  }
+
   render() {
     return (
-      <AppContainer appTitle="Survey – Emoji-Based Authentication">
-        <AppBody>
-          <Questionnaire
-            ref={instance => {
-              this.child = instance;
-            }}
-            onSubmitForm={this.props.onSubmitForm}
-            onEmailChange={this.props.onEmailChange}
-            email={this.props.email}
-            onAgeChange={this.props.onAgeChange}
-            age={this.props.age}
-            onNationalityChange={this.props.onNationalityChange}
-            nationality={this.props.nationality}
-            onEmojiUseChange={this.props.onEmojiUseChange}
-            emojiUse={this.props.emojiUse}
+      <div>
+        {this.state.page === "gender" && (
+          <Gender onFemaleClick={this.setFemale} onMaleClick={this.setMale} />
+        )}
+        {this.state.page === "itbackground" && (
+          <ITBackground
+            onYesClick={this.setITBackgroundTrue}
+            onNoClick={this.setITBackgroundFalse}
           />
-        </AppBody>
-        <AppFooter>
-          <Button
-            color="success"
-            className="col"
-            onClick={() => {
-              this.props.onSubmitForm();
-              this.props.finished();
-            }}
-          >
-            Submit
-          </Button>
-        </AppFooter>
-      </AppContainer>
+        )}
+        {this.state.page === "questions" && (
+          <FinalQuestionsContainer
+            onSubmitForm={this.handleSubmit}
+            onEmailChange={this.setEmail}
+            email={this.state.email}
+            onAgeChange={this.setAge}
+            age={this.state.age}
+            onNationalityChange={this.setNationality}
+            nationality={this.state.nationality}
+            onEmojiUseChange={this.setEmojiUse}
+            emojiUse={this.state.emojiUse}
+            finished={this.toFinishPage}
+          />
+        )}
+        {this.state.page === "finish" && <Finish />}
+      </div>
     );
   }
 }
-
-Survey.propTypes = {
-  onEmailChange: PropTypes.func,
-  email: PropTypes.string,
-  onSubmitForm: PropTypes.func,
-  age: PropTypes.string,
-  onAgeChange: PropTypes.func,
-  nationality: PropTypes.string,
-  onNationalityChange: PropTypes.func,
-  emojiUse: PropTypes.string,
-  onEmojiUseChange: PropTypes.func,
-  finished: PropTypes.func
-};
 
 export default Survey;

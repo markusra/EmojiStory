@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Form, FormGroup, Label, Input } from "reactstrap";
 import PropTypes from "prop-types";
 
-class Questionnaire extends Component {
+class FinalQuestions extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -141,7 +141,7 @@ class Questionnaire extends Component {
   }
 }
 
-Questionnaire.propTypes = {
+FinalQuestions.propTypes = {
   onEmailChange: PropTypes.func,
   email: PropTypes.string,
   age: PropTypes.string,
@@ -152,4 +152,4 @@ Questionnaire.propTypes = {
   onEmojiUseChange: PropTypes.func
 };
 
-export default Questionnaire;
+export default FinalQuestions;

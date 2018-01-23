@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import AppContainer from "../../components/AppContainer";
-import AppBody from "../../components/AppBody";
-import BackgroundButtons from "../../components/ITBackgroundButtons/index";
+import AppContainer from "../../AppContainer";
+import AppBody from "../../AppBody";
+import BackgroundButtons from "./ITBackgroundButtons/index";
 import PropTypes from "prop-types";
 
 class ITBackground extends Component {
