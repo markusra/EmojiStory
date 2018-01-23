@@ -71,11 +71,9 @@ class EmojiQuiz extends Component {
   }
 
   render() {
-  
     return (
       <EmojiContainer
         appTitle="Create a story by selecting words"
-        appStyle="emojiQuestion"
       >
         <EmojiOverlay
           visible={this.state.answerOverlay}

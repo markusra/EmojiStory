@@ -1,5 +1,5 @@
 const initialState = {
-  userProgress: 1,
+  userProgress: "",
   answers: []
 }
 
@@ -13,10 +13,10 @@ const userData = (state = initialState, action) => {
           answers: answers
         });
       }
-    case 'CHANGE_TEST2':
+    case 'CHANGE_USERPROGRESS':
       return {
         ...state,
-        test2: action.text
+        userProgress: action.userProgress
       }
     default:
       return state

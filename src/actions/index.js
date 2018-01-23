@@ -5,9 +5,9 @@ export const addAnswer = answer => {
   }
 }
 
-export const changeTest2 = text => {
+export const changeUserProgress = userProgress => {
   return {
-    type: 'CHANGE_TEST2',
-    text
+    type: 'CHANGE_USERPROGRESS',
+    userProgress
   }
 }

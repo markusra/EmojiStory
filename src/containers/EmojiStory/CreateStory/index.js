@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import EmojiQuiz from "../../components/EmojiStory/EmojiQuiz/index";
+import EmojiQuiz from "../../../components/EmojiStory/EmojiQuiz/index";
 import "./index.css";
 import PropTypes from "prop-types";
 
 // Connect to Redux store
 import { connect } from "react-redux";
 
-import history from"../../history"
+import { redirectUser } from "../../../services/redirectUser";
 
 class EmojiStory extends Component {
   constructor(props) {
@@ -15,9 +15,7 @@ class EmojiStory extends Component {
   }
 
   componentWillMount() {
-
-    console.log(history.location.pathname);
-    
+    redirectUser(this.props.userProgress);
   }
 
   render() {
@@ -34,7 +32,7 @@ const mapStateToProps = state => {
 };
 
 EmojiStory.propTypes = {
-  userProgress: PropTypes.number
+  userProgress: PropTypes.string
 };
 
 

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import AppContainer from "../../components/AppContainer";
 import AppBody from "../../components/AppBody";
 import AppFooter from "../../components/AppFooter";
@@ -6,8 +7,20 @@ import AppFooter from "../../components/AppFooter";
 // Import Bootstrap Components
 import { Button } from "reactstrap";
 
+import history from "../../history";
+
+// Connect to Redux store
+import { connect } from "react-redux";
+import { changeUserProgress } from "../../actions/index";
+
 // TODO: Fix email address
 class Welcome extends Component {
+  onButtonClick() {   
+    const url = "/createEmojiStory"
+    this.props.changeUserProgress(url)
+    history.push(url);
+  }
+
   render() {
     return (
       <AppContainer appTitle="Survey – Emoji-Based Authentication">
@@ -35,7 +48,7 @@ class Welcome extends Component {
         </AppBody>
 
         <AppFooter>
-          <Button color="success" size="lg" href="/emojistory" block>
+          <Button color="success" size="lg" onClick={() => this.onButtonClick()} block>
             Start the survey
           </Button>
         </AppFooter>
@@ -44,4 +57,22 @@ class Welcome extends Component {
   }
 }
 
-export default Welcome;
+const mapStateToProps = state => {
+  return {
+    userProgress: state.userProgress
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    changeUserProgress: userProgress => {
+      dispatch(changeUserProgress(userProgress));
+    }
+  };
+};
+
+Welcome.propTypes = {
+  changeUserProgress: PropTypes.func
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Welcome);
