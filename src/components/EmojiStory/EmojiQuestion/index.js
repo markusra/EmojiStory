@@ -16,11 +16,11 @@ class EmojiQuestion extends Component {
       <Button
         color="answer"
         size="lg"
-        key={key.emojiID}
+        key={key.text}
         onClick={() => this.props.onAnswerSelected(key)}
         block
       >
-        {key.text}
+        {key.text[0].toUpperCase() + key.text.slice(1)}
       </Button>
     );
   }

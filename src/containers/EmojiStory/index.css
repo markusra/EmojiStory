@@ -19,10 +19,6 @@
     position: fixed !important;
   }
 
-  body {
-    background-color: #1B212C
-  }
-
 }
 
 .emoji-container {
@@ -45,7 +41,8 @@
 .emoji-body {
   padding: 25px 15px 50px 15px;
   text-align: justify;
-  color: white
+  color: white;
+  background-color: #1B212C
 }
 
 .emoji-footer {

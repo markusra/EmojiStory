@@ -1,7 +1,7 @@
-export const changeTest = text => {
+export const addAnswer = answer => {
   return {
-    type: 'CHANGE_TEST',
-    text
+    type: 'ADD_ANSWER',
+    answer
   }
 }
 

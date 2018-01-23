@@ -14,22 +14,24 @@ import Finish from "./containers/Finish/index";
 import Questionnaire from "./containers/Questionnaire/index";
 
 import { Provider } from "react-redux";
-import { createStore } from "redux";
-import appReducers from "./reducers/userData";
+import { PersistGate } from "redux-persist/lib/integration/react";
 
-let store = createStore(appReducers);
+import configureStore from "./utils/configureStore";
+let { store, persistor } = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={history}>
-      <Switch>
-        <Route exact path="/" component={Welcome} />
-        <Route exact path="/emojistory" component={EmojiStory} />
-        <Route exact path="/finish" component={Finish} />
-        <Route exact path="/questionnaire" component={Questionnaire} />
-        <Route component={NotFound} />
-      </Switch>
-    </Router>
+    <PersistGate loading={null} persistor={persistor}>
+      <Router history={history}>
+        <Switch>
+          <Route exact path="/" component={Welcome} />
+          <Route exact path="/emojistory" component={EmojiStory} />
+          <Route exact path="/finish" component={Finish} />
+          <Route exact path="/questionnaire" component={Questionnaire} />
+          <Route component={NotFound} />
+        </Switch>
+      </Router>
+    </PersistGate>
   </Provider>,
   document.getElementById("root")
 );

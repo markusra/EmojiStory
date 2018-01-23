@@ -1,16 +1,18 @@
 const initialState = {
-  test: "hei Martin!",
-  test2: "Hei Markus :)"
+  userProgress: 1,
+  answers: []
 }
 
 const userData = (state = initialState, action) => {
   switch (action.type) {
-    case 'CHANGE_TEST':
-      return {
-        ...state,
-        test: action.text,
-        test2: action.text2
-      };
+    case 'ADD_ANSWER': {
+        const answers = state.answers.slice();
+        answers.push(action.answer);
+        
+        return Object.assign({}, state, {
+          answers: answers
+        });
+      }
     case 'CHANGE_TEST2':
       return {
         ...state,

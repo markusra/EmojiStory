@@ -19,7 +19,7 @@ class EmojiOverlay extends Component {
                 alt="Placeholder"
                 width="50%"
               />
-              <h5 className="answer">{this.props.answer.text}</h5>
+              <h5 className="answer">{this.props.answer.text[0].toUpperCase() + this.props.answer.text.slice(1)}</h5>
             </div>
           </div>
           <div className="footer">

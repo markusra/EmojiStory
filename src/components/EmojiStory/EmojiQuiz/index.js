@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 // Connect to Redux store
-import {connect} from 'react-redux'
-import { changeTest } from '../../../actions'
+import { connect } from "react-redux";
+import { addAnswer } from "../../../actions";
 
 import quizQuestions from "../../../api/quizset_1";
 import EmojiQuestion from "../EmojiQuestion/index";
@@ -35,7 +35,8 @@ class EmojiQuiz extends Component {
   componentWillMount() {
     this.setState({
       question: quizQuestions.questions[0].question,
-      answerOptions: quizQuestions.questions[0].answers
+      answerOptions: quizQuestions.questions[0].answers,
+      chosenAnswer: quizQuestions.questions[0].answers[0]
     });
   }
 
@@ -52,7 +53,11 @@ class EmojiQuiz extends Component {
   }
 
   handleAnswerClick(answer) {
-    this.setState({ overlayQuestion: this.state.question, answerOverlay: true, chosenAnswer: answer });
+    this.setState({
+      overlayQuestion: this.state.question,
+      answerOverlay: true,
+      chosenAnswer: answer
+    });
   }
 
   handleBackClick() {
@@ -61,10 +66,12 @@ class EmojiQuiz extends Component {
 
   handleContinueClick() {
     this.setState({ answerOverlay: false });
+    this.props.addAnswer(this.state.chosenAnswer);
     this.setNextQuestion();
   }
 
   render() {
+  
     return (
       <EmojiContainer
         appTitle="Create a story by selecting words"
@@ -100,25 +107,21 @@ EmojiQuiz.propTypes = {
   question: PropTypes.string,
   answers: PropTypes.array,
   test: PropTypes.string,
-  changeTest: PropTypes.func
+  addAnswer: PropTypes.func
 };
 
 const mapStateToProps = state => {
   return {
-    test : state.test,
-    test2: state.test2
-  }
-}
+    answers: state.answers
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
-    changeTest : (text, text2) => {
-    dispatch(changeTest(text, text2))
-  }
-}
-}
+    addAnswer: answer => {
+      dispatch(addAnswer(answer));
+    }
+  };
+};
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(EmojiQuiz)
+export default connect(mapStateToProps, mapDispatchToProps)(EmojiQuiz);
