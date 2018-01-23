@@ -11,7 +11,7 @@ import Welcome from "./containers/Welcome/index";
 import EmojiStory from "./containers/EmojiStory/index";
 import NotFound from "./containers/NotFound/index";
 import Finish from "./containers/Finish/index";
-import Questionnaire from "./containers/Questionnaire/index";
+import Survey from "./containers/Survey/index";
 
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/lib/integration/react";
@@ -27,7 +27,7 @@ ReactDOM.render(
           <Route exact path="/" component={Welcome} />
           <Route exact path="/emojistory" component={EmojiStory} />
           <Route exact path="/finish" component={Finish} />
-          <Route exact path="/questionnaire" component={Questionnaire} />
+          <Route exact path="/survey" component={Survey} />
           <Route component={NotFound} />
         </Switch>
       </Router>
@@ -35,4 +35,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
+
 registerServiceWorker();
