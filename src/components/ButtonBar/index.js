@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-import "./index.css";
 import PropTypes from "prop-types";
 
 // Import Bootstrap Components

@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-class AppBody extends Component {
+class EmojiFooter extends Component {
   render() {
     return (
-      <div className={"app-body"}>
+      <div className={"emoji-footer"}>
          {this.props.children}
       </div>
     );
   }
 }
 
-AppBody.propTypes = {
+EmojiFooter.propTypes = {
   children: PropTypes.any
 };
 
-export default AppBody;
+export default EmojiFooter;

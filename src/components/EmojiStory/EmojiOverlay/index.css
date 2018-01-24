@@ -1,7 +1,8 @@
 .emoji-overlay {
   transition: opacity 0.5s;
   opacity: 1;
-  position: fixed;
+  position: absolute;
+  top: 0;
   height: 600px;
   width: 400px;
   z-index: 9998;
@@ -35,6 +36,7 @@
   .emoji-overlay {
     height: 100%;
     width: 100%;
+    position: fixed;
   }
   .emoji-overlay .footer {
     position: fixed !important;

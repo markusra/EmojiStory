@@ -5,9 +5,16 @@ export const addAnswer = answer => {
   }
 }
 
-export const changeUserProgress = userProgress => {
+export const setUserProgress = userProgress => {
   return {
-    type: 'CHANGE_USERPROGRESS',
+    type: 'SET_USERPROGRESS',
     userProgress
+  }
+}
+
+export const setStoryTemplate = storyTemplate => {
+  return {
+    type: 'SET_STORYTEMPLATE',
+    storyTemplate
   }
 }

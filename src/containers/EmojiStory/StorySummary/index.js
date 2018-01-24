@@ -2,13 +2,16 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import EmojiContainer from "../../../components/EmojiStory/EmojiContainer";
-import AppBody from "../../../components/AppBody";
-import AppFooter from "../../../components/AppFooter";
+import EmojiBody from "../../../components/EmojiStory/EmojiContainer/EmojiBody";
+import EmojiFooter from "../../../components/EmojiStory/EmojiContainer/EmojiFooter";
 
 // Connect to Redux store
 import { connect } from "react-redux";
 
 import { redirectUser } from "../../../services/redirectUser";
+
+// Import Bootstrap Components
+import { Button } from "reactstrap";
 
 class EmojiStory extends Component {
   componentWillMount() {
@@ -18,14 +21,16 @@ class EmojiStory extends Component {
   render() {
     return (
       <EmojiContainer
-        appTitle="Create a story by selecting words"
+        appTitle="That's it – here is the whole story"
       >
-        <AppBody>
-          asdasd
-        </AppBody>
-        <AppFooter>
-          asdasd
-        </AppFooter>
+        <EmojiBody>
+          <h3 style={{textAlign: "left"}}>Kim comes from Norway. She often feels sleepy, but loves sushi and satellites.</h3>
+        </EmojiBody>
+        <EmojiFooter>
+          <Button color="answer" size="lg" onClick={() => this.onButtonClick()} block>
+            Ok, I remember!
+          </Button>
+        </EmojiFooter>
       </EmojiContainer>
     );
   }

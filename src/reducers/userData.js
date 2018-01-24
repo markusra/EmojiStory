@@ -1,4 +1,5 @@
 const initialState = {
+  storyTemplate: "",
   userProgress: "",
   answers: []
 }
@@ -13,10 +14,15 @@ const userData = (state = initialState, action) => {
           answers: answers
         });
       }
-    case 'CHANGE_USERPROGRESS':
+    case 'SET_USERPROGRESS':
       return {
         ...state,
         userProgress: action.userProgress
+      }
+    case 'SET_STORYTEMPLATE':
+      return {
+        ...state,
+        storyTemplate: action.storyTemplate
       }
     default:
       return state

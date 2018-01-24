@@ -8,8 +8,8 @@ import { addAnswer } from "../../../actions";
 import quizQuestions from "../../../api/quizset_1";
 import EmojiQuestion from "../EmojiQuestion/index";
 import EmojiContainer from "../EmojiContainer";
-import AppBody from "../../AppBody";
-import AppFooter from "../../AppFooter";
+import EmojiBody from "../EmojiContainer/EmojiBody";
+import EmojiFooter from "../EmojiContainer/EmojiFooter";
 import StepCount from "../StepCount";
 import EmojiOverlay from "../EmojiOverlay/index";
 
@@ -82,19 +82,19 @@ class EmojiQuiz extends Component {
           question={this.state.overlayQuestion}
           answer={this.state.chosenAnswer}
         />
-        <AppBody>
+        <EmojiBody>
           <EmojiQuestion
             question={this.state.question}
             answerOptions={this.state.answerOptions}
             onAnswerSelected={this.handleAnswerClick}
           />
-        </AppBody>
-        <AppFooter>
+        </EmojiBody>
+        <EmojiFooter>
           <StepCount
             counter={this.state.questionId}
             total={quizQuestions.questions.length}
           />
-        </AppFooter>
+        </EmojiFooter>
       </EmojiContainer>
     );
   }

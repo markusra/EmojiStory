@@ -1,12 +1,12 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 class AppFooter extends Component {
   render() {
     return (
-      <Fragment>
+      <div className={"app-footer"}>
          {this.props.children}
-      </Fragment>
+      </div>
     );
   }
 }
