@@ -4,7 +4,7 @@ import "./index.css";
 import PropTypes from "prop-types";
 
 // Connect to Redux store
-import { connect } from "react-redux";
+import { connect } from "react-redux"; 
 
 import { redirectUser } from "../../../services/redirectUser";
 
@@ -34,6 +34,5 @@ const mapStateToProps = state => {
 EmojiStory.propTypes = {
   userProgress: PropTypes.string
 };
-
 
 export default connect(mapStateToProps)(EmojiStory);

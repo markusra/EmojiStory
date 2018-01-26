@@ -14,6 +14,6 @@ const persistedReducer = persistReducer(persistConfig, rootReducer)
 export default () => {
   let store = createStore(persistedReducer)
   let persistor = persistStore(store)
-  // persistor.purge()
+  persistor.purge()
   return { store, persistor }
 }

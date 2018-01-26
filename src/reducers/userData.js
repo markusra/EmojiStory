@@ -1,5 +1,5 @@
 const initialState = {
-  storyTemplate: "",
+  storyTemplate: "Kim comes from ***. She often feels ***, but loves *** and ***.",
   userProgress: "",
   answers: []
 }
