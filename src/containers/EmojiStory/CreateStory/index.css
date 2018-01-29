@@ -1,0 +1,48 @@
+/* Button design */
+
+.btn-answer { 
+  color: #1B212C; 
+  background-color: #FFFFFF; 
+  border-color: #FFFFFF;
+  margin-top: 30px !important;
+} 
+ 
+.btn-answer:hover, 
+.btn-answer:focus, 
+.btn-answer:active, 
+.btn-answer.active, 
+.open .dropdown-toggle.btn-answer { 
+  color: #1B212C; 
+  background-color: #DEDEDE; 
+  border-color: #FFFFFF; 
+} 
+ 
+.btn-answer:active, 
+.btn-answer.active, 
+.open .dropdown-toggle.btn-answer { 
+  background-image: none; 
+} 
+ 
+.btn-answer.disabled, 
+.btn-answer[disabled], 
+fieldset[disabled] .btn-answer, 
+.btn-answer.disabled:hover, 
+.btn-answer[disabled]:hover, 
+fieldset[disabled] .btn-answer:hover, 
+.btn-answer.disabled:focus, 
+.btn-answer[disabled]:focus, 
+fieldset[disabled] .btn-answer:focus, 
+.btn-answer.disabled:active, 
+.btn-answer[disabled]:active, 
+fieldset[disabled] .btn-answer:active, 
+.btn-answer.disabled.active, 
+.btn-answer[disabled].active, 
+fieldset[disabled] .btn-answer.active { 
+  background-color: #FFFFFF; 
+  border-color: #FFFFFF; 
+} 
+ 
+.btn-answer .badge { 
+  color: #FFFFFF; 
+  background-color: #1B212C; 
+}

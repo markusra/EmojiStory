@@ -1,20 +1,20 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
-import OrientationOverlay from "./OrientationOverlay/index";
+import "./index.css";
+import OrientationOverlay from "../../OrientationOverlay/index";
 
-class AppContent extends Component {
+class EmojiContainer extends Component {
   render() {
     return (
       <Fragment>
         <OrientationOverlay />
 
-        <div className={"container app-container"}>
-          <nav className={"navbar app-header sticky-top"}>
-            <h1 className={"navbar-brand mb-0 app-title"}>
+        <div className={"container emoji-container"}>
+          <nav className={"navbar emoji-header sticky-top"}>
+            <h1 className={"navbar-brand mb-0 emoji-title"}>
               {this.props.appTitle}
             </h1>
           </nav>
-
           {this.props.children}
         </div>
       </Fragment>
@@ -22,10 +22,9 @@ class AppContent extends Component {
   }
 }
 
-AppContent.propTypes = {
+EmojiContainer.propTypes = {
   appTitle: PropTypes.string,
-  appStyle: PropTypes.string,
   children: PropTypes.any
 };
 
-export default AppContent;
+export default EmojiContainer;

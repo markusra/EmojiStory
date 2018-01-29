@@ -4,6 +4,12 @@ import ITBackground from "../../components/Survey/ITBackground/index";
 import FinalQuestionsContainer from "../../components/Survey/FinalQuestionsContainer";
 import { sendDataToDB } from "../../services/sendDataToDB";
 import Finish from "../Finish/index";
+import PropTypes from "prop-types";
+
+// Connect to Redux store
+import { connect } from "react-redux";
+
+import { redirectUser } from "../../services/redirectUser";
 
 class Survey extends Component {
   constructor(props) {
@@ -28,6 +34,10 @@ class Survey extends Component {
     this.setNationality = this.setNationality.bind(this);
     this.setEmojiUse = this.setEmojiUse.bind(this);
     this.toFinishPage = this.toFinishPage.bind(this);
+  }
+
+  componentWillMount() {
+    redirectUser(this.props.userProgress);
   }
 
   handleSubmit() {
@@ -131,4 +141,16 @@ class Survey extends Component {
   }
 }
 
-export default Survey;
+const mapStateToProps = state => {
+  return {
+    userProgress: state.userProgress
+  };
+};
+
+Survey.propTypes = {
+  userProgress: PropTypes.string
+};
+
+
+export default connect(mapStateToProps)(Survey);
+

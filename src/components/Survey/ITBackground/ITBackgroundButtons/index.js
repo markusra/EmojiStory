@@ -8,7 +8,7 @@ class ITBackgroundButtons extends Component {
   render() {
     return (
       <Fragment>
-        <div className="">
+        <div className="it-background">
           <Button
             color="success"
             style={{fontSize: "2rem", height: "100px"}}
