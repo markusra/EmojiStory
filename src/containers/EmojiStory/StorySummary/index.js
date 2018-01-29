@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import "./index.css"
 
 import EmojiContainer from "../../../components/EmojiStory/EmojiContainer";
 import EmojiBody from "../../../components/EmojiStory/EmojiContainer/EmojiBody";
@@ -51,10 +52,13 @@ class EmojiStory extends Component {
       <EmojiContainer appTitle="That's it – here is the whole story">
         <EmojiBody>
           <h3 style={{ textAlign: "left" }}>{userStory}</h3>
+          
         </EmojiBody>
         <EmojiFooter>
+          <div className="emojiStory">TEst</div>
           <Button
             color="answer"
+            className="emojiStoryAccept"
             size="lg"
             onClick={() => this.onButtonClick()}
             block
