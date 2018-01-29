@@ -1,13 +1,37 @@
-.emojiStory {
+.emojiContainer {
     position: absolute;
     width: 100%;
-    height: 80px;
-    bottom: 150%;
-    margin-left: -15px;
-    margin-right: -15px;
+    bottom: 120%;
+}
+
+.emojiContainer .storyHeader {
+    width: 100%;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.emojiContainer .emojis {
+    width: 100%;
+    padding: 10px;
     background-color: #828391
 }
 
-.emojiContainer {
-    
+.emojiContainer .emojiBackground {
+    background: white;
+    width: 70px;
+    height: 70px;
+    border-radius: 15px;
+    margin-right: 10px
+}
+
+@media (max-width: 350px) {
+    .emojiContainer .emojiBackground {
+        margin-right: 5px
+    }
+}
+
+@media (max-width: 499px) {
+    .emojiStory {
+        bottom: 20vh;
+    }
 }

@@ -13,15 +13,15 @@ var questions = [
       },
       {
         text: "Germany",
-        src: "1f1e7-1f1fb.svg"
+        src: "1f4a9.svg"
       },
       {
         text: "Egypt",
-        src: "1f1e7-1f1fb.svg"
+        src: "1f4a9.svg"
       },
       {
         text: "Vietnam",
-        src: "1f1e7-1f1fb.svg"
+        src: "1f4a9.svg"
       }
     ]
   },
@@ -30,23 +30,23 @@ var questions = [
     answers: [
       {
         text: "happy",
-        src: ""
+        src: "1f4a9.svg"
       },
       {
         text: "sad",
-        src: ""
+        src: "1f4a9.svg"
       },
       {
         text: "hungry",
-        src: ""
+        src: "1f4a9.svg"
       },
       {
         text: "tired",
-        src: ""
+        src: "1f4a9.svg"
       },
       {
         text: "sleepy",
-        src: ""
+        src: "1f4a9.svg"
       }
     ]
   },
@@ -55,23 +55,23 @@ var questions = [
     answers: [
       {
         text: "grapes",
-        src: ""
+        src: "1f4a9.svg"
       },
       {
         text: "mushrooms",
-        src: ""
+        src: "1f4a9.svg"
       },
       {
         text: "bacon",
-        src: ""
+        src: "1f4a9.svg"
       },
       {
         text: "sushi",
-        src: ""
+        src: "1f4a9.svg"
       },
       {
         text: "cheese",
-        src: ""
+        src: "1f4a9.svg"
       }
     ]
   },
@@ -80,23 +80,23 @@ var questions = [
     answers: [
       {
         text: "money",
-        src: ""
+        src: "1f4a9.svg"
       },
       {
         text: "saxophones",
-        src: ""
+        src: "1f4a9.svg"
       },
       {
         text: "books",
-        src: ""
+        src: "1f4a9.svg"
       },
       {
         text: "telescopes",
-        src: ""
+        src: "1f4a9.svg"
       },
       {
         text: "satellites",
-        src: ""
+        src: "1f4a9.svg"
       }
     ]
   }

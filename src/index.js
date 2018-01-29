@@ -26,8 +26,8 @@ ReactDOM.render(
       <Router history={history}>
         <Switch>
           <Route exact path="/" component={Welcome} />
-          <Route exact path="/createEmojiStory" component={CreateEmojiStory} />
-          <Route exact path="/emojiStorySummary" component={EmojiStorySummary} />
+          <Route exact path="/emojiStory" component={CreateEmojiStory} />
+          <Route exact path="/summary" component={EmojiStorySummary} />
           <Route exact path="/finish" component={Finish} />
           <Route exact path="/survey" component={Survey} />
           <Route component={NotFound} />

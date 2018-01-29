@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
+import history from "../../../history";
+
 // Connect to Redux store
 import { connect } from "react-redux";
 import { addAnswer } from "../../../actions";
@@ -12,6 +14,8 @@ import EmojiBody from "../EmojiContainer/EmojiBody";
 import EmojiFooter from "../EmojiContainer/EmojiFooter";
 import StepCount from "../StepCount";
 import EmojiOverlay from "../EmojiOverlay/index";
+
+import { setUserProgress } from "../../../actions/index";
 
 class EmojiQuiz extends Component {
   constructor(props) {
@@ -65,9 +69,16 @@ class EmojiQuiz extends Component {
   }
 
   handleContinueClick() {
-    this.setState({ answerOverlay: false });
     this.props.addAnswer(this.state.chosenAnswer);
-    this.setNextQuestion();
+
+    if (this.state.questionId === quizQuestions.questions.length) {
+      const url = "/summary"
+      this.props.setUserProgress(url)
+      history.push(url);
+    } else {
+      this.setState({ answerOverlay: false });
+      this.setNextQuestion();
+    }
   }
 
   render() {
@@ -100,14 +111,6 @@ class EmojiQuiz extends Component {
   }
 }
 
-EmojiQuiz.propTypes = {
-  handleAnswerClick: PropTypes.func,
-  question: PropTypes.string,
-  answers: PropTypes.array,
-  test: PropTypes.string,
-  addAnswer: PropTypes.func
-};
-
 const mapStateToProps = state => {
   return {
     answers: state.answers
@@ -118,8 +121,20 @@ const mapDispatchToProps = dispatch => {
   return {
     addAnswer: answer => {
       dispatch(addAnswer(answer));
+    },
+    setUserProgress: userProgress => {
+      dispatch(setUserProgress(userProgress));
     }
   };
+};
+
+EmojiQuiz.propTypes = {
+  handleAnswerClick: PropTypes.func,
+  question: PropTypes.string,
+  answers: PropTypes.array,
+  test: PropTypes.string,
+  addAnswer: PropTypes.func,
+  setUserProgress: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(EmojiQuiz);

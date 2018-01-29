@@ -16,7 +16,7 @@ import { setUserProgress } from "../../actions/index";
 // TODO: Fix email address
 class Welcome extends Component {
   onButtonClick() {   
-    const url = "/createEmojiStory"
+    const url = "/emojiStory"
     this.props.setUserProgress(url)
     history.push(url);
   }
