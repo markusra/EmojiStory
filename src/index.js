@@ -12,6 +12,7 @@ import EmojiStory from "./containers/EmojiStory/index";
 import NotFound from "./containers/NotFound/index";
 import Finish from "./containers/Finish/index";
 import Survey from "./containers/Survey/index";
+import ValidationTest from "./components/Survey/validationTest"
 
 ReactDOM.render(
   <Router history={history}>
@@ -21,6 +22,8 @@ ReactDOM.render(
         <Route exact path="/emojistory" component={EmojiStory} />
         <Route exact path="/finish" component={Finish} />
         <Route exact path="/survey" component={Survey} />
+        <Route exact path="/validationTest" component={ValidationTest} />
+
         <Route component={NotFound} />
       </Switch>
     </div>
