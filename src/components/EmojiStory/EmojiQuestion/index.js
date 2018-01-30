@@ -14,7 +14,8 @@ class EmojiQuestion extends Component {
   renderAnswerOptions(key) {
     return (
       <Button
-        color="answer"
+        color="default"
+        className="answerButton"
         size="lg"
         key={key.text}
         onClick={() => this.props.onAnswerSelected(key)}
