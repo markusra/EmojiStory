@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Form, FormGroup, Label, Input } from "reactstrap";
+import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import PropTypes from "prop-types";
+import "./index.css";
 
 class FinalQuestions extends Component {
   constructor(props) {
@@ -42,38 +43,55 @@ class FinalQuestions extends Component {
   }
 
   render() {
+    // const isEnabled =
+    // this.props.email.length > 0 &&
+    // this.props.age.length > 0;
+    // this.validateForm();
     return (
-      <Form>
+      <Form
+        className="needs-validation"
+        // noValidate
+        onSubmit={event => {
+          this.props.onSubmitForm();
+        }}
+      >
         <FormGroup>
           <Label for="exampleEmail">Email</Label>
           <Input
+            label="Email address"
             type="email"
             name="email"
             id="exampleEmail"
             placeholder="email@example.com"
             value={this.props.email}
-            onChange={e => this.props.onEmailChange(e.target.value)}
+            onChange={this.props.onInputChange}
+            required
+            className="form-control"
           />
         </FormGroup>
         <FormGroup>
           <Label for="exampleAge">Age</Label>
           <Input
-            type="age"
+            type="number"
+            min="10"
+            max="120"
             name="age"
             id="exampleAge"
             placeholder="age"
             value={this.props.age}
-            onChange={e => this.props.onAgeChange(e.target.value)}
+            onChange={this.props.onInputChange}
+            required
           />
         </FormGroup>
         <FormGroup>
           <Label for="exampleSelect">Where do you come from?</Label>
           <Input
             type="select"
-            name="select"
+            name="nationality"
             id="exampleSelect"
             value={this.props.nationality}
-            onChange={e => this.props.onNationalityChange(e.target.value)}
+            onChange={this.props.onInputChange}
+            required
           >
             {this.buildOptions()}
           </Input>
@@ -84,9 +102,10 @@ class FinalQuestions extends Component {
             <Label check>
               <Input
                 type="radio"
-                name="radio1"
+                name="emojiUse"
                 value="Several times a day"
-                onChange={e => this.props.onEmojiUseChange(e.target.value)}
+                onChange={this.props.onInputChange}
+                required
               />{" "}
               Several times a day
             </Label>
@@ -95,9 +114,9 @@ class FinalQuestions extends Component {
             <Label check>
               <Input
                 type="radio"
-                name="radio1"
+                name="emojiUse"
                 value="Once a day"
-                onChange={e => this.props.onEmojiUseChange(e.target.value)}
+                onChange={this.props.onInputChange}
               />{" "}
               Once a day
             </Label>
@@ -106,9 +125,9 @@ class FinalQuestions extends Component {
             <Label check>
               <Input
                 type="radio"
-                name="radio1"
+                name="emojiUse"
                 value="Several times a week"
-                onChange={e => this.props.onEmojiUseChange(e.target.value)}
+                onChange={this.props.onInputChange}
               />{" "}
               Several times a week
             </Label>
@@ -117,9 +136,9 @@ class FinalQuestions extends Component {
             <Label check>
               <Input
                 type="radio"
-                name="radio1"
+                name="emojiUse"
                 value="Once a week"
-                onChange={e => this.props.onEmojiUseChange(e.target.value)}
+                onChange={this.props.onInputChange}
               />{" "}
               Once a week
             </Label>
@@ -128,28 +147,31 @@ class FinalQuestions extends Component {
             <Label check>
               <Input
                 type="radio"
-                name="radio1"
+                name="emojiUse"
                 value="Never"
-                onChange={e => this.props.onEmojiUseChange(e.target.value)}
+                onChange={this.props.onInputChange}
               />{" "}
               Never
             </Label>
           </FormGroup>
         </FormGroup>
+        <div className="form-footer">
+          <Button color="success" className="col">
+            Submit
+          </Button>
+        </div>
       </Form>
     );
   }
 }
 
 FinalQuestions.propTypes = {
-  onEmailChange: PropTypes.func,
+  onSubmitForm: PropTypes.func,
+  onInputChange: PropTypes.func,
   email: PropTypes.string,
   age: PropTypes.string,
-  onAgeChange: PropTypes.func,
   nationality: PropTypes.string,
-  onNationalityChange: PropTypes.func,
-  emojiUse: PropTypes.string,
-  onEmojiUseChange: PropTypes.func
+  emojiUse: PropTypes.string
 };
 
 export default FinalQuestions;

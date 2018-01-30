@@ -29,18 +29,11 @@ class Survey extends Component {
     this.setFemale = this.setFemale.bind(this);
     this.setMale = this.setMale.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.setEmail = this.setEmail.bind(this);
-    this.setAge = this.setAge.bind(this);
-    this.setNationality = this.setNationality.bind(this);
-    this.setEmojiUse = this.setEmojiUse.bind(this);
-    this.toFinishPage = this.toFinishPage.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.sendToDB = this.sendToDB.bind(this);
   }
 
-  componentWillMount() {
-    redirectUser(this.props.userProgress);
-  }
-
-  handleSubmit() {
+  sendToDB() {
     sendDataToDB(
       this.state.email,
       this.state.age,
@@ -51,28 +44,15 @@ class Survey extends Component {
     );
   }
 
-  setAge(value) {
+  handleSubmit = event => {
+    this.sendToDB();
     this.setState({
-      age: value
+      page: "finish"
     });
-  }
+  };
 
-  setEmail(value) {
-    this.setState({
-      email: value
-    });
-  }
-
-  setNationality(value) {
-    this.setState({
-      nationality: value
-    });
-  }
-
-  setEmojiUse(value) {
-    this.setState({
-      emojiUse: value
-    });
+  handleChange(e) {
+    this.setState({[e.target.name]: e.target.value});
   }
 
   setITBackgroundTrue() {
@@ -103,12 +83,6 @@ class Survey extends Component {
     });
   }
 
-  toFinishPage() {
-    this.setState({
-      page: "finish"
-    });
-  }
-
   render() {
     return (
       <div>
@@ -124,15 +98,11 @@ class Survey extends Component {
         {this.state.page === "questions" && (
           <FinalQuestionsContainer
             onSubmitForm={this.handleSubmit}
-            onEmailChange={this.setEmail}
+            onInputChange={this.handleChange}
             email={this.state.email}
-            onAgeChange={this.setAge}
             age={this.state.age}
-            onNationalityChange={this.setNationality}
             nationality={this.state.nationality}
-            onEmojiUseChange={this.setEmojiUse}
             emojiUse={this.state.emojiUse}
-            finished={this.toFinishPage}
           />
         )}
         {this.state.page === "finish" && <Finish />}
