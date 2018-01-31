@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import FinalQuestions from "./FinalQuestions";
 import FormContainer from "./FormContainer";
-import AppBody from "../../components/AppBody";
 import PropTypes from "prop-types";
 
 class FinalQuestionsContainer extends Component {
@@ -9,7 +8,6 @@ class FinalQuestionsContainer extends Component {
   render() {
     return (
       <FormContainer appTitle="Survey – Emoji-Based Authentication">
-        <AppBody>
           <FinalQuestions
             ref={instance => {
               this.child = instance;
@@ -21,7 +19,6 @@ class FinalQuestionsContainer extends Component {
             nationality={this.props.nationality}
             emojiUse={this.props.emojiUse}
           />
-        </AppBody>
       </FormContainer>
     );
   }

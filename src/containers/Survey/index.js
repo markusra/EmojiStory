@@ -34,7 +34,7 @@ class Survey extends Component {
   }
 
   sendToDB() {
-    sendDataToDB(
+    const key = sendDataToDB(
       this.state.email,
       this.state.age,
       this.state.nationality,
@@ -42,14 +42,16 @@ class Survey extends Component {
       this.state.gender,
       this.state.itBackground
     );
+
+    console.log(key);
   }
 
-  handleSubmit = event => {
+  handleSubmit() {
     this.sendToDB();
     this.setState({
       page: "finish"
     });
-  };
+  }
 
   handleChange(e) {
     this.setState({[e.target.name]: e.target.value});
