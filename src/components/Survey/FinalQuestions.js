@@ -52,8 +52,10 @@ class FinalQuestions extends Component {
         className="needs-validation"
         // noValidate
         onSubmit={event => {
+          event.preventDefault();
           this.props.onSubmitForm();
         }}
+        enablesubmissionsform="false"
       >
         <FormGroup>
           <Label for="exampleEmail">Email</Label>
