@@ -21,10 +21,11 @@ import { Button, Row } from "reactstrap";
 class Login extends Component {
   constructor(props) {
     super(props);
+    
     this.state = {
       emojis: [],
       loginOverlay: false,
-      attemptsLeft: 3
+      attemptsLeft: "3"
     };
 
     this.onTryAgainButtonClick = this.onTryAgainButtonClick.bind(this);
@@ -38,13 +39,11 @@ class Login extends Component {
     var tempArray = this.state.emojis.slice();
     tempArray.pop();
     this.setState({ emojis: tempArray });
-
-    //history.push("/finish");
   }
 
   onEmojiButtonClick(id) {
     if (this.state.emojis.length === 3) {
-      var attempts = this.state.attemptsLeft - 1;
+      const attempts = this.state.attemptsLeft - 1;
       this.setState({ attemptsLeft: attempts, loginOverlay: true });
     }
 

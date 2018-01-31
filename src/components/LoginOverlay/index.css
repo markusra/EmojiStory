@@ -1,4 +1,5 @@
 .login-overlay {
+  transition: opacity 0.5s;
   opacity: 1;
   position: absolute;
   top: 0;
@@ -17,7 +18,7 @@
   color: white;
 }
 
-.login-overlay .attempts {
+.login-overlay .answer {
   color: white;
   margin-top: 10px
 }
@@ -51,12 +52,10 @@
 
 .loginIcon {
   font-size: 10em !important;
-  
 }
 
 .loginIcon.correct{
   color: #28a745;
-  
 }
 
 .loginIcon.wrong {
