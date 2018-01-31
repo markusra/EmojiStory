@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import "./index.css";
 
 import EmojiContainer from "../../../components/EmojiStory/EmojiContainer";
+import LoginOverlay from "../../../components/LoginOverlay";
 import EmojiBody from "../../../components/EmojiStory/EmojiContainer/EmojiBody";
 import EmojiFooter from "../../../components/EmojiStory/EmojiContainer/EmojiFooter";
 import EmojiRow from "../../../components/EmojiStory/EmojiRow";
@@ -21,8 +22,12 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      emojis: []
+      emojis: [],
+      loginOverlay: false,
+      attemptsLeft: 3
     };
+
+    this.onTryAgainButtonClick = this.onTryAgainButtonClick.bind(this);
   }
 
   componentWillMount() {
@@ -38,17 +43,40 @@ class Login extends Component {
   }
 
   onEmojiButtonClick(id) {
+    if (this.state.emojis.length === 3) {
+      var attempts = this.state.attemptsLeft - 1;
+      this.setState({ attemptsLeft: attempts, loginOverlay: true });
+    }
+
     var tempArray = this.state.emojis.slice();
     tempArray.push(this.props.keyboard[id].src);
     this.setState({ emojis: tempArray });
   }
 
+  onTryAgainButtonClick() {
+    this.setState({ emojis: [], loginOverlay: false });
+  }
+
+  onContinueButtonClick() {
+    history.push("/finish");
+  }
+
+  isCorrectPassword() {
+    return false;
+  }
+
   /*eslint no-undef: 0*/
   render() {
-    /*eslint no-undef: 0*/
     const emojiPath = process.env.PUBLIC_URL + "/emojis/";
     return (
-      <EmojiContainer appTitle="Log in with EmojiStory">
+      <EmojiContainer>
+        <LoginOverlay
+          visible={this.state.loginOverlay}
+          isCorrect={this.isCorrectPassword()}
+          attemptsLeft={this.state.attemptsLeft}
+          onTryAgainButtonClick={this.onTryAgainButtonClick}
+          onContinueButtonClick={this.onContinueButtonClick}
+        />
         <EmojiBody>
           <EmojiRow
             emojiIcon_1={this.state.emojis[0]}
@@ -138,14 +166,20 @@ class Login extends Component {
               className="emojiKeyboardBackground"
               onClick={() => this.onEmojiButtonClick(10)}
             >
-              <img src={emojiPath + this.props.keyboard[10].src} alt="Emoji 1" />
+              <img
+                src={emojiPath + this.props.keyboard[10].src}
+                alt="Emoji 1"
+              />
             </Button>
             <Button
               color="default"
               className="emojiKeyboardBackground margin-0"
               onClick={() => this.onEmojiButtonClick(11)}
             >
-              <img src={emojiPath + this.props.keyboard[11].src} alt="Emoji 1" />
+              <img
+                src={emojiPath + this.props.keyboard[11].src}
+                alt="Emoji 1"
+              />
             </Button>
           </Row>
         </EmojiBody>

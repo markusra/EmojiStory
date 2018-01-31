@@ -35,6 +35,13 @@ body {
 }
 */
 
+@media (max-width: 320px) {
+  h2, .h2 {
+    font-size: 1.5rem !important;
+ }
+}
+
+
 .navbar-brand {
   margin-right: 0 !important;
 }
@@ -52,6 +59,7 @@ body {
 
 .app-body {
   padding: 15px 15px 50px 15px;
+  margin-bottom: 10px;
   text-align: justify;
 }
 
@@ -80,6 +88,20 @@ body {
 }
 
 .fade-out {
+  opacity: 0 !important;
+  transition: opacity 0.2s !important;
+  pointer-events:none !important;
+}
+
+.fade-in-with-delay {
+  transition: opacity 0.2s !important;
+  transition-delay: 0.3s !important;
+  -webkit-transition: opacity 0.2s !important;
+  -webkit-transition-delay: 0.3s !important;
+  opacity: 1 !important;
+}
+
+.fade-out-with-delay {
   opacity: 0 !important;
   transition: opacity 0.2s !important;
   pointer-events:none !important;

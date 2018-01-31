@@ -3,10 +3,14 @@ import PropTypes from "prop-types";
 import OrientationOverlay from "./OrientationOverlay/index";
 
 class AppContent extends Component {
+  isMobileDevice() {
+    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+  }
+  
   render() {
     return (
       <Fragment>
-        <OrientationOverlay />
+        {this.isMobileDevice() ? <OrientationOverlay /> : null }
 
         <div className={"container app-container"}>
           <nav className={"navbar app-header sticky-top"}>

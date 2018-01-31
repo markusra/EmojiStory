@@ -10,9 +10,10 @@ import { addAnswer } from "../../../actions";
 import quizQuestions from "../../../api/quizset_1";
 import EmojiQuestion from "../EmojiQuestion/index";
 import EmojiContainer from "../EmojiContainer";
+import EmojiHeader from "../EmojiContainer/EmojiHeader";
 import EmojiBody from "../EmojiContainer/EmojiBody";
-import EmojiFooter from "../EmojiContainer/EmojiFooter";
-import StepCount from "../StepCount";
+// import EmojiFooter from "../EmojiContainer/EmojiFooter";
+// import StepCount from "../StepCount";
 import EmojiOverlay from "../EmojiOverlay/index";
 
 import { setUserProgress } from "../../../actions/index";
@@ -83,9 +84,7 @@ class EmojiQuiz extends Component {
 
   render() {
     return (
-      <EmojiContainer
-        appTitle="Create a story by selecting words"
-      >
+      <EmojiContainer>
         <EmojiOverlay
           visible={this.state.answerOverlay}
           onBackClick={this.handleBackClick}
@@ -93,6 +92,7 @@ class EmojiQuiz extends Component {
           question={this.state.overlayQuestion}
           answer={this.state.chosenAnswer}
         />
+        <EmojiHeader title="Create a story by selecting words"/>
         <EmojiBody>
           <EmojiQuestion
             question={this.state.question}
@@ -100,12 +100,12 @@ class EmojiQuiz extends Component {
             onAnswerSelected={this.handleAnswerClick}
           />
         </EmojiBody>
-        <EmojiFooter>
+        {/* <EmojiFooter>
           <StepCount
             counter={this.state.questionId}
             total={quizQuestions.questions.length}
           />
-        </EmojiFooter>
+        </EmojiFooter> */}
       </EmojiContainer>
     );
   }

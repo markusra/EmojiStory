@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import "./index.css";
 
 import EmojiContainer from "../../../components/EmojiStory/EmojiContainer";
+import EmojiHeader from "../../../components/EmojiStory/EmojiContainer/EmojiHeader";
 import EmojiBody from "../../../components/EmojiStory/EmojiContainer/EmojiBody";
 import EmojiFooter from "../../../components/EmojiStory/EmojiContainer/EmojiFooter";
 import EmojiRow from "../../../components/EmojiStory/EmojiRow";
@@ -45,19 +46,19 @@ class StorySummary extends Component {
   }
 
   getEmojiTextArray() {
-    var emojyTextArray = [];
+    var emojiTextArray = [];
 
-    this.props.answers.map(answer => emojyTextArray.push(answer.text));
+    this.props.answers.map(answer => emojiTextArray.push(answer.text));
 
-    return emojyTextArray;
+    return emojiTextArray;
   }
 
   getEmojiIconArray() {
-    var emojyIconArray = [];
+    var emojiIconArray = [];
 
-    this.props.answers.map(answer => emojyIconArray.push(answer.src));
+    this.props.answers.map(answer => emojiIconArray.push(answer.src));
 
-    return emojyIconArray;
+    return emojiIconArray;
   }
 
   onButtonClick() {
@@ -74,7 +75,9 @@ class StorySummary extends Component {
     const emojiIcons = this.getEmojiIconArray();
 
     return (
-      <EmojiContainer appTitle="That's it – here is the whole story">
+      <EmojiContainer>
+        <EmojiHeader title="That's it – here is the whole story" />
+        
         <EmojiBody>
           <h3
             style={{
