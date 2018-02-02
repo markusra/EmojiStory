@@ -64,7 +64,7 @@ class FinalQuestions extends Component {
             type="email"
             name="email"
             id="exampleEmail"
-            placeholder="email@example.com"
+            placeholder="Email"
             value={this.props.email}
             onChange={this.props.onInputChange}
             required
@@ -79,7 +79,7 @@ class FinalQuestions extends Component {
             max="120"
             name="age"
             id="exampleAge"
-            placeholder="age"
+            placeholder="Age"
             value={this.props.age}
             onChange={this.props.onInputChange}
             required
