@@ -15,11 +15,7 @@ class EmojiStory extends Component {
       questionID: 0,
       page: "info",
       clicks: 0,
-      infoList: [
-        <li>
-          Next you will create an <span className="yellow">emoji-password</span>.
-        </li>
-      ]
+      infoList: []
     };
     this.incrementClick = this.incrementClick.bind(this);
   }

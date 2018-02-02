@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 // Connect to Redux store
 import { connect } from "react-redux";
 
-import { redirectUser } from "../../services/redirectUser";
+// import { redirectUser } from "../../services/redirectUser";
 
 class Survey extends Component {
   constructor(props) {

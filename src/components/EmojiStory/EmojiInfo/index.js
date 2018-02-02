@@ -5,18 +5,22 @@ import EmojiContainer from "../../../components/EmojiStory/EmojiContainer";
 import EmojiBody from "../../../components/EmojiStory/EmojiContainer/EmojiBody";
 import EmojiFooter from "../../../components/EmojiStory/EmojiContainer/EmojiFooter";
 
-// Connect to Redux store
-// import { connect } from "react-redux";
-// import { redirectUser } from "../../../services/redirectUser";
-
 // Import Bootstrap Components
 import { Button } from "reactstrap";
 
 class EmojiInfo extends Component {
   addInstructions(infoList, clicks) {
+    if (clicks === 0) {
+      infoList.push(
+        <li key={clicks}>
+          Next you will create an <span className="yellow">emoji-password</span>.
+        </li>
+      );
+    }
+
     if (clicks === 1) {
       infoList.push(
-        <li>
+        <li key={clicks}>
           You do this by <span className="yellow">selecting keywords</span> to
           substitute for blanks in a <span className="yellow">story</span>.
         </li>
@@ -24,14 +28,14 @@ class EmojiInfo extends Component {
     }
     if (clicks === 2) {
       infoList.push(
-        <li>
+        <li key={clicks}>
           Each keyword <span className="yellow">corresponds</span> to an emoji.
         </li>
       );
     }
     if (clicks === 3) {
       infoList.push(
-        <li>
+        <li key={clicks}>
           The <span className="yellow">sequence of emojis</span> that occurs
           will form your emoji-password.
         </li>
