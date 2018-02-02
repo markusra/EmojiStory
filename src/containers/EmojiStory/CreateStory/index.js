@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import EmojiQuiz from "../../../components/EmojiStory/EmojiQuiz/index";
+import EmojiInfo from "../../../components/EmojiStory/EmojiInfo/index";
 import "./index.css";
 import PropTypes from "prop-types";
 
@@ -11,7 +12,14 @@ import { redirectUser } from "../../../services/redirectUser";
 class EmojiStory extends Component {
   constructor(props) {
     super(props);
-    this.state = { questionID: 0 };
+    this.state = { questionID: 0, page: "info" }
+    this.setPage = this.setPage.bind(this);
+  }
+
+  setPage() {
+    this.setState({
+      page: "create"
+    });
   }
 
   componentWillMount() {
@@ -20,7 +28,14 @@ class EmojiStory extends Component {
 
   render() {
     return (
-      <EmojiQuiz />
+      <div>
+        {this.state.page === "info" && (
+          <EmojiInfo onContinueClick={this.setPage} />
+        )}
+        {this.state.page === "create" && (
+          <EmojiQuiz />
+        )}
+      </div>
     );
   }
 }
