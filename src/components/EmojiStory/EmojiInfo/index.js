@@ -9,7 +9,7 @@ import EmojiFooter from "../../../components/EmojiStory/EmojiContainer/EmojiFoot
 import { Button } from "reactstrap";
 
 class EmojiInfo extends Component {
-  addInstructions(infoList, clicks) {
+  addInstructions(infoList, clicks, liStyle) {
     if (clicks === 0) {
       infoList.push(
         <li key={clicks}>
@@ -17,9 +17,12 @@ class EmojiInfo extends Component {
         </li>
       );
     }
-
     if (clicks === 1) {
+      infoList.pop();
       infoList.push(
+        <li key={clicks - 1} style={liStyle}>
+          Next you will create an <span className="yellow">emoji-password</span>.
+        </li>,
         <li key={clicks}>
           You do this by <span className="yellow">selecting keywords</span> to
           substitute for blanks in a <span className="yellow">story</span>.
@@ -27,17 +30,26 @@ class EmojiInfo extends Component {
       );
     }
     if (clicks === 2) {
+      infoList.pop();
       infoList.push(
+        <li key={clicks - 1} style={liStyle}>
+          You do this by <span className="yellow">selecting keywords</span> to
+          substitute for blanks in a <span className="yellow">story</span>.
+        </li>,
         <li key={clicks}>
           Each keyword <span className="yellow">corresponds</span> to an emoji.
         </li>
       );
     }
     if (clicks === 3) {
+      infoList.pop();
       infoList.push(
+        <li key={clicks - 1} style={liStyle}>
+          Each keyword <span className="yellow">corresponds</span> to an emoji.
+        </li>,
         <li key={clicks}>
           The <span className="yellow">sequence of emojis</span> that occurs
-          will form your emoji-password.
+          from the story, will form your emoji-password.
         </li>
       );
     }
@@ -45,9 +57,14 @@ class EmojiInfo extends Component {
   }
 
   render() {
+    const liStyle = {
+      opacity: "0.3"
+    };
+
     const instructions = this.addInstructions(
       this.props.infoList,
-      this.props.clicks
+      this.props.clicks,
+      liStyle
     );
 
     return (

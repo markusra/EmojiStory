@@ -55,7 +55,6 @@ class FinalQuestions extends Component {
           event.preventDefault();
           this.props.onSubmitForm();
         }}
-        enablesubmissionsform="false"
       >
         <FormGroup>
           <Label for="exampleEmail">Email</Label>
