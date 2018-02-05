@@ -1,0 +1,23 @@
+.emojis {
+  padding: 10px;
+  background-color: #828391;
+  margin-bottom: 15px
+}
+
+.emojiBackground {
+  background-color: white;
+  width: 70px;
+  height: 70px;
+  border-radius: 15px;
+  margin-right: 10px
+}
+
+@media (max-width: 350px) {
+  .emojiBackground {
+      margin-right: 5px
+  }
+}
+
+.emojiBackground img {
+  margin: 5px;
+}

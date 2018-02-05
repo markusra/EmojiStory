@@ -1,15 +1,15 @@
-@media (min-width: 500px) { 
+@media (min-width: 500px) {
   .emoji-container {
     position: relative;
     margin-top: 30px;
     padding: 0 !important;
     width: 400px !important;
     height: 600px !important;
-    border: 1px solid #1B212C 
+    border: 1px solid #1b212c;
   }
 }
 
-@media (max-width: 499px) { 
+@media (max-width: 499px) {
   .emoji-container {
     padding: 0 !important;
     height: 100vh;
@@ -18,11 +18,12 @@
   .emoji-footer {
     position: fixed !important;
   }
-
 }
 
 .emoji-container {
-  background-color: #1B212C;
+  background-color: #1b212c;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .emoji-header {
@@ -32,17 +33,16 @@
   margin-right: 15px;
   line-height: 0.8em;
   /* text-align: center; */
-  background-color: #1B212C;
+  background-color: #1b212c;
   color: white;
   border-bottom: 1px solid white;
   padding-left: 0 !important;
 }
 
 .emoji-body {
-  padding: 25px 15px 50px 15px;
-  text-align: justify;
+  padding: 15px 15px 0px 15px;
   color: white;
-  background-color: #1B212C
+  background-color: #1b212c;
 }
 
 .emoji-footer {
@@ -51,12 +51,12 @@
   padding: 10px 15px 15px 15px;
   bottom: 0;
   width: 100%;
-  color: white
+  color: white;
 }
 
 .emoji-title {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-size: 1em !important
+  font-size: 1em !important;
 }

@@ -1,0 +1,9 @@
+.answerButton {
+   margin-top: 25px !important
+}
+
+@media (max-width: 320px) {
+  .answerButton {
+    margin-top: 12px !important
+ }
+}

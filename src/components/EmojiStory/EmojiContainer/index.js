@@ -4,17 +4,19 @@ import "./index.css";
 import OrientationOverlay from "../../OrientationOverlay/index";
 
 class EmojiContainer extends Component {
+  isMobileDevice() {
+    return (
+      typeof window.orientation !== "undefined" ||
+      navigator.userAgent.indexOf("IEMobile") !== -1
+    );
+  }
+
   render() {
     return (
       <Fragment>
-        <OrientationOverlay />
+        {this.isMobileDevice() ? <OrientationOverlay /> : null}
 
         <div className={"container emoji-container"}>
-          <nav className={"navbar emoji-header sticky-top"}>
-            <h1 className={"navbar-brand mb-0 emoji-title"}>
-              {this.props.appTitle}
-            </h1>
-          </nav>
           {this.props.children}
         </div>
       </Fragment>

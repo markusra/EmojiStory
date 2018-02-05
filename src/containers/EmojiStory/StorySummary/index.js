@@ -3,8 +3,10 @@ import PropTypes from "prop-types";
 import "./index.css";
 
 import EmojiContainer from "../../../components/EmojiStory/EmojiContainer";
+import EmojiHeader from "../../../components/EmojiStory/EmojiContainer/EmojiHeader";
 import EmojiBody from "../../../components/EmojiStory/EmojiContainer/EmojiBody";
 import EmojiFooter from "../../../components/EmojiStory/EmojiContainer/EmojiFooter";
+import EmojiRow from "../../../components/EmojiStory/EmojiRow";
 
 import history from "../../../history";
 
@@ -16,7 +18,7 @@ import { redirectUser } from "../../../services/redirectUser";
 // Import Bootstrap Components
 import { Button, Row } from "reactstrap";
 
-class EmojiStory extends Component {
+class StorySummary extends Component {
   componentWillMount() {
     redirectUser(this.props.userProgress);
   }
@@ -44,23 +46,23 @@ class EmojiStory extends Component {
   }
 
   getEmojiTextArray() {
-    var emojyTextArray = [];
+    var emojiTextArray = [];
 
-    this.props.answers.map(answer => emojyTextArray.push(answer.text));
+    this.props.answers.map(answer => emojiTextArray.push(answer.text));
 
-    return emojyTextArray;
+    return emojiTextArray;
   }
 
   getEmojiIconArray() {
-    var emojyIconArray = [];
+    var emojiIconArray = [];
 
-    this.props.answers.map(answer => emojyIconArray.push(answer.src));
+    this.props.answers.map(answer => emojiIconArray.push(answer.src));
 
-    return emojyIconArray;
+    return emojiIconArray;
   }
 
   onButtonClick() {
-    history.push("/finish")
+    history.push("/login");
   }
 
   /*eslint no-undef: 0*/
@@ -73,7 +75,9 @@ class EmojiStory extends Component {
     const emojiIcons = this.getEmojiIconArray();
 
     return (
-      <EmojiContainer appTitle="That's it – here is the whole story">
+      <EmojiContainer>
+        <EmojiHeader title="That's it – here is the whole story" />
+        
         <EmojiBody>
           <h3
             style={{
@@ -87,38 +91,18 @@ class EmojiStory extends Component {
         </EmojiBody>
         <EmojiFooter>
           <div className="emojiContainer justify-content-center">
-            <Row className="storyHeader justify-content-center">Memorise this EmojiStory</Row>
-            <Row className="emojis justify-content-center">
-              <div className="emojiBackground">
-                <img
-                  src={process.env.PUBLIC_URL + "/emojis/" + emojiIcons[0]}
-                  alt="Emoji 1"
-                />
-              </div>
-              <div className="emojiBackground">
-                <img
-                  src={process.env.PUBLIC_URL + "/emojis/" + emojiIcons[1]}
-                  alt="Emoji 2"
-                />
-              </div>
-
-              <div className="emojiBackground">
-                <img
-                  src={process.env.PUBLIC_URL + "/emojis/" + emojiIcons[2]}
-                  alt="Emoji 3"
-                />
-              </div>
-
-              <div className="emojiBackground margin-0">
-                <img
-                  src={process.env.PUBLIC_URL + "/emojis/" + emojiIcons[3]}
-                  alt="Emoji 4"
-                />
-              </div>
+            <Row className="storyHeader justify-content-center">
+              Memorise this EmojiStory
             </Row>
+            <EmojiRow
+              emojiIcon_1={emojiIcons[0]}
+              emojiIcon_2={emojiIcons[1]}
+              emojiIcon_3={emojiIcons[2]}
+              emojiIcon_4={emojiIcons[3]}
+            />
           </div>
           <Button
-            color="answer"
+            color="default"
             className="emojiStoryAccept"
             size="lg"
             onClick={() => this.onButtonClick()}
@@ -140,10 +124,10 @@ const mapStateToProps = state => {
   };
 };
 
-EmojiStory.propTypes = {
+StorySummary.propTypes = {
   userProgress: PropTypes.string,
   storyTemplate: PropTypes.string,
   answers: PropTypes.array
 };
 
-export default connect(mapStateToProps)(EmojiStory);
+export default connect(mapStateToProps)(StorySummary);
