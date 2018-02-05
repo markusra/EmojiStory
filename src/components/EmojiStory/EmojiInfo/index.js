@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import EmojiContainer from "../../../components/EmojiStory/EmojiContainer";
 import EmojiBody from "../../../components/EmojiStory/EmojiContainer/EmojiBody";
 import EmojiFooter from "../../../components/EmojiStory/EmojiContainer/EmojiFooter";
+import "./index.css";
 
 // Import Bootstrap Components
 import { Button } from "reactstrap";
@@ -93,7 +94,7 @@ class EmojiInfo extends Component {
               onClick={this.props.onContinueClick}
               block
             >
-              Continue
+              Next
             </Button>
           )}
 
