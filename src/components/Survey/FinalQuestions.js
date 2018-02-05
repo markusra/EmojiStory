@@ -57,20 +57,6 @@ class FinalQuestions extends Component {
         }}
       >
         <FormGroup>
-          <Label for="exampleEmail">Email</Label>
-          <Input
-            label="Email address"
-            type="email"
-            name="email"
-            id="exampleEmail"
-            placeholder="Email"
-            value={this.props.email}
-            onChange={this.props.onInputChange}
-            required
-            className="form-control"
-          />
-        </FormGroup>
-        <FormGroup>
           <Label for="exampleAge">Age</Label>
           <Input
             type="number"
@@ -156,6 +142,65 @@ class FinalQuestions extends Component {
             </Label>
           </FormGroup>
         </FormGroup>
+
+        <FormGroup tag="fieldset">
+          <Label for="memorization">Did you memorize the emojis or the story?</Label>
+          <FormGroup check>
+            <Label check>
+              <Input
+                type="radio"
+                name="memorization"
+                value="Emojis"
+                onChange={this.props.onInputChange}
+                required
+              />
+              The emojis
+            </Label>
+          </FormGroup>
+          <FormGroup check>
+            <Label check>
+              <Input
+                type="radio"
+                name="memorization"
+                value="Story"
+                onChange={this.props.onInputChange}
+                required
+              />
+              The story
+            </Label>
+          </FormGroup>
+        </FormGroup>
+
+        <FormGroup tag="fieldset">
+          <Label for="memorization">Did you understand the meaning of all the emojis in your login keyboard?</Label>
+          <FormGroup check>
+            <Label check>
+              <Input
+                type="radio"
+                name="understandable"
+                value="Yes"
+                onChange={this.props.onInputChange}
+                required
+              />
+              Yes
+            </Label>
+          </FormGroup>
+          <FormGroup check>
+            <Label check>
+              <Input
+                type="radio"
+                name="memorization"
+                value="No"
+                onChange={this.props.onInputChange}
+                required
+              />
+              No
+            </Label>
+          </FormGroup>
+        </FormGroup>
+
+
+
         <div className="form-footer">
           <Button color="success" className="col">
             Submit

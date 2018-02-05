@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Gender from "../../components/Survey/Gender/index";
 import ITBackground from "../../components/Survey/ITBackground/index";
+import AgeAndCountry from "../../components/Survey/AgeAndCountry/index";
 import FinalQuestionsContainer from "../../components/Survey/FinalQuestionsContainer";
 import { sendDataToDB } from "../../services/sendDataToDB";
 import Finish from "../Finish/index";
@@ -17,12 +18,12 @@ class Survey extends Component {
 
     this.state = {
       page: "gender",
-      email: "",
       age: "",
       nationality: "",
       emojiUse: "",
       gender: "",
-      itBackground: ""
+      itBackground: "",
+      memorization: ""
     };
     this.setITBackgroundTrue = this.setITBackgroundTrue.bind(this);
     this.setITBackgroundFalse = this.setITBackgroundFalse.bind(this);
@@ -35,12 +36,12 @@ class Survey extends Component {
 
   sendToDB() {
     const key = sendDataToDB(
-      this.state.email,
       this.state.age,
       this.state.nationality,
       this.state.emojiUse,
       this.state.gender,
-      this.state.itBackground
+      this.state.itBackground,
+      this.state.memorization
     );
 
     console.log(key);
