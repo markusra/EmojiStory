@@ -1,0 +1,8 @@
+.form-footer {
+    position: absolute !important;
+    padding: 10px 30px 15px 0px;
+    bottom: 0 !important;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: 0px -3px 15px rgba(255, 255, 255, 0)
+  }
