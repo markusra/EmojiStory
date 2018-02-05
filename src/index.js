@@ -13,7 +13,6 @@ import Summary from "./containers/EmojiStory/StorySummary/";
 import Login from "./containers/EmojiStory/Login/";
 import Finish from "./containers/Finish/";
 import Survey from "./containers/Survey/";
-import NotFound from "./containers/NotFound/";
 
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/lib/integration/react";
@@ -32,7 +31,7 @@ ReactDOM.render(
           <Route exact path="/login" component={Login} />
           <Route exact path="/finish" component={Finish} />
           <Route exact path="/survey" component={Survey} />
-          <Route component={NotFound} />
+          <Route component={Welcome} />
         </Switch>
       </Router>
     </PersistGate>
