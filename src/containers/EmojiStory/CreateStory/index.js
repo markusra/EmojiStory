@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import EmojiQuiz from "../../../components/EmojiStory/EmojiQuiz/index";
 import EmojiInfo from "../../../components/EmojiStory/EmojiInfo/index";
-import "./index.css";
 import PropTypes from "prop-types";
 
 // Connect to Redux store
@@ -28,7 +27,7 @@ class CreateStory extends Component {
         page: "create"
       });
     }
-  };
+  }
 
   componentWillMount() {
     redirectUser(this.props.userProgress);
