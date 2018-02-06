@@ -23,7 +23,7 @@ class StorySummary extends Component {
   }
 
   fillPlaceholders(storyTemplate, emojis) {
-    var splitStory = storyTemplate.split(/[*]{3}/g);
+    var splitStory = storyTemplate.join("").split(/[*]{3}/g);
 
     const storyLength = splitStory.length;
     const emojisLength = emojis.length;
@@ -140,7 +140,7 @@ const mapDispatchToProps = dispatch => {
 
 StorySummary.propTypes = {
   userProgress: PropTypes.string,
-  storyTemplate: PropTypes.string,
+  storyTemplate: PropTypes.array,
   answers: PropTypes.array,
   userStory: PropTypes.string,
   setUserProgress: PropTypes.func
