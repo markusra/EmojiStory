@@ -31,13 +31,19 @@
   margin-top: 5px !important;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+  color: white;
+  background-color: #212529;
 }
 
 .answerButton.mid {
   border-radius: 0;
+  color: white;
+  background-color: #212529;
 }
 
 .answerButton.bottom {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  color: white;
+  background-color: #212529;
 }

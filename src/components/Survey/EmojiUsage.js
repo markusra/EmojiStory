@@ -15,12 +15,12 @@ class EmojiUsage extends Component {
         <SurveyBody>
             <div className="answersContainer">
               <div className="questionDiv">
-                <h3 className="story">How often do you use emojis</h3>
+                <h3 className="story">How often do you use emojis?</h3>
               </div>
 
               <div className="options">
                 <Button
-                  color="212529"
+                  // color="#212529"
                   className="answerButton top"
                   size="lg"
                   // onClick={() =>
