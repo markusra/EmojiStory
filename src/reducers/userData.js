@@ -1,5 +1,6 @@
 const initialState = {
-  storyTemplate: "Kim comes from ***. She often feels ***, but loves *** and ***.",
+  storyTemplate:
+    "Kim comes from ***. She often feels ***, but loves *** and ***.",
   userProgress: "",
   answers: [],
   keyboard: [
@@ -52,31 +53,41 @@ const initialState = {
       src: "26f0.svg"
     }
   ]
-}
+};
 
 const userData = (state = initialState, action) => {
   switch (action.type) {
-    case 'ADD_ANSWER': {
-        const answers = state.answers.slice();
-        answers.push(action.answer);
-        
-        return Object.assign({}, state, {
-          answers: answers
-        });
-      }
-    case 'SET_USERPROGRESS':
+    case "ADD_ANSWER": {
+      const answers = state.answers.slice();
+      answers.push(action.answer);
+
+      return Object.assign({}, state, {
+        answers: answers
+      });
+    }
+    case "DELETE_ANSWERS": {
+      return Object.assign({}, state, {
+        answers: []
+      });
+    }
+    case "SET_USERPROGRESS":
       return {
         ...state,
         userProgress: action.userProgress
-      }
-    case 'SET_STORYTEMPLATE':
+      };
+    case "SET_STORYTEMPLATE":
       return {
         ...state,
         storyTemplate: action.storyTemplate
-      }
+      };
+    case "SET_USERSTORY":
+      return {
+        ...state,
+        userStory: action.userStory
+      };
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default userData
+export default userData;

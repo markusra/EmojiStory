@@ -1,9 +1,30 @@
-.emojiContainer {
-    bottom: 120%;
-}
-
-.emojiContainer .storyHeader {
+.storyContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .storyContainer .storyDiv {
+    overflow: auto;
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px
+  }
+  
+  .storyContainer .emojiDiv {
     width: 100%;
-    color: white;
-    margin-bottom: 5px;
-}
+    flex: 1
+    /* margin-bottom: 15vh */
+  }
+  
+  .storyContainer .rememberButton {
+    width: 100%
+    /* margin-bottom: 15vh */
+  }
+  

@@ -6,17 +6,13 @@ import history from "../../../history";
 // Connect to Redux store
 import { connect } from "react-redux";
 import { addAnswer } from "../../../actions";
+import { setUserProgress } from "../../../actions/index";
 
 import quizQuestions from "../../../api/quizset_1";
 import EmojiQuestion from "../EmojiQuestion/index";
 import EmojiContainer from "../EmojiContainer";
-import EmojiHeader from "../EmojiContainer/EmojiHeader";
 import EmojiBody from "../EmojiContainer/EmojiBody";
-// import EmojiFooter from "../EmojiContainer/EmojiFooter";
-// import StepCount from "../StepCount";
 import EmojiOverlay from "../EmojiOverlay/index";
-
-import { setUserProgress } from "../../../actions/index";
 
 class EmojiQuiz extends Component {
   constructor(props) {
@@ -29,7 +25,8 @@ class EmojiQuiz extends Component {
       overlayQuestion: "",
       answerOptions: [],
       answerOverlay: false,
-      chosenAnswer: []
+      chosenAnswer: [],
+      userStory: []
     };
 
     this.handleAnswerClick = this.handleAnswerClick.bind(this);
@@ -38,11 +35,52 @@ class EmojiQuiz extends Component {
   }
 
   componentWillMount() {
+    const firstQuestion = quizQuestions.story[0].split(/[*]{3}/g);
+    firstQuestion.splice(
+      1,
+      0,
+      <span className="yellow" key="0">
+        ___
+      </span>
+    );
+
     this.setState({
       question: quizQuestions.questions[0].question,
       answerOptions: quizQuestions.questions[0].answers,
-      chosenAnswer: quizQuestions.questions[0].answers[0]
+      chosenAnswer: quizQuestions.questions[0].answers[0],
+      userStory: [firstQuestion]
     });
+
+   
+  }
+
+  fillPlaceholder(counter) {
+    const tempStory = this.state.userStory.slice();
+
+    tempStory[counter - 1].splice(
+      1,
+      1,
+      <span className="yellow" key={this.state.chosenAnswer.text}>
+        {this.state.chosenAnswer.text}
+      </span>
+    );
+
+    return tempStory;
+  }
+
+  addSentence(counter) {
+    const tempStory = this.state.userStory.slice();
+
+    const nextQuestion = quizQuestions.story[counter].split(/[*]{3}/g);
+    nextQuestion.splice(
+      1,
+      0,
+      <span className="yellow" key="0">
+        ___
+      </span>
+    );
+    tempStory.push(nextQuestion);
+    return tempStory;
   }
 
   setNextQuestion() {
@@ -70,15 +108,23 @@ class EmojiQuiz extends Component {
   }
 
   handleContinueClick() {
+    this.setState({
+      userStory: this.fillPlaceholder(this.state.counter + 1)
+    });
+
     this.props.addAnswer(this.state.chosenAnswer);
 
     if (this.state.questionId === quizQuestions.questions.length) {
-      const url = "/summary"
-      this.props.setUserProgress(url)
+      const url = "/summary";
+      this.props.setUserProgress(url);
       history.push(url);
     } else {
       this.setState({ answerOverlay: false });
       this.setNextQuestion();
+
+      this.setState({
+        userStory: this.addSentence(this.state.counter + 1)
+      });
     }
   }
 
@@ -92,20 +138,13 @@ class EmojiQuiz extends Component {
           question={this.state.overlayQuestion}
           answer={this.state.chosenAnswer}
         />
-        <EmojiHeader title="Create a story by selecting words"/>
         <EmojiBody>
           <EmojiQuestion
-            question={this.state.question}
+            userStory={this.state.userStory}
             answerOptions={this.state.answerOptions}
             onAnswerSelected={this.handleAnswerClick}
           />
         </EmojiBody>
-        {/* <EmojiFooter>
-          <StepCount
-            counter={this.state.questionId}
-            total={quizQuestions.questions.length}
-          />
-        </EmojiFooter> */}
       </EmojiContainer>
     );
   }
@@ -130,11 +169,11 @@ const mapDispatchToProps = dispatch => {
 
 EmojiQuiz.propTypes = {
   handleAnswerClick: PropTypes.func,
-  question: PropTypes.string,
   answers: PropTypes.array,
   test: PropTypes.string,
   addAnswer: PropTypes.func,
-  setUserProgress: PropTypes.func
+  setUserProgress: PropTypes.func,
+  deleteAnswers: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(EmojiQuiz);

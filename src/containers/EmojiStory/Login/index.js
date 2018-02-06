@@ -25,14 +25,14 @@ class Login extends Component {
     this.state = {
       emojis: [],
       loginOverlay: false,
-      attemptsLeft: "3"
+      attemptsLeft: 3
     };
 
     this.onTryAgainButtonClick = this.onTryAgainButtonClick.bind(this);
   }
 
   componentWillMount() {
-    //redirectUser(this.props.userProgress);
+    redirectUser(this.props.userProgress);
   }
 
   onDeleteButtonClick() {
