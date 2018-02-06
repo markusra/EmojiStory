@@ -18,3 +18,19 @@ export const setStoryTemplate = storyTemplate => {
     storyTemplate
   }
 }
+
+export const setUserStory = userStory => {
+  return {
+    type: 'SET_USERSTORY',
+    userStory
+  }
+}
+
+export const deleteAnswers = () => {
+  return {
+    type: 'DELETE_ANSWERS'
+  }
+}
+
+
+

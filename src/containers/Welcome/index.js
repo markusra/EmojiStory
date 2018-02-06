@@ -12,10 +12,13 @@ import history from "../../history";
 // Connect to Redux store
 import { connect } from "react-redux";
 import { setUserProgress } from "../../actions/index";
+import { deleteAnswers } from "../../actions/index";
 
 // TODO: Fix email address
 class Welcome extends Component {
   onButtonClick() {   
+    this.props.deleteAnswers();
+    
     const url = "/emojiStory"
     this.props.setUserProgress(url)
     history.push(url);
@@ -67,12 +70,16 @@ const mapDispatchToProps = dispatch => {
   return {
     setUserProgress: userProgress => {
       dispatch(setUserProgress(userProgress));
+    },
+    deleteAnswers: userStory => {
+      dispatch(deleteAnswers(userStory));
     }
   };
 };
 
 Welcome.propTypes = {
-  setUserProgress: PropTypes.func
+  setUserProgress: PropTypes.func,
+  deleteAnswers: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Welcome);

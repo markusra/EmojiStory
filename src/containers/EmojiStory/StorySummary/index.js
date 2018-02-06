@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import "./index.css";
 
 import EmojiContainer from "../../../components/EmojiStory/EmojiContainer";
-import EmojiHeader from "../../../components/EmojiStory/EmojiContainer/EmojiHeader";
 import EmojiBody from "../../../components/EmojiStory/EmojiContainer/EmojiBody";
 import EmojiFooter from "../../../components/EmojiStory/EmojiContainer/EmojiFooter";
 import EmojiRow from "../../../components/EmojiStory/EmojiRow";
@@ -12,6 +11,7 @@ import history from "../../../history";
 
 // Connect to Redux store
 import { connect } from "react-redux";
+import { setUserProgress } from "../../../actions/index";
 
 import { redirectUser } from "../../../services/redirectUser";
 
@@ -62,7 +62,9 @@ class StorySummary extends Component {
   }
 
   onButtonClick() {
-    history.push("/login");
+    const url = "/login";
+    this.props.setUserProgress(url);
+    history.push(url);
   }
 
   /*eslint no-undef: 0*/
@@ -76,41 +78,45 @@ class StorySummary extends Component {
 
     return (
       <EmojiContainer>
-        <EmojiHeader title="That's it – here is the whole story" />
-        
         <EmojiBody>
-          <h3
-            style={{
-              textAlign: "left",
-              paddingLeft: "15px",
-              paddingRight: "15px"
-            }}
-          >
-            {userStory}
-          </h3>
-        </EmojiBody>
-        <EmojiFooter>
-          <div className="emojiContainer justify-content-center">
-            <Row className="storyHeader justify-content-center">
-              Memorise this EmojiStory
-            </Row>
-            <EmojiRow
-              emojiIcon_1={emojiIcons[0]}
-              emojiIcon_2={emojiIcons[1]}
-              emojiIcon_3={emojiIcons[2]}
-              emojiIcon_4={emojiIcons[3]}
-            />
+          <div className="storyContainer">
+            <div className="storyDiv">
+              <h3
+                style={{
+                  paddingLeft: "15px",
+                  paddingRight: "15px"
+                }}
+              >
+                {userStory}
+              </h3>
+            </div>
+            <div className="emojiDiv">
+              <div className="emojiContainer justify-content-center">
+                <Row className="storyHeader justify-content-center">
+                  Memorise this EmojiStory
+                </Row>
+                <EmojiRow
+                  emojiIcon_1={emojiIcons[0]}
+                  emojiIcon_2={emojiIcons[1]}
+                  emojiIcon_3={emojiIcons[2]}
+                  emojiIcon_4={emojiIcons[3]}
+                />
+              </div>
+            </div>
+
+            <div className="rememberButton">
+              <Button
+                color="default"
+                className="emojiStoryAccept"
+                size="lg"
+                onClick={() => this.onButtonClick()}
+                block
+              >
+                Ok, I remember!
+              </Button>
+            </div>
           </div>
-          <Button
-            color="default"
-            className="emojiStoryAccept"
-            size="lg"
-            onClick={() => this.onButtonClick()}
-            block
-          >
-            Ok, I remember!
-          </Button>
-        </EmojiFooter>
+        </EmojiBody>
       </EmojiContainer>
     );
   }
@@ -124,10 +130,20 @@ const mapStateToProps = state => {
   };
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    setUserProgress: userProgress => {
+      dispatch(setUserProgress(userProgress));
+    }
+  };
+};
+
 StorySummary.propTypes = {
   userProgress: PropTypes.string,
   storyTemplate: PropTypes.string,
-  answers: PropTypes.array
+  answers: PropTypes.array,
+  userStory: PropTypes.string,
+  setUserProgress: PropTypes.func
 };
 
-export default connect(mapStateToProps)(StorySummary);
+export default connect(mapStateToProps, mapDispatchToProps)(StorySummary);

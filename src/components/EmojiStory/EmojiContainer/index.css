@@ -40,7 +40,8 @@
 }
 
 .emoji-body {
-  padding: 15px 15px 0px 15px;
+  padding: 15px;
+  height: 100%;
   color: white;
   background-color: #1b212c;
 }
