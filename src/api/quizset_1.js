@@ -1,4 +1,4 @@
-var story = "Kim comes from ***. She often feels ***, but loves *** and ***.";
+var story = ["Kim comes from ***.", " She often feels ***", ", but loves ***", " and ***."];
 var questions = [
   {
     question: "Kim comes from",

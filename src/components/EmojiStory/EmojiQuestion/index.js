@@ -6,38 +6,83 @@ import "./index.css";
 import { Button } from "reactstrap";
 
 class EmojiQuestion extends Component {
-  constructor(props) {
-    super(props);
-    this.renderAnswerOptions= this.renderAnswerOptions.bind(this);
-  }
-
-  renderAnswerOptions(key) {
-    return (
-      <Button
-        color="answer"
-        size="lg"
-        key={key.text}
-        onClick={() => this.props.onAnswerSelected(key)}
-        block
-      >
-        {key.text[0].toUpperCase() + key.text.slice(1)}
-      </Button>
-    );
-  }
-
   render() {
     return (
-      <Fragment>
-        <h2>{this.props.question}…</h2>
+      <Fragment>        
+        <div className="questionContainer">
+          <div className="storyDiv">
+            <h3 className="story">{this.props.userStory}</h3>
+          </div>
 
-        {this.props.answerOptions.map(this.renderAnswerOptions)}
+          <div className="options">
+            <Button
+              color="default"
+              className="answerButton top"
+              size="lg"
+              onClick={() =>
+                this.props.onAnswerSelected(this.props.answerOptions[0])
+              }
+            >
+              {this.props.answerOptions[0].text[0].toUpperCase() +
+                this.props.answerOptions[0].text.slice(1)}
+            </Button>
+
+            <Button
+              color="default"
+              className="answerButton mid"
+              size="lg"
+              onClick={() =>
+                this.props.onAnswerSelected(this.props.answerOptions[1])
+              }
+            >
+              {this.props.answerOptions[1].text[0].toUpperCase() +
+                this.props.answerOptions[1].text.slice(1)}
+            </Button>
+
+            <Button
+              color="default"
+              className="answerButton mid"
+              size="lg"
+              onClick={() =>
+                this.props.onAnswerSelected(this.props.answerOptions[2])
+              }
+            >
+              {this.props.answerOptions[2].text[0].toUpperCase() +
+                this.props.answerOptions[2].text.slice(1)}
+            </Button>
+
+            <Button
+              color="default"
+              className="answerButton mid"
+              size="lg"
+              onClick={() =>
+                this.props.onAnswerSelected(this.props.answerOptions[3])
+              }
+            >
+              {this.props.answerOptions[3].text[0].toUpperCase() +
+                this.props.answerOptions[3].text.slice(1)}
+            </Button>
+
+            <Button
+              color="default"
+              className="answerButton bottom"
+              size="lg"
+              onClick={() =>
+                this.props.onAnswerSelected(this.props.answerOptions[4])
+              }
+            >
+              {this.props.answerOptions[4].text[0].toUpperCase() +
+                this.props.answerOptions[4].text.slice(1)}
+            </Button>
+          </div>
+        </div>
       </Fragment>
     );
   }
 }
 
 EmojiQuestion.propTypes = {
-  question: PropTypes.string,
+  userStory: PropTypes.array,
   answerOptions: PropTypes.array,
   onAnswerSelected: PropTypes.func
 };

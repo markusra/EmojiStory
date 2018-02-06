@@ -1,37 +1,30 @@
-.emojiContainer {
-    position: absolute;
+.storyContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .storyContainer .storyDiv {
+    overflow: auto;
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px
+  }
+  
+  .storyContainer .emojiDiv {
     width: 100%;
-    bottom: 120%;
-}
-
-.emojiContainer .storyHeader {
-    width: 100%;
-    color: white;
-    margin-bottom: 5px;
-}
-
-.emojiContainer .emojis {
-    width: 100%;
-    padding: 10px;
-    background-color: #828391
-}
-
-.emojiContainer .emojiBackground {
-    background: white;
-    width: 70px;
-    height: 70px;
-    border-radius: 15px;
-    margin-right: 10px
-}
-
-@media (max-width: 350px) {
-    .emojiContainer .emojiBackground {
-        margin-right: 5px
-    }
-}
-
-@media (max-width: 499px) {
-    .emojiStory {
-        bottom: 20vh;
-    }
-}
+    flex: 1
+    /* margin-bottom: 15vh */
+  }
+  
+  .storyContainer .rememberButton {
+    width: 100%
+    /* margin-bottom: 15vh */
+  }
+  

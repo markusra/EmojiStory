@@ -1,0 +1,63 @@
+.login-overlay {
+  transition: opacity 0.5s;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  height: 600px;
+  width: 400px;
+  z-index: 9998;
+  background-color: #1b212c;
+}
+
+.login-overlay .hide {
+  opacity: 0;
+  pointer-events:none;
+}
+
+.login-overlay .result {
+  color: white;
+}
+
+.login-overlay .answer {
+  color: white;
+  margin-top: 10px
+}
+
+.login-overlay .verticalAlign {
+  border: 3px solid white;
+}
+
+.login-overlay-container {
+  height: 100%;
+  padding: 0;
+}
+
+@media (max-width: 499px) {
+  .login-overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+  }
+  .login-overlay .footer {
+    position: fixed !important;
+  }
+}
+
+.login-overlay .footer {
+  position: absolute;
+  padding: 10px 15px 15px 15px;
+  bottom: 0;
+  width: 100%;
+}
+
+.loginIcon {
+  font-size: 10em !important;
+}
+
+.loginIcon.correct{
+  color: #28a745;
+}
+
+.loginIcon.wrong {
+  color: #dc3545;
+}

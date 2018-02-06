@@ -9,8 +9,8 @@ import history from "./history";
 
 import Welcome from "./containers/Welcome/";
 import CreateEmojiStory from "./containers/EmojiStory/CreateStory/";
-import EmojiStorySummary from "./containers/EmojiStory/StorySummary/";
-import NotFound from "./containers/NotFound/";
+import Summary from "./containers/EmojiStory/StorySummary/";
+import Login from "./containers/EmojiStory/Login/";
 import Finish from "./containers/Finish/";
 import Survey from "./containers/Survey/";
 
@@ -27,10 +27,11 @@ ReactDOM.render(
         <Switch>
           <Route exact path="/" component={Welcome} />
           <Route exact path="/emojiStory" component={CreateEmojiStory} />
-          <Route exact path="/summary" component={EmojiStorySummary} />
+          <Route exact path="/summary" component={Summary} />
+          <Route exact path="/login" component={Login} />
           <Route exact path="/finish" component={Finish} />
           <Route exact path="/survey" component={Survey} />
-          <Route component={NotFound} />
+          <Route component={Welcome} />
         </Switch>
       </Router>
     </PersistGate>

@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import EmojiQuiz from "../../../components/EmojiStory/EmojiQuiz/index";
 import EmojiInfo from "../../../components/EmojiStory/EmojiInfo/index";
 import "./index.css";
+import PropTypes from "prop-types";
 
 // Connect to Redux store
 import { connect } from "react-redux";
 
 import { redirectUser } from "../../../services/redirectUser";
 
-class EmojiStory extends Component {
+class CreateStory extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -55,4 +56,8 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(EmojiStory);
+CreateStory.propTypes = {
+  userProgress: PropTypes.string
+};
+
+export default connect(mapStateToProps)(CreateStory);

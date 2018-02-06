@@ -1,0 +1,23 @@
+.emojisKeyboardRow {
+  margin-top: 10px;
+}
+
+.emojiKeyboardBackground {
+    background-color: white;
+    padding: 0;
+    width: 97px;
+    height: 70px;
+    border-radius: 10px;
+    margin-right: 10px
+}
+
+.emojiKeyboardBackground img {
+  width: 70%;
+}
+
+@media (max-width: 320px) {
+  .emojiKeyboardBackground {
+    width: 80px;
+    height: 58px;
+  }
+}
