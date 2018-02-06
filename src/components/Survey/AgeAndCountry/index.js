@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import { FormGroup, Label, Input } from "reactstrap";
 import PropTypes from "prop-types";
-
 
 class AgeAndCountry extends Component {
   constructor(props) {
@@ -72,7 +71,7 @@ class AgeAndCountry extends Component {
             {this.buildOptions()}
           </Input>
         </FormGroup>
-        </div>    
+      </div>
     );
   }
 }

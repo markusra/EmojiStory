@@ -7,14 +7,12 @@ class AppContent extends Component {
     return (
       <Fragment>
         <OrientationOverlay />
-
         <div className={"container app-container"}>
           <nav className={"navbar app-header sticky-top"}>
             <h1 className={"navbar-brand mb-0 app-title"}>
               {this.props.appTitle}
             </h1>
           </nav>
-
           {this.props.children}
         </div>
       </Fragment>

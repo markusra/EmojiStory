@@ -201,11 +201,11 @@ class FinalQuestions extends Component {
 
 
 
-        <div className="form-footer">
+        {/* <div className="form-footer"> */}
           <Button color="success" className="col">
             Submit
           </Button>
-        </div>
+        {/* </div> */}
       </Form>
     );
   }
