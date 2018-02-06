@@ -4,7 +4,6 @@ import "./index.css";
 
 import EmojiContainer from "../../../components/EmojiStory/EmojiContainer";
 import EmojiBody from "../../../components/EmojiStory/EmojiContainer/EmojiBody";
-import EmojiFooter from "../../../components/EmojiStory/EmojiContainer/EmojiFooter";
 import EmojiRow from "../../../components/EmojiStory/EmojiRow";
 
 import history from "../../../history";
@@ -83,8 +82,9 @@ class StorySummary extends Component {
             <div className="storyDiv">
               <h3
                 style={{
-                  paddingLeft: "15px",
-                  paddingRight: "15px"
+                  padding: "15px",
+                  border: "1px solid white",
+                  borderRadius: "8px"
                 }}
               >
                 {userStory}
@@ -106,7 +106,7 @@ class StorySummary extends Component {
 
             <div className="rememberButton">
               <Button
-                color="default"
+                color="primary"
                 className="emojiStoryAccept"
                 size="lg"
                 onClick={() => this.onButtonClick()}
