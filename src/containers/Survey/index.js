@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Gender from "../../components/Survey/Gender/index";
 import ITBackground from "../../components/Survey/ITBackground/index";
-import AgeAndCountry from "../../components/Survey/AgeAndCountry/index";
+import EmojiUsage from "../../components/Survey/EmojiUsage";
 import FinalQuestionsContainer from "../../components/Survey/FinalQuestionsContainer";
 import { sendDataToDB } from "../../services/sendDataToDB";
 import Finish from "../Finish/index";
@@ -60,14 +60,14 @@ class Survey extends Component {
 
   setITBackgroundTrue() {
     this.setState({
-      page: "questions",
+      page: "emojiUsage",
       itBackground: "yes"
     });
   }
 
   setITBackgroundFalse() {
     this.setState({
-      page: "questions",
+      page: "emojiUsage",
       itBackground: "no"
     });
   }
@@ -94,6 +94,12 @@ class Survey extends Component {
         )}
         {this.state.page === "itbackground" && (
           <ITBackground
+            onYesClick={this.setITBackgroundTrue}
+            onNoClick={this.setITBackgroundFalse}
+          />
+        )}
+        {this.state.page === "emojiUsage" && (
+          <EmojiUsage
             onYesClick={this.setITBackgroundTrue}
             onNoClick={this.setITBackgroundFalse}
           />
