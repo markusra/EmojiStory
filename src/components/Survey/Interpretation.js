@@ -2,10 +2,7 @@ import React, { Component } from "react";
 import { Button } from "reactstrap";
 import "./index.css";
 import PropTypes from "prop-types";
-import EmojiContainer from "./../EmojiStory/EmojiContainer/index";
-import EmojiBody from "./../EmojiStory/EmojiContainer/EmojiBody";
 import AppContainer from "./../AppContainer";
-import AppBody from "./../AppBody";
 import SurveyBody from "./SurveyBody";
 
 class Interpretation extends Component {
