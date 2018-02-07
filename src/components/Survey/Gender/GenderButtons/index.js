@@ -3,27 +3,7 @@ import "./index.css";
 import PropTypes from "prop-types";
 
 class GenderButtons extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      gender: "hei"
-    };
-
-    this.setFemale = this.setFemale.bind(this);
-    this.setMale = this.setMale.bind(this);
-  }
-
-  setFemale() {
-    this.setState({
-      gender: "female"
-    });
-  }
-
-  setMale() {
-    this.setState({
-      gender: "male"
-    });
-  }
+  
 
   render() {
     return (
@@ -31,7 +11,7 @@ class GenderButtons extends Component {
         <div className="row justify-content-center">
           <div
             onClick={() => {
-              this.props.onFemaleClick();
+              this.props.setGender("female");
             }}
           >
             <i
@@ -41,7 +21,7 @@ class GenderButtons extends Component {
           </div>
           <div
             onClick={() => {
-              this.props.onMaleClick();
+              this.props.setGender("male");
             }}
           >
             <i className="fa fa-male male-styling pointer" aria-hidden="true" />
@@ -53,8 +33,7 @@ class GenderButtons extends Component {
 }
 
 GenderButtons.propTypes = {
-  onFemaleClick: PropTypes.func,
-  onMaleClick: PropTypes.func
+  setGender: PropTypes.func
 };
 
 export default GenderButtons;

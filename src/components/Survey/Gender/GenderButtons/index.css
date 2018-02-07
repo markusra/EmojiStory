@@ -5,11 +5,13 @@
     font-size: 35vh;
     padding-right: 5vw;
     padding-top: 17vh;
+    color: #1b212c;
   }
   
   .male-styling {
     font-size: 35vh;
     padding-top: 17vh;
+    color: #1b212c;
   }
 
 }
@@ -19,11 +21,13 @@
     font-size: 250px;
     margin-right: 10px;
     margin-top: 80px;
+    color: #1b212c;
   }
   
   .male-styling {
     font-size: 250px;
     margin-top: 80px;
+    color: #1b212c;
   }
 
 }

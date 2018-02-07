@@ -19,31 +19,40 @@
 
 .options {
   padding: 15px 5px 5px 5px;
-  border-top: 1px solid white;
+  /* border-top: 1px solid black; */
 }
 
-.answerButton {
+.options2 {
+  padding: 15px 5px 5px 5px;
+  width: 100%;
+}
+
+.surveyAnswerButton {
   margin-top: 5px !important;
   width: 100%;
 }
 
-.answerButton.top {
+.surveyAnswerButton.top {
   margin-top: 5px !important;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   color: white;
-  background-color: #212529;
+  background-color: #1b212c;
 }
 
-.answerButton.mid {
+.surveyAnswerButton.mid {
   border-radius: 0;
   color: white;
-  background-color: #212529;
+  background-color: #1b212c;
 }
 
-.answerButton.bottom {
+.surveyAnswerButton.bottom {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   color: white;
-  background-color: #212529;
+  background-color: #1b212c;
 }
+
+
+
+

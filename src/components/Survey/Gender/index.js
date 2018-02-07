@@ -11,8 +11,7 @@ class Gender extends Component {
         <AppBody>
           <h4>What is your gender?</h4>
           <GenderButtons
-            onFemaleClick={this.props.onFemaleClick}
-            onMaleClick={this.props.onMaleClick}
+            setGender={this.props.setGender}
           />
         </AppBody>
       </AppContainer>
@@ -21,8 +20,7 @@ class Gender extends Component {
 }
 
 Gender.propTypes = {
-  onFemaleClick: PropTypes.func,
-  onMaleClick: PropTypes.func
+  setGender: PropTypes.func
 };
 
 export default Gender;

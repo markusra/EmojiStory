@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Gender from "../../components/Survey/Gender/index";
 import ITBackground from "../../components/Survey/ITBackground/index";
 import EmojiUsage from "../../components/Survey/EmojiUsage";
+import Interpretation from "../../components/Survey/Interpretation";
 import FinalQuestionsContainer from "../../components/Survey/FinalQuestionsContainer";
 import { sendDataToDB } from "../../services/sendDataToDB";
 import Finish from "../Finish/index";
@@ -20,15 +21,16 @@ class Survey extends Component {
       page: "gender",
       age: "",
       nationality: "",
-      emojiUse: "",
+      emojiUsage: "",
       gender: "",
       itBackground: "",
+      interpretation: "",
       memorization: ""
     };
-    this.setITBackgroundTrue = this.setITBackgroundTrue.bind(this);
-    this.setITBackgroundFalse = this.setITBackgroundFalse.bind(this);
-    this.setFemale = this.setFemale.bind(this);
-    this.setMale = this.setMale.bind(this);
+    this.setITBackground = this.setITBackground.bind(this);
+    this.setGender = this.setGender.bind(this);
+    this.setEmojiUsage = this.setEmojiUsage.bind(this);
+    this.setInterpretation = this.setInterpretation.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.sendToDB = this.sendToDB.bind(this);
@@ -38,9 +40,10 @@ class Survey extends Component {
     const key = sendDataToDB(
       this.state.age,
       this.state.nationality,
-      this.state.emojiUse,
+      this.state.emojiUsage,
       this.state.gender,
       this.state.itBackground,
+      this.state.interpretation,
       this.state.memorization
     );
 
@@ -55,54 +58,49 @@ class Survey extends Component {
   }
 
   handleChange(e) {
-    this.setState({[e.target.name]: e.target.value});
+    this.setState({ [e.target.name]: e.target.value });
   }
 
-  setITBackgroundTrue() {
+  setGender(value) {
     this.setState({
-      page: "emojiUsage",
-      itBackground: "yes"
-    });
-  }
-
-  setITBackgroundFalse() {
-    this.setState({
-      page: "emojiUsage",
-      itBackground: "no"
-    });
-  }
-
-  setFemale() {
-    this.setState({
-      gender: "female",
+      gender: value,
       page: "itbackground"
     });
   }
 
-  setMale() {
+  setITBackground(value) {
     this.setState({
-      gender: "male",
-      page: "itbackground"
+      itBackground: value,
+      page: "emojiUsage"
+    });
+  }
+
+  setEmojiUsage(value) {
+    this.setState({
+      emojiUsage: value,
+      page: "interpretation"
+    });
+  }
+
+  setInterpretation(value) {
+    this.setState({
+      interpretation: value,
+      page: "questions"
     });
   }
 
   render() {
     return (
       <div>
-        {this.state.page === "gender" && (
-          <Gender onFemaleClick={this.setFemale} onMaleClick={this.setMale} />
-        )}
+        {this.state.page === "gender" && <Gender setGender={this.setGender} />}
         {this.state.page === "itbackground" && (
-          <ITBackground
-            onYesClick={this.setITBackgroundTrue}
-            onNoClick={this.setITBackgroundFalse}
-          />
+          <ITBackground setITBackground={this.setITBackground} />
         )}
         {this.state.page === "emojiUsage" && (
-          <EmojiUsage
-            onYesClick={this.setITBackgroundTrue}
-            onNoClick={this.setITBackgroundFalse}
-          />
+          <EmojiUsage setEmojiUsage={this.setEmojiUsage} />
+        )}
+        {this.state.page === "interpretation" && (
+          <Interpretation setInterpretation={this.setInterpretation} />
         )}
         {this.state.page === "questions" && (
           <FinalQuestionsContainer
@@ -130,6 +128,4 @@ Survey.propTypes = {
   userProgress: PropTypes.string
 };
 
-
 export default connect(mapStateToProps)(Survey);
-

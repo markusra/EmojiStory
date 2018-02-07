@@ -1,41 +1,19 @@
-@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
-
-@media (max-width: 500px) { 
-  .female-styling {
-    font-size: 35vh;
-    padding-right: 5vw;
-    padding-top: 17vh;
-  }
-  
-  .male-styling {
-    font-size: 35vh;
-    padding-top: 17vh;
-  }
-
+.surveyAnswerButton {
+  margin-top: 5px !important;
+  width: 100%;
 }
 
-@media (min-width: 499px) { 
-  .female-styling {
-    font-size: 250px;
-    margin-right: 10px;
-    margin-top: 80px;
-  }
-  
-  .male-styling {
-    font-size: 250px;
-    margin-top: 80px;
-  }
-
-}
-.h4 {
-  text-align: center;
-  margin-top: 3vh;
-  }
-
-.pointer{
-     cursor: pointer;
+.surveyAnswerButton.yes {
+  margin-top: 5px !important;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  color: white;
+  background-color: #1b212c;
 }
 
-.it-background .btn-block {
-  margin-top: 50px !important;
+.surveyAnswerButton.no {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  color: white;
+  background-color: #1b212c;
 }

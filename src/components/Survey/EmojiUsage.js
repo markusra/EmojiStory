@@ -13,69 +13,48 @@ class EmojiUsage extends Component {
     return (
       <AppContainer appTitle="Survey – Emoji-Based Authentication">
         <SurveyBody>
-            <div className="answersContainer">
-              <div className="questionDiv">
-                <h3 className="story">How often do you use emojis?</h3>
-              </div>
-
-              <div className="options">
-                <Button
-                  // color="#212529"
-                  className="answerButton top"
-                  size="lg"
-                  // onClick={() =>
-                  //   this.props.onAnswerSelected(this.props.answerOptions[0])
-                  // }
-                >
-                  Several times a day
-                </Button>
-
-                <Button
-                  color="default"
-                  className="answerButton mid"
-                  size="lg"
-                  // onClick={() =>
-                  //   this.props.onAnswerSelected(this.props.answerOptions[1])
-                  // }
-                >
-                  Once a day
-                </Button>
-
-                <Button
-                  color="default"
-                  className="answerButton mid"
-                  size="lg"
-                  // onClick={() =>
-                  //   this.props.onAnswerSelected(this.props.answerOptions[2])
-                  // }
-                >
-                  Several times a week
-                </Button>
-
-                <Button
-                  color="default"
-                  className="answerButton mid"
-                  size="lg"
-                  // onClick={() =>
-                  //   this.props.onAnswerSelected(this.props.answerOptions[3])
-                  // }
-                >
-                  Once a week
-                </Button>
-
-                <Button
-                  color="default"
-                  className="answerButton bottom"
-                  size="lg"
-                  // onClick={() =>
-                  //   this.props.onAnswerSelected(this.props.answerOptions[4])
-                  // }
-                >
-                  Never
-                </Button>
-              </div>
+          <div className="answersContainer">
+            <div className="questionDiv">
+              <h3 className="story">How often do you use emojis?</h3>
             </div>
-          
+            <div className="options">
+              <Button
+                className="surveyAnswerButton top"
+                size="lg"
+                onClick={() => this.props.setEmojiUsage("Several times a day")}
+              >
+                Several times a day
+              </Button>
+              <Button
+                className="surveyAnswerButton mid"
+                size="lg"
+                onClick={() => this.props.setEmojiUsage("Once a day")}
+              >
+                Once a day
+              </Button>
+              <Button
+                className="surveyAnswerButton mid"
+                size="lg"
+                onClick={() => this.props.setEmojiUsage("Several times a week")}
+              >
+                Several times a week
+              </Button>
+              <Button
+                className="surveyAnswerButton mid"
+                size="lg"
+                onClick={() => this.props.setEmojiUsage("Once a week")}
+              >
+                Once a week
+              </Button>
+              <Button
+                className="surveyAnswerButton bottom"
+                size="lg"
+                onClick={() => this.props.setEmojiUsage("Never")}
+              >
+                Never
+              </Button>
+            </div>
+          </div>
         </SurveyBody>
       </AppContainer>
     );
@@ -83,8 +62,7 @@ class EmojiUsage extends Component {
 }
 
 EmojiUsage.propTypes = {
-  onYesClick: PropTypes.func,
-  onNoClick: PropTypes.func
+  setEmojiUsage: PropTypes.func
 };
 
 export default EmojiUsage;

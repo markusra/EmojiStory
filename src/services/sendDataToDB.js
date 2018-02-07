@@ -1,15 +1,16 @@
 import firebase from "../firebase";
 
-export const sendDataToDB = (Age, Nationality, EmojiUse, Gender, ItBackground, Memorization) => {
+export const sendDataToDB = (Age, Nationality, EmojiUsage, Gender, ItBackground, Interpretation, Memorization) => {
   const userKey = firebase.database().ref().child('users').push().key;
 
   const userData = {
     age: Age,
     nationality: Nationality,
-    emojiUse: EmojiUse,
+    emojiUsage: EmojiUsage,
     gender: Gender,
     itBackground: ItBackground,
     emojiPassword: "",
+    interpretation : Interpretation,
     memorization: Memorization
   }
 
