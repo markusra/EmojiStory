@@ -12,36 +12,36 @@ class Memorization extends Component {
         <SurveyBody>
           <div className="answersContainer">
             <div className="questionDiv">
-              <h3 className="story">How did you remember your emoji-password? I memorized...</h3>
+              <h3 className="story">I remembered my emoji-password by memorizing...</h3>
             </div>
             <div className="options2">
               <Button
                 className="surveyAnswerButton top"
                 size="lg"
-                onClick={() => this.props.setInterpretation("Yes")}
+                onClick={() => this.props.setMemorization("the emojis")}
               >
                 the emojis 
               </Button>
               <Button
                 className="surveyAnswerButton mid"
                 size="lg"
-                onClick={() => this.props.setInterpretation("No")}
+                onClick={() => this.props.setMemorization("the story")}
               >
                 the story
               </Button>
               <Button
                 className="surveyAnswerButton mid"
                 size="lg"
-                onClick={() => this.props.setInterpretation("No")}
+                onClick={() => this.props.setMemorization("the emojis and the story")}
               >
                 the emojis and the story
               </Button>
               <Button
                 className="surveyAnswerButton bottom"
                 size="lg"
-                onClick={() => this.props.setInterpretation("I don't know")}
+                onClick={() => this.props.setMemorization("I don't know")}
               >
-                i did not remember
+                nothing
               </Button>
             </div>
           </div>
@@ -52,7 +52,7 @@ class Memorization extends Component {
 }
 
 Memorization.propTypes = {
-  setInterpretation: PropTypes.func
+  setMemorization: PropTypes.func
 };
 
 export default Memorization;

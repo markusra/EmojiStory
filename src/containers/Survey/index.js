@@ -3,6 +3,7 @@ import Gender from "../../components/Survey/Gender/index";
 import ITBackground from "../../components/Survey/ITBackground/index";
 import EmojiUsage from "../../components/Survey/EmojiUsage";
 import Interpretation from "../../components/Survey/Interpretation";
+import Memorization from "../../components/Survey/Memorization";
 import FinalQuestionsContainer from "../../components/Survey/FinalQuestionsContainer";
 import { sendDataToDB } from "../../services/sendDataToDB";
 import Finish from "../Finish/index";
@@ -31,6 +32,7 @@ class Survey extends Component {
     this.setGender = this.setGender.bind(this);
     this.setEmojiUsage = this.setEmojiUsage.bind(this);
     this.setInterpretation = this.setInterpretation.bind(this);
+    this.setMemorization = this.setMemorization.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.sendToDB = this.sendToDB.bind(this);
@@ -85,6 +87,13 @@ class Survey extends Component {
   setInterpretation(value) {
     this.setState({
       interpretation: value,
+      page: "memorization"
+    });
+  }
+
+  setMemorization(value) {
+    this.setState({
+      memorization: value,
       page: "questions"
     });
   }
@@ -101,6 +110,9 @@ class Survey extends Component {
         )}
         {this.state.page === "interpretation" && (
           <Interpretation setInterpretation={this.setInterpretation} />
+        )}
+        {this.state.page === "memorization" && (
+          <Memorization setMemorization={this.setMemorization} />
         )}
         {this.state.page === "questions" && (
           <FinalQuestionsContainer

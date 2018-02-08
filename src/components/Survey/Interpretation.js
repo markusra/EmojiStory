@@ -12,7 +12,7 @@ class Interpretation extends Component {
         <SurveyBody>
           <div className="answersContainer">
             <div className="questionDiv">
-              <h3 className="story">Were you able to interpret the emojis you encountered?</h3>
+              <h3 className="story">Were you able to interpret all the emojis you encountered?</h3>
             </div>
             <div className="options2">
               <Button
