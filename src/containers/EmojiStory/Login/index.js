@@ -64,9 +64,8 @@ class Login extends Component {
     return false;
   }
 
-  /*eslint no-undef: 0*/
   render() {
-    const emojiPath = process.env.PUBLIC_URL + "/emojis/";
+    const emojiPath = "/emojis/";
     return (
       <EmojiContainer>
         <LoginOverlay
@@ -96,14 +95,14 @@ class Login extends Component {
               className="emojiKeyboardBackground"
               onClick={() => this.onEmojiButtonClick(1)}
             >
-              <img src={emojiPath + this.props.keyboard[1].src} alt="Emoji 1" />
+              <img src={emojiPath + this.props.keyboard[1].src} alt="Emoji 2" />
             </Button>
             <Button
               color="default"
               className="emojiKeyboardBackground margin-0"
               onClick={() => this.onEmojiButtonClick(2)}
             >
-              <img src={emojiPath + this.props.keyboard[2].src} alt="Emoji 1" />
+              <img src={emojiPath + this.props.keyboard[2].src} alt="Emoji 3" />
             </Button>
           </Row>
           <Row className="emojisKeyboardRow justify-content-center">
@@ -112,21 +111,21 @@ class Login extends Component {
               className="emojiKeyboardBackground"
               onClick={() => this.onEmojiButtonClick(3)}
             >
-              <img src={emojiPath + this.props.keyboard[3].src} alt="Emoji 1" />
+              <img src={emojiPath + this.props.keyboard[3].src} alt="Emoji 4" />
             </Button>
             <Button
               color="default"
               className="emojiKeyboardBackground"
               onClick={() => this.onEmojiButtonClick(4)}
             >
-              <img src={emojiPath + this.props.keyboard[4].src} alt="Emoji 1" />
+              <img src={emojiPath + this.props.keyboard[4].src} alt="Emoji 5" />
             </Button>
             <Button
               color="default"
               className="emojiKeyboardBackground margin-0"
               onClick={() => this.onEmojiButtonClick(5)}
             >
-              <img src={emojiPath + this.props.keyboard[5].src} alt="Emoji 1" />
+              <img src={emojiPath + this.props.keyboard[5].src} alt="Emoji 6" />
             </Button>
           </Row>
           <Row className="emojisKeyboardRow justify-content-center">
@@ -135,21 +134,21 @@ class Login extends Component {
               className="emojiKeyboardBackground"
               onClick={() => this.onEmojiButtonClick(6)}
             >
-              <img src={emojiPath + this.props.keyboard[6].src} alt="Emoji 1" />
+              <img src={emojiPath + this.props.keyboard[6].src} alt="Emoji 7" />
             </Button>
             <Button
               color="default"
               className="emojiKeyboardBackground"
               onClick={() => this.onEmojiButtonClick(7)}
             >
-              <img src={emojiPath + this.props.keyboard[7].src} alt="Emoji 1" />
+              <img src={emojiPath + this.props.keyboard[7].src} alt="Emoji 8" />
             </Button>
             <Button
               color="default"
               className="emojiKeyboardBackground margin-0"
               onClick={() => this.onEmojiButtonClick(8)}
             >
-              <img src={emojiPath + this.props.keyboard[8].src} alt="Emoji 1" />
+              <img src={emojiPath + this.props.keyboard[8].src} alt="Emoji 9" />
             </Button>
           </Row>
           <Row className="emojisKeyboardRow justify-content-center">
@@ -158,7 +157,7 @@ class Login extends Component {
               className="emojiKeyboardBackground"
               onClick={() => this.onEmojiButtonClick(9)}
             >
-              <img src={emojiPath + this.props.keyboard[9].src} alt="Emoji 1" />
+              <img src={emojiPath + this.props.keyboard[9].src} alt="Emoji 10" />
             </Button>
             <Button
               color="default"
@@ -167,7 +166,7 @@ class Login extends Component {
             >
               <img
                 src={emojiPath + this.props.keyboard[10].src}
-                alt="Emoji 1"
+                alt="Emoji 11"
               />
             </Button>
             <Button
@@ -177,7 +176,7 @@ class Login extends Component {
             >
               <img
                 src={emojiPath + this.props.keyboard[11].src}
-                alt="Emoji 1"
+                alt="Emoji 12"
               />
             </Button>
           </Row>

@@ -67,7 +67,6 @@ class StorySummary extends Component {
     history.push(url);
   }
 
-  /*eslint no-undef: 0*/
   render() {
     const userStory = this.fillPlaceholders(
       this.props.storyTemplate,

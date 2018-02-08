@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 // Import Bootstrap Components
 import { Button } from "reactstrap";
 
-/*eslint no-undef: 0*/
 class LoginOverlay extends Component {
   render() {
     const visible = this.props.visible ? "fade-in" : "fade-out";

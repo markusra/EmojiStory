@@ -34,6 +34,11 @@ class EmojiQuiz extends Component {
     this.handleContinueClick = this.handleContinueClick.bind(this);
   }
 
+  preloadImage(answerOption) {
+    var img = new Image();
+    img.src = "/emojis/" + answerOption.src;
+  }
+
   componentWillMount() {
     const firstQuestion = quizQuestions.story[0].split(/[*]{3}/g);
     firstQuestion.splice(
@@ -44,14 +49,18 @@ class EmojiQuiz extends Component {
       </span>
     );
 
+
+    const answerOptions = quizQuestions.questions[0].answers
+
     this.setState({
       question: quizQuestions.questions[0].question,
-      answerOptions: quizQuestions.questions[0].answers,
+      answerOptions: answerOptions,
       chosenAnswer: quizQuestions.questions[0].answers[0],
       userStory: [firstQuestion]
     });
 
-   
+    // Preload images
+    answerOptions.map(this.preloadImage);
   }
 
   fillPlaceholder(counter) {
@@ -87,12 +96,17 @@ class EmojiQuiz extends Component {
     const counter = this.state.counter + 1;
     const questionId = this.state.questionId + 1;
 
+    const answerOptions = quizQuestions.questions[counter].answers;
+
     this.setState({
       counter: counter,
       questionId: questionId,
       question: quizQuestions.questions[counter].question,
       answerOptions: quizQuestions.questions[counter].answers
     });
+
+     // Preload images
+     answerOptions.map(this.preloadImage);
   }
 
   handleAnswerClick(answer) {
@@ -108,11 +122,11 @@ class EmojiQuiz extends Component {
   }
 
   handleContinueClick() {
+    this.props.addAnswer(this.state.chosenAnswer);
+
     this.setState({
       userStory: this.fillPlaceholder(this.state.counter + 1)
     });
-
-    this.props.addAnswer(this.state.chosenAnswer);
 
     if (this.state.questionId === quizQuestions.questions.length) {
       const url = "/summary";
