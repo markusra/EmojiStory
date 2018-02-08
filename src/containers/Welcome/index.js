@@ -16,11 +16,11 @@ import { deleteAnswers } from "../../actions/index";
 
 // TODO: Fix email address
 class Welcome extends Component {
-  onButtonClick() {   
+  onButtonClick() {
     this.props.deleteAnswers();
-    
-    const url = "/emojiStory"
-    this.props.setUserProgress(url)
+
+    const url = "/emojiStory";
+    this.props.setUserProgress(url);
     history.push(url);
   }
 
@@ -29,29 +29,29 @@ class Welcome extends Component {
       <AppContainer appTitle="Survey – Emoji-Based Authentication">
         <AppBody>
           <p>
-            This survey is created by Martin Kjellevand and Markus Rauhut for
-            researching the <b>usability</b> and <b>security</b> of emoji-based
-            authentication. The data from this survey is collected for a master
-            thesis conducted at the{" "}
-            <b>Norwegian University of Science and Technology</b>. The survey is
-            divided into two parts. In order to be able to remind you about the
-            second part, we ask you for an email address.
+            This survey is created by Martin Kjellevand and Markus Rauhut in
+            order to research the <b>usability</b> and <b>security</b> of
+            emoji-based authentication. The data from this survey is collected
+            for a master thesis conducted at the{" "}
+            <b>Norwegian University of Science and Technology</b>.
           </p>
 
           <p>
-            All data collected is encrypted, will be treated confidentially and
-            is only used for research purposes. No personal information will be
-            disclosed to the public and you will not be recognizable in the
-            publication. The project is scheduled for completion by June 2018.
-            At this point all data will be anonymised. If you have any questions
-            concerning the project, please contact us at [email address]. The
-            study has been notified to the Data Protection Official for
-            Research, NSD - Norwegian Centre for Research Data.
+            The survey is anonymous and you will not be asked for any personal
+            information. If you have any questions concerning the project,
+            please contact us at [email address]. The study has been notified to
+            the Data Protection Official for Research, NSD - Norwegian Centre
+            for Research Data.
           </p>
         </AppBody>
 
         <AppFooter>
-          <Button color="success" size="lg" onClick={() => this.onButtonClick()} block>
+          <Button
+            color="success"
+            size="lg"
+            onClick={() => this.onButtonClick()}
+            block
+          >
             Start the survey
           </Button>
         </AppFooter>

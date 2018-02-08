@@ -23,7 +23,8 @@ class StorySummary extends Component {
   }
 
   fillPlaceholders(storyTemplate, emojis) {
-    var splitStory = storyTemplate.join("").split(/[*]{3}/g);
+    const storyString = storyTemplate.join("");
+    const splitStory = storyString.split(/[*]{3}/g);
 
     const storyLength = splitStory.length;
     const emojisLength = emojis.length;
