@@ -1,5 +1,29 @@
+.flexContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.passwordContainer {
+  width: 100%;
+  padding: 15px 15px 10px 15px;
+}
+
+
 .emojisKeyboardRow {
   margin-top: 10px;
+  flex: 1;
+  display: flex;
+}
+
+.deleteButtonContainer {
+  padding: 20px;
+}
+
+.deleteButton {
+  width: 315px
 }
 
 .emojiKeyboardBackground {
@@ -19,5 +43,9 @@
   .emojiKeyboardBackground {
     width: 80px;
     height: 58px;
+  }
+
+  .deleteButton {
+    width: 260px
   }
 }

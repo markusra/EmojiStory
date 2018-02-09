@@ -9,6 +9,12 @@
   background-color: #1b212c;
 }
 
+@media (min-width: 500px) {
+  .emoji-overlay {
+    border-radius: 15px;
+  }
+}
+
 .emoji-overlay .hide {
   opacity: 0;
   pointer-events:none;
@@ -47,7 +53,7 @@
 
 .emoji-overlay .footer {
   position: absolute;
-  padding: 10px 15px 15px 15px;
+  padding: 10px 15px 20px 15px;
   bottom: 0;
   width: 100%;
 }
