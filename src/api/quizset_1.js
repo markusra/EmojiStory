@@ -1,102 +1,102 @@
-var story = ["Kim comes from ***.", " She often feels ***", ", but loves ***", " and ***."];
+var story = ["The king of ***", " owns a three-headed ***", " that eats *** every day.", " This makes the king very ***."];
 var questions = [
   {
-    question: "Kim comes from",
+    question: "Ok, the king is from",
     answers: [
       {
-        text: "China",
-        src: "1f1e8-1f1f3.svg"
+        text: "Norway",
+        src: "countries/1f1e7-1f1fb.svg"
       },
       {
-        text: "Norway",
-        src: "1f1e7-1f1fb.svg"
+        text: "Switzerland",
+        src: "countries/1f1e8-1f1ed.svg"
       },
       {
         text: "Germany",
-        src: "1f4a9.svg"
+        src: "countries/1f1e9-1f1ea.svg"
       },
       {
-        text: "Egypt",
-        src: "1f4a9.svg"
+        text: "France",
+        src: "countries/1f1eb-1f1f7.svg"
       },
       {
-        text: "Vietnam",
-        src: "1f4a9.svg"
+        text: "United Kingdom",
+        src: "countries/1f1ec-1f1e7.svg"
       }
     ]
   },
   {
-    question: "Kim is feeling",
+    question: "The king owns a three-headed",
     answers: [
       {
-        text: "happy",
-        src: "1f4a9.svg"
+        text: "crocodile",
+        src: "animals/1f40a.svg"
       },
       {
-        text: "sad",
-        src: "1f4a9.svg"
+        text: "snail",
+        src: "animals/1f40c.svg"
       },
       {
-        text: "hungry",
-        src: "1f4a9.svg"
+        text: "ant",
+        src: "animals/1f41c.svg"
       },
       {
-        text: "tired",
-        src: "1f4a9.svg"
+        text: "fish",
+        src: "animals/1f41f.svg"
       },
       {
-        text: "sleepy",
-        src: "1f4a9.svg"
+        text: "camel",
+        src: "animals/1f42b.svg"
       }
     ]
   },
   {
-    question: "Kim's favorite food is",
+    question: "Every day, the three-headed creature eats",
     answers: [
       {
-        text: "grapes",
-        src: "1f4a9.svg"
+        text: "mobile phones",
+        src: "objects/1f4f1.svg"
       },
       {
-        text: "mushrooms",
-        src: "1f4a9.svg"
+        text: "policemen",
+        src: "objects/1f46e-1f3fd.svg"
+      },
+      {
+        text: "diamonds",
+        src: "objects/1f48e.svg"
+      },
+      {
+        text: "taxies",
+        src: "objects/1f695.svg"
       },
       {
         text: "bacon",
-        src: "1f4a9.svg"
-      },
-      {
-        text: "sushi",
-        src: "1f4a9.svg"
-      },
-      {
-        text: "cheese",
-        src: "1f4a9.svg"
+        src: "objects/1f953.svg"
       }
     ]
   },
   {
-    question: "Kim is a big fan of",
+    question: "This makes the king very",
     answers: [
       {
-        text: "money",
-        src: "1f4a9.svg"
+        text: "happy",
+        src: "feelings/1f604.svg"
       },
       {
-        text: "saxophones",
-        src: "1f4a9.svg"
+        text: "angry",
+        src: "feelings/1f621.svg"
       },
       {
-        text: "books",
-        src: "1f4a9.svg"
+        text: "sad",
+        src: "feelings/1f622.svg"
       },
       {
-        text: "telescopes",
-        src: "1f4a9.svg"
+        text: "tired",
+        src: "feelings/1f634.svg"
       },
       {
-        text: "satellites",
-        src: "1f4a9.svg"
+        text: "sick",
+        src: "feelings/1f912.svg"
       }
     ]
   }

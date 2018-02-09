@@ -11,8 +11,9 @@
 
 @media (max-width: 499px) {
   .emoji-container {
+    position: fixed;
     padding: 0 !important;
-    height: 100vh;
+    height: 100%;
   }
 
   .emoji-footer {
@@ -22,8 +23,6 @@
 
 .emoji-container {
   background-color: #1b212c;
-  overflow-y: hidden;
-  overflow-x: hidden;
 }
 
 .emoji-header {

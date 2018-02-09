@@ -16,6 +16,8 @@
 
 .emoji-overlay .question {
   color: white;
+  padding-left: 15px;
+  padding-right: 15px
 }
 
 .emoji-overlay .answer {

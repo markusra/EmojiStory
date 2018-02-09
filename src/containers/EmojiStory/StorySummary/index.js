@@ -4,7 +4,6 @@ import "./index.css";
 
 import EmojiContainer from "../../../components/EmojiStory/EmojiContainer";
 import EmojiBody from "../../../components/EmojiStory/EmojiContainer/EmojiBody";
-import EmojiFooter from "../../../components/EmojiStory/EmojiContainer/EmojiFooter";
 import EmojiRow from "../../../components/EmojiStory/EmojiRow";
 
 import history from "../../../history";
@@ -24,7 +23,8 @@ class StorySummary extends Component {
   }
 
   fillPlaceholders(storyTemplate, emojis) {
-    var splitStory = storyTemplate.split(/[*]{3}/g);
+    const storyString = storyTemplate.join("");
+    const splitStory = storyString.split(/[*]{3}/g);
 
     const storyLength = splitStory.length;
     const emojisLength = emojis.length;
@@ -67,7 +67,6 @@ class StorySummary extends Component {
     history.push(url);
   }
 
-  /*eslint no-undef: 0*/
   render() {
     const userStory = this.fillPlaceholders(
       this.props.storyTemplate,
@@ -83,8 +82,9 @@ class StorySummary extends Component {
             <div className="storyDiv">
               <h3
                 style={{
-                  paddingLeft: "15px",
-                  paddingRight: "15px"
+                  padding: "15px",
+                  border: "1px solid white",
+                  borderRadius: "8px"
                 }}
               >
                 {userStory}
@@ -106,7 +106,7 @@ class StorySummary extends Component {
 
             <div className="rememberButton">
               <Button
-                color="default"
+                color="primary"
                 className="emojiStoryAccept"
                 size="lg"
                 onClick={() => this.onButtonClick()}
@@ -140,7 +140,7 @@ const mapDispatchToProps = dispatch => {
 
 StorySummary.propTypes = {
   userProgress: PropTypes.string,
-  storyTemplate: PropTypes.string,
+  storyTemplate: PropTypes.array,
   answers: PropTypes.array,
   userStory: PropTypes.string,
   setUserProgress: PropTypes.func
