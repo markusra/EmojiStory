@@ -1,28 +1,36 @@
 import React, { Component } from "react";
 import AppContainer from "../../AppContainer";
-import AppBody from "../../AppBody";
-import BackgroundButtons from "./ITBackgroundButtons/index";
+import ITBackgroundButtons from "./ITBackgroundButtons/index";
 import PropTypes from "prop-types";
+import SurveyBody from "./../SurveyBody";
+import "./../index.css";
 
 class ITBackground extends Component {
   render() {
     return (
       <AppContainer appTitle="Survey – Emoji-Based Authentication">
-        <AppBody>
-          <h4>Do you have a background in IT or security?</h4>
-          <BackgroundButtons
-            onYesClick={this.props.onYesClick}
-            onNoClick={this.props.onNoClick}
-          />
-        </AppBody>
+        <SurveyBody>
+          <div className="surveyContainer">
+            <div className="questionDiv">
+              <h3>
+                Do you have a background in IT or security?
+              </h3>
+            </div>
+
+            <div className="options2">
+              <ITBackgroundButtons
+                setITBackground={this.props.setITBackground}
+              />
+            </div>
+          </div>
+        </SurveyBody>
       </AppContainer>
     );
   }
 }
 
 ITBackground.propTypes = {
-  onYesClick: PropTypes.func,
-  onNoClick: PropTypes.func
+  setITBackground: PropTypes.func
 };
 
 export default ITBackground;

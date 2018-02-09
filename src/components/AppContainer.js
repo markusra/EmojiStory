@@ -18,7 +18,6 @@ class AppContent extends Component {
               {this.props.appTitle}
             </h1>
           </nav>
-
           {this.props.children}
         </div>
       </Fragment>

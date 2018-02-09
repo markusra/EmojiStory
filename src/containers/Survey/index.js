@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import Gender from "../../components/Survey/Gender/index";
 import ITBackground from "../../components/Survey/ITBackground/index";
-import FinalQuestionsContainer from "../../components/Survey/FinalQuestionsContainer";
+import EmojiUsage from "../../components/Survey/EmojiUsage";
+import Interpretation from "../../components/Survey/Interpretation";
+import Memorization from "../../components/Survey/Memorization";
+import AgeAndCountryContainer from "../../components/Survey/AgeAndCountryContainer/index";
 import { sendDataToDB } from "../../services/sendDataToDB";
 import Finish from "../Finish/index";
 import PropTypes from "prop-types";
@@ -9,7 +12,7 @@ import PropTypes from "prop-types";
 // Connect to Redux store
 import { connect } from "react-redux";
 
-import { redirectUser } from "../../services/redirectUser";
+// import { redirectUser } from "../../services/redirectUser";
 
 class Survey extends Component {
   constructor(props) {
@@ -17,17 +20,19 @@ class Survey extends Component {
 
     this.state = {
       page: "gender",
-      email: "",
       age: "",
       nationality: "",
-      emojiUse: "",
+      emojiUsage: "",
       gender: "",
-      itBackground: ""
+      itBackground: "",
+      interpretation: "",
+      memorization: ""
     };
-    this.setITBackgroundTrue = this.setITBackgroundTrue.bind(this);
-    this.setITBackgroundFalse = this.setITBackgroundFalse.bind(this);
-    this.setFemale = this.setFemale.bind(this);
-    this.setMale = this.setMale.bind(this);
+    this.setITBackground = this.setITBackground.bind(this);
+    this.setGender = this.setGender.bind(this);
+    this.setEmojiUsage = this.setEmojiUsage.bind(this);
+    this.setInterpretation = this.setInterpretation.bind(this);
+    this.setMemorization = this.setMemorization.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.sendToDB = this.sendToDB.bind(this);
@@ -35,12 +40,13 @@ class Survey extends Component {
 
   sendToDB() {
     const key = sendDataToDB(
-      this.state.email,
       this.state.age,
       this.state.nationality,
-      this.state.emojiUse,
+      this.state.emojiUsage,
       this.state.gender,
-      this.state.itBackground
+      this.state.itBackground,
+      this.state.interpretation,
+      this.state.memorization
     );
 
     console.log(key);
@@ -54,51 +60,62 @@ class Survey extends Component {
   }
 
   handleChange(e) {
-    this.setState({[e.target.name]: e.target.value});
+    this.setState({ [e.target.name]: e.target.value });
   }
 
-  setITBackgroundTrue() {
+  setGender(value) {
     this.setState({
-      page: "questions",
-      itBackground: "yes"
-    });
-  }
-
-  setITBackgroundFalse() {
-    this.setState({
-      page: "questions",
-      itBackground: "no"
-    });
-  }
-
-  setFemale() {
-    this.setState({
-      gender: "female",
+      gender: value,
       page: "itbackground"
     });
   }
 
-  setMale() {
+  setITBackground(value) {
     this.setState({
-      gender: "male",
-      page: "itbackground"
+      itBackground: value,
+      page: "emojiUsage"
+    });
+  }
+
+  setEmojiUsage(value) {
+    this.setState({
+      emojiUsage: value,
+      page: "interpretation"
+    });
+  }
+
+  setInterpretation(value) {
+    this.setState({
+      interpretation: value,
+      page: "memorization"
+    });
+  }
+
+  setMemorization(value) {
+    this.setState({
+      memorization: value,
+      page: "questions"
     });
   }
 
   render() {
     return (
       <div>
-        {this.state.page === "gender" && (
-          <Gender onFemaleClick={this.setFemale} onMaleClick={this.setMale} />
-        )}
+        {this.state.page === "gender" && <Gender setGender={this.setGender} />}
         {this.state.page === "itbackground" && (
-          <ITBackground
-            onYesClick={this.setITBackgroundTrue}
-            onNoClick={this.setITBackgroundFalse}
-          />
+          <ITBackground setITBackground={this.setITBackground} />
+        )}
+        {this.state.page === "emojiUsage" && (
+          <EmojiUsage setEmojiUsage={this.setEmojiUsage} />
+        )}
+        {this.state.page === "interpretation" && (
+          <Interpretation setInterpretation={this.setInterpretation} />
+        )}
+        {this.state.page === "memorization" && (
+          <Memorization setMemorization={this.setMemorization} />
         )}
         {this.state.page === "questions" && (
-          <FinalQuestionsContainer
+          <AgeAndCountryContainer
             onSubmitForm={this.handleSubmit}
             onInputChange={this.handleChange}
             email={this.state.email}
@@ -123,6 +140,4 @@ Survey.propTypes = {
   userProgress: PropTypes.string
 };
 
-
 export default connect(mapStateToProps)(Survey);
-

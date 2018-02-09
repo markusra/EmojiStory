@@ -4,41 +4,35 @@ import "./index.css";
 import PropTypes from "prop-types";
 
 class ITBackgroundButtons extends Component {
-
   render() {
     return (
       <Fragment>
-        <div className="it-background">
-          <Button
-            color="success"
-            style={{fontSize: "2rem", height: "100px"}}
-            block
-            onClick={() => {
-              this.props.onYesClick();
-            }}
-          >
-            Yes
-          </Button>
+        <Button
+          className="surveyAnswerButton yes"
+          style={{ fontSize: "2rem", height: "100px" }}
+          onClick={() => {
+            this.props.setITBackground("Yes");
+          }}
+        >
+          Yes
+        </Button>
 
-          <Button
-            color="danger"
-            style={{fontSize: "2rem", height: "100px"}}
-            block
-            onClick={() => {
-              this.props.onNoClick();
-            }}
-          >
-            No
-          </Button>
-        </div>
-       </Fragment>
+        <Button
+          className="surveyAnswerButton no"
+          style={{ fontSize: "2rem", height: "100px" }}
+          onClick={() => {
+            this.props.setITBackground("No");
+          }}
+        >
+          No
+        </Button>
+      </Fragment>
     );
   }
 }
 
 ITBackgroundButtons.propTypes = {
-  onYesClick: PropTypes.func,
-  onNoClick: PropTypes.func
+  setITBackground: PropTypes.func
 };
 
 export default ITBackgroundButtons;
