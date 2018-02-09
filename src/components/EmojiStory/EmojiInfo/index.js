@@ -71,20 +71,17 @@ class EmojiInfo extends Component {
     return (
       <EmojiContainer appTitle="Creating an emoji-password">
         <EmojiBody>
-          <h3
-            style={{
-              textAlign: "left",
-              fontSize: "1.5rem"
-            }}
-          >
+
+
+          <div className="instructionList">
             <ul
-              style={{
-                paddingLeft: "35px"
-              }}
+            
+        
             >
               {instructions}
             </ul>
-          </h3>
+            </div>
+      
         </EmojiBody>
         <EmojiFooter>
           {this.props.clicks < 3 && (
