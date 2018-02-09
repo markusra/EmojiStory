@@ -95,6 +95,7 @@ class Login extends Component {
                 >
                   <img
                     src={emojiPath + this.props.keyboard[0].src}
+                    draggable="false"
                     alt="Emoji 1"
                   />
                 </Button>
@@ -105,6 +106,7 @@ class Login extends Component {
                 >
                   <img
                     src={emojiPath + this.props.keyboard[1].src}
+                    draggable="false"
                     alt="Emoji 2"
                   />
                 </Button>
@@ -115,6 +117,7 @@ class Login extends Component {
                 >
                   <img
                     src={emojiPath + this.props.keyboard[2].src}
+                    draggable="false"
                     alt="Emoji 3"
                   />
                 </Button>
@@ -127,6 +130,7 @@ class Login extends Component {
                 >
                   <img
                     src={emojiPath + this.props.keyboard[3].src}
+                    draggable="false"
                     alt="Emoji 4"
                   />
                 </Button>
@@ -137,6 +141,7 @@ class Login extends Component {
                 >
                   <img
                     src={emojiPath + this.props.keyboard[4].src}
+                    draggable="false"
                     alt="Emoji 5"
                   />
                 </Button>
@@ -147,6 +152,7 @@ class Login extends Component {
                 >
                   <img
                     src={emojiPath + this.props.keyboard[5].src}
+                    draggable="false"
                     alt="Emoji 6"
                   />
                 </Button>
@@ -159,6 +165,7 @@ class Login extends Component {
                 >
                   <img
                     src={emojiPath + this.props.keyboard[6].src}
+                    draggable="false"
                     alt="Emoji 7"
                   />
                 </Button>
@@ -169,6 +176,7 @@ class Login extends Component {
                 >
                   <img
                     src={emojiPath + this.props.keyboard[7].src}
+                    draggable="false"
                     alt="Emoji 8"
                   />
                 </Button>
@@ -179,6 +187,7 @@ class Login extends Component {
                 >
                   <img
                     src={emojiPath + this.props.keyboard[8].src}
+                    draggable="false"
                     alt="Emoji 9"
                   />
                 </Button>
@@ -191,6 +200,7 @@ class Login extends Component {
                 >
                   <img
                     src={emojiPath + this.props.keyboard[9].src}
+                    draggable="false"
                     alt="Emoji 10"
                   />
                 </Button>
@@ -201,6 +211,7 @@ class Login extends Component {
                 >
                   <img
                     src={emojiPath + this.props.keyboard[10].src}
+                    draggable="false"
                     alt="Emoji 11"
                   />
                 </Button>
@@ -211,6 +222,7 @@ class Login extends Component {
                 >
                   <img
                     src={emojiPath + this.props.keyboard[11].src}
+                    draggable="false"
                     alt="Emoji 12"
                   />
                 </Button>

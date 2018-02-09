@@ -16,7 +16,8 @@ class EmojiOverlay extends Component {
                <img
                 className="icon"
                 src={emojiPath + this.props.answer.src}
-                alt="Placeholder"
+                draggable="false"
+                alt="Emoji"
                 width="50%"
               />
               <h5 className="answer">{this.props.answer.text[0].toUpperCase() + this.props.answer.text.slice(1)}</h5>

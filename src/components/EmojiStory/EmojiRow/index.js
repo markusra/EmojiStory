@@ -15,6 +15,7 @@ class EmojiRow extends Component {
             src={emojiPath + this.props.emojiIcon_1}
             ref={img => this.img_1 = img}
             onError={() => (this.img_1.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7")}
+            draggable="false"
             alt="Emoji 1"
           />
         </div>
@@ -23,6 +24,7 @@ class EmojiRow extends Component {
             src={emojiPath +  this.props.emojiIcon_2}
             ref={img => this.img_2 = img}
             onError={() => (this.img_2.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7")}
+            draggable="false"
             alt="Emoji 2"
           />
         </div>
@@ -32,6 +34,7 @@ class EmojiRow extends Component {
             src={emojiPath +  this.props.emojiIcon_3}
             ref={img => this.img_3 = img}
             onError={() => (this.img_3.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7")}
+            draggable="false"
             alt="Emoji 3"
           />
         </div>
@@ -41,6 +44,7 @@ class EmojiRow extends Component {
             src={emojiPath +  this.props.emojiIcon_4}
             ref={img => this.img_4 = img}
             onError={() => (this.img_4.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7")}
+            draggable="false"
             alt="Emoji 4"
           />
         </div>
