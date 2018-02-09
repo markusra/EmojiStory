@@ -35,8 +35,9 @@ class GenderButtons extends Component {
         </div>
         <div className="p-2 text-center">
           <Button
-            size="sm"
-            style={{ color: "white", backgroundColor: "#1b212c" }}
+            size="lg"
+            color="link"
+            style={{ color: "#1b212c", marginTop: "15px" }}
             onClick={() => {
               this.props.setGender("other");
             }}
