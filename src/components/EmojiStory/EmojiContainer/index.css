@@ -6,6 +6,7 @@
     width: 400px !important;
     height: 600px !important;
     border: 1px solid #1b212c;
+    border-radius: 15px;
   }
 }
 
@@ -39,10 +40,9 @@
 }
 
 .emoji-body {
-  padding: 15px;
+  /* padding: 15px; */
   height: 100%;
   color: white;
-  background-color: #1b212c;
 }
 
 .emoji-footer {

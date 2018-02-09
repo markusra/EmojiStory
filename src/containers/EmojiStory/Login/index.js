@@ -21,7 +21,7 @@ import { Button, Row } from "reactstrap";
 class Login extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       emojis: [],
       loginOverlay: false,
@@ -76,121 +76,160 @@ class Login extends Component {
           onContinueButtonClick={this.onContinueButtonClick}
         />
         <EmojiBody>
-          <EmojiRow
-            emojiIcon_1={this.state.emojis[0]}
-            emojiIcon_2={this.state.emojis[1]}
-            emojiIcon_3={this.state.emojis[2]}
-            emojiIcon_4={this.state.emojis[3]}
-          />
-          <Row className="emojisKeyboardRow justify-content-center">
-            <Button
-              color="default"
-              className="emojiKeyboardBackground"
-              onClick={() => this.onEmojiButtonClick(0)}
-            >
-              <img src={emojiPath + this.props.keyboard[0].src} alt="Emoji 1" />
-            </Button>
-            <Button
-              color="default"
-              className="emojiKeyboardBackground"
-              onClick={() => this.onEmojiButtonClick(1)}
-            >
-              <img src={emojiPath + this.props.keyboard[1].src} alt="Emoji 2" />
-            </Button>
-            <Button
-              color="default"
-              className="emojiKeyboardBackground margin-0"
-              onClick={() => this.onEmojiButtonClick(2)}
-            >
-              <img src={emojiPath + this.props.keyboard[2].src} alt="Emoji 3" />
-            </Button>
-          </Row>
-          <Row className="emojisKeyboardRow justify-content-center">
-            <Button
-              color="default"
-              className="emojiKeyboardBackground"
-              onClick={() => this.onEmojiButtonClick(3)}
-            >
-              <img src={emojiPath + this.props.keyboard[3].src} alt="Emoji 4" />
-            </Button>
-            <Button
-              color="default"
-              className="emojiKeyboardBackground"
-              onClick={() => this.onEmojiButtonClick(4)}
-            >
-              <img src={emojiPath + this.props.keyboard[4].src} alt="Emoji 5" />
-            </Button>
-            <Button
-              color="default"
-              className="emojiKeyboardBackground margin-0"
-              onClick={() => this.onEmojiButtonClick(5)}
-            >
-              <img src={emojiPath + this.props.keyboard[5].src} alt="Emoji 6" />
-            </Button>
-          </Row>
-          <Row className="emojisKeyboardRow justify-content-center">
-            <Button
-              color="default"
-              className="emojiKeyboardBackground"
-              onClick={() => this.onEmojiButtonClick(6)}
-            >
-              <img src={emojiPath + this.props.keyboard[6].src} alt="Emoji 7" />
-            </Button>
-            <Button
-              color="default"
-              className="emojiKeyboardBackground"
-              onClick={() => this.onEmojiButtonClick(7)}
-            >
-              <img src={emojiPath + this.props.keyboard[7].src} alt="Emoji 8" />
-            </Button>
-            <Button
-              color="default"
-              className="emojiKeyboardBackground margin-0"
-              onClick={() => this.onEmojiButtonClick(8)}
-            >
-              <img src={emojiPath + this.props.keyboard[8].src} alt="Emoji 9" />
-            </Button>
-          </Row>
-          <Row className="emojisKeyboardRow justify-content-center">
-            <Button
-              color="default"
-              className="emojiKeyboardBackground"
-              onClick={() => this.onEmojiButtonClick(9)}
-            >
-              <img src={emojiPath + this.props.keyboard[9].src} alt="Emoji 10" />
-            </Button>
-            <Button
-              color="default"
-              className="emojiKeyboardBackground"
-              onClick={() => this.onEmojiButtonClick(10)}
-            >
-              <img
-                src={emojiPath + this.props.keyboard[10].src}
-                alt="Emoji 11"
+          <div className="flexContainer">
+            <div className="passwordContainer">
+              <EmojiRow
+                emojiIcon_1={this.state.emojis[0]}
+                emojiIcon_2={this.state.emojis[1]}
+                emojiIcon_3={this.state.emojis[2]}
+                emojiIcon_4={this.state.emojis[3]}
               />
-            </Button>
-            <Button
-              color="default"
-              className="emojiKeyboardBackground margin-0"
-              onClick={() => this.onEmojiButtonClick(11)}
-            >
-              <img
-                src={emojiPath + this.props.keyboard[11].src}
-                alt="Emoji 12"
-              />
-            </Button>
-          </Row>
+            </div>
+
+            <div className="keyboard">
+              <Row className="emojisKeyboardRow justify-content-center">
+                <Button
+                  color="default"
+                  className="emojiKeyboardBackground"
+                  onClick={() => this.onEmojiButtonClick(0)}
+                >
+                  <img
+                    src={emojiPath + this.props.keyboard[0].src}
+                    alt="Emoji 1"
+                  />
+                </Button>
+                <Button
+                  color="default"
+                  className="emojiKeyboardBackground"
+                  onClick={() => this.onEmojiButtonClick(1)}
+                >
+                  <img
+                    src={emojiPath + this.props.keyboard[1].src}
+                    alt="Emoji 2"
+                  />
+                </Button>
+                <Button
+                  color="default"
+                  className="emojiKeyboardBackground margin-0"
+                  onClick={() => this.onEmojiButtonClick(2)}
+                >
+                  <img
+                    src={emojiPath + this.props.keyboard[2].src}
+                    alt="Emoji 3"
+                  />
+                </Button>
+              </Row>
+              <Row className="emojisKeyboardRow justify-content-center">
+                <Button
+                  color="default"
+                  className="emojiKeyboardBackground"
+                  onClick={() => this.onEmojiButtonClick(3)}
+                >
+                  <img
+                    src={emojiPath + this.props.keyboard[3].src}
+                    alt="Emoji 4"
+                  />
+                </Button>
+                <Button
+                  color="default"
+                  className="emojiKeyboardBackground"
+                  onClick={() => this.onEmojiButtonClick(4)}
+                >
+                  <img
+                    src={emojiPath + this.props.keyboard[4].src}
+                    alt="Emoji 5"
+                  />
+                </Button>
+                <Button
+                  color="default"
+                  className="emojiKeyboardBackground margin-0"
+                  onClick={() => this.onEmojiButtonClick(5)}
+                >
+                  <img
+                    src={emojiPath + this.props.keyboard[5].src}
+                    alt="Emoji 6"
+                  />
+                </Button>
+              </Row>
+              <Row className="emojisKeyboardRow justify-content-center">
+                <Button
+                  color="default"
+                  className="emojiKeyboardBackground"
+                  onClick={() => this.onEmojiButtonClick(6)}
+                >
+                  <img
+                    src={emojiPath + this.props.keyboard[6].src}
+                    alt="Emoji 7"
+                  />
+                </Button>
+                <Button
+                  color="default"
+                  className="emojiKeyboardBackground"
+                  onClick={() => this.onEmojiButtonClick(7)}
+                >
+                  <img
+                    src={emojiPath + this.props.keyboard[7].src}
+                    alt="Emoji 8"
+                  />
+                </Button>
+                <Button
+                  color="default"
+                  className="emojiKeyboardBackground margin-0"
+                  onClick={() => this.onEmojiButtonClick(8)}
+                >
+                  <img
+                    src={emojiPath + this.props.keyboard[8].src}
+                    alt="Emoji 9"
+                  />
+                </Button>
+              </Row>
+              <Row className="emojisKeyboardRow justify-content-center">
+                <Button
+                  color="default"
+                  className="emojiKeyboardBackground"
+                  onClick={() => this.onEmojiButtonClick(9)}
+                >
+                  <img
+                    src={emojiPath + this.props.keyboard[9].src}
+                    alt="Emoji 10"
+                  />
+                </Button>
+                <Button
+                  color="default"
+                  className="emojiKeyboardBackground"
+                  onClick={() => this.onEmojiButtonClick(10)}
+                >
+                  <img
+                    src={emojiPath + this.props.keyboard[10].src}
+                    alt="Emoji 11"
+                  />
+                </Button>
+                <Button
+                  color="default"
+                  className="emojiKeyboardBackground margin-0"
+                  onClick={() => this.onEmojiButtonClick(11)}
+                >
+                  <img
+                    src={emojiPath + this.props.keyboard[11].src}
+                    alt="Emoji 12"
+                  />
+                </Button>
+              </Row>
+            </div>
+
+            <div className="deleteButtonContainer">
+              <Button
+                className="deleteButton"
+                color="danger"
+                size="lg"
+                onClick={() => this.onDeleteButtonClick()}
+                block
+              >
+                Delete
+              </Button>
+            </div>
+          </div>
         </EmojiBody>
-        <EmojiFooter>
-          <Button
-            color="danger"
-            size="lg"
-            onClick={() => this.onDeleteButtonClick()}
-            block
-          >
-            Delete
-          </Button>
-        </EmojiFooter>
       </EmojiContainer>
     );
   }

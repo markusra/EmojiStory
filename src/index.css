@@ -12,6 +12,17 @@ body {
     width: 500px !important;
     height: 600px !important;
     border: 1px solid #1b212c;
+    border-radius: 15px;
+  }
+
+  .navbar {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+
+  .app-footer {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
   }
 }
 
@@ -41,6 +52,11 @@ body {
   h2,
   .h2 {
     font-size: 1.5rem !important;
+  }
+
+  h3,
+  .h3 {
+    font-size: 1.3rem !important;
   }
 }
 

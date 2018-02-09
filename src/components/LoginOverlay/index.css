@@ -9,6 +9,12 @@
   background-color: #1b212c;
 }
 
+@media (min-width: 500px) {
+  .login-overlay {
+    border-radius: 15px;
+  }
+}
+
 .login-overlay .hide {
   opacity: 0;
   pointer-events:none;
