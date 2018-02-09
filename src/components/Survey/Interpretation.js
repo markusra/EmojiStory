@@ -10,28 +10,30 @@ class Interpretation extends Component {
     return (
       <AppContainer appTitle="Survey – Emoji-Based Authentication">
         <SurveyBody>
-          <div className="answersContainer">
+          <div className="surveyContainer">
             <div className="questionDiv">
-              <h3 className="story">Were you able to interpret all the emojis you encountered?</h3>
+              <h3 className="story">
+                Were you able to interpret all the emojis you encountered?
+              </h3>
             </div>
             <div className="options2">
               <Button
                 className="surveyAnswerButton top"
-                size="lg"
+                style={{ fontSize: "1.5rem", height: "60px" }}
                 onClick={() => this.props.setInterpretation("Yes")}
               >
                 Yes
               </Button>
               <Button
                 className="surveyAnswerButton mid"
-                size="lg"
+                style={{ fontSize: "1.5rem", height: "60px" }}
                 onClick={() => this.props.setInterpretation("No")}
               >
                 No
               </Button>
               <Button
                 className="surveyAnswerButton bottom"
-                size="lg"
+                style={{ fontSize: "1.5rem", height: "60px" }}
                 onClick={() => this.props.setInterpretation("I don't know")}
               >
                 I don't know

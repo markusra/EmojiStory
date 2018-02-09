@@ -4,7 +4,7 @@ import ITBackground from "../../components/Survey/ITBackground/index";
 import EmojiUsage from "../../components/Survey/EmojiUsage";
 import Interpretation from "../../components/Survey/Interpretation";
 import Memorization from "../../components/Survey/Memorization";
-import FinalQuestionsContainer from "../../components/Survey/FinalQuestionsContainer";
+import AgeAndCountryContainer from "../../components/Survey/AgeAndCountryContainer/index";
 import { sendDataToDB } from "../../services/sendDataToDB";
 import Finish from "../Finish/index";
 import PropTypes from "prop-types";
@@ -115,7 +115,7 @@ class Survey extends Component {
           <Memorization setMemorization={this.setMemorization} />
         )}
         {this.state.page === "questions" && (
-          <FinalQuestionsContainer
+          <AgeAndCountryContainer
             onSubmitForm={this.handleSubmit}
             onInputChange={this.handleChange}
             email={this.state.email}

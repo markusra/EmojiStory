@@ -1,19 +1,17 @@
 .surveyAnswerButton {
   margin-top: 5px !important;
   width: 100%;
+  color: white;
+  background-color: #1b212c;
 }
 
 .surveyAnswerButton.yes {
   margin-top: 5px !important;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  color: white;
-  background-color: #1b212c;
 }
 
 .surveyAnswerButton.no {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  color: white;
-  background-color: #1b212c;
 }

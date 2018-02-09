@@ -10,7 +10,7 @@ class Memorization extends Component {
     return (
       <AppContainer appTitle="Survey – Emoji-Based Authentication">
         <SurveyBody>
-          <div className="answersContainer">
+          <div className="surveyContainer">
             <div className="questionDiv">
               <h3 className="story">I remembered my emoji-password by memorizing...</h3>
             </div>

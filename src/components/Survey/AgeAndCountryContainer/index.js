@@ -1,28 +1,24 @@
 import React, { Component } from "react";
-
+import PropTypes from "prop-types";
 import AgeAndCountry from "./AgeAndCountry/index";
-import AppContainer from "../../components/AppContainer";
-import AppFooter from "../../components/AppFooter";
-import AppBody from "../../components/AppBody";
+import AppContainer from "../../AppContainer";
+import AppFooter from "../../AppFooter";
+import "./index.css"
 
 // Import Bootstrap Components
 import { Button, Form } from "reactstrap";
 
-import PropTypes from "prop-types";
-
-class FinalQuestionsContainer extends Component {
+class AgeAndCountryContainer extends Component {
   render() {
     return (
       <AppContainer appTitle="Survey – Emoji-Based Authentication">
         <Form
-          className="needs-validation"
-          // noValidate
           onSubmit={event => {
             event.preventDefault();
             this.props.onSubmitForm();
           }}
         >
-          <AppBody>
+          <div className="age-country-body">
             <AgeAndCountry
               ref={instance => {
                 this.child = instance;
@@ -31,9 +27,16 @@ class FinalQuestionsContainer extends Component {
               age={this.props.age}
               nationality={this.props.nationality}
             />
-          </AppBody>
-          <AppFooter>
-            <Button color="success" size="lg" block>
+          </div>
+          <AppFooter className="age-country-body">
+            <Button
+              block
+              style={{
+                color: "white",
+                backgroundColor: "#1b212c",
+                fontSize: "1.5rem"
+              }}
+            >
               Submit
             </Button>
           </AppFooter>
@@ -43,11 +46,11 @@ class FinalQuestionsContainer extends Component {
   }
 }
 
-FinalQuestionsContainer.propTypes = {
+AgeAndCountryContainer.propTypes = {
   onSubmitForm: PropTypes.func,
   onInputChange: PropTypes.func,
   age: PropTypes.string,
   nationality: PropTypes.string
 };
 
-export default FinalQuestionsContainer;
+export default AgeAndCountryContainer;

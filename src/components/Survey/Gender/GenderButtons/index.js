@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import "./index.css";
 import PropTypes from "prop-types";
 import { Button } from "reactstrap";
@@ -6,11 +6,8 @@ import { Button } from "reactstrap";
 class GenderButtons extends Component {
   render() {
     return (
-      <div className="d-flex flex-column">
-        <div className="p-2">
-          <h3>What is your gender?</h3>
-        </div>
-        <div className="d-flex flex-row">
+      <div>
+        <div className="d-flex flex-row justify-content-center">
           <div className="p-2">
             <div
               onClick={() => {
@@ -22,6 +19,8 @@ class GenderButtons extends Component {
                 aria-hidden="true"
               />
             </div>
+          </div>
+          <div className="p-2">
             <div
               onClick={() => {
                 this.props.setGender("male");
@@ -34,7 +33,7 @@ class GenderButtons extends Component {
             </div>
           </div>
         </div>
-        <div className="p-2">
+        <div className="p-2 text-center">
           <Button
             size="sm"
             style={{ color: "white", backgroundColor: "#1b212c" }}

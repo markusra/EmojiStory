@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { FormGroup, Label, Input } from "reactstrap";
 import PropTypes from "prop-types";
+import "./index.css";
 
 class AgeAndCountry extends Component {
   constructor(props) {
@@ -44,26 +45,30 @@ class AgeAndCountry extends Component {
   render() {
     return (
       <div>
-        <FormGroup>
-          <Label for="exampleAge">Age</Label>
+        <FormGroup style={{ marginTop: "10px" }}>
+          <Label for="age" className="labelSize">
+            What is your age?
+          </Label>
           <Input
             type="number"
             min="10"
             max="120"
             name="age"
-            id="exampleAge"
+            id="age"
             placeholder="Age"
             value={this.props.age}
             onChange={this.props.onInputChange}
             required
           />
         </FormGroup>
-        <FormGroup>
-          <Label for="exampleSelect">Where do you come from?</Label>
+        <FormGroup style={{ marginTop: "30px" }}>
+          <Label for="nationality" className="labelSize">
+            Where do you come from?
+          </Label>
           <Input
             type="select"
             name="nationality"
-            id="exampleSelect"
+            id="nationality"
             value={this.props.nationality}
             onChange={this.props.onInputChange}
             required

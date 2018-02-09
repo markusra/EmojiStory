@@ -1,9 +1,7 @@
-.answersContainer {
+.surveyContainer {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .questionDiv {
@@ -14,12 +12,11 @@
   justify-content: center;
   text-align: center;
   padding-left: 10px;
-  padding-right: 10px
+  padding-right: 10px;
 }
 
 .options {
   padding: 15px 5px 5px 5px;
-  /* border-top: 1px solid black; */
 }
 
 .options2 {
@@ -30,29 +27,21 @@
 .surveyAnswerButton {
   margin-top: 5px !important;
   width: 100%;
+  color: white;
+  background-color: #1b212c;
 }
 
 .surveyAnswerButton.top {
   margin-top: 5px !important;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  color: white;
-  background-color: #1b212c;
 }
 
 .surveyAnswerButton.mid {
   border-radius: 0;
-  color: white;
-  background-color: #1b212c;
 }
 
 .surveyAnswerButton.bottom {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  color: white;
-  background-color: #1b212c;
 }
-
-
-
-

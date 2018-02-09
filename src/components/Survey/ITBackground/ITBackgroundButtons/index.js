@@ -9,7 +9,6 @@ class ITBackgroundButtons extends Component {
       <Fragment>
         <Button
           className="surveyAnswerButton yes"
-          // color="success"
           style={{ fontSize: "2rem", height: "100px" }}
           onClick={() => {
             this.props.setITBackground("Yes");
@@ -19,7 +18,6 @@ class ITBackgroundButtons extends Component {
         </Button>
 
         <Button
-          // color="danger"
           className="surveyAnswerButton no"
           style={{ fontSize: "2rem", height: "100px" }}
           onClick={() => {
