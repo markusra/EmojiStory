@@ -79,7 +79,7 @@ class EmojiInfo extends Component {
           >
             <ul
               style={{
-                paddingLeft: "23px"
+                paddingLeft: "35px"
               }}
             >
               {instructions}

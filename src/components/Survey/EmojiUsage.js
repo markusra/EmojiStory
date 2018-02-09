@@ -14,7 +14,7 @@ class EmojiUsage extends Component {
             <div className="questionDiv">
               <h3 className="story">How often do you use emojis?</h3>
             </div>
-            <div className="options">
+            <div className="options2">
               <Button
                 className="surveyAnswerButton top"
                 size="lg"
