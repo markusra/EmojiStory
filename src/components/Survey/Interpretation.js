@@ -19,21 +19,21 @@ class Interpretation extends Component {
             <div className="options2">
               <Button
                 className="surveyAnswerButton top"
-                style={{ fontSize: "1.5rem", height: "60px" }}
+                size="lg"
                 onClick={() => this.props.setInterpretation("Yes")}
               >
                 Yes
               </Button>
               <Button
                 className="surveyAnswerButton mid"
-                style={{ fontSize: "1.5rem", height: "60px" }}
+                size="lg"
                 onClick={() => this.props.setInterpretation("No")}
               >
                 No
               </Button>
               <Button
                 className="surveyAnswerButton bottom"
-                style={{ fontSize: "1.5rem", height: "60px" }}
+                size="lg"
                 onClick={() => this.props.setInterpretation("I don't know")}
               >
                 I don't know

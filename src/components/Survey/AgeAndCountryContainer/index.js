@@ -31,10 +31,10 @@ class AgeAndCountryContainer extends Component {
           <AppFooter className="age-country-body">
             <Button
               block
+              size="lg"
               style={{
                 color: "white",
                 backgroundColor: "#1b212c",
-                fontSize: "1.5rem"
               }}
             >
               Submit

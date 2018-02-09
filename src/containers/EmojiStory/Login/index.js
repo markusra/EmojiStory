@@ -57,7 +57,7 @@ class Login extends Component {
   }
 
   onContinueButtonClick() {
-    history.push("/finish");
+    history.push("/survey");
   }
 
   isCorrectPassword() {
