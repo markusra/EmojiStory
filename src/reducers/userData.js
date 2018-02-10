@@ -1,6 +1,7 @@
 const initialState = {
   storyTemplate: ["The king of ***", " owns a three-headed ***", " that eats *** every day.", " This makes the king very ***."],
   userProgress: "",
+  readyFor2ndLogin: false,
   answers: [],
   keyboard: [
     {
@@ -84,6 +85,11 @@ const userData = (state = initialState, action) => {
         ...state,
         userStory: action.userStory
       };
+    case "SET_READYFOR2NDLOGIN":
+    return {
+      ...state,
+      readyFor2ndLogin: true
+    };
     default:
       return state;
   }

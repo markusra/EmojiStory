@@ -4,8 +4,8 @@ import "./index.css";
 
 import EmojiContainer from "../../../components/EmojiStory/EmojiContainer";
 import LoginOverlay from "../../../components/LoginOverlay";
+import LoginOverlay2 from "../../../components/LoginOverlay2";
 import EmojiBody from "../../../components/EmojiStory/EmojiContainer/EmojiBody";
-import EmojiFooter from "../../../components/EmojiStory/EmojiContainer/EmojiFooter";
 import EmojiRow from "../../../components/EmojiStory/EmojiRow";
 
 import history from "../../../history";
@@ -14,6 +14,8 @@ import history from "../../../history";
 import { connect } from "react-redux";
 
 import { redirectUser } from "../../../services/redirectUser";
+import { setReadyFor2ndLogin } from "../../../actions/index";
+import { setUserProgress } from "../../../actions/index";
 
 // Import Bootstrap Components
 import { Button, Row } from "reactstrap";
@@ -25,10 +27,12 @@ class Login extends Component {
     this.state = {
       emojis: [],
       loginOverlay: false,
-      attemptsLeft: 3
+      attemptsLeft: 3,
+      loginOverlay2: true
     };
-
     this.onTryAgainButtonClick = this.onTryAgainButtonClick.bind(this);
+    this.onOkButtonClick = this.onOkButtonClick.bind(this);
+    this.onContinueButtonClick = this.onContinueButtonClick.bind(this);
   }
 
   componentWillMount() {
@@ -57,11 +61,24 @@ class Login extends Component {
   }
 
   onContinueButtonClick() {
-    history.push("/survey");
+    if (this.props.readyFor2ndLogin) {
+      const url = "/finish";
+      this.props.setUserProgress(url);
+      history.push(url);
+    } else {
+      this.props.setReadyFor2ndLogin();
+      const url = "/survey";
+      this.props.setUserProgress(url);
+      history.push(url);
+    }
   }
 
   isCorrectPassword() {
     return false;
+  }
+
+  onOkButtonClick() {
+    this.setState({ loginOverlay2: false });
   }
 
   render() {
@@ -74,6 +91,11 @@ class Login extends Component {
           attemptsLeft={this.state.attemptsLeft}
           onTryAgainButtonClick={this.onTryAgainButtonClick}
           onContinueButtonClick={this.onContinueButtonClick}
+        />
+        <LoginOverlay2
+          visible={this.state.loginOverlay2}
+          onOkButtonClick={this.onOkButtonClick}
+          readyFor2ndAttempt={this.state.readyFor2ndAttempt}
         />
         <EmojiBody>
           <div className="flexContainer">
@@ -250,13 +272,26 @@ class Login extends Component {
 const mapStateToProps = state => {
   return {
     userProgress: state.userProgress,
-    keyboard: state.keyboard
+    keyboard: state.keyboard,
+    readyFor2ndLogin: state.readyFor2ndLogin
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setReadyFor2ndLogin: readyFor2ndLogin => {
+      dispatch(setReadyFor2ndLogin(readyFor2ndLogin));
+    },
+    setUserProgress: userProgress => {
+      dispatch(setUserProgress(userProgress));
+    }
   };
 };
 
 Login.propTypes = {
   userProgress: PropTypes.string,
-  keyboard: PropTypes.array
+  keyboard: PropTypes.array,
+  readyFor2ndLogin: PropTypes.bool
 };
 
-export default connect(mapStateToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

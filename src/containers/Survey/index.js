@@ -6,13 +6,14 @@ import Interpretation from "../../components/Survey/Interpretation";
 import Memorization from "../../components/Survey/Memorization";
 import AgeAndCountryContainer from "../../components/Survey/AgeAndCountryContainer/index";
 import { sendDataToDB } from "../../services/sendDataToDB";
-import Finish from "../Finish/index";
 import PropTypes from "prop-types";
+import history from "./../../history";
 
 // Connect to Redux store
 import { connect } from "react-redux";
 
-// import { redirectUser } from "../../services/redirectUser";
+import { redirectUser } from "../../services/redirectUser";
+import { setUserProgress } from "../../actions/index";
 
 class Survey extends Component {
   constructor(props) {
@@ -38,6 +39,10 @@ class Survey extends Component {
     this.sendToDB = this.sendToDB.bind(this);
   }
 
+  componentWillMount() {
+    redirectUser(this.props.userProgress);
+  }
+
   sendToDB() {
     const key = sendDataToDB(
       this.state.age,
@@ -54,9 +59,9 @@ class Survey extends Component {
 
   handleSubmit() {
     this.sendToDB();
-    this.setState({
-      page: "finish"
-    });
+    const url = "/login2";
+    this.props.setUserProgress(url);
+    history.push(url);
   }
 
   handleChange(e) {
@@ -124,7 +129,6 @@ class Survey extends Component {
             emojiUse={this.state.emojiUse}
           />
         )}
-        {this.state.page === "finish" && <Finish />}
       </div>
     );
   }
@@ -136,8 +140,17 @@ const mapStateToProps = state => {
   };
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    setUserProgress: userProgress => {
+      dispatch(setUserProgress(userProgress));
+    }
+  };
+};
+
 Survey.propTypes = {
   userProgress: PropTypes.string
 };
 
-export default connect(mapStateToProps)(Survey);
+export default connect(mapStateToProps, mapDispatchToProps)(Survey);
+

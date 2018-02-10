@@ -32,5 +32,12 @@ export const deleteAnswers = () => {
   }
 }
 
+export const setReadyFor2ndLogin = readyFor2ndLogin => {
+  return {
+    type: 'SET_READYFOR2NDLOGIN',
+    readyFor2ndLogin
+  }
+}
+
 
 

@@ -3,8 +3,18 @@ import AppContainer from "../../components/AppContainer";
 import AppBody from "../../components/AppBody";
 import AppFooter from "../../components/AppFooter";
 import SocialButtons from "../../components/SocialButtons/index";
+import PropTypes from "prop-types";
+import { redirectUser } from "../../services/redirectUser";
+
+// Connect to Redux store
+import { connect } from "react-redux";
 
 class Finish extends Component {
+
+  componentWillMount() {
+    redirectUser(this.props.userProgress);
+  }
+
   render() {
     return (
       <AppContainer appTitle="Survey Finished!">
@@ -22,4 +32,16 @@ class Finish extends Component {
   }
 }
 
-export default Finish;
+const mapStateToProps = state => {
+  return {
+    userProgress: state.userProgress
+  };
+};
+
+// Do we really need this?
+Finish.propTypes = {
+  userProgress: PropTypes.string
+};
+
+export default connect(mapStateToProps)(Finish);
+

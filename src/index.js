@@ -29,6 +29,7 @@ ReactDOM.render(
           <Route exact path="/emojiStory" component={CreateEmojiStory} />
           <Route exact path="/summary" component={Summary} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/login2" component={Login} />
           <Route exact path="/finish" component={Finish} />
           <Route exact path="/survey" component={Survey} />
           <Route component={Welcome} />
