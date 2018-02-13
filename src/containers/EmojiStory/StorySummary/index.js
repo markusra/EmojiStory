@@ -126,7 +126,8 @@ const mapStateToProps = state => {
   return {
     userProgress: state.userProgress,
     storyTemplate: state.storyTemplate,
-    answers: state.answers
+    answers: state.answers,
+    answerIndeces: state.answerIndeces
   };
 };
 

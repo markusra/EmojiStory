@@ -20,7 +20,7 @@ class EmojiQuestion extends Component {
               className="answerButton top"
               size="lg"
               onClick={() =>
-                this.props.onAnswerSelected(this.props.answerOptions[0])
+                this.props.onAnswerSelected(this.props.answerOptions[0], 0)
               }
             >
               {this.props.answerOptions[0].text[0].toUpperCase() +
@@ -32,7 +32,7 @@ class EmojiQuestion extends Component {
               className="answerButton mid"
               size="lg"
               onClick={() =>
-                this.props.onAnswerSelected(this.props.answerOptions[1])
+                this.props.onAnswerSelected(this.props.answerOptions[1], 1)
               }
             >
               {this.props.answerOptions[1].text[0].toUpperCase() +
@@ -44,7 +44,7 @@ class EmojiQuestion extends Component {
               className="answerButton mid"
               size="lg"
               onClick={() =>
-                this.props.onAnswerSelected(this.props.answerOptions[2])
+                this.props.onAnswerSelected(this.props.answerOptions[2], 2)
               }
             >
               {this.props.answerOptions[2].text[0].toUpperCase() +
@@ -56,7 +56,7 @@ class EmojiQuestion extends Component {
               className="answerButton mid"
               size="lg"
               onClick={() =>
-                this.props.onAnswerSelected(this.props.answerOptions[3])
+                this.props.onAnswerSelected(this.props.answerOptions[3], 3)
               }
             >
               {this.props.answerOptions[3].text[0].toUpperCase() +
@@ -68,7 +68,7 @@ class EmojiQuestion extends Component {
               className="answerButton bottom"
               size="lg"
               onClick={() =>
-                this.props.onAnswerSelected(this.props.answerOptions[4])
+                this.props.onAnswerSelected(this.props.answerOptions[4], 4)
               }
             >
               {this.props.answerOptions[4].text[0].toUpperCase() +

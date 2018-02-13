@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-
 import history from "../../../history";
 
 // Connect to Redux store
 import { connect } from "react-redux";
 import { addAnswer } from "../../../actions";
 import { setUserProgress } from "../../../actions/index";
+import { setAnswerIndeces } from "../../../actions/index";
 
 import quizQuestions from "../../../api/quizset_1";
 import EmojiQuestion from "../EmojiQuestion/index";
@@ -24,6 +24,7 @@ class EmojiQuiz extends Component {
       question: "",
       overlayQuestion: "",
       answerOptions: [],
+      answerIndeces: [],
       answerOverlay: false,
       chosenAnswer: [],
       userStory: []
@@ -48,7 +49,6 @@ class EmojiQuiz extends Component {
         ___
       </span>
     );
-
 
     const answerOptions = quizQuestions.questions[0].answers
 
@@ -109,11 +109,16 @@ class EmojiQuiz extends Component {
      answerOptions.map(this.preloadImage);
   }
 
-  handleAnswerClick(answer) {
+  handleAnswerClick(answer, index) {
+    const answerIndeces = this.state.answerIndeces.slice();
+    answerIndeces.push(index);
+    
     this.setState({
       overlayQuestion: this.state.question,
       answerOverlay: true,
-      chosenAnswer: answer
+      chosenAnswer: answer,
+      answerIndeces: answerIndeces
+
     });
   }
 
@@ -131,6 +136,8 @@ class EmojiQuiz extends Component {
     if (this.state.questionId === quizQuestions.questions.length) {
       const url = "/summary";
       this.props.setUserProgress(url);
+      this.props.setAnswerIndeces(this.state.answerIndeces);
+
       history.push(url);
     } else {
       this.setState({ answerOverlay: false });
@@ -177,6 +184,9 @@ const mapDispatchToProps = dispatch => {
     },
     setUserProgress: userProgress => {
       dispatch(setUserProgress(userProgress));
+    },
+    setAnswerIndeces: answerIndeces => {
+      dispatch(setAnswerIndeces(answerIndeces));
     }
   };
 };

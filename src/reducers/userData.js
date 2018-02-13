@@ -1,8 +1,16 @@
 const initialState = {
-  storyTemplate: ["The king of ***", " owns a three-headed ***", " that eats *** every day.", " This makes the king very ***."],
+  storyTemplate: [
+    "The king of ***",
+    " owns a three-headed ***",
+    " that eats *** every day.",
+    " This makes the king very ***."
+  ],
   userProgress: "",
   readyFor2ndLogin: false,
+  surveyFinished: false,
+  emojiStoryCreated: false,
   answers: [],
+  answerIndeces: [],
   keyboard: [
     {
       text: "Norway",
@@ -86,10 +94,15 @@ const userData = (state = initialState, action) => {
         userStory: action.userStory
       };
     case "SET_READYFOR2NDLOGIN":
-    return {
-      ...state,
-      readyFor2ndLogin: true
-    };
+      return {
+        ...state,
+        readyFor2ndLogin: true
+      };
+    case "SET_ANSWERINDECES":
+      return {
+        ...state,
+        answerIndeces: action.answerIndeces
+      };
     default:
       return state;
   }

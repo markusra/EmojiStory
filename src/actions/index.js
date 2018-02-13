@@ -39,5 +39,12 @@ export const setReadyFor2ndLogin = readyFor2ndLogin => {
   }
 }
 
+export const setAnswerIndeces = answerIndeces => {
+  return {
+    type: 'SET_ANSWERINDECES',
+    answerIndeces
+  }
+}
+
 
 
