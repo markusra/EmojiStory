@@ -1,7 +1,10 @@
 import React, { Component, Fragment } from "react";
 import { Button } from "reactstrap";
 import "./index.css";
-import PropTypes from "prop-types";
+
+import { connect } from "react-redux";
+import { setItBackground } from "../../../../actions/index";
+
 
 class ITBackgroundButtons extends Component {
   render() {
@@ -11,7 +14,7 @@ class ITBackgroundButtons extends Component {
           className="surveyAnswerButton yes"
           size="lg"
           onClick={() => {
-            this.props.setITBackground("Yes");
+            this.props.setItBackground("Yes", "emojiUsage");
           }}
         >
           Yes
@@ -21,7 +24,7 @@ class ITBackgroundButtons extends Component {
           className="surveyAnswerButton no"
           size="lg"
           onClick={() => {
-            this.props.setITBackground("No");
+            this.props.setItBackground("No", "emojiUsage");
           }}
         >
           No
@@ -31,8 +34,20 @@ class ITBackgroundButtons extends Component {
   }
 }
 
-ITBackgroundButtons.propTypes = {
-  setITBackground: PropTypes.func
+const mapStateToProps = state => {
+  return {
+    itBackground: state.itBackground,
+    surveyPage: state.surveyPage
+  };
 };
 
-export default ITBackgroundButtons;
+const mapDispatchToProps = dispatch => {
+  return {
+    setItBackground: (itBackground, surveyPage) => {
+      dispatch(setItBackground(itBackground, surveyPage));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ITBackgroundButtons);
+

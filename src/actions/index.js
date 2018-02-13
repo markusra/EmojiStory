@@ -39,5 +39,56 @@ export const setReadyFor2ndLogin = readyFor2ndLogin => {
   }
 }
 
+export const setAge = (age) => {
+  return {
+    type: 'SET_AGE',
+    age
+  }
+}
 
+export const setNationality = (nationality) => {
+  return {
+    type: 'SET_NATIONALITY',
+    nationality
+  }
+}
 
+export const setEmojiUsage = (emojiUsage, surveyPage) => {
+  return {
+    type: 'SET_EMOJIUSAGE',
+    emojiUsage,
+    surveyPage
+  }
+}
+
+export const setGender = (gender, surveyPage) => {
+  return {
+    type: 'SET_GENDER',
+    gender,
+    surveyPage
+  }
+}
+
+export const setItBackground = (itBackground, surveyPage) => {
+  return {
+    type: 'SET_ITBACKGROUND',
+    itBackground,
+    surveyPage
+  }
+}
+
+export const setInterpretation = (interpretation, surveyPage) => {
+  return {
+    type: 'SET_INTERPRETATION',
+    interpretation,
+    surveyPage
+  }
+}
+
+export const setMemorization = (memorization, surveyPage) => {
+  return {
+    type: 'SET_MEMORIZATION',
+    memorization,
+    surveyPage
+  }
+}

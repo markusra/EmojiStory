@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import "./index.css";
-import PropTypes from "prop-types";
 import { Button } from "reactstrap";
+import "./index.css";
+
+import { connect } from "react-redux";
+import { setGender } from "../../../../actions/index";
 
 class GenderButtons extends Component {
   render() {
@@ -11,7 +13,7 @@ class GenderButtons extends Component {
           <div className="p-2">
             <div
               onClick={() => {
-                this.props.setGender("female");
+                this.props.setGender("female", "itBackground");
               }}
             >
               <i
@@ -23,7 +25,7 @@ class GenderButtons extends Component {
           <div className="p-2">
             <div
               onClick={() => {
-                this.props.setGender("male");
+                this.props.setGender("male", "itBackground");
               }}
             >
               <i
@@ -39,7 +41,7 @@ class GenderButtons extends Component {
             color="link"
             style={{ color: "#1b212c", marginTop: "15px" }}
             onClick={() => {
-              this.props.setGender("other");
+              this.props.setGender("other", "itBackground");
             }}
           >
             Other
@@ -50,8 +52,20 @@ class GenderButtons extends Component {
   }
 }
 
-GenderButtons.propTypes = {
-  setGender: PropTypes.func
+const mapStateToProps = state => {
+  return {
+    gender: state.gender,
+    surveyPage: state.surveyPage
+  };
 };
 
-export default GenderButtons;
+const mapDispatchToProps = dispatch => {
+  return {
+    setGender: (gender, surveyPage) => {
+      dispatch(setGender(gender, surveyPage));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(GenderButtons);
+

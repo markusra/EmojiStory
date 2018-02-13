@@ -16,13 +16,16 @@ class LoginOverlay2 extends Component {
 
     const OverlayButton =
         <Button
+          className="okButton"
           color="primary"
           size="lg"
           onClick={this.props.onOkButtonClick}
-          block
+          // block
         >
           OK
         </Button>
+
+
 
     return (
       <div className={"login-overlay2 " + visible}>
@@ -30,7 +33,7 @@ class LoginOverlay2 extends Component {
           <div className="row h-100">
             <div className="col-sm-12 my-auto">
               <h3 className="result">{text}</h3>
-              <div className="buttonStyle">{OverlayButton}</div>
+              <div className="okButtonContainer">{OverlayButton}</div>
             </div>
           </div> 
         </div>

@@ -3,6 +3,12 @@ import { FormGroup, Label, Input } from "reactstrap";
 import PropTypes from "prop-types";
 import "./index.css";
 
+import { setAge } from "../../../../actions/index";
+import { setNationality } from "../../../../actions/index";
+
+// Connect to Redux store
+import { connect } from "react-redux";
+
 class AgeAndCountry extends Component {
   constructor(props) {
     super(props);
@@ -57,7 +63,9 @@ class AgeAndCountry extends Component {
             id="age"
             placeholder="Age"
             value={this.props.age}
-            onChange={this.props.onInputChange}
+            onChange={e => {
+              this.props.setAge(e.target.value);
+            }}
             required
           />
         </FormGroup>
@@ -70,7 +78,9 @@ class AgeAndCountry extends Component {
             name="nationality"
             id="nationality"
             value={this.props.nationality}
-            onChange={this.props.onInputChange}
+            onChange={e => {
+              this.props.setNationality(e.target.value);
+            }}
             required
           >
             {this.buildOptions()}
@@ -82,9 +92,25 @@ class AgeAndCountry extends Component {
 }
 
 AgeAndCountry.propTypes = {
-  onInputChange: PropTypes.func,
-  age: PropTypes.string,
-  nationality: PropTypes.string
+  onInputChange: PropTypes.func
 };
 
-export default AgeAndCountry;
+const mapStateToProps = state => {
+  return {
+    age: state.age,
+    nationality: state.nationality
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setAge: age => {
+      dispatch(setAge(age));
+    },
+    setNationality: nationality => {
+      dispatch(setNationality(nationality));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AgeAndCountry);
