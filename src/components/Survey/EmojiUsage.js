@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { Button } from "reactstrap";
-import "./index.css";
-import PropTypes from "prop-types";
 import AppContainer from "./../AppContainer";
 import SurveyBody from "./SurveyBody";
+import "./index.css";
+
+import { connect } from "react-redux";
+import { setEmojiUsage } from "../../actions/index";
 
 class EmojiUsage extends Component {
   render() {
@@ -18,35 +20,51 @@ class EmojiUsage extends Component {
               <Button
                 className="surveyAnswerButton top"
                 size="lg"
-                onClick={() => this.props.setEmojiUsage("Several times a day")}
+                onClick={() =>
+                  this.props.setEmojiUsage(
+                    "Several times a day",
+                    "interpretation"
+                  )
+                }
               >
                 Several times a day
               </Button>
               <Button
                 className="surveyAnswerButton mid"
                 size="lg"
-                onClick={() => this.props.setEmojiUsage("Once a day")}
+                onClick={() =>
+                  this.props.setEmojiUsage("Once a day", "interpretation")
+                }
               >
                 Once a day
               </Button>
               <Button
                 className="surveyAnswerButton mid"
                 size="lg"
-                onClick={() => this.props.setEmojiUsage("Several times a week")}
+                onClick={() =>
+                  this.props.setEmojiUsage(
+                    "Several times a week",
+                    "interpretation"
+                  )
+                }
               >
                 Several times a week
               </Button>
               <Button
                 className="surveyAnswerButton mid"
                 size="lg"
-                onClick={() => this.props.setEmojiUsage("Once a week")}
+                onClick={() =>
+                  this.props.setEmojiUsage("Once a week", "interpretation")
+                }
               >
                 Once a week
               </Button>
               <Button
                 className="surveyAnswerButton bottom"
                 size="lg"
-                onClick={() => this.props.setEmojiUsage("Never")}
+                onClick={() =>
+                  this.props.setEmojiUsage("Never", "interpretation")
+                }
               >
                 Never
               </Button>
@@ -58,8 +76,19 @@ class EmojiUsage extends Component {
   }
 }
 
-EmojiUsage.propTypes = {
-  setEmojiUsage: PropTypes.func
+const mapStateToProps = state => {
+  return {
+    emojiUsage: state.emojiUsage,
+    surveyPage: state.surveyPage
+  };
 };
 
-export default EmojiUsage;
+const mapDispatchToProps = dispatch => {
+  return {
+    setEmojiUsage: (emojiUsage, surveyPage) => {
+      dispatch(setEmojiUsage(emojiUsage, surveyPage));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(EmojiUsage);

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import AgeAndCountry from "./AgeAndCountry/index";
 import AppContainer from "../../AppContainer";
 import AppFooter from "../../AppFooter";
-import "./index.css"
+import "./index.css";
 
 // Import Bootstrap Components
 import { Button, Form } from "reactstrap";
@@ -23,9 +23,6 @@ class AgeAndCountryContainer extends Component {
               ref={instance => {
                 this.child = instance;
               }}
-              onInputChange={this.props.onInputChange}
-              age={this.props.age}
-              nationality={this.props.nationality}
             />
           </div>
           <AppFooter className="age-country-body">
@@ -34,7 +31,7 @@ class AgeAndCountryContainer extends Component {
               size="lg"
               style={{
                 color: "white",
-                backgroundColor: "#1b212c",
+                backgroundColor: "#1b212c"
               }}
             >
               Submit
@@ -47,10 +44,7 @@ class AgeAndCountryContainer extends Component {
 }
 
 AgeAndCountryContainer.propTypes = {
-  onSubmitForm: PropTypes.func,
-  onInputChange: PropTypes.func,
-  age: PropTypes.string,
-  nationality: PropTypes.string
+  onSubmitForm: PropTypes.func
 };
 
 export default AgeAndCountryContainer;

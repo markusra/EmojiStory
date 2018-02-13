@@ -52,7 +52,15 @@ const initialState = {
       text: "Mountain",
       src: "26f0.svg"
     }
-  ]
+  ],
+  age: "",
+  nationality: "",
+  surveyPage: "gender",
+  emojiUsage: "",
+  gender: "",
+  itBackground: "",
+  interpretation: "",
+  memorization: ""
 };
 
 const userData = (state = initialState, action) => {
@@ -89,6 +97,46 @@ const userData = (state = initialState, action) => {
     return {
       ...state,
       readyFor2ndLogin: true
+    };
+    case "SET_AGE":
+    return {
+      ...state,
+      age: action.age
+    };
+    case "SET_NATIONALITY":
+    return {
+      ...state,
+      nationality: action.nationality
+    };
+    case "SET_EMOJIUSAGE":
+    return {
+      ...state,
+      emojiUsage: action.emojiUsage,
+      surveyPage: action.surveyPage
+    };
+    case "SET_GENDER":
+    return {
+      ...state,
+      gender: action.gender,
+      surveyPage: action.surveyPage
+    };
+    case "SET_ITBACKGROUND":
+    return {
+      ...state,
+      itBackground: action.itBackground,
+      surveyPage: action.surveyPage
+    };
+    case "SET_INTERPRETATION":
+    return {
+      ...state,
+      interpretation: action.interpretation,
+      surveyPage: action.surveyPage
+    };
+    case "SET_MEMORIZATION":
+    return {
+      ...state,
+      memorization: action.memorization,
+      surveyPage: action.surveyPage
     };
     default:
       return state;

@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { Button } from "reactstrap";
-import "./index.css";
-import PropTypes from "prop-types";
 import AppContainer from "./../AppContainer";
 import SurveyBody from "./SurveyBody";
+import "./index.css";
+
+import { connect } from "react-redux";
+import { setMemorization } from "../../actions/index";
 
 class Memorization extends Component {
   render() {
@@ -18,30 +20,30 @@ class Memorization extends Component {
               <Button
                 className="surveyAnswerButton top"
                 size="lg"
-                onClick={() => this.props.setMemorization("the emojis")}
+                onClick={() => this.props.setMemorization("the emojis", "questions")}
               >
                 the emojis 
               </Button>
               <Button
                 className="surveyAnswerButton mid"
                 size="lg"
-                onClick={() => this.props.setMemorization("the story")}
+                onClick={() => this.props.setMemorization("the story", "questions")}
               >
                 the story
               </Button>
               <Button
                 className="surveyAnswerButton mid"
                 size="lg"
-                onClick={() => this.props.setMemorization("the emojis and the story")}
+                onClick={() => this.props.setMemorization("the emojis and the story", "questions")}
               >
                 the emojis and the story
               </Button>
               <Button
                 className="surveyAnswerButton bottom"
                 size="lg"
-                onClick={() => this.props.setMemorization("I don't know")}
+                onClick={() => this.props.setMemorization("something else", "questions")}
               >
-                nothing
+                something else
               </Button>
             </div>
           </div>
@@ -51,8 +53,19 @@ class Memorization extends Component {
   }
 }
 
-Memorization.propTypes = {
-  setMemorization: PropTypes.func
+const mapStateToProps = state => {
+  return {
+    memorization: state.memorization,
+    surveyPage: state.surveyPage
+  };
 };
 
-export default Memorization;
+const mapDispatchToProps = dispatch => {
+  return {
+    setMemorization: (memorization, surveyPage) => {
+      dispatch(setMemorization(memorization, surveyPage));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Memorization);

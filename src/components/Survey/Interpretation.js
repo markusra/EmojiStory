@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import { Button } from "reactstrap";
-import "./index.css";
-import PropTypes from "prop-types";
 import AppContainer from "./../AppContainer";
 import SurveyBody from "./SurveyBody";
+
+import "./index.css";
+
+import { connect } from "react-redux";
+import { setInterpretation } from "../../actions/index";
 
 class Interpretation extends Component {
   render() {
@@ -20,21 +23,21 @@ class Interpretation extends Component {
               <Button
                 className="surveyAnswerButton top"
                 size="lg"
-                onClick={() => this.props.setInterpretation("Yes")}
+                onClick={() => this.props.setInterpretation("Yes", "memorization")}
               >
                 Yes
               </Button>
               <Button
                 className="surveyAnswerButton mid"
                 size="lg"
-                onClick={() => this.props.setInterpretation("No")}
+                onClick={() => this.props.setInterpretation("No", "memorization")}
               >
                 No
               </Button>
               <Button
                 className="surveyAnswerButton bottom"
                 size="lg"
-                onClick={() => this.props.setInterpretation("I don't know")}
+                onClick={() => this.props.setInterpretation("I don't know", "memorization")}
               >
                 I don't know
               </Button>
@@ -46,8 +49,19 @@ class Interpretation extends Component {
   }
 }
 
-Interpretation.propTypes = {
-  setInterpretation: PropTypes.func
+const mapStateToProps = state => {
+  return {
+    interpretation: state.interpretation,
+    surveyPage: state.surveyPage
+  };
 };
 
-export default Interpretation;
+const mapDispatchToProps = dispatch => {
+  return {
+    setInterpretation: (interpretation, surveyPage) => {
+      dispatch(setInterpretation(interpretation, surveyPage));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Interpretation);
