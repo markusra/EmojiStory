@@ -5,7 +5,7 @@ import EmojiUsage from "../../components/Survey/EmojiUsage";
 import Interpretation from "../../components/Survey/Interpretation";
 import Memorization from "../../components/Survey/Memorization";
 import AgeAndCountryContainer from "../../components/Survey/AgeAndCountryContainer/index";
-import { sendDataToDB } from "../../services/sendDataToDB";
+import { questionsUpdateDB } from "../../services/questionsUpdateDB";
 import PropTypes from "prop-types";
 import history from "./../../history";
 
@@ -26,14 +26,15 @@ class Survey extends Component {
   }
 
   handleSubmit() {
-    sendDataToDB(
+    questionsUpdateDB(
+      this.props.dbKey,
       this.props.age,
-      this.props.nationality,
       this.props.emojiUsage,
       this.props.gender,
-      this.props.itBackground,
       this.props.interpretation,
-      this.props.memorization
+      this.props.itBackground,
+      this.props.memorization,
+      this.props.nationality
     );
     const url = "/login2";
     this.props.setUserProgress(url);
@@ -59,6 +60,7 @@ class Survey extends Component {
 const mapStateToProps = state => {
   return {
     userProgress: state.userProgress,
+    dbKey: state.dbKey,
     age: state.age,
     nationality: state.nationality,
     emojiUsage: state.emojiUsage,

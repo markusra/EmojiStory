@@ -1,4 +1,4 @@
-,age,gender
--L2_W1II7-Tt-mjD-tC1,13,female
--L2_W3n68GbAq0_nNCGq,18,male
--L2_ZPMsx_zNIknze6Qu,56,other
+,age,answerIndices,answerOptions,answers,emojiStoryCreated,emojiUsage,gender,interpretation,itBackground,keyboard,loginAttempts1,loginAttempts2,memorization,nationality,surveyFinished,timestamp1,timestamp2,timestamp3,timestamp4,timestamp5
+-L5GJIstMtJTBiQWb0ll,,,,,False,,,,,,,,,,False,,,,,
+-L5GJZdKD9q7PXOOB7zF,,"[0, 4, 6, 2]",,,False,,,,,,,,,,False,,,,,
+-L5GM_f-J_ER4l9vUnBL,age,"[0, 4, 6, 2]",,answers,False,,,,,,,,,,False,,,,,

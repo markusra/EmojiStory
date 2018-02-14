@@ -13,11 +13,16 @@ import history from "../../history";
 import { connect } from "react-redux";
 import { setUserProgress } from "../../actions/index";
 import { deleteAnswers } from "../../actions/index";
+import { setDbKey } from "../../actions/index";
+import { sendDataToDB } from "../../services/sendDataToDB";
 
 // TODO: Fix email address
 class Welcome extends Component {
   onButtonClick() {
     this.props.deleteAnswers();
+
+    const key = sendDataToDB();
+    this.props.setDbKey(key);
 
     const url = "/emojiStory";
     this.props.setUserProgress(url);
@@ -73,6 +78,9 @@ const mapDispatchToProps = dispatch => {
     },
     deleteAnswers: userStory => {
       dispatch(deleteAnswers(userStory));
+    },
+    setDbKey: dbKey => {
+      dispatch(setDbKey(dbKey));
     }
   };
 };

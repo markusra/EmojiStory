@@ -8,6 +8,8 @@ import LoginOverlay2 from "../../../components/LoginOverlay2";
 import EmojiBody from "../../../components/EmojiStory/EmojiContainer/EmojiBody";
 import EmojiRow from "../../../components/EmojiStory/EmojiRow";
 
+import { timestampUpdateDB } from "../../../services/timestampUpdateDB";
+
 import history from "../../../history";
 
 // Connect to Redux store
@@ -62,10 +64,13 @@ class Login extends Component {
 
   onContinueButtonClick() {
     if (this.props.readyFor2ndLogin) {
+      timestampUpdateDB(this.props.dbKey, "timestamp5", "Test5", 3 - this.state.attemptsLeft)
       const url = "/finish";
       this.props.setUserProgress(url);
       history.push(url);
     } else {
+      timestampUpdateDB(this.props.dbKey, "timestamp4", "Test4", 3 - this.state.attemptsLeft)
+
       this.props.setReadyFor2ndLogin();
       const url = "/survey";
       this.props.setUserProgress(url);
@@ -273,7 +278,8 @@ const mapStateToProps = state => {
   return {
     userProgress: state.userProgress,
     keyboard: state.keyboard,
-    readyFor2ndLogin: state.readyFor2ndLogin
+    readyFor2ndLogin: state.readyFor2ndLogin,
+    dbKey: state.dbKey
   };
 };
 

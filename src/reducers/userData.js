@@ -60,7 +60,8 @@ const initialState = {
   gender: "",
   itBackground: "",
   interpretation: "",
-  memorization: ""
+  memorization: "",
+  dbKey: ""
 };
 
 const userData = (state = initialState, action) => {
@@ -137,6 +138,11 @@ const userData = (state = initialState, action) => {
       ...state,
       memorization: action.memorization,
       surveyPage: action.surveyPage
+    };
+    case "SET_DBKEY":
+    return {
+      ...state,
+      dbKey: action.dbKey
     };
     default:
       return state;
