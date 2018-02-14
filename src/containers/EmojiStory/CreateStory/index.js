@@ -8,6 +8,8 @@ import { connect } from "react-redux";
 
 import { redirectUser } from "../../../services/redirectUser";
 
+import { timestampUpdateDB } from "../../../services/timestampUpdateDB";
+
 class CreateStory extends Component {
   constructor(props) {
     super(props);
@@ -23,6 +25,7 @@ class CreateStory extends Component {
   incrementClick() {
     this.setState({ clicks: this.state.clicks + 1 });
     if (this.state.clicks === 3) {
+      timestampUpdateDB(this.props.dbKey, "timestamp1", "Test1")
       this.setState({
         page: "create"
       });
@@ -51,7 +54,8 @@ class CreateStory extends Component {
 
 const mapStateToProps = state => {
   return {
-    userProgress: state.userProgress
+    userProgress: state.userProgress,
+    dbKey: state.dbKey
   };
 };
 

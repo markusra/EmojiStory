@@ -13,6 +13,7 @@ import EmojiQuestion from "../EmojiQuestion/index";
 import EmojiContainer from "../EmojiContainer";
 import EmojiBody from "../EmojiContainer/EmojiBody";
 import EmojiOverlay from "../EmojiOverlay/index";
+import { timestampUpdateDB } from "../../../services/timestampUpdateDB";
 
 class EmojiQuiz extends Component {
   constructor(props) {
@@ -129,6 +130,7 @@ class EmojiQuiz extends Component {
     });
 
     if (this.state.questionId === quizQuestions.questions.length) {
+      timestampUpdateDB(this.props.dbKey, "timestamp2", "Test2");
       const url = "/summary";
       this.props.setUserProgress(url);
       history.push(url);
@@ -166,7 +168,8 @@ class EmojiQuiz extends Component {
 
 const mapStateToProps = state => {
   return {
-    answers: state.answers
+    answers: state.answers,
+    dbKey: state.dbKey
   };
 };
 

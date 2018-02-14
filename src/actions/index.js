@@ -92,3 +92,10 @@ export const setMemorization = (memorization, surveyPage) => {
     surveyPage
   }
 }
+
+export const setDbKey = dbKey => {
+  return {
+    type: 'SET_DBKEY',
+    dbKey
+  }
+}

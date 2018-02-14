@@ -6,11 +6,14 @@ import EmojiContainer from "../../../components/EmojiStory/EmojiContainer";
 import EmojiBody from "../../../components/EmojiStory/EmojiContainer/EmojiBody";
 import EmojiRow from "../../../components/EmojiStory/EmojiRow";
 
+import { emojiStoryUpdateDB } from "../../../services/emojiStoryUpdateDB";
+
 import history from "../../../history";
 
 // Connect to Redux store
 import { connect } from "react-redux";
 import { setUserProgress } from "../../../actions/index";
+
 
 import { redirectUser } from "../../../services/redirectUser";
 
@@ -62,6 +65,12 @@ class StorySummary extends Component {
   }
 
   onButtonClick() {
+    var emojiTextArray = [];
+
+    this.props.answers.map(answer => emojiTextArray.push(answer.text));
+    //Update DB
+    emojiStoryUpdateDB(this.props.dbKey, emojiTextArray, [0,1,2], "keyboard", "Test3");
+
     const url = "/login";
     this.props.setUserProgress(url);
     history.push(url);
@@ -126,7 +135,8 @@ const mapStateToProps = state => {
   return {
     userProgress: state.userProgress,
     storyTemplate: state.storyTemplate,
-    answers: state.answers
+    answers: state.answers,
+    dbKey: state.dbKey
   };
 };
 
