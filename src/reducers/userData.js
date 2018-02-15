@@ -38,7 +38,7 @@ const initialState = {
     },
     {
       text: "Smiley",
-      src: "feelings/happy/1f600.svg"
+      src: "feelings/Happy/1f600.svg"
     },
     {
       text: "Lifting",
