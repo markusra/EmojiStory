@@ -60,10 +60,6 @@ const countries = [
     src: "countries/1f1e6-1f1fc.svg"
   },
   {
-    text: "Åland Islands",
-    src: "countries/1f1e6-1f1fd.svg"
-  },
-  {
     text: "Azerbaijan",
     src: "countries/1f1e6-1f1ff.svg"
   },
@@ -238,6 +234,382 @@ const countries = [
   {
     text: "Guyana",
     src: "countries/1f1ec-1f1fe.svg"
+  },
+  {
+    text: "Honduras",
+    src: "countries/1f1ed-1f1f3.svg"
+  },
+  {
+    text: "Croatia",
+    src: "countries/1f1ed-1f1f7.svg"
+  },
+  {
+    text: "Haiti",
+    src: "countries/1f1ed-1f1f9.svg"
+  },
+  {
+    text: "Hungary",
+    src: "countries/1f1ed-1f1fa.svg"
+  },
+  {
+    text: "Canary Islands",
+    src: "countries/1f1ee-1f1e8.svg"
+  },
+  {
+    text: "Indonesia",
+    src: "countries/1f1ee-1f1e9.svg"
+  },
+  {
+    text: "Ireland",
+    src: "countries/1f1ee-1f1ea.svg"
+  },
+  {
+    text: "Israel",
+    src: "countries/1f1ee-1f1f1.svg"
+  },
+  {
+    text: "India",
+    src: "countries/1f1ee-1f1f3.svg"
+  },
+  {
+    text: "Iraq",
+    src: "countries/1f1ee-1f1f6.svg"
+  },
+  {
+    text: "Iran",
+    src: "countries/1f1ee-1f1f7.svg"
+  },
+  {
+    text: "Iceland",
+    src: "countries/1f1ee-1f1f8.svg"
+  },
+  {
+    text: "Italy",
+    src: "countries/1f1ee-1f1f9.svgg"
+  },
+  {
+    text: "Jamaica",
+    src: "countries/1f1ef-1f1f2.svg"
+  },
+  {
+    text: "Jordan",
+    src: "countries/1f1ef-1f1f4.svg"
+  },
+  {
+    text: "Japan",
+    src: "countries/1f1ef-1f1f5.svg"
+  },
+  {
+    text: "Kenya",
+    src: "countries/1f1f0-1f1ea.svg"
+  },
+  {
+    text: "Kyrgyzstan",
+    src: "countries/1f1f0-1f1ec.svg"
+  },
+  {
+    text: "North Korea",
+    src: "countries/1f1f0-1f1f5.svg"
+  },
+  {
+    text: "South Korea",
+    src: "countries/1f1f0-1f1f7.svg"
+  },
+  {
+    text: "Kuwait",
+    src: "countries/1f1f0-1f1fc.svg"
+  },
+  {
+    text: "Kazakhstan",
+    src: "countries/1f1f0-1f1ff.svg"
+  },
+  {
+    text: "Laos",
+    src: "countries/1f1f1-1f1e6.svg"
+  },
+  {
+    text: "Lebanon",
+    src: "countries/1f1f1-1f1e7.svg"
+  },
+  {
+    text: "Liechtenstein",
+    src: "countries/1f1f1-1f1ee.svg"
+  },
+  {
+    text: "Liberia",
+    src: "countries/1f1f1-1f1f7.svg"
+  },
+  {
+    text: "Lithuania",
+    src: "countries/1f1f1-1f1f9.svg"
+  },
+  {
+    text: "Luxembourg",
+    src: "countries/1f1f1-1f1fa.svg"
+  },
+  {
+    text: "Latvia",
+    src: "countries/1f1f1-1f1fb.svg"
+  },
+  {
+    text: "Libya",
+    src: "countries/1f1f1-1f1fe.svg"
+  },
+  {
+    text: "Morocco",
+    src: "countries/1f1f2-1f1e6.svg"
+  },
+  {
+    text: "Monaco",
+    src: "countries/1f1f2-1f1e8.svg"
+  },
+  {
+    text: "Moldova",
+    src: "countries/1f1f2-1f1e9.svg"
+  },
+  {
+    text: "Macedonia",
+    src: "countries/1f1f2-1f1f0.svg"
+  },
+  {
+    text: "Mali",
+    src: "countries/1f1f2-1f1f1.svg"
+  },
+  {
+    text: "Mongolia",
+    src: "countries/1f1f2-1f1f3.svg"
+  },
+  {
+    text: "Malta",
+    src: "countries/1f1f2-1f1f9.svg"
+  },
+  {
+    text: "Malawi",
+    src: "countries/1f1f2-1f1fc.svg"
+  },
+  {
+    text: "Mexico",
+    src: "countries/1f1f2-1f1fd.svg"
+  },
+  {
+    text: "Malaysia",
+    src: "countries/1f1f2-1f1fe.svg"
+  },
+  {
+    text: "Mozambique",
+    src: "countries/1f1f2-1f1ff.svg"
+  },
+  {
+    text: "Namibia",
+    src: "countries/1f1f3-1f1e6.svg"
+  },
+  {
+    text: "Nigeria",
+    src: "countries/1f1f3-1f1ec.svg"
+  },
+  {
+    text: "Nicaragua",
+    src: "countries/1f1f3-1f1ee.svgg"
+  },
+  {
+    text: "Netherlands",
+    src: "countries/1f1f3-1f1f1.svg"
+  },
+  {
+    text: "Nepal",
+    src: "countries/1f1f3-1f1f5.svg"
+  },
+  {
+    text: "New Zealand",
+    src: "countries/1f1f3-1f1ff.svg"
+  },
+  {
+    text: "Oman",
+    src: "countries/1f1f4-1f1f2.svg"
+  },
+  {
+    text: "Panama",
+    src: "countries/1f1f5-1f1e6.svg"
+  },
+  {
+    text: "Peru",
+    src: "countries/1f1f5-1f1ea.svg"
+  },
+  {
+    text: "Pakistan",
+    src: "countries/1f1f5-1f1f0.svg"
+  },
+  {
+    text: "Poland",
+    src: "countries/1f1f5-1f1f1.svg"
+  },
+  {
+    text: "Puerto Rico",
+    src: "countries/1f1f5-1f1f7.svg"
+  },
+  {
+    text: "Palestine",
+    src: "countries/1f1f5-1f1f8.svg"
+  },
+  {
+    text: "Portugal",
+    src: "countries/1f1f5-1f1f9.svg"
+  },
+  {
+    text: "Quatar",
+    src: "countries/1f1f6-1f1e6.svg"
+  },
+  {
+    text: "Romania",
+    src: "countries/1f1f7-1f1f4.svg"
+  },
+  {
+    text: "Serbia",
+    src: "countries/1f1f7-1f1f8.svg"
+  },
+  {
+    text: "Russia",
+    src: "countries/1f1f7-1f1fa.svg"
+  },
+  {
+    text: "Rwanda",
+    src: "countries/1f1f7-1f1fc.svg"
+  },
+  {
+    text: "Saudi Arabia",
+    src: "countries/1f1f8-1f1e6.svg"
+  },
+  {
+    text: "Sudan",
+    src: "countries/1f1f8-1f1e9.svg"
+  },
+  {
+    text: "Sweden",
+    src: "countries/1f1f8-1f1ea.svg"
+  },
+  {
+    text: "Singapore",
+    src: "countries/1f1f8-1f1ec.svg"
+  },
+  {
+    text: "Slovenia",
+    src: "countries/1f1f8-1f1ee.svg"
+  },
+  {
+    text: "Slovakia",
+    src: "countries/1f1f8-1f1f0.svg"
+  },
+  {
+    text: "Sierra Leone",
+    src: "countries/1f1f8-1f1f1.svg"
+  },
+  {
+    text: "San Marino",
+    src: "countries/1f1f8-1f1f2.svg"
+  },
+  {
+    text: "Senegal",
+    src: "countries/1f1f8-1f1f3.svg"
+  },
+  {
+    text: "Somalia",
+    src: "countries/1f1f8-1f1f4.svg"
+  },
+  {
+    text: "El Salvador",
+    src: "countries/1f1f8-1f1fb.svg"
+  },
+  {
+    text: "Syria",
+    src: "countries/1f1f8-1f1fe.svg"
+  },
+  {
+    text: "Swaziland",
+    src: "countries/1f1f8-1f1ff.svg"
+  },
+  {
+    text: "Togo",
+    src: "countries/1f1f9-1f1ec.svg"
+  },
+  {
+    text: "Thailand",
+    src: "countries/1f1f9-1f1ed.svg"
+  },
+  {
+    text: "Tajikistan",
+    src: "countries/1f1f9-1f1ef.svg"
+  },
+  {
+    text: "Turkmenistan",
+    src: "countries/1f1f9-1f1f2.svg"
+  },
+  {
+    text: "Tunisia",
+    src: "countries/1f1f9-1f1f3.svg"
+  },
+  {
+    text: "Tonga",
+    src: "countries/1f1f9-1f1f4.svg"
+  },
+  {
+    text: "Turkey",
+    src: "countries/1f1f9-1f1f7.svg"
+  },
+  {
+    text: "Trinidad & Tobago",
+    src: "countries/1f1f9-1f1f9.svg"
+  },
+  {
+    text: "Taiwan",
+    src: "countries/1f1f9-1f1fc.svg"
+  },
+  {
+    text: "Ukraine",
+    src: "countries/1f1fa-1f1e6.svg"
+  },
+  {
+    text: "Uganda",
+    src: "countries/1f1fa-1f1ec.svg"
+  },
+  {
+    text: "United States",
+    src: "countries/1f1fa-1f1f2.svg"
+  },
+  {
+    text: "Uruguay",
+    src: "countries/1f1fa-1f1fe.svg"
+  },
+  {
+    text: "Uzbekistan",
+    src: "countries/1f1fa-1f1ff.svg"
+  },
+  {
+    text: "Venezuela",
+    src: "countries/1f1fb-1f1ea.svg"
+  },
+  {
+    text: "Vietnam",
+    src: "countries/1f1fb-1f1f3.svg"
+  },
+  {
+    text: "Samoa",
+    src: "countries/1f1fc-1f1f8.svg"
+  },
+  {
+    text: "Yemen",
+    src: "countries/1f1fe-1f1ea.svg"
+  },
+  {
+    text: "South Africa",
+    src: "countries/1f1ff-1f1e6.svg"
+  },
+  {
+    text: "Zambia",
+    src: "countries/1f1ff-1f1f2.svg"
+  },
+  {
+    text: "Zimbabwe",
+    src: "countries/1f1ff-1f1fc.svg"
   }
 ];
 
