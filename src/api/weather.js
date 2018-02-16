@@ -202,7 +202,23 @@ const weather = [
   {
     text: "clouds",
     src: "weather/2601.svg"
-  }
+  },
+
+  {
+    text: "the sunset",
+    emojiList: [
+      {
+        text: "sunset1",
+        src: "weather/1f304.svg"
+      },
+
+      {
+        text: "sunset2",
+        src: "weather/1f305.svg"
+      }
+    ]
+  },
+
 ];
 
 export default { weather };
