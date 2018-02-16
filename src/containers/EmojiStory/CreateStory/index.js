@@ -60,7 +60,8 @@ const mapStateToProps = state => {
 };
 
 CreateStory.propTypes = {
-  userProgress: PropTypes.string
+  userProgress: PropTypes.string,
+  dbKey:PropTypes.string
 };
 
 export default connect(mapStateToProps)(CreateStory);

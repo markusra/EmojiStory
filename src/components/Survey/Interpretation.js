@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { Button } from "reactstrap";
 import AppContainer from "./../AppContainer";
 import SurveyBody from "./SurveyBody";
@@ -39,7 +40,7 @@ class Interpretation extends Component {
                 size="lg"
                 onClick={() => this.props.setInterpretation("I don't know", "memorization")}
               >
-                I don't know
+                I don‘t know
               </Button>
             </div>
           </div>
@@ -62,6 +63,10 @@ const mapDispatchToProps = dispatch => {
       dispatch(setInterpretation(interpretation, surveyPage));
     }
   };
+};
+
+Interpretation.propTypes = {
+  setInterpretation: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Interpretation);

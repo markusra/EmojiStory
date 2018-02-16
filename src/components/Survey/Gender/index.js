@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import AppContainer from "../../AppContainer";
 import GenderButtons from "./GenderButtons/index";
-import PropTypes from "prop-types";
 import SurveyBody from "./../SurveyBody";
 import "./index.css";
 
@@ -14,16 +13,12 @@ class Gender extends Component {
             <div className="p-2 text-center bottom-margin">
               <h3>What is your gender?</h3>
             </div>
-            <GenderButtons setGender={this.props.setGender} />
+            <GenderButtons />
           </div>
         </SurveyBody>
       </AppContainer>
     );
   }
 }
-
-Gender.propTypes = {
-  setGender: PropTypes.func
-};
 
 export default Gender;

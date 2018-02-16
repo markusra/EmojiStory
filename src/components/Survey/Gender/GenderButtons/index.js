@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { Button } from "reactstrap";
 import "./index.css";
 
@@ -65,6 +66,13 @@ const mapDispatchToProps = dispatch => {
       dispatch(setGender(gender, surveyPage));
     }
   };
+};
+
+GenderButtons.propTypes = {
+  setGender: PropTypes.func,
+  age: PropTypes.string,
+  setNationality: PropTypes.func,
+  setAge: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(GenderButtons);

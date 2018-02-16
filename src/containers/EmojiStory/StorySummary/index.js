@@ -153,7 +153,8 @@ StorySummary.propTypes = {
   storyTemplate: PropTypes.array,
   answers: PropTypes.array,
   userStory: PropTypes.string,
-  setUserProgress: PropTypes.func
+  setUserProgress: PropTypes.func,
+  dbKey: PropTypes.string
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(StorySummary);

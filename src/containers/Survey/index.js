@@ -81,7 +81,17 @@ const mapDispatchToProps = dispatch => {
 };
 
 Survey.propTypes = {
-  userProgress: PropTypes.string
+  userProgress: PropTypes.string,
+  setUserProgress: PropTypes.func,
+  dbKey: PropTypes.string,
+  age: PropTypes.string,
+  nationality: PropTypes.string,
+  emojiUsage: PropTypes.string,
+  gender: PropTypes.string,
+  itBackground: PropTypes.string,
+  interpretation: PropTypes.string,
+  memorization: PropTypes.string,
+  surveyPage: PropTypes.string,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Survey);

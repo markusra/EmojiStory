@@ -91,10 +91,6 @@ class AgeAndCountry extends Component {
   }
 }
 
-AgeAndCountry.propTypes = {
-  onInputChange: PropTypes.func
-};
-
 const mapStateToProps = state => {
   return {
     age: state.age,
@@ -111,6 +107,13 @@ const mapDispatchToProps = dispatch => {
       dispatch(setNationality(nationality));
     }
   };
+};
+
+AgeAndCountry.propTypes = {
+  nationality: PropTypes.string,
+  age: PropTypes.string,
+  setNationality: PropTypes.func,
+  setAge: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AgeAndCountry);

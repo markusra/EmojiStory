@@ -296,7 +296,11 @@ const mapDispatchToProps = dispatch => {
 
 Login.propTypes = {
   userProgress: PropTypes.string,
-  keyboard: PropTypes.array
+  keyboard: PropTypes.array,
+  readyFor2ndLogin: PropTypes.bool,
+  dbKey: PropTypes.string,
+  setReadyFor2ndLogin: PropTypes.func,
+  setUserProgress: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

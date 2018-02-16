@@ -1,5 +1,10 @@
 const initialState = {
-  storyTemplate: ["The king of ***", " owns a three-headed ***", " that eats *** every day.", " This makes the king very ***."],
+  storyTemplate: [
+    "The king of ***",
+    " owns a three-headed ***",
+    " that eats *** every day.",
+    " This makes the king very ***."
+  ],
   userProgress: "",
   readyFor2ndLogin: false,
   answers: [],
@@ -95,55 +100,55 @@ const userData = (state = initialState, action) => {
         userStory: action.userStory
       };
     case "SET_READYFOR2NDLOGIN":
-    return {
-      ...state,
-      readyFor2ndLogin: true
-    };
+      return {
+        ...state,
+        readyFor2ndLogin: true
+      };
     case "SET_AGE":
-    return {
-      ...state,
-      age: action.age
-    };
+      return {
+        ...state,
+        age: action.age
+      };
     case "SET_NATIONALITY":
-    return {
-      ...state,
-      nationality: action.nationality
-    };
+      return {
+        ...state,
+        nationality: action.nationality
+      };
     case "SET_EMOJIUSAGE":
-    return {
-      ...state,
-      emojiUsage: action.emojiUsage,
-      surveyPage: action.surveyPage
-    };
+      return {
+        ...state,
+        emojiUsage: action.emojiUsage,
+        surveyPage: action.surveyPage
+      };
     case "SET_GENDER":
-    return {
-      ...state,
-      gender: action.gender,
-      surveyPage: action.surveyPage
-    };
+      return {
+        ...state,
+        gender: action.gender,
+        surveyPage: action.surveyPage
+      };
     case "SET_ITBACKGROUND":
-    return {
-      ...state,
-      itBackground: action.itBackground,
-      surveyPage: action.surveyPage
-    };
+      return {
+        ...state,
+        itBackground: action.itBackground,
+        surveyPage: action.surveyPage
+      };
     case "SET_INTERPRETATION":
-    return {
-      ...state,
-      interpretation: action.interpretation,
-      surveyPage: action.surveyPage
-    };
+      return {
+        ...state,
+        interpretation: action.interpretation,
+        surveyPage: action.surveyPage
+      };
     case "SET_MEMORIZATION":
-    return {
-      ...state,
-      memorization: action.memorization,
-      surveyPage: action.surveyPage
-    };
+      return {
+        ...state,
+        memorization: action.memorization,
+        surveyPage: action.surveyPage
+      };
     case "SET_DBKEY":
-    return {
-      ...state,
-      dbKey: action.dbKey
-    };
+      return {
+        ...state,
+        dbKey: action.dbKey
+      };
     default:
       return state;
   }

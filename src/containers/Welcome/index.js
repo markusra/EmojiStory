@@ -87,7 +87,8 @@ const mapDispatchToProps = dispatch => {
 
 Welcome.propTypes = {
   setUserProgress: PropTypes.func,
-  deleteAnswers: PropTypes.func
+  deleteAnswers: PropTypes.func,
+  setDbKey: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Welcome);

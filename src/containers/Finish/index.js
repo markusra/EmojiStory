@@ -38,7 +38,6 @@ const mapStateToProps = state => {
   };
 };
 
-// Do we really need this?
 Finish.propTypes = {
   userProgress: PropTypes.string
 };
