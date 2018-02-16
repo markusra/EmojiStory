@@ -11,51 +11,51 @@ const initialState = {
   keyboard: [
     {
       text: "Norway",
-      src: "1f1e7-1f1fb.svg"
+      src: "countries/1f1f0-1f1ec.svg"
     },
     {
       text: "Camera",
-      src: "1f4f7.svg"
+      src: "objects/1f4f7.svg"
     },
     {
       text: "Bathing",
-      src: "1f6c0-1f3fe.svg"
+      src: "/weather/1f324.svg"
     },
     {
       text: "Kiwi",
-      src: "1f95d.svg"
+      src: "food/1f95d.svg"
     },
     {
       text: "Santa",
-      src: "1f385-1f3fb.svg"
+      src: "objects/1f6aa.svg"
     },
     {
       text: "Taco",
-      src: "1f32e.svg"
+      src: "food/1f32e.svg"
     },
     {
       text: "Bear",
-      src: "1f43b.svg"
+      src: "animals/1f413.svg"
     },
     {
-      text: "Thumb's up",
-      src: "1f44d-1f3fd.svg"
+      text: "Bus",
+      src: "vehicle/1f68c.svg"
     },
     {
       text: "Smiley",
-      src: "1f60a.svg"
+      src: "feelings/Happy/1f600.svg"
     },
     {
       text: "Lifting",
-      src: "1f3cb-1f3fd.svg"
+      src: "activities/1f3cb-1f3fd.svg"
     },
     {
       text: "Builder",
-      src: "1f477-1f3fe.svg"
+      src: "person/1f469-1f3fd.svg"
     },
     {
       text: "Mountain",
-      src: "26f0.svg"
+      src: "places/26f0.svg"
     }
   ],
   age: "",
