@@ -13,6 +13,8 @@ import history from "./../../history";
 import { connect } from "react-redux";
 
 import { redirectUser } from "../../services/redirectUser";
+import { timestampUpdateDB } from "../../services/timestampUpdateDB";
+import { calculateTimeUsed } from "../../services/calculateTimeUsed";
 import { setUserProgress } from "../../actions/index";
 
 class Survey extends Component {
@@ -23,6 +25,9 @@ class Survey extends Component {
 
   componentWillMount() {
     redirectUser(this.props.userProgress);
+    // Calculate time spent on logging in the first time and send it to DB
+    const timeUsed = calculateTimeUsed(this.props.timestamp1, this.props.timestamp2);
+    timestampUpdateDB(this.props.dbKey, "timestamp4", timeUsed, this.props.loginAttempts);
   }
 
   handleSubmit() {
@@ -68,7 +73,10 @@ const mapStateToProps = state => {
     itBackground: state.itBackground,
     interpretation: state.interpretation,
     memorization: state.memorization,
-    surveyPage: state.surveyPage
+    surveyPage: state.surveyPage,
+    timestamp1: state.timestamp1,
+    timestamp2: state.timestamp2,
+    loginAttempts: state.loginAttempts
   };
 };
 

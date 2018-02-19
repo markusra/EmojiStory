@@ -5,8 +5,6 @@ import history from "../../../history";
 
 // Connect to Redux store
 import { connect } from "react-redux";
-import { addAnswer } from "../../../actions";
-import { setUserProgress } from "../../../actions/index";
 
 import quizQuestions from "../../../api/quizset_1";
 import EmojiQuestion from "../EmojiQuestion/index";
@@ -14,6 +12,10 @@ import EmojiContainer from "../EmojiContainer";
 import EmojiBody from "../EmojiContainer/EmojiBody";
 import EmojiOverlay from "../EmojiOverlay/index";
 import { timestampUpdateDB } from "../../../services/timestampUpdateDB";
+import { calculateTimeUsed } from "../../../services/calculateTimeUsed";
+import { createTimestamp } from "../../../services/createTimestamp";
+
+import { addAnswer, setUserProgress, setTimestamp1, setTimestamp2 } from "../../../actions/index";
 
 class EmojiQuiz extends Component {
   constructor(props) {
@@ -41,6 +43,17 @@ class EmojiQuiz extends Component {
   }
 
   componentWillMount() {
+    // Calculate time spent on the "instructions page" and send it to DB
+    const timeUsed = calculateTimeUsed(
+      this.props.timestamp1,
+      this.props.timestamp2
+    );
+    timestampUpdateDB(this.props.dbKey, "timestamp1", timeUsed);
+
+    // Set first timestamp for time spent on creating the emoji-password
+    const timestamp = createTimestamp();
+    this.props.setTimestamp1(timestamp);
+
     const firstQuestion = quizQuestions.story[0].split(/[*]{3}/g);
     firstQuestion.splice(
       1,
@@ -50,8 +63,7 @@ class EmojiQuiz extends Component {
       </span>
     );
 
-
-    const answerOptions = quizQuestions.questions[0].answers
+    const answerOptions = quizQuestions.questions[0].answers;
 
     this.setState({
       question: quizQuestions.questions[0].question,
@@ -106,8 +118,8 @@ class EmojiQuiz extends Component {
       answerOptions: quizQuestions.questions[counter].answers
     });
 
-     // Preload images
-     answerOptions.map(this.preloadImage);
+    // Preload images
+    answerOptions.map(this.preloadImage);
   }
 
   handleAnswerClick(answer) {
@@ -130,7 +142,10 @@ class EmojiQuiz extends Component {
     });
 
     if (this.state.questionId === quizQuestions.questions.length) {
-      timestampUpdateDB(this.props.dbKey, "timestamp2", "Test2");
+      // Set second timestamp for time spent on creating the emoji-password
+      const timestamp = createTimestamp();
+      this.props.setTimestamp2(timestamp);
+
       const url = "/summary";
       this.props.setUserProgress(url);
       history.push(url);
@@ -169,7 +184,9 @@ class EmojiQuiz extends Component {
 const mapStateToProps = state => {
   return {
     answers: state.answers,
-    dbKey: state.dbKey
+    dbKey: state.dbKey,
+    timestamp1: state.timestamp1,
+    timestamp2: state.timestamp2
   };
 };
 
@@ -180,6 +197,12 @@ const mapDispatchToProps = dispatch => {
     },
     setUserProgress: userProgress => {
       dispatch(setUserProgress(userProgress));
+    },
+    setTimestamp1: timestamp1 => {
+      dispatch(setTimestamp1(timestamp1));
+    },
+    setTimestamp2: timestamp2 => {
+      dispatch(setTimestamp2(timestamp2));
     }
   };
 };

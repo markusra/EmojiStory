@@ -16,8 +16,10 @@ import history from "../../../history";
 import { connect } from "react-redux";
 
 import { redirectUser } from "../../../services/redirectUser";
-import { setReadyFor2ndLogin } from "../../../actions/index";
-import { setUserProgress } from "../../../actions/index";
+import { calculateTimeUsed } from "../../../services/calculateTimeUsed";
+import { createTimestamp } from "../../../services/createTimestamp";
+
+import { setUserProgress, setReadyFor2ndLogin, setTimestamp1, setTimestamp2, setLoginAttempts } from "../../../actions/index";
 
 // Import Bootstrap Components
 import { Button, Row } from "reactstrap";
@@ -39,6 +41,12 @@ class Login extends Component {
 
   componentWillMount() {
     redirectUser(this.props.userProgress);
+    // We only want to send "time spent on summary page" the first time login mounts
+    // Calculate time spent on memorizing and send it to DB
+    if (this.props.userProgress === "/login") {
+      const timeUsed = calculateTimeUsed(this.props.timestamp1, this.props.timestamp2)
+      timestampUpdateDB(this.props.dbKey, "timestamp3", timeUsed)
+    }
   }
 
   onDeleteButtonClick() {
@@ -49,8 +57,13 @@ class Login extends Component {
 
   onEmojiButtonClick(id) {
     if (this.state.emojis.length === 3) {
+      // Set second timestamp for time spent on logging in
+      const timestamp = createTimestamp();
+      this.props.setTimestamp2(timestamp);
+
       const attempts = this.state.attemptsLeft - 1;
       this.setState({ attemptsLeft: attempts, loginOverlay: true });
+      this.props.setLoginAttempts(3 - attempts);
     }
 
     var tempArray = this.state.emojis.slice();
@@ -64,13 +77,10 @@ class Login extends Component {
 
   onContinueButtonClick() {
     if (this.props.readyFor2ndLogin) {
-      timestampUpdateDB(this.props.dbKey, "timestamp5", "Test5", 3 - this.state.attemptsLeft)
       const url = "/finish";
       this.props.setUserProgress(url);
       history.push(url);
     } else {
-      timestampUpdateDB(this.props.dbKey, "timestamp4", "Test4", 3 - this.state.attemptsLeft)
-
       this.props.setReadyFor2ndLogin();
       const url = "/survey";
       this.props.setUserProgress(url);
@@ -83,6 +93,10 @@ class Login extends Component {
   }
 
   onOkButtonClick() {
+    // Set first timestamp for time spent on logging in
+    const timestamp = createTimestamp();
+    this.props.setTimestamp1(timestamp);
+
     this.setState({ loginOverlay2: false });
   }
 
@@ -279,7 +293,10 @@ const mapStateToProps = state => {
     userProgress: state.userProgress,
     keyboard: state.keyboard,
     readyFor2ndLogin: state.readyFor2ndLogin,
-    dbKey: state.dbKey
+    dbKey: state.dbKey,
+    timestamp1: state.timestamp1,
+    timestamp2: state.timestamp2,
+    loginAttempts: state.loginAttempts
   };
 };
 
@@ -290,6 +307,15 @@ const mapDispatchToProps = dispatch => {
     },
     setUserProgress: userProgress => {
       dispatch(setUserProgress(userProgress));
+    },
+    setTimestamp1: timestamp1 => {
+      dispatch(setTimestamp1(timestamp1));
+    },
+    setTimestamp2: timestamp2 => {
+      dispatch(setTimestamp2(timestamp2));
+    },
+    setLoginAttempts: loginAttempts => {
+      dispatch(setLoginAttempts(loginAttempts));
     }
   };
 };

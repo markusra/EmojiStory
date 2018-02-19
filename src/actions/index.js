@@ -99,3 +99,24 @@ export const setDbKey = dbKey => {
     dbKey
   }
 }
+
+export const setTimestamp1 = timestamp1 => {
+  return {
+    type: 'SET_TIMESTAMP1',
+    timestamp1
+  }
+}
+
+export const setTimestamp2 = timestamp2 => {
+  return {
+    type: 'SET_TIMESTAMP2',
+    timestamp2
+  }
+}
+
+export const setLoginAttempts = loginAttempts => {
+  return {
+    type: 'SET_LOGINATTEMPTS',
+    loginAttempts
+  }
+}

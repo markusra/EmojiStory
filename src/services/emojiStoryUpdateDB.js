@@ -4,8 +4,7 @@ export const emojiStoryUpdateDB = (
   userKey,
   Answers,
   AnswerIndices,
-  Keyboard,
-  Timestamp
+  Keyboard
 ) => {
   firebase
     .database()
@@ -15,7 +14,6 @@ export const emojiStoryUpdateDB = (
       answerIndices: AnswerIndices,
       answerOptions: "",
       keyboard: Keyboard,
-      emojiStoryCreated: true,
-      timestamp3: Timestamp
+      emojiStoryCreated: true
     });
 };
