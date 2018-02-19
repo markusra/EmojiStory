@@ -15,6 +15,13 @@ export const timestampUpdateDB = (userKey, field, value, attemptsLeft) => {
       .update({ timestamp2: value });
   }
 
+  if (field === "timestamp3") {
+    firebase
+      .database()
+      .ref("users/" + userKey)
+      .update({ timestamp3: value });
+  }
+
   if (field === "timestamp4") {
     firebase
       .database()

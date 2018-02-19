@@ -13,6 +13,7 @@ import history from "../../../history";
 // Connect to Redux store
 import { connect } from "react-redux";
 import { setUserProgress } from "../../../actions/index";
+import { setTimestamp1, setTimestamp2 } from "../../../actions/index";
 
 
 import { redirectUser } from "../../../services/redirectUser";
@@ -20,9 +21,20 @@ import { redirectUser } from "../../../services/redirectUser";
 // Import Bootstrap Components
 import { Button, Row } from "reactstrap";
 
+import { timestampUpdateDB } from "../../../services/timestampUpdateDB";
+import { calculateTimeUsed } from "../../../services/calculateTimeUsed";
+import { createTimestamp } from "../../../services/createTimestamp";
+
 class StorySummary extends Component {
   componentWillMount() {
     redirectUser(this.props.userProgress);
+    // Calculate time spent on creating the emoji-password and send it to DB
+    const timeUsed = calculateTimeUsed(this.props.timestamp1, this.props.timestamp2)
+    timestampUpdateDB(this.props.dbKey, "timestamp2", timeUsed)
+
+    // Set first timestamp for time spent on memorizing
+    const timestamp = createTimestamp();
+    this.props.setTimestamp1(timestamp);
   }
 
   fillPlaceholders(storyTemplate, emojis) {
@@ -65,11 +77,15 @@ class StorySummary extends Component {
   }
 
   onButtonClick() {
+    // Set second timestamp for time spent on memorizing
+    const timestamp = createTimestamp();
+    this.props.setTimestamp2(timestamp);
+
     var emojiTextArray = [];
 
     this.props.answers.map(answer => emojiTextArray.push(answer.text));
-    //Update DB
-    emojiStoryUpdateDB(this.props.dbKey, emojiTextArray, [0,1,2], "keyboard", "Test3");
+    // Update DB
+    emojiStoryUpdateDB(this.props.dbKey, emojiTextArray, [0,1,2], "keyboard");
 
     const url = "/login";
     this.props.setUserProgress(url);
@@ -136,7 +152,9 @@ const mapStateToProps = state => {
     userProgress: state.userProgress,
     storyTemplate: state.storyTemplate,
     answers: state.answers,
-    dbKey: state.dbKey
+    dbKey: state.dbKey,
+    timestamp1: state.timestamp1,
+    timestamp2: state.timestamp2
   };
 };
 
@@ -144,6 +162,12 @@ const mapDispatchToProps = dispatch => {
   return {
     setUserProgress: userProgress => {
       dispatch(setUserProgress(userProgress));
+    },
+    setTimestamp1: timestamp1 => {
+      dispatch(setTimestamp1(timestamp1));
+    },
+    setTimestamp2: timestamp2 => {
+      dispatch(setTimestamp2(timestamp2));
     }
   };
 };

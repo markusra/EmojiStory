@@ -66,7 +66,10 @@ const initialState = {
   itBackground: "",
   interpretation: "",
   memorization: "",
-  dbKey: ""
+  dbKey: "",
+  timestamp1: 0,
+  timestamp2: 0,
+  loginAttempts: 0
 };
 
 const userData = (state = initialState, action) => {
@@ -148,6 +151,22 @@ const userData = (state = initialState, action) => {
       return {
         ...state,
         dbKey: action.dbKey
+      };
+    case "SET_TIMESTAMP1":
+      return {
+        ...state,
+        timestamp1: action.timestamp1
+      };
+    case "SET_TIMESTAMP2":
+      return {
+        ...state,
+        timestamp2: action.timestamp2
+      };
+
+    case "SET_LOGINATTEMPTS":
+      return {
+        ...state,
+        loginAttempts: action.loginAttempts
       };
     default:
       return state;

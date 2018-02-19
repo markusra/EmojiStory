@@ -9,15 +9,26 @@ import "./index.css";
 // Import Bootstrap Components
 import { Button } from "reactstrap";
 
+// Connect to Redux store
+import { connect } from "react-redux";
+
+import { setTimestamp1 } from "../../../actions/index";
+
+import { createTimestamp } from "../../../services/createTimestamp";
+
 class EmojiInfo extends Component {
+  componentWillMount() {
+    const timestamp = createTimestamp();
+    // Set first timestamp for time spent on the "instructions page"
+    this.props.setTimestamp1(timestamp);
+    this.props.infoList.push(
+      <li key={this.props.clicks}>
+        Next you will create an <span className="yellow">emoji-password</span>.
+      </li>
+    );
+  }
+
   addInstructions(infoList, clicks, liStyle) {
-    if (clicks === 0) {
-      infoList.push(
-        <li key={clicks}>
-          Next you will create an <span className="yellow">emoji-password</span>.
-        </li>
-      );
-    }
     if (clicks === 1) {
       infoList.pop();
       infoList.push(
@@ -71,17 +82,9 @@ class EmojiInfo extends Component {
     return (
       <EmojiContainer appTitle="Creating an emoji-password">
         <EmojiBody>
-
-
           <div className="instructionList">
-            <ul
-            
-        
-            >
-              {instructions}
-            </ul>
-            </div>
-      
+            <ul>{instructions}</ul>
+          </div>
         </EmojiBody>
         <EmojiFooter>
           {this.props.clicks < 3 && (
@@ -94,7 +97,6 @@ class EmojiInfo extends Component {
               Next
             </Button>
           )}
-
           {this.props.clicks === 3 && (
             <Button
               color="success"
@@ -111,10 +113,25 @@ class EmojiInfo extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    timestamp1: state.timestamp1
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setTimestamp1: timestamp1 => {
+      dispatch(setTimestamp1(timestamp1));
+    }
+  };
+};
+
 EmojiInfo.propTypes = {
   onContinueClick: PropTypes.func,
   clicks: PropTypes.number,
-  infoList: PropTypes.array
+  infoList: PropTypes.array,
+  timestamp1: PropTypes.number
 };
 
-export default EmojiInfo;
+export default connect(mapStateToProps, mapDispatchToProps)(EmojiInfo);
