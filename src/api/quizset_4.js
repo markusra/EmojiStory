@@ -1,4 +1,4 @@
-var story = ["The ***", " grew up on ***.", " After being kicked out of home, it decided to become the best *** in the world.", " Today, it has won several ***."];
+var story = ["The ***", " grew up ***.", " After being kicked out of home, it decided to become the best *** in the world.", " Today, it has won several ***."];
 var questions = [
   {
     question: "The",
@@ -10,7 +10,7 @@ var questions = [
     ]
   },
   {
-    question: "It grew up on",
+    question: "It grew up",
     answers: []
   },
   {

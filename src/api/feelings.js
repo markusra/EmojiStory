@@ -175,6 +175,46 @@ const feelings = [
         text: "love7",
         src: "feelings/1f60d.svg"
       }
+      ,
+      {
+        text: "love8",
+        src: "feelings/1f493.svg"
+      }
+      ,
+      {
+        text: "love9",
+        src: "feelings/1f495.svg"
+      }
+      ,
+      {
+        text: "love10",
+        src: "feelings/1f496.svg"
+      }
+      ,
+      {
+        text: "love11",
+        src: "feelings/1f497.svg"
+      }
+      ,
+      {
+        text: "love12",
+        src: "feelings/1f498.svg"
+      }
+      ,
+      {
+        text: "love13",
+        src: "feelings/1f499.svg"
+      }
+      ,
+      {
+        text: "love14",
+        src: "feelings/2665.svg"
+      }
+      ,
+      {
+        text: "love15",
+        src: "feelings/2764.svg"
+      }
     ]
   },
 
@@ -308,23 +348,8 @@ const feelings = [
   },
 
   {
-    text: "",
-    src: "feelings/1f617.svg"
-  },
-
-  {
     text: "affectionate",
     src: "feelings/1f618.svg"
-  },
-
-  {
-    text: "",
-    src: "feelings/1f619.svg"
-  },
-
-  {
-    text: "",
-    src: "feelings/1f61a.svg"
   },
 
   {
@@ -492,8 +517,22 @@ const feelings = [
   },
 
   {
+    text: "heartbroken",
+    src: "feelings/1f494.svg"
+  },
+
+  {
     text: "sleepy",
-    src: "feelings/1f634.svg"
+    emojiList: [
+      {
+        text: "sleepy1",
+        src: "feelings/1f634.svg"
+      },
+      {
+        text: "sleepy2",
+        src: "feelings/1f4a4.svg"
+      }
+    ]
   },
 
   {
@@ -527,36 +566,6 @@ const feelings = [
   },
 
   {
-    text: "",
-    src: "feelings/1f645-1f3fb.svg"
-  },
-
-  {
-    text: "",
-    src: "feelings/1f645-1f3fc.svg"
-  },
-
-  {
-    text: "",
-    src: "feelings/1f645-1f3fd.svg"
-  },
-
-  {
-    text: "",
-    src: "feelings/1f645-1f3fe.svg"
-  },
-
-  {
-    text: "",
-    src: "feelings/1f645-1f3ff.svg"
-  },
-
-  {
-    text: "",
-    src: "feelings/1f645.svg"
-  },
-
-  {
     text: "helpless",
     src: "feelings/1f910.svg"
   },
@@ -585,12 +594,7 @@ const feelings = [
     text: "mesmerized",
     src: "feelings/1f924.svg"
   },
-
-  {
-    text: "",
-    src: "feelings/1f925.svg"
-  },
-
+  
   {
     text: "disappointed",
     emojiList: [
