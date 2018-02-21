@@ -72,7 +72,8 @@ const mapDispatchToProps = dispatch => {
 
 CreateStory.propTypes = {
   userProgress: PropTypes.string,
-  dbKey:PropTypes.string
+  dbKey: PropTypes.string,
+  setTimestamp2: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateStory);

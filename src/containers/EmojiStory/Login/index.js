@@ -326,7 +326,12 @@ Login.propTypes = {
   readyFor2ndLogin: PropTypes.bool,
   dbKey: PropTypes.string,
   setReadyFor2ndLogin: PropTypes.func,
-  setUserProgress: PropTypes.func
+  setUserProgress: PropTypes.func,
+  setLoginAttempts: PropTypes.func,
+  setTimestamp1: PropTypes.func,
+  setTimestamp2: PropTypes.func,
+  timestamp1: PropTypes.number,
+  timestamp2: PropTypes.number,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

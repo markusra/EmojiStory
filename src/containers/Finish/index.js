@@ -49,7 +49,11 @@ const mapStateToProps = state => {
 };
 
 Finish.propTypes = {
-  userProgress: PropTypes.string
+  userProgress: PropTypes.string,
+  timestamp1: PropTypes.number,
+  timestamp2: PropTypes.number,
+  dbKey: PropTypes.string,
+  loginAttempts: PropTypes.number
 };
 
 export default connect(mapStateToProps)(Finish);

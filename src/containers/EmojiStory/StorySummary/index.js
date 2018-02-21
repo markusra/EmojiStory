@@ -178,7 +178,11 @@ StorySummary.propTypes = {
   answers: PropTypes.array,
   userStory: PropTypes.string,
   setUserProgress: PropTypes.func,
-  dbKey: PropTypes.string
+  dbKey: PropTypes.string,
+  setTimestamp1: PropTypes.func,
+  setTimestamp2: PropTypes.func,
+  timestamp1: PropTypes.number,
+  timestamp2: PropTypes.number
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(StorySummary);

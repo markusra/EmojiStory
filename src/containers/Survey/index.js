@@ -100,6 +100,9 @@ Survey.propTypes = {
   interpretation: PropTypes.string,
   memorization: PropTypes.string,
   surveyPage: PropTypes.string,
+  timestamp1: PropTypes.string,
+  timestamp2: PropTypes.string,
+  loginAttempts: PropTypes.number
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Survey);

@@ -214,7 +214,11 @@ EmojiQuiz.propTypes = {
   addAnswer: PropTypes.func,
   setUserProgress: PropTypes.func,
   deleteAnswers: PropTypes.func,
-  dbKey: PropTypes.string
+  dbKey: PropTypes.string,
+  timestamp1: PropTypes.number,
+  timestamp2: PropTypes.number,
+  setTimestamp1: PropTypes.func,
+  setTimestamp2: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(EmojiQuiz);

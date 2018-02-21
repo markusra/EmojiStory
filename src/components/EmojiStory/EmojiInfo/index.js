@@ -131,7 +131,8 @@ EmojiInfo.propTypes = {
   onContinueClick: PropTypes.func,
   clicks: PropTypes.number,
   infoList: PropTypes.array,
-  timestamp1: PropTypes.number
+  timestamp1: PropTypes.number,
+  setTimestamp1: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(EmojiInfo);
