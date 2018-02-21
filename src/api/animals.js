@@ -101,7 +101,7 @@ const animals = [
       {
         text: "tiger2",
         src: "animals/1f405.svg"
-      },
+      }
     ]
   },
   {
@@ -261,7 +261,7 @@ const animals = [
       {
         text: "rabbit2",
         src: "animals/1f430.svg"
-      },
+      }
     ]
   },
   {
@@ -274,7 +274,7 @@ const animals = [
       {
         text: "dragon2",
         src: "animals/1f432.svg"
-      },
+      }
     ]
   },
   {
@@ -291,7 +291,7 @@ const animals = [
       {
         text: "dragon2",
         src: "animals/1f436.svg"
-      },
+      }
     ]
   },
   {
@@ -333,7 +333,7 @@ const animals = [
       {
         text: "pig2",
         src: "animals/1f437.svg"
-      },
+      }
     ]
   },
   {
