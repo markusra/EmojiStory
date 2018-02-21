@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { Button } from "reactstrap";
 import AppContainer from "./../AppContainer";
 import SurveyBody from "./SurveyBody";
@@ -66,6 +67,11 @@ const mapDispatchToProps = dispatch => {
       dispatch(setMemorization(memorization, surveyPage));
     }
   };
+};
+
+Memorization.propTypes = {
+  setMemorization: PropTypes.func,
+
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Memorization);

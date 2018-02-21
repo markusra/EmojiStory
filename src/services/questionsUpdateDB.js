@@ -1,6 +1,15 @@
 import firebase from "../firebase";
 
-export const questionsUpdateDB = (userKey, Age, EmojiUsage, Gender, Interpretation, ItBackground, Memorization, Nationality) => {
+export const questionsUpdateDB = (
+  userKey,
+  Age,
+  EmojiUsage,
+  Gender,
+  Interpretation,
+  ItBackground,
+  Memorization,
+  Nationality
+) => {
   firebase
     .database()
     .ref("users/" + userKey)
@@ -11,6 +20,6 @@ export const questionsUpdateDB = (userKey, Age, EmojiUsage, Gender, Interpretati
       interpretation: Interpretation,
       itBackground: ItBackground,
       memorization: Memorization,
-      nationality: Nationality,
+      nationality: Nationality
     });
 };

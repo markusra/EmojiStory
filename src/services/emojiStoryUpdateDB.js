@@ -1,6 +1,11 @@
 import firebase from "../firebase";
 
-export const emojiStoryUpdateDB = (userKey, Answers, AnswerIndices, Keyboard, Timestamp) => {
+export const emojiStoryUpdateDB = (
+  userKey,
+  Answers,
+  AnswerIndices,
+  Keyboard
+) => {
   firebase
     .database()
     .ref("users/" + userKey)
@@ -9,7 +14,6 @@ export const emojiStoryUpdateDB = (userKey, Answers, AnswerIndices, Keyboard, Ti
       answerIndices: AnswerIndices,
       answerOptions: "",
       keyboard: Keyboard,
-      emojiStoryCreated: true,
-      timestamp3: Timestamp
+      emojiStoryCreated: true
     });
 };

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { Button } from "reactstrap";
 import AppContainer from "./../AppContainer";
 import SurveyBody from "./SurveyBody";
@@ -89,6 +90,10 @@ const mapDispatchToProps = dispatch => {
       dispatch(setEmojiUsage(emojiUsage, surveyPage));
     }
   };
+};
+
+EmojiUsage.propTypes = {
+  setEmojiUsage: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(EmojiUsage);

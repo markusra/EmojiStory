@@ -1,7 +1,11 @@
 import firebase from "../firebase";
 
 export const sendDataToDB = () => {
-  const userKey = firebase.database().ref().child('users').push().key;
+  const userKey = firebase
+    .database()
+    .ref()
+    .child("users")
+    .push().key;
 
   const userData = {
     answers: [],
@@ -9,14 +13,14 @@ export const sendDataToDB = () => {
     answerOptions: "",
     keyboard: "",
     emojiStoryCreated: false,
-    loginAttempts1: "",
-    loginAttempts2: "",
+    loginAttempts1: 0,
+    loginAttempts2: 0,
     age: "",
     nationality: "",
     emojiUsage: "",
     gender: "",
     itBackground: "",
-    interpretation : "",
+    interpretation: "",
     memorization: "",
     timestamp1: "",
     timestamp2: "",
@@ -24,13 +28,15 @@ export const sendDataToDB = () => {
     timestamp4: "",
     timestamp5: "",
     surveyFinished: false
-  }
+  };
 
   const update = {};
   update["users/" + userKey] = userData;
 
-  firebase.database().ref().update(update);
- 
-  return userKey;
+  firebase
+    .database()
+    .ref()
+    .update(update);
 
+  return userKey;
 };

@@ -9,10 +9,16 @@ import { redirectUser } from "../../services/redirectUser";
 // Connect to Redux store
 import { connect } from "react-redux";
 
+import { timestampUpdateDB } from "../../services/timestampUpdateDB";
+import { calculateTimeUsed } from "../../services/calculateTimeUsed";
+
 class Finish extends Component {
 
   componentWillMount() {
     redirectUser(this.props.userProgress);
+    // Calculate time spent on logging in the second time and send it to DB
+    const timeUsed = calculateTimeUsed(this.props.timestamp1, this.props.timestamp2);
+    timestampUpdateDB(this.props.dbKey, "timestamp5", timeUsed, this.props.loginAttempts);
   }
 
   render() {
@@ -34,13 +40,20 @@ class Finish extends Component {
 
 const mapStateToProps = state => {
   return {
-    userProgress: state.userProgress
+    userProgress: state.userProgress,
+    timestamp1: state.timestamp1,
+    timestamp2: state.timestamp2,
+    loginAttempts: state.loginAttempts,
+    dbKey: state.dbKey
   };
 };
 
-// Do we really need this?
 Finish.propTypes = {
-  userProgress: PropTypes.string
+  userProgress: PropTypes.string,
+  timestamp1: PropTypes.number,
+  timestamp2: PropTypes.number,
+  dbKey: PropTypes.string,
+  loginAttempts: PropTypes.number
 };
 
 export default connect(mapStateToProps)(Finish);

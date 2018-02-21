@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import PropTypes from "prop-types";
 import { Button } from "reactstrap";
 import "./index.css";
 
@@ -48,6 +49,12 @@ const mapDispatchToProps = dispatch => {
     }
   };
 };
+
+ITBackgroundButtons.propTypes = {
+  setItBackground: PropTypes.func
+};
+
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(ITBackgroundButtons);
 
