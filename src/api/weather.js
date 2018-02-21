@@ -217,8 +217,7 @@ const weather = [
         src: "weather/1f305.svg"
       }
     ]
-  },
-
+  }
 ];
 
 export default { weather };

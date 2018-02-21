@@ -1,122 +1,61 @@
-const activities = [
+const athlete = [
   {
-    text: "partying",
-    src: "activities/1f389.svg"
-  },
-
-  {
-    text: "graduating",
-    src: "activities/1f393.svg"
-  },
-
-  {
-    text: "fishing",
+    text: "fisher",
     src: "activities/1f3a3.svg"
   },
 
   {
-    text: "singing karaoke",
+    text: "singer",
     src: "activities/1f3a4.svg"
   },
 
   {
-    text: "painting",
+    text: "painter",
     src: "activities/1f3a8.svg"
   },
 
   {
-    text: "gaming",
-    emojiList: [
-      {
-        text: "gaming1",
-        src: "activities/1f3ae.svg"
-      },
-      {
-        text: "gaming2",
-        src: "activities/1f579.svg"
-      }
-    ]
-  },
-
-  {
-    text: "playing darts",
+    text: "darts player",
     src: "activities/1f3af.svg"
   },
 
   {
-    text: "gambling",
-    emojiList: [
-      {
-        name: "gambling1",
-        src: "activities/1f3b0.svg"
-      },
-      {
-        text: "gambling2",
-        src: "activities/1f3b2.svg"
-      }
-    ]
-  },
-
-  {
-    text: "playing billard",
+    text: "billard player",
     src: "activities/1f3b1.svg"
   },
 
   {
-    text: "playing bowling",
+    text: "bowler",
     src: "activities/1f3b3.svg"
   },
 
   {
-    text: "playing music",
-    emojiList: [
-      {
-        text: "music1",
-        src: "activities/1f3b5.svg"
-      },
-      {
-        text: "music2",
-        src: "activities/1f3b6.svg"
-      },
-      {
-        text: "music3",
-        src: "activities/1f3bc.svg"
-      }
-    ]
-  },
-
-  {
-    text: "playing the saxophone",
+    text: "saxophonist",
     src: "activities/1f3b7.svg"
   },
 
   {
-    text: "playing the guitar",
+    text: "guitar player",
     src: "activities/1f3b8.svg"
   },
 
   {
-    text: "playing the keyboard",
+    text: "piano player",
     src: "activities/1f3b9.svg"
   },
 
   {
-    text: "palying the trumpet",
-    src: "activities/1f3ba.svg"
-  },
-
-  {
-    text: "playing the violin",
+    text: "violinist",
     src: "activities/1f3bb.svg"
   },
 
   {
-    text: "playing tennis",
+    text: "tennis player",
     src: "activities/1f3be.svg"
   },
 
   {
-    text: "going skiing",
+    text: "skier",
     emojiList: [
       {
         text: "skiing1",
@@ -130,7 +69,7 @@ const activities = [
   },
 
   {
-    text: "playing basketball",
+    text: "basketball player",
     emojiList: [
       {
         text: "basketball1",
@@ -164,12 +103,12 @@ const activities = [
   },
 
   {
-    text: "snowboarding",
+    text: "snowboarder",
     src: "activities/1f3c2.svg"
   },
 
   {
-    text: "running",
+    text: "runner",
     emojiList: [
       {
         text: "running1",
@@ -199,7 +138,7 @@ const activities = [
   },
 
   {
-    text: "surfing",
+    text: "surfer",
     emojiList: [
       {
         text: "surfing1",
@@ -229,7 +168,7 @@ const activities = [
   },
 
   {
-    text: "riding horses",
+    text: "horse rider",
     emojiList: [
       {
         text: "riding1",
@@ -259,7 +198,7 @@ const activities = [
   },
 
   {
-    text: "swimming",
+    text: "swimmer",
     emojiList: [
       {
         text: "swimming1",
@@ -289,7 +228,7 @@ const activities = [
   },
 
   {
-    text: "lifting weights",
+    text: "weightlifter",
     emojiList: [
       {
         text: "liftingWeights1",
@@ -319,12 +258,13 @@ const activities = [
   },
 
   {
-    text: "playing golf",
+    text: "golf player",
     emojiList: [
       {
         text: "golf1",
         src: "activities/1f3cc.svg"
       },
+
       {
         text: "golf2",
         src: "activities/26f3.svg"
@@ -333,112 +273,47 @@ const activities = [
   },
 
   {
-    text: "riding motorcycles",
+    text: "motorcyclist",
     src: "activities/1f3cd.svg"
   },
 
   {
-    text: "driving race cars",
+    text: "race car driver",
     src: "activities/1f3ce.svg"
   },
 
   {
-    text: "playing cricket",
+    text: "cricket player",
     src: "activities/1f3cf.svg"
   },
 
   {
-    text: "playing volleyball",
+    text: "volleyball player",
     src: "activities/1f3d0.svg"
   },
 
   {
-    text: "playing ice hockey",
+    text: "ice hockey player",
     src: "activities/1f3d2.svg"
   },
 
   {
-    text: "playing ping pong",
+    text: "ping pong player",
     src: "activities/1f3d3.svg"
   },
 
   {
-    text: "camping",
-    src: "activities/1f3d5.svg"
-  },
-
-  {
-    text: "playing badminton",
+    text: "badminton player",
     src: "activities/1f3f8.svg"
   },
 
   {
-    text: "shooting bow and arrow",
+    text: "archer",
     src: "activities/1f3f9.svg"
   },
 
   {
-    text: "getting a manicure",
-    emojiList: [
-      {
-        text: "manicure1",
-        src: "activities/1f485.svg"
-      },
-      {
-        text: "manicure2",
-        src: "activities/1f485-1f3fb.svg"
-      },
-      {
-        text: "manicure3",
-        src: "activities/1f485-1f3fc.svg"
-      },
-      {
-        text: "manicure4",
-        src: "activities/1f485-1f3fd.svg"
-      },
-      {
-        text: "manicure5",
-        src: "activities/1f485-1f3fe.svg"
-      },
-      {
-        text: "manicure6",
-        src: "activities/1f485-1f3ff.svg"
-      }
-    ]
-  },
-
-  {
-    text: "getting a haircut",
-    emojiList: [
-      {
-        text: "haircut1",
-        src: "activities/1f487.svg"
-      },
-      {
-        text: "haircut2",
-        src: "activities/1f487-1f3fb.svg"
-      },
-      {
-        text: "haircut3",
-        src: "activities/1f487-1f3fc.svg"
-      },
-      {
-        text: "haircut4",
-        src: "activities/1f487-1f3fd.svg"
-      },
-      {
-        text: "haircut5",
-        src: "activities/1f487-1f3fe.svg"
-      },
-      {
-        text: "haircut6",
-        src: "activities/1f487-1f3ff.svg"
-      }
-    ]
-  },
-
-  {
-    text: "working out",
+    text: "bodybuilder",
     emojiList: [
       {
         text: "workingOut1",
@@ -468,7 +343,7 @@ const activities = [
   },
 
   {
-    text: "dancing",
+    text: "dancer",
     emojiList: [
       {
         text: "dancing1",
@@ -498,37 +373,7 @@ const activities = [
   },
 
   {
-    text: "praying",
-    emojiList: [
-      {
-        text: "praying1",
-        src: "activities/1f64f.svg"
-      },
-      {
-        text: "praying2",
-        src: "activities/1f64f-1f3fb.svg"
-      },
-      {
-        text: "praying3",
-        src: "activities/1f64f-1f3fc.svg"
-      },
-      {
-        text: "praying4",
-        src: "activities/1f64f-1f3fd.svg"
-      },
-      {
-        text: "praying5",
-        src: "activities/1f64f-1f3fe.svg"
-      },
-      {
-        text: "praying6",
-        src: "activities/1f64f-1f3ff.svg"
-      }
-    ]
-  },
-
-  {
-    text: "rowing",
+    text: "rower",
     emojiList: [
       {
         text: "rowing1",
@@ -558,7 +403,7 @@ const activities = [
   },
 
   {
-    text: "bicycling",
+    text: "cyclist",
     emojiList: [
       {
         text: "bicycling1",
@@ -612,7 +457,7 @@ const activities = [
   },
 
   {
-    text: "walking",
+    text: "race walker",
     emojiList: [
       {
         text: "walking1",
@@ -642,12 +487,7 @@ const activities = [
   },
 
   {
-    text: "shopping",
-    src: "activities/1f6cd.svg"
-  },
-
-  {
-    text: "taking a selfie",
+    text: "selfie taker",
     emojiList: [
       {
         text: "selfie1",
@@ -677,7 +517,7 @@ const activities = [
   },
 
   {
-    text: "turning cartwheels",
+    text: "gymnast",
     emojiList: [
       {
         text: "cartwheels1",
@@ -707,7 +547,7 @@ const activities = [
   },
 
   {
-    text: "juggling",
+    text: "juggler",
     emojiList: [
       {
         text: "juggling1",
@@ -737,12 +577,12 @@ const activities = [
   },
 
   {
-    text: "fencing",
+    text: "fencer",
     src: "activities/1f93a.svg"
   },
 
   {
-    text: "playing water polo",
+    text: "water polo player",
     emojiList: [
       {
         text: "waterPolo1",
@@ -772,7 +612,7 @@ const activities = [
   },
 
   {
-    text: "palying handball",
+    text: "handball player",
     emojiList: [
       {
         text: "handball1",
@@ -802,7 +642,7 @@ const activities = [
   },
 
   {
-    text: "playing soccer",
+    text: "soccer player",
     emojiList: [
       {
         text: "soccer1",
@@ -816,39 +656,9 @@ const activities = [
   },
 
   {
-    text: "playing baseball",
+    text: "baseball player",
     src: "activities/26be.svg"
-  },
-
-  {
-    text: "signing contracts",
-    emojiList: [
-      {
-        text: "signing1",
-        src: "activities/270d.svg"
-      },
-      {
-        text: "",
-        src: "activities/270d-1f3fb.svg"
-      },
-      {
-        text: "",
-        src: "activities/270d-1f3fc.svg"
-      },
-      {
-        text: "",
-        src: "activities/270d-1f3fd.svg"
-      },
-      {
-        text: "",
-        src: "activities/270d-1f3fe.svg"
-      },
-      {
-        text: "",
-        src: "activities/270d-1f3ff.svg"
-      }
-    ]
   }
 ];
 
-export default { activities };
+export default { athlete };
