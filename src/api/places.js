@@ -240,12 +240,12 @@ const places = [
   },
 
   {
-    text: "",
+    text: "on the road",
     src: "places/1f6e3.svg"
   },
 
   {
-    text: "",
+    text: "on the tracks",
     src: "places/1f6e4.svg"
   },
 
