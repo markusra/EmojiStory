@@ -15,9 +15,18 @@ import { setUserProgress } from "../../actions/index";
 import { deleteAnswers } from "../../actions/index";
 import { setDbKey } from "../../actions/index";
 import { sendDataToDB } from "../../services/sendDataToDB";
+import { getRandomStory } from "../../services/randomizer";
+import { getRandomAnswerOptions } from "../../services/randomizer";
 
 // TODO: Fix email address
 class Welcome extends Component {
+  constructor(props) {
+    super(props);
+    
+    const randomStory = getRandomStory()
+    console.log(getRandomAnswerOptions(randomStory))
+  }
+  
   onButtonClick() {
     this.props.deleteAnswers();
 

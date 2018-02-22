@@ -17,6 +17,7 @@
     "reactstrap": "^5.0.0-alpha.4",
     "redux": "^3.7.2",
     "redux-persist": "^5.5.0",
+    "seedrandom": "^2.4.3",
     "survey-react": "^1.0.1"
   },
   "scripts": {
