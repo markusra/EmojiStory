@@ -1,5 +1,5 @@
 const seedrandom = require("seedrandom");
-const shuffle = require('shuffle-array');
+const shuffle = require("shuffle-array");
 
 function randomNumber(min, max) {
   const rng = seedrandom();
@@ -58,6 +58,18 @@ export function getRandomAnswerOptions(randomStory) {
   return randomAnswerOptions;
 }
 
+function getChosenCategories(chosenEmojis) {
+  var chosenCategoryList = [];
+  for (var emoji of chosenEmojis) {
+    chosenCategoryList.push(emoji.src.split("/")[0]);
+  }
+  return chosenCategoryList;
+}
+
 export function getRandomKeyboard(chosenEmojis) {
-  return shuffle(["Hei", "Martin", "hvordan", "går", "det", "med", "deg"])
+  const categoryList = ["activities", "animals", "athletes", "countries", "feelings", "food", "objects1", "objects2", "persons", "places", "vehicles", "weather"]
+  const chosenCategories = getChosenCategories(chosenEmojis);
+
+
+  return shuffle(chosenEmojis);
 }

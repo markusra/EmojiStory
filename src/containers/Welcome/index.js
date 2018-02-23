@@ -24,7 +24,26 @@ class Welcome extends Component {
     
     const randomStory = getRandomStory();
     console.log(getRandomAnswerOptions(randomStory));
-    console.log(getRandomKeyboard());
+    
+    const chosenEmojis = [
+      {
+        text: "darts player",
+        src: "athlete/1f3af.svg"
+      },
+      {
+        text: "snail",
+        src: "animals/1f40c.svg"
+      },
+      {
+        text: "bananas",
+        src: "food/1f34c.svg"
+      },
+      {
+        text: "mountain1",
+        src: "places/1f3d4.svg"
+      }
+    ]
+    console.log(getRandomKeyboard(chosenEmojis));
   }
   
   onButtonClick() {
