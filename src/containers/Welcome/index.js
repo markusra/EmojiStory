@@ -13,7 +13,6 @@ import history from "../../history";
 import { connect } from "react-redux";
 import { setUserProgress, deleteAnswers, setDbKey } from "../../actions/index";
 import { sendDataToDB } from "../../services/sendDataToDB";
-import { getRandomKeyboard } from "../../services/randomizer";
 
 // TODO: Fix email address
 class Welcome extends Component {

@@ -89,7 +89,12 @@ class Login extends Component {
   }
 
   isCorrectPassword() {
-    return false;
+    for (var i = 0; i < 4; i++)  {
+      if (this.props.answers[i].src !== this.state.emojis[i]) {
+        return false
+      }
+    }
+    return true;
   }
 
   onOkButtonClick() {
@@ -296,7 +301,8 @@ const mapStateToProps = state => {
     dbKey: state.dbKey,
     timestamp1: state.timestamp1,
     timestamp2: state.timestamp2,
-    loginAttempts: state.loginAttempts
+    loginAttempts: state.loginAttempts,
+    answers: state.answers
   };
 };
 
@@ -332,6 +338,7 @@ Login.propTypes = {
   setTimestamp2: PropTypes.func,
   timestamp1: PropTypes.number,
   timestamp2: PropTypes.number,
+  answers: PropTypes.array
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
