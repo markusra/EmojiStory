@@ -1,7 +1,7 @@
 const objects2 = [
   {
     text: "briefcases",
-    src: "objects/1f4bc.svg"
+    src: "objects2/1f4bc.svg"
   },
 
   {
@@ -9,12 +9,12 @@ const objects2 = [
     emojiList: [
       {
         text: "CDs1",
-        src: "objects/1f4bf.svg"
+        src: "objects2/1f4bf.svg"
       },
 
       {
         text: "CDs2",
-        src: "objects/1f4c0.svg"
+        src: "objects2/1f4c0.svg"
       }
     ]
   },
@@ -24,11 +24,11 @@ const objects2 = [
     emojiList: [
       {
         text: "telephone1",
-        src: "objects/1f4de.svg"
+        src: "objects2/1f4de.svg"
       },
       {
         text: "telephone2",
-        src: "objects/260e.svg"
+        src: "objects2/260e.svg"
       }
     ]
   },
@@ -38,23 +38,23 @@ const objects2 = [
     emojiList: [
       {
         text: "satelitte1",
-        src: "objects/1f4e1.svg"
+        src: "objects2/1f4e1.svg"
       },
       {
         text: "satelitte2",
-        src: "objects/1f6f0.svg"
+        src: "objects2/1f6f0.svg"
       }
     ]
   },
 
   {
     text: "speakers",
-    src: "objects/1f4e2.svg"
+    src: "objects2/1f4e2.svg"
   },
 
   {
     text: "boxes",
-    src: "objects/1f4e6.svg"
+    src: "objects2/1f4e6.svg"
   },
 
   {
@@ -62,38 +62,38 @@ const objects2 = [
     emojiList: [
       {
         text: "mailbox1",
-        src: "objects/1f4ea.svg"
+        src: "objects2/1f4ea.svg"
       },
 
       {
         text: "mailbox2",
-        src: "objects/1f4eb.svg"
+        src: "objects2/1f4eb.svg"
       },
 
       {
         text: "mailbox3",
-        src: "objects/1f4ec.svg"
+        src: "objects2/1f4ec.svg"
       },
 
       {
         text: "mailbox4",
-        src: "objects/1f4ed.svg"
+        src: "objects2/1f4ed.svg"
       },
       {
         text: "mailbox5",
-        src: "objects/1f4ee.svg"
+        src: "objects2/1f4ee.svg"
       }
     ]
   },
 
   {
     text: "newspapers",
-    src: "objects/1f4f0.svg"
+    src: "objects2/1f4f0.svg"
   },
 
   {
     text: "mobile phones",
-    src: "objects/1f4f1.svg"
+    src: "objects2/1f4f1.svg"
   },
 
   {
@@ -101,29 +101,29 @@ const objects2 = [
     emojiList: [
       {
         text: "camera1",
-        src: "objects/1f4f7.svg"
+        src: "objects2/1f4f7.svg"
       },
 
       {
         text: "camera2",
-        src: "objects/1f4f8.svg"
+        src: "objects2/1f4f8.svg"
       }
     ]
   },
 
   {
     text: "TVs",
-    src: "objects/1f4fa.svg"
+    src: "objects2/1f4fa.svg"
   },
 
   {
     text: "radios",
-    src: "objects/1f4fb.svg"
+    src: "objects2/1f4fb.svg"
   },
 
   {
     text: "battery",
-    src: "objects/1f50b.svg"
+    src: "objects2/1f50b.svg"
   },
 
   {
@@ -131,12 +131,12 @@ const objects2 = [
     emojiList: [
       {
         text: "magnifyingglass1",
-        src: "objects/1f50d.svg"
+        src: "objects2/1f50d.svg"
       },
 
       {
         text: "magnifyingglass2",
-        src: "objects/1f50e.svg"
+        src: "objects2/1f50e.svg"
       }
     ]
   },
@@ -146,12 +146,12 @@ const objects2 = [
     emojiList: [
       {
         text: "key1",
-        src: "objects/1f511.svg"
+        src: "objects2/1f511.svg"
       },
 
       {
         text: "key2",
-        src: "objects/1f5dd.svg"
+        src: "objects2/1f5dd.svg"
       }
     ]
   },
@@ -161,24 +161,24 @@ const objects2 = [
     emojiList: [
       {
         text: "lock1",
-        src: "objects/1f512.svg"
+        src: "objects2/1f512.svg"
       },
 
       {
         text: "lock2",
-        src: "objects/1f513.svg"
+        src: "objects2/1f513.svg"
       }
     ]
   },
 
   {
     text: "flashlights",
-    src: "objects/1f526.svg"
+    src: "objects2/1f526.svg"
   },
 
   {
     text: "hammers",
-    src: "objects/1f528.svg"
+    src: "objects2/1f528.svg"
   },
 
   {
@@ -186,24 +186,24 @@ const objects2 = [
     emojiList: [
       {
         text: "telescope1",
-        src: "objects/1f52c.svg"
+        src: "objects2/1f52c.svg"
       },
 
       {
         text: "telescope2",
-        src: "objects/1f52d.svg"
+        src: "objects2/1f52d.svg"
       }
     ]
   },
 
   {
     text: "candles",
-    src: "objects/1f56f.svg"
+    src: "objects2/1f56f.svg"
   },
 
   {
     text: "sunglasses",
-    src: "objects/1f576.svg"
+    src: "objects2/1f576.svg"
   },
 
   {
@@ -211,74 +211,74 @@ const objects2 = [
     emojiList: [
       {
         text: "pen1",
-        src: "objects/1f58a.svg"
+        src: "objects2/1f58a.svg"
       },
 
       {
         text: "pen2",
-        src: "objects/1f58b.svg"
+        src: "objects2/1f58b.svg"
       }
     ]
   },
 
   {
     text: "paint brushes",
-    src: "objects/1f58c.svg"
+    src: "objects2/1f58c.svg"
   },
 
   {
     text: "printers",
-    src: "objects/1f5a8.svg"
+    src: "objects2/1f5a8.svg"
   },
 
   {
     text: "computer mouses",
-    src: "objects/1f5b1.svg"
+    src: "objects2/1f5b1.svg"
   },
 
   {
     text: "pictures",
-    src: "objects/1f5bc.svg"
+    src: "objects2/1f5bc.svg"
   },
 
   {
     text: "wastebasket",
-    src: "objects/1f5d1.svg"
+    src: "objects2/1f5d1.svg"
   },
 
   {
     text: "maps",
-    src: "objects/1f5fa.svg"
+    src: "objects2/1f5fa.svg"
   },
 
   {
     text: "liberty statues",
-    src: "objects/1f5fd.svg"
+    src: "objects2/1f5fd.svg"
   },
 
   {
     text: "doors",
-    src: "objects/1f6aa.svg"
+    src: "objects2/1f6aa.svg"
   },
 
   {
     text: "toilets",
-    src: "objects/1f6bd.svg"
+    src: "objects2/1f6bd.svg"
   },
 
   {
     text: "bathtubs",
-    src: "objects/1f6c1.svg"
+    src: "objects2/1f6c1.svg"
   },
 
   {
     text: "couches",
-    src: "objects/1f6cb.svg"
+    src: "objects2/1f6cb.svg"
   },
 
   {
     text: "bells",
-    src: "objects/1f6ce.svg"
+    src: "objects2/1f6ce.svg"
   },
 
   {
@@ -286,54 +286,54 @@ const objects2 = [
     emojiList: [
       {
         text: "bed1",
-        src: "objects/1f6cc.svg"
+        src: "objects2/1f6cc.svg"
       },
 
       {
         text: "bed2",
-        src: "objects/1f6cf.svg"
+        src: "objects2/1f6cf.svg"
       }
     ]
   },
 
   {
     text: "shopping carts",
-    src: "objects/1f6d2.svg"
+    src: "objects2/1f6d2.svg"
   },
 
   {
     text: "tools",
-    src: "objects/1f6e0.svg"
+    src: "objects2/1f6e0.svg"
   },
 
   {
     text: "shields",
-    src: "objects/1f6e1.svg"
+    src: "objects2/1f6e1.svg"
   },
 
   {
     text: "oil drums",
-    src: "objects/1f6e2.svg"
+    src: "objects2/1f6e2.svg"
   },
 
   {
     text: "drums",
-    src: "objects/1f941.svg"
+    src: "objects2/1f941.svg"
   },
 
   {
     text: "spoons",
-    src: "objects/1f944.svg"
+    src: "objects2/1f944.svg"
   },
 
   {
     text: "boxing gloves",
-    src: "objects/1f94a.svg"
+    src: "objects2/1f94a.svg"
   },
 
   {
     text: "watches",
-    src: "objects/231a.svg"
+    src: "objects2/231a.svg"
   },
 
   {
@@ -341,49 +341,49 @@ const objects2 = [
     emojiList: [
       {
         text: "hourglass1",
-        src: "objects/231b.svg"
+        src: "objects2/231b.svg"
       },
 
       {
         text: "hourglass2",
-        src: "objects/23f3.svg"
+        src: "objects2/23f3.svg"
       }
     ]
   },
 
   {
     text: "keyboards",
-    src: "objects/2328.svg"
+    src: "objects2/2328.svg"
   },
 
   {
     text: "clocks",
-    src: "objects/23f0.svg"
+    src: "objects2/23f0.svg"
   },
 
   {
     text: "anchors",
-    src: "objects/2693.svg"
+    src: "objects2/2693.svg"
   },
 
   {
     text: "skates",
-    src: "objects/26f8.svg"
+    src: "objects2/26f8.svg"
   },
 
   {
     text: "scissors",
-    src: "objects/2702.svg"
+    src: "objects2/2702.svg"
   },
 
   {
     text: "letters",
-    src: "objects/2709.svg"
+    src: "objects2/2709.svg"
   },
 
   {
     text: "pencils",
-    src: "objects/270f.svg"
+    src: "objects2/270f.svg"
   }
 ];
 

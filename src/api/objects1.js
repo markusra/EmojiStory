@@ -4,34 +4,34 @@ const objects1 = [
     emojiList: [
       {
         text: "umbrella1",
-        src: "objects/1f302.svg"
+        src: "objects1/1f302.svg"
       },
 
       {
         text: "umbrella2",
-        src: "objects/2602.svg"
+        src: "objects1/2602.svg"
       }
     ]
   },
 
   {
     text: "cutlery",
-    src: "objects/1f374.svg"
+    src: "objects1/1f374.svg"
   },
 
   {
     text: "presents",
-    src: "objects/1f381.svg"
+    src: "objects1/1f381.svg"
   },
 
   {
     text: "ballons",
-    src: "objects/1f388.svg"
+    src: "objects1/1f388.svg"
   },
 
   {
     text: "backpacks",
-    src: "objects/1f392.svg"
+    src: "objects1/1f392.svg"
   },
 
   {
@@ -39,32 +39,32 @@ const objects1 = [
     emojiList: [
       {
         text: "medals1",
-        src: "objects/1f396.svg"
+        src: "objects1/1f396.svg"
       },
       {
         text: "medal2",
-        src: "objects/1f3c5.svg"
+        src: "objects1/1f3c5.svg"
       },
       {
         text: "medal3",
-        src: "objects/1f947.svg"
+        src: "objects1/1f947.svg"
       },
 
       {
         text: "medal4",
-        src: "objects/1f948.svg"
+        src: "objects1/1f948.svg"
       },
 
       {
         text: "medal5",
-        src: "objects/1f949.svg"
+        src: "objects1/1f949.svg"
       }
     ]
   },
 
   {
     text: "microphone",
-    src: "objects/1f399.svg"
+    src: "objects1/1f399.svg"
   },
 
   {
@@ -72,27 +72,27 @@ const objects1 = [
     emojiList: [
       {
         text: "filmcamera1",
-        src: "objects/1f3a5.svg"
+        src: "objects1/1f3a5.svg"
       },
       {
         text: "filmcamera2",
-        src: "objects/1f3a6.svg"
+        src: "objects1/1f3a6.svg"
       },
       {
         text: "filmcamera3",
-        src: "objects/1f4f9.svg"
+        src: "objects1/1f4f9.svg"
       },
 
       {
         text: "filmcamera4",
-        src: "objects/1f4fd.svg"
+        src: "objects1/1f4fd.svg"
       }
     ]
   },
 
   {
     text: "headphones",
-    src: "objects/1f3a7.svg"
+    src: "objects1/1f3a7.svg"
   },
 
   {
@@ -100,68 +100,68 @@ const objects1 = [
     emojiList: [
       {
         text: "hat1",
-        src: "objects/1f3a9.svg"
+        src: "objects1/1f3a9.svg"
       },
       {
         text: "hat2",
-        src: "objects/1f452.svg"
+        src: "objects1/1f452.svg"
       }
     ]
   },
 
   {
     text: "tank tops",
-    src: "objects/1f3bd.svg"
+    src: "objects1/1f3bd.svg"
   },
 
   {
     text: "trophies",
-    src: "objects/1f3c6.svg"
+    src: "objects1/1f3c6.svg"
   },
 
   {
     text: "flowers",
-    src: "objects/1f3f5.svg"
+    src: "objects1/1f3f5.svg"
   },
 
   {
     text: "vases",
-    src: "objects/1f3fa.svg"
+    src: "objects1/1f3fa.svg"
   },
 
   {
     text: "crowns",
-    src: "objects/1f451.svg"
+    src: "objects1/1f451.svg"
   },
 
   {
     text: "glasses",
-    src: "objects/1f453.svg"
+    src: "objects1/1f453.svg"
   },
 
   {
     text: "shirts",
-    src: "objects/1f454.svg"
+    src: "objects1/1f454.svg"
   },
 
   {
     text: "t-shirts",
-    src: "objects/1f455.svg"
+    src: "objects1/1f455.svg"
   },
 
   {
     text: "pants",
-    src: "objects/1f456.svg"
+    src: "objects1/1f456.svg"
   },
 
   {
     text: "dresses",
-    src: "objects/1f457.svg"
+    src: "objects1/1f457.svg"
   },
 
   {
     text: "bikinis",
-    src: "objects/1f459.svg"
+    src: "objects1/1f459.svg"
   },
 
   {
@@ -169,15 +169,15 @@ const objects1 = [
     emojiList: [
       {
         text: "purses1",
-        src: "objects/1f45b.svg"
+        src: "objects1/1f45b.svg"
       },
       {
         text: "purses2",
-        src: "objects/1f45c.svg"
+        src: "objects1/1f45c.svg"
       },
       {
         text: "purses3",
-        src: "objects/1f45d.svg"
+        src: "objects1/1f45d.svg"
       }
     ]
   },
@@ -187,57 +187,57 @@ const objects1 = [
     emojiList: [
       {
         text: "shoes1",
-        src: "objects/1f45e.svg"
+        src: "objects1/1f45e.svg"
       },
       {
         text: "shoes2",
-        src: "objects/1f461.svg"
+        src: "objects1/1f461.svg"
       },
       {
         text: "shoes3",
-        src: "objects/1f462.svg"
+        src: "objects1/1f462.svg"
       }
     ]
   },
 
   {
     text: "sneakers",
-    src: "objects/1f45f.svg"
+    src: "objects1/1f45f.svg"
   },
 
   {
     text: "high heels",
-    src: "objects/1f460.svg"
+    src: "objects1/1f460.svg"
   },
 
   {
     text: "pills",
-    src: "objects/1f48a.svg"
+    src: "objects1/1f48a.svg"
   },
 
   {
     text: "rings",
-    src: "objects/1f48d.svg"
+    src: "objects1/1f48d.svg"
   },
 
   {
     text: "diamonds",
-    src: "objects/1f48e.svg"
+    src: "objects1/1f48e.svg"
   },
 
   {
     text: "light bulbs",
-    src: "objects/1f4a1.svg"
+    src: "objects1/1f4a1.svg"
   },
 
   {
     text: "water",
-    src: "objects/1f4a7.svg"
+    src: "objects1/1f4a7.svg"
   },
 
   {
     text: "poop",
-    src: "objects/1f4a9.svg"
+    src: "objects1/1f4a9.svg"
   },
 
   {
@@ -245,34 +245,34 @@ const objects1 = [
     emojiList: [
       {
         text: "money1",
-        src: "objects/1f4b0.svg"
+        src: "objects1/1f4b0.svg"
       },
       {
         text: "money2",
-        src: "objects/1f4b4.svg"
+        src: "objects1/1f4b4.svg"
       },
       {
         text: "money3",
-        src: "objects/1f4b5.svg"
+        src: "objects1/1f4b5.svg"
       },
       {
         text: "money4",
-        src: "objects/1f4b6.svg"
+        src: "objects1/1f4b6.svg"
       },
       {
         text: "money5",
-        src: "objects/1f4b7.svg"
+        src: "objects1/1f4b7.svg"
       },
       {
         text: "money6",
-        src: "objects/1f4b8.svg"
+        src: "objects1/1f4b8.svg"
       }
     ]
   },
 
   {
     text: "credit cards",
-    src: "objects/1f4b3.svg"
+    src: "objects1/1f4b3.svg"
   },
 
   {
@@ -280,12 +280,12 @@ const objects1 = [
     emojiList: [
       {
         text: "paper1",
-        src: "objects/1f4c3.svg"
+        src: "objects1/1f4c3.svg"
       },
 
       {
         text: "paper2",
-        src: "objects/1f4c4.svg"
+        src: "objects1/1f4c4.svg"
       }
     ]
   },
@@ -295,24 +295,24 @@ const objects1 = [
     emojiList: [
       {
         text: "calendars1",
-        src: "objects/1f4c5.svg"
+        src: "objects1/1f4c5.svg"
       },
 
       {
         text: "calendars2",
-        src: "objects/1f4c6.svg"
+        src: "objects1/1f4c6.svg"
       },
 
       {
         text: "calendars3",
-        src: "objects/1f5d3.svg"
+        src: "objects1/1f5d3.svg"
       }
     ]
   },
 
   {
     text: "thumbtacks",
-    src: "objects/1f4cc.svg"
+    src: "objects1/1f4cc.svg"
   },
 
   {
@@ -320,19 +320,19 @@ const objects1 = [
     emojiList: [
       {
         text: "paperclip1",
-        src: "objects/1f4ce.svg"
+        src: "objects1/1f4ce.svg"
       },
 
       {
         text: "paperclip2",
-        src: "objects/1f587.svg"
+        src: "objects1/1f587.svg"
       }
     ]
   },
 
   {
     text: "ruler",
-    src: "objects/1f4cf.svg"
+    src: "objects1/1f4cf.svg"
   },
 
   {
@@ -340,42 +340,42 @@ const objects1 = [
     emojiList: [
       {
         text: "book1",
-        src: "objects/1f4d3.svg"
+        src: "objects1/1f4d3.svg"
       },
 
       {
         text: "book2",
-        src: "objects/1f4d4.svg"
+        src: "objects1/1f4d4.svg"
       },
 
       {
         text: "book3",
-        src: "objects/1f4d5.svg"
+        src: "objects1/1f4d5.svg"
       },
 
       {
         text: "book4",
-        src: "objects/1f4d6.svg"
+        src: "objects1/1f4d6.svg"
       },
 
       {
         text: "book5",
-        src: "objects/1f4d7.svg"
+        src: "objects1/1f4d7.svg"
       },
 
       {
         text: "book6",
-        src: "objects/1f4d8.svg"
+        src: "objects1/1f4d8.svg"
       },
 
       {
         text: "book7",
-        src: "objects/1f4d9.svg"
+        src: "objects1/1f4d9.svg"
       },
 
       {
         text: "book8",
-        src: "objects/1f4da.svg"
+        src: "objects1/1f4da.svg"
       }
     ]
   },
@@ -385,11 +385,11 @@ const objects1 = [
     emojiList: [
       {
         text: "computer1",
-        src: "objects/1f4bb.svg"
+        src: "objects1/1f4bb.svg"
       },
       {
         text: "computer2",
-        src: "objects/1f5a5.svg"
+        src: "objects1/1f5a5.svg"
       }
     ]
   }
