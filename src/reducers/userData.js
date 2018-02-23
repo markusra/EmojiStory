@@ -1,63 +1,9 @@
 const initialState = {
-  storyTemplate: [
-    "The king of ***",
-    " owns a three-headed ***",
-    " that eats *** every day.",
-    " This makes the king very ***."
-  ],
+  storyTemplate: [],
   userProgress: "",
   readyFor2ndLogin: false,
   answers: [],
-  keyboard: [
-    {
-      text: "Norway",
-      src: "countries/1f1f0-1f1ec.svg"
-    },
-    {
-      text: "Camera",
-      src: "objects/1f4f7.svg"
-    },
-    {
-      text: "Bathing",
-      src: "/weather/1f324.svg"
-    },
-    {
-      text: "Kiwi",
-      src: "food/1f95d.svg"
-    },
-    {
-      text: "Santa",
-      src: "objects/1f6aa.svg"
-    },
-    {
-      text: "Taco",
-      src: "food/1f32e.svg"
-    },
-    {
-      text: "Bear",
-      src: "animals/1f413.svg"
-    },
-    {
-      text: "Bus",
-      src: "vehicle/1f68c.svg"
-    },
-    {
-      text: "Smiley",
-      src: "feelings/1f600.svg"
-    },
-    {
-      text: "Lifting",
-      src: "activities/1f3cb-1f3fd.svg"
-    },
-    {
-      text: "Builder",
-      src: "person/1f469-1f3fd.svg"
-    },
-    {
-      text: "Mountain",
-      src: "places/26f0.svg"
-    }
-  ],
+  keyboard: [],
   age: "",
   nationality: "",
   surveyPage: "gender",
@@ -101,6 +47,11 @@ const userData = (state = initialState, action) => {
       return {
         ...state,
         userStory: action.userStory
+      };
+    case "SET_KEYBOARD":
+      return {
+        ...state,
+        keyboard: action.keyboard
       };
     case "SET_READYFOR2NDLOGIN":
       return {

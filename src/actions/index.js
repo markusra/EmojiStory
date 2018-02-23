@@ -26,6 +26,13 @@ export const setUserStory = userStory => {
   }
 }
 
+export const setKeyboard = keyboard => {
+  return {
+    type: 'SET_KEYBOARD',
+    keyboard
+  }
+}
+
 export const deleteAnswers = () => {
   return {
     type: 'DELETE_ANSWERS'

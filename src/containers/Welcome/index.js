@@ -11,41 +11,12 @@ import history from "../../history";
 
 // Connect to Redux store
 import { connect } from "react-redux";
-import { setUserProgress } from "../../actions/index";
-import { deleteAnswers } from "../../actions/index";
-import { setDbKey } from "../../actions/index";
+import { setUserProgress, deleteAnswers, setDbKey } from "../../actions/index";
 import { sendDataToDB } from "../../services/sendDataToDB";
-import { getRandomStory, getRandomAnswerOptions, getRandomKeyboard } from "../../services/randomizer";
+import { getRandomKeyboard } from "../../services/randomizer";
 
 // TODO: Fix email address
 class Welcome extends Component {
-  constructor(props) {
-    super(props);
-    
-    const randomStory = getRandomStory();
-    console.log(getRandomAnswerOptions(randomStory));
-    
-    const chosenEmojis = [
-      {
-        text: "darts player",
-        src: "athletes/1f3af.svg"
-      },
-      {
-        text: "snail",
-        src: "animals/1f40c.svg"
-      },
-      {
-        text: "bananas",
-        src: "food/1f34c.svg"
-      },
-      {
-        text: "mountain1",
-        src: "places/1f3d4.svg"
-      }
-    ]
-    console.log(getRandomKeyboard(chosenEmojis));
-  }
-  
   onButtonClick() {
     this.props.deleteAnswers();
 

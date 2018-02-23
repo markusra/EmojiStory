@@ -6,55 +6,43 @@ function randomNumber(min, max) {
   return Math.floor(rng() * max + min);
 }
 
-export function getRandomStory() {
-  const randomValue = randomNumber(1, 5);
-  return "quizset_" + randomValue + ".js";
-}
-
-export function getRandomAnswerOptions(randomStory) {
-  const storyList = require("../api/" + randomStory);
+function getRandomAmountOfAnswers(allAnswers, amount) {
+  var counter = 0;
+  var sameEmojiFamily;
   var answerSrcList = [];
   var randomAnswerOptions = [];
-  var sameEmojiFamily;
 
-  for (var question of storyList.default.questions) {
-    const allAnswers = question.answers;
+  while (counter < amount) {
+    const randomValue = randomNumber(0, allAnswers.length - 1);
+    const randomAnswer = allAnswers[randomValue];
+    var possibleAnswerOption = randomAnswer;
+    sameEmojiFamily = false;
 
-    var counter = 0;
-    while (counter < 5) {
-      const randomValue = randomNumber(0, allAnswers.length - 1);
-      const randomAnswer = question.answers[randomValue];
-      var possibleAnswerOption = randomAnswer;
-      sameEmojiFamily = false;
+    if ("emojiList" in randomAnswer) {
+      const answerVariants = randomAnswer.emojiList;
+      const randomVariantValue = randomNumber(0, answerVariants.length - 1);
+      possibleAnswerOption = answerVariants[randomVariantValue];
+      possibleAnswerOption.text = randomAnswer.text;
 
-      if ("emojiList" in randomAnswer) {
-        const answerVariants = randomAnswer.emojiList;
-        const randomVariantValue = randomNumber(0, answerVariants.length - 1);
-        possibleAnswerOption = answerVariants[randomVariantValue];
-        possibleAnswerOption.text = randomAnswer.text;
-
-        for (var variant of answerVariants) {
-          for (var answerSrcElement of answerSrcList) {
-            if (answerSrcElement === variant.src.split("/")[1]) {
-              sameEmojiFamily = true;
-              break;
-            }
+      for (var variant of answerVariants) {
+        for (var answerSrcElement of answerSrcList) {
+          if (answerSrcElement === variant.src.split("/")[1]) {
+            sameEmojiFamily = true;
+            break;
           }
         }
       }
+    }
 
-      if (sameEmojiFamily === false) {
-        const possibleAnswerOptionSrc = possibleAnswerOption.src.split("/")[1];
-        if (answerSrcList.indexOf(possibleAnswerOptionSrc) === -1) {
-          randomAnswerOptions.push(possibleAnswerOption);
-          answerSrcList.push(possibleAnswerOptionSrc);
-
-          counter++;
-        }
+    if (sameEmojiFamily === false) {
+      const possibleAnswerOptionSrc = possibleAnswerOption.src.split("/")[1];
+      if (answerSrcList.indexOf(possibleAnswerOptionSrc) === -1) {
+        randomAnswerOptions.push(possibleAnswerOption);
+        answerSrcList.push(possibleAnswerOptionSrc);
+        counter++;
       }
     }
   }
-
   return randomAnswerOptions;
 }
 
@@ -64,6 +52,22 @@ function getChosenCategories(chosenEmojis) {
     chosenCategoryList.push(emoji.src.split("/")[0]);
   }
   return chosenCategoryList;
+}
+
+export function getRandomStory() {
+  const randomValue = randomNumber(1, 5);
+  return require("../api/quizset_" + randomValue + ".js").default;
+}
+
+export function getRandomAnswerOptions(randomStory) {
+  var randomAnswerOptions = [];
+
+  for (var question of randomStory.questions) {
+    const allAnswers = question.answers;
+    randomAnswerOptions.push(getRandomAmountOfAnswers(allAnswers, 5));
+  }
+
+  return randomAnswerOptions;
 }
 
 export function getRandomKeyboard(chosenEmojis) {
@@ -82,10 +86,23 @@ export function getRandomKeyboard(chosenEmojis) {
     "weather"
   ];
   const chosenCategories = getChosenCategories(chosenEmojis);
+  var remainingCategories = categoryList
+    .filter(category => !chosenCategories.includes(category))
+    .concat(
+      chosenCategories.filter(category => !categoryList.includes(category))
+    );
 
-  let remainingCategories = categoryList
-    .filter(x => !chosenCategories.includes(x))
-    .concat(chosenCategories.filter(x => !categoryList.includes(x)));
+  var randomKeyboardEmojis = [];
 
-  return shuffle(chosenEmojis);
+  for (var category of remainingCategories) {
+    const allCategoryEmojis = require("../api/" + category + ".js").default[
+      category
+    ];
+
+    randomKeyboardEmojis = randomKeyboardEmojis.concat(
+      getRandomAmountOfAnswers(allCategoryEmojis, 1)
+    );
+  }
+  const finalKeyboard = chosenEmojis.concat(randomKeyboardEmojis);
+  return shuffle(finalKeyboard);
 }

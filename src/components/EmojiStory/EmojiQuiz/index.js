@@ -6,7 +6,6 @@ import history from "../../../history";
 // Connect to Redux store
 import { connect } from "react-redux";
 
-import quizQuestions from "../../../api/quizset_1";
 import EmojiQuestion from "../EmojiQuestion/index";
 import EmojiContainer from "../EmojiContainer";
 import EmojiBody from "../EmojiContainer/EmojiBody";
@@ -14,8 +13,9 @@ import EmojiOverlay from "../EmojiOverlay/index";
 import { timestampUpdateDB } from "../../../services/timestampUpdateDB";
 import { calculateTimeUsed } from "../../../services/calculateTimeUsed";
 import { createTimestamp } from "../../../services/createTimestamp";
+import { getRandomStory, getRandomAnswerOptions } from "../../../services/randomizer";
 
-import { addAnswer, setUserProgress, setTimestamp1, setTimestamp2 } from "../../../actions/index";
+import { addAnswer, setUserProgress, setTimestamp1, setTimestamp2, setStoryTemplate } from "../../../actions/index";
 
 class EmojiQuiz extends Component {
   constructor(props) {
@@ -29,7 +29,9 @@ class EmojiQuiz extends Component {
       answerOptions: [],
       answerOverlay: false,
       chosenAnswer: [],
-      userStory: []
+      userStory: [],
+      randomStory: [],
+      randomAnswerOptions: []
     };
 
     this.handleAnswerClick = this.handleAnswerClick.bind(this);
@@ -54,7 +56,11 @@ class EmojiQuiz extends Component {
     const timestamp = createTimestamp();
     this.props.setTimestamp1(timestamp);
 
-    const firstQuestion = quizQuestions.story[0].split(/[*]{3}/g);
+    const randomStory = getRandomStory();
+    this.props.setStoryTemplate(randomStory.story);
+    const randomAnswerOptions = getRandomAnswerOptions(randomStory);
+    console.log(randomAnswerOptions)
+    const firstQuestion = randomStory.story[0].split(/[*]{3}/g);
     firstQuestion.splice(
       1,
       0,
@@ -62,18 +68,20 @@ class EmojiQuiz extends Component {
         ___
       </span>
     );
-
-    const answerOptions = quizQuestions.questions[0].answers;
-
-    this.setState({
-      question: quizQuestions.questions[0].question,
-      answerOptions: answerOptions,
-      chosenAnswer: quizQuestions.questions[0].answers[0],
-      userStory: [firstQuestion]
-    });
-
+    
+    const answerOptions = randomAnswerOptions[0];
+    
     // Preload images
     answerOptions.map(this.preloadImage);
+
+    this.setState({
+      randomStory: randomStory,
+      randomAnswerOptions: randomAnswerOptions,
+      question: randomStory.questions[0].question,
+      answerOptions: answerOptions,
+      chosenAnswer: randomStory.questions[0].answers[0],
+      userStory: [firstQuestion]
+    });
   }
 
   fillPlaceholder(counter) {
@@ -92,8 +100,7 @@ class EmojiQuiz extends Component {
 
   addSentence(counter) {
     const tempStory = this.state.userStory.slice();
-
-    const nextQuestion = quizQuestions.story[counter].split(/[*]{3}/g);
+    const nextQuestion = this.state.randomStory.story[counter].split(/[*]{3}/g);
     nextQuestion.splice(
       1,
       0,
@@ -109,17 +116,19 @@ class EmojiQuiz extends Component {
     const counter = this.state.counter + 1;
     const questionId = this.state.questionId + 1;
 
-    const answerOptions = quizQuestions.questions[counter].answers;
+    const answerOptions = this.state.randomAnswerOptions[counter];
+
+   // Preload images
+    answerOptions.map(this.preloadImage);
 
     this.setState({
       counter: counter,
       questionId: questionId,
-      question: quizQuestions.questions[counter].question,
-      answerOptions: quizQuestions.questions[counter].answers
+      question: this.state.randomStory.questions[counter].question,
+      answerOptions: answerOptions
     });
 
-    // Preload images
-    answerOptions.map(this.preloadImage);
+
   }
 
   handleAnswerClick(answer) {
@@ -141,7 +150,7 @@ class EmojiQuiz extends Component {
       userStory: this.fillPlaceholder(this.state.counter + 1)
     });
 
-    if (this.state.questionId === quizQuestions.questions.length) {
+    if (this.state.questionId === this.state.randomStory.questions.length) {
       // Set second timestamp for time spent on creating the emoji-password
       const timestamp = createTimestamp();
       this.props.setTimestamp2(timestamp);
@@ -203,7 +212,10 @@ const mapDispatchToProps = dispatch => {
     },
     setTimestamp2: timestamp2 => {
       dispatch(setTimestamp2(timestamp2));
-    }
+    },
+    setStoryTemplate: storyTemplate => {
+      dispatch(setStoryTemplate(storyTemplate));
+    },
   };
 };
 
@@ -218,7 +230,8 @@ EmojiQuiz.propTypes = {
   timestamp1: PropTypes.number,
   timestamp2: PropTypes.number,
   setTimestamp1: PropTypes.func,
-  setTimestamp2: PropTypes.func
+  setTimestamp2: PropTypes.func,
+  setStoryTemplate: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(EmojiQuiz);
