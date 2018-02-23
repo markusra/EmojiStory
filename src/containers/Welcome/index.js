@@ -28,7 +28,7 @@ class Welcome extends Component {
     const chosenEmojis = [
       {
         text: "darts player",
-        src: "athlete/1f3af.svg"
+        src: "athletes/1f3af.svg"
       },
       {
         text: "snail",

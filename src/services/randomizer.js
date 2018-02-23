@@ -67,9 +67,25 @@ function getChosenCategories(chosenEmojis) {
 }
 
 export function getRandomKeyboard(chosenEmojis) {
-  const categoryList = ["activities", "animals", "athletes", "countries", "feelings", "food", "objects1", "objects2", "persons", "places", "vehicles", "weather"]
+  const categoryList = [
+    "activities",
+    "animals",
+    "athletes",
+    "countries",
+    "feelings",
+    "food",
+    "objects1",
+    "objects2",
+    "persons",
+    "places",
+    "vehicles",
+    "weather"
+  ];
   const chosenCategories = getChosenCategories(chosenEmojis);
 
+  let remainingCategories = categoryList
+    .filter(x => !chosenCategories.includes(x))
+    .concat(chosenCategories.filter(x => !categoryList.includes(x)));
 
   return shuffle(chosenEmojis);
 }
