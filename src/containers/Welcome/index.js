@@ -11,9 +11,7 @@ import history from "../../history";
 
 // Connect to Redux store
 import { connect } from "react-redux";
-import { setUserProgress } from "../../actions/index";
-import { deleteAnswers } from "../../actions/index";
-import { setDbKey } from "../../actions/index";
+import { setUserProgress, deleteAnswers, setDbKey } from "../../actions/index";
 import { sendDataToDB } from "../../services/sendDataToDB";
 
 // TODO: Fix email address

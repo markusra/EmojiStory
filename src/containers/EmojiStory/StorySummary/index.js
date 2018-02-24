@@ -5,7 +5,6 @@ import "./index.css";
 import EmojiContainer from "../../../components/EmojiStory/EmojiContainer";
 import EmojiBody from "../../../components/EmojiStory/EmojiContainer/EmojiBody";
 import EmojiRow from "../../../components/EmojiStory/EmojiRow";
-
 import { emojiStoryUpdateDB } from "../../../services/emojiStoryUpdateDB";
 
 import history from "../../../history";
@@ -13,17 +12,17 @@ import history from "../../../history";
 // Connect to Redux store
 import { connect } from "react-redux";
 import { setUserProgress } from "../../../actions/index";
-import { setTimestamp1, setTimestamp2 } from "../../../actions/index";
+import { setTimestamp1, setTimestamp2, setKeyboard } from "../../../actions/index";
 
 
 import { redirectUser } from "../../../services/redirectUser";
 
 // Import Bootstrap Components
 import { Button, Row } from "reactstrap";
-
 import { timestampUpdateDB } from "../../../services/timestampUpdateDB";
 import { calculateTimeUsed } from "../../../services/calculateTimeUsed";
 import { createTimestamp } from "../../../services/createTimestamp";
+import { getRandomKeyboard } from "../../../services/randomizer";
 
 class StorySummary extends Component {
   componentWillMount() {
@@ -35,6 +34,9 @@ class StorySummary extends Component {
     // Set first timestamp for time spent on memorizing
     const timestamp = createTimestamp();
     this.props.setTimestamp1(timestamp);
+
+
+    this.props.setKeyboard(getRandomKeyboard(this.props.answers));
   }
 
   fillPlaceholders(storyTemplate, emojis) {
@@ -163,6 +165,9 @@ const mapDispatchToProps = dispatch => {
     setUserProgress: userProgress => {
       dispatch(setUserProgress(userProgress));
     },
+    setKeyboard: keyboard => {
+      dispatch(setKeyboard(keyboard));
+    },
     setTimestamp1: timestamp1 => {
       dispatch(setTimestamp1(timestamp1));
     },
@@ -178,6 +183,7 @@ StorySummary.propTypes = {
   answers: PropTypes.array,
   userStory: PropTypes.string,
   setUserProgress: PropTypes.func,
+  setKeyboard: PropTypes.func,
   dbKey: PropTypes.string,
   setTimestamp1: PropTypes.func,
   setTimestamp2: PropTypes.func,

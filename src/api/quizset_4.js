@@ -115,7 +115,7 @@ var questions = [
       },
       {
         text: "wolf",
-        src: "animals1f43a.svg"
+        src: "animals/1f43a.svg"
       },
       {
         text: "bear",
@@ -126,8 +126,8 @@ var questions = [
         src: "animals/1f43c.svg"
       },
       {
-        text: "squirrelo",
-        src: "animals1f43f.svg"
+        text: "squirrel",
+        src: "animals/1f43f.svg"
       },
       {
         text: "dove",
@@ -146,7 +146,7 @@ var questions = [
           },
           {
             text: "cat3",
-            src: "animals1f63c.svg"
+            src: "animals/1f63c.svg"
           },
           {
             text: "cat4",
@@ -374,7 +374,7 @@ var questions = [
         src: "animals/1f426.svg"
       },
       {
-        text: "pengiun",
+        text: "penguin",
         src: "animals/1f427.svg"
       },
       {
@@ -731,57 +731,57 @@ var questions = [
     answers: [
       {
         text: "fisher",
-        src: "activities/1f3a3.svg"
+        src: "athletes/1f3a3.svg"
       },
 
       {
         text: "singer",
-        src: "activities/1f3a4.svg"
+        src: "athletes/1f3a4.svg"
       },
 
       {
         text: "painter",
-        src: "activities/1f3a8.svg"
+        src: "athletes/1f3a8.svg"
       },
 
       {
         text: "darts player",
-        src: "activities/1f3af.svg"
+        src: "athletes/1f3af.svg"
       },
 
       {
         text: "billard player",
-        src: "activities/1f3b1.svg"
+        src: "athletes/1f3b1.svg"
       },
 
       {
         text: "bowler",
-        src: "activities/1f3b3.svg"
+        src: "athletes/1f3b3.svg"
       },
 
       {
         text: "saxophonist",
-        src: "activities/1f3b7.svg"
+        src: "athletes/1f3b7.svg"
       },
 
       {
         text: "guitar player",
-        src: "activities/1f3b8.svg"
+        src: "athletes/1f3b8.svg"
       },
 
       {
         text: "piano player",
-        src: "activities/1f3b9.svg"
+        src: "athletes/1f3b9.svg"
       },
 
       {
         text: "violinist",
-        src: "activities/1f3bb.svg"
+        src: "athletes/1f3bb.svg"
       },
 
       {
         text: "tennis player",
-        src: "activities/1f3be.svg"
+        src: "athletes/1f3be.svg"
       },
 
       {
@@ -789,11 +789,11 @@ var questions = [
         emojiList: [
           {
             text: "skiing1",
-            src: "activities/1f3bf.svg"
+            src: "athletes/1f3bf.svg"
           },
           {
             text: "skiing2",
-            src: "activities/26f7.svg"
+            src: "athletes/26f7.svg"
           }
         ]
       },
@@ -803,38 +803,38 @@ var questions = [
         emojiList: [
           {
             text: "basketball1",
-            src: "activities/1f3c0.svg"
+            src: "athletes/1f3c0.svg"
           },
           {
             text: "basketball2",
-            src: "activities/26f9.svg"
+            src: "athletes/26f9.svg"
           },
           {
             text: "basketball3",
-            src: "activities/26f9-1f3fb.svg"
+            src: "athletes/26f9-1f3fb.svg"
           },
           {
             text: "basketball4",
-            src: "activities/26f9-1f3fc.svg"
+            src: "athletes/26f9-1f3fc.svg"
           },
           {
             text: "basketball5",
-            src: "activities/26f9-1f3fd.svg"
+            src: "athletes/26f9-1f3fd.svg"
           },
           {
             text: "basketball6",
-            src: "activities/26f9-1f3fe.svg"
+            src: "athletes/26f9-1f3fe.svg"
           },
           {
             text: "basketball7",
-            src: "activities/26f9-1f3ff.svg"
+            src: "athletes/26f9-1f3ff.svg"
           }
         ]
       },
 
       {
         text: "snowboarder",
-        src: "activities/1f3c2.svg"
+        src: "athletes/1f3c2.svg"
       },
 
       {
@@ -842,27 +842,27 @@ var questions = [
         emojiList: [
           {
             text: "running1",
-            src: "activities/1f3c3.svg"
+            src: "athletes/1f3c3.svg"
           },
           {
             text: "running2",
-            src: "activities/1f3c3-1f3fb.svg"
+            src: "athletes/1f3c3-1f3fb.svg"
           },
           {
             text: "running3",
-            src: "activities/1f3c3-1f3fc.svg"
+            src: "athletes/1f3c3-1f3fc.svg"
           },
           {
             text: "running4",
-            src: "activities/1f3c3-1f3fd.svg"
+            src: "athletes/1f3c3-1f3fd.svg"
           },
           {
             text: "running5",
-            src: "activities/1f3c3-1f3fe.svg"
+            src: "athletes/1f3c3-1f3fe.svg"
           },
           {
             text: "running6",
-            src: "activities/1f3c3-1f3ff.svg"
+            src: "athletes/1f3c3-1f3ff.svg"
           }
         ]
       },
@@ -872,27 +872,27 @@ var questions = [
         emojiList: [
           {
             text: "surfing1",
-            src: "activities/1f3c4.svg"
+            src: "athletes/1f3c4.svg"
           },
           {
             text: "surfing2",
-            src: "activities/1f3c4-1f3fb.svg"
+            src: "athletes/1f3c4-1f3fb.svg"
           },
           {
             text: "surfing3",
-            src: "activities/1f3c4-1f3fc.svg"
+            src: "athletes/1f3c4-1f3fc.svg"
           },
           {
             text: "surfing4",
-            src: "activities/1f3c4-1f3fd.svg"
+            src: "athletes/1f3c4-1f3fd.svg"
           },
           {
             text: "surfing5",
-            src: "activities/1f3c4-1f3fe.svg"
+            src: "athletes/1f3c4-1f3fe.svg"
           },
           {
             text: "surfing6",
-            src: "activities/1f3c4-1f3ff.svg"
+            src: "athletes/1f3c4-1f3ff.svg"
           }
         ]
       },
@@ -902,27 +902,27 @@ var questions = [
         emojiList: [
           {
             text: "riding1",
-            src: "activities/1f3c7.svg"
+            src: "athletes/1f3c7.svg"
           },
           {
             text: "riding2",
-            src: "activities/1f3c7-1f3fb.svg"
+            src: "athletes/1f3c7-1f3fb.svg"
           },
           {
             text: "riding3",
-            src: "activities/1f3c7-1f3fc.svg"
+            src: "athletes/1f3c7-1f3fc.svg"
           },
           {
             text: "riding4",
-            src: "activities/1f3c7-1f3fd.svg"
+            src: "athletes/1f3c7-1f3fd.svg"
           },
           {
             text: "riding5",
-            src: "activities/1f3c7-1f3fe.svg"
+            src: "athletes/1f3c7-1f3fe.svg"
           },
           {
             text: "riding6",
-            src: "activities/1f3c7-1f3ff.svg"
+            src: "athletes/1f3c7-1f3ff.svg"
           }
         ]
       },
@@ -932,27 +932,27 @@ var questions = [
         emojiList: [
           {
             text: "swimming1",
-            src: "activities/1f3ca.svg"
+            src: "athletes/1f3ca.svg"
           },
           {
             text: "swimming2",
-            src: "activities/1f3ca-1f3fb.svg"
+            src: "athletes/1f3ca-1f3fb.svg"
           },
           {
             text: "swimming3",
-            src: "activities/1f3ca-1f3fc.svg"
+            src: "athletes/1f3ca-1f3fc.svg"
           },
           {
             text: "swimming4",
-            src: "activities/1f3ca-1f3fd.svg"
+            src: "athletes/1f3ca-1f3fd.svg"
           },
           {
             text: "swimming5",
-            src: "activities/1f3ca-1f3fe.svg"
+            src: "athletes/1f3ca-1f3fe.svg"
           },
           {
             text: "swimming6",
-            src: "activities/1f3ca-1f3ff.svg"
+            src: "athletes/1f3ca-1f3ff.svg"
           }
         ]
       },
@@ -962,27 +962,27 @@ var questions = [
         emojiList: [
           {
             text: "liftingWeights1",
-            src: "activities/1f3cb.svg"
+            src: "athletes/1f3cb.svg"
           },
           {
             text: "liftingWeights2",
-            src: "activities/1f3cb-1f3fb.svg"
+            src: "athletes/1f3cb-1f3fb.svg"
           },
           {
             text: "liftingWeights3",
-            src: "activities/1f3cb-1f3fc.svg"
+            src: "athletes/1f3cb-1f3fc.svg"
           },
           {
             text: "liftingWeights4",
-            src: "activities/1f3cb-1f3fd.svg"
+            src: "athletes/1f3cb-1f3fd.svg"
           },
           {
             text: "liftingWeights5",
-            src: "activities/1f3cb-1f3fe.svg"
+            src: "athletes/1f3cb-1f3fe.svg"
           },
           {
             text: "liftingWeights6",
-            src: "activities/1f3cb-1f3ff.svg"
+            src: "athletes/1f3cb-1f3ff.svg"
           }
         ]
       },
@@ -992,54 +992,54 @@ var questions = [
         emojiList: [
           {
             text: "golf1",
-            src: "activities/1f3cc.svg"
+            src: "athletes/1f3cc.svg"
           },
 
           {
             text: "golf2",
-            src: "activities/26f3.svg"
+            src: "athletes/26f3.svg"
           }
         ]
       },
 
       {
         text: "motorcyclist",
-        src: "activities/1f3cd.svg"
+        src: "athletes/1f3cd.svg"
       },
 
       {
         text: "race car driver",
-        src: "activities/1f3ce.svg"
+        src: "athletes/1f3ce.svg"
       },
 
       {
         text: "cricket player",
-        src: "activities/1f3cf.svg"
+        src: "athletes/1f3cf.svg"
       },
 
       {
         text: "volleyball player",
-        src: "activities/1f3d0.svg"
+        src: "athletes/1f3d0.svg"
       },
 
       {
         text: "ice hockey player",
-        src: "activities/1f3d2.svg"
+        src: "athletes/1f3d2.svg"
       },
 
       {
         text: "ping pong player",
-        src: "activities/1f3d3.svg"
+        src: "athletes/1f3d3.svg"
       },
 
       {
         text: "badminton player",
-        src: "activities/1f3f8.svg"
+        src: "athletes/1f3f8.svg"
       },
 
       {
         text: "archer",
-        src: "activities/1f3f9.svg"
+        src: "athletes/1f3f9.svg"
       },
 
       {
@@ -1047,27 +1047,27 @@ var questions = [
         emojiList: [
           {
             text: "workingOut1",
-            src: "activities/1f4aa.svg"
+            src: "athletes/1f4aa.svg"
           },
           {
             text: "workingOut2",
-            src: "activities/1f4aa-1f3fb.svg"
+            src: "athletes/1f4aa-1f3fb.svg"
           },
           {
             text: "workingOut3",
-            src: "activities/1f4aa-1f3fc.svg"
+            src: "athletes/1f4aa-1f3fc.svg"
           },
           {
             text: "workingOut4",
-            src: "activities/1f4aa-1f3fd.svg"
+            src: "athletes/1f4aa-1f3fd.svg"
           },
           {
             text: "workingOut5",
-            src: "activities/1f4aa-1f3fe.svg"
+            src: "athletes/1f4aa-1f3fe.svg"
           },
           {
             text: "workingOut6",
-            src: "activities/1f4aa-1f3ff.svg"
+            src: "athletes/1f4aa-1f3ff.svg"
           }
         ]
       },
@@ -1077,27 +1077,27 @@ var questions = [
         emojiList: [
           {
             text: "dancing1",
-            src: "activities/1f57a.svg"
+            src: "athletes/1f57a.svg"
           },
           {
             text: "dancing2",
-            src: "activities/1f57a-1f3fb.svg"
+            src: "athletes/1f57a-1f3fb.svg"
           },
           {
             text: "dancing3",
-            src: "activities/1f57a-1f3fc.svg"
+            src: "athletes/1f57a-1f3fc.svg"
           },
           {
             text: "dancing4",
-            src: "activities/1f57a-1f3fd.svg"
+            src: "athletes/1f57a-1f3fd.svg"
           },
           {
             text: "dancing5",
-            src: "activities/1f57a-1f3fe.svg"
+            src: "athletes/1f57a-1f3fe.svg"
           },
           {
             text: "dancing6",
-            src: "activities/1f57a-1f3ff.svg"
+            src: "athletes/1f57a-1f3ff.svg"
           }
         ]
       },
@@ -1107,27 +1107,27 @@ var questions = [
         emojiList: [
           {
             text: "rowing1",
-            src: "activities/1f6a3.svg"
+            src: "athletes/1f6a3.svg"
           },
           {
             text: "rowing2",
-            src: "activities/1f6a3-1f3fb.svg"
+            src: "athletes/1f6a3-1f3fb.svg"
           },
           {
             text: "rowing3",
-            src: "activities/1f6a3-1f3fc.svg"
+            src: "athletes/1f6a3-1f3fc.svg"
           },
           {
             text: "rowing4",
-            src: "activities/1f6a3-1f3fd.svg"
+            src: "athletes/1f6a3-1f3fd.svg"
           },
           {
             text: "rowing5",
-            src: "activities/1f6a3-1f3fe.svg"
+            src: "athletes/1f6a3-1f3fe.svg"
           },
           {
             text: "rowing6",
-            src: "activities/1f6a3-1f3ff.svg"
+            src: "athletes/1f6a3-1f3ff.svg"
           }
         ]
       },
@@ -1137,51 +1137,51 @@ var questions = [
         emojiList: [
           {
             text: "bicycling1",
-            src: "activities/1f6b4.svg"
+            src: "athletes/1f6b4.svg"
           },
           {
             text: "bicycling2",
-            src: "activities/1f6b4-1f3fb.svg"
+            src: "athletes/1f6b4-1f3fb.svg"
           },
           {
             text: "bicycling3",
-            src: "activities/1f6b4-1f3fc.svg"
+            src: "athletes/1f6b4-1f3fc.svg"
           },
           {
             text: "bicycling4",
-            src: "activities/1f6b4-1f3fd.svg"
+            src: "athletes/1f6b4-1f3fd.svg"
           },
           {
             text: "bicycling5",
-            src: "activities/1f6b4-1f3fe.svg"
+            src: "athletes/1f6b4-1f3fe.svg"
           },
           {
             text: "bicycling6",
-            src: "activities/1f6b4-1f3ff.svg"
+            src: "athletes/1f6b4-1f3ff.svg"
           },
           {
             text: "bicycling7",
-            src: "activities/1f6b5.svg"
+            src: "athletes/1f6b5.svg"
           },
           {
             text: "bicycling8",
-            src: "activities/1f6b5-1f3fb.svg"
+            src: "athletes/1f6b5-1f3fb.svg"
           },
           {
             text: "bicycling9",
-            src: "activities/1f6b5-1f3fc.svg"
+            src: "athletes/1f6b5-1f3fc.svg"
           },
           {
             text: "bicycling10",
-            src: "activities/1f6b5-1f3fd.svg"
+            src: "athletes/1f6b5-1f3fd.svg"
           },
           {
             text: "bicycling11",
-            src: "activities/1f6b5-1f3fe.svg"
+            src: "athletes/1f6b5-1f3fe.svg"
           },
           {
             text: "bicycling12",
-            src: "activities/1f6b5-1f3ff.svg"
+            src: "athletes/1f6b5-1f3ff.svg"
           }
         ]
       },
@@ -1191,27 +1191,27 @@ var questions = [
         emojiList: [
           {
             text: "walking1",
-            src: "activities/1f6b6.svg"
+            src: "athletes/1f6b6.svg"
           },
           {
             text: "walking2",
-            src: "activities/1f6b6-1f3fb.svg"
+            src: "athletes/1f6b6-1f3fb.svg"
           },
           {
             text: "walking3",
-            src: "activities/1f6b6-1f3fc.svg"
+            src: "athletes/1f6b6-1f3fc.svg"
           },
           {
             text: "walking4",
-            src: "activities/1f6b6-1f3fd.svg"
+            src: "athletes/1f6b6-1f3fd.svg"
           },
           {
             text: "walking5",
-            src: "activities/1f6b6-1f3fe.svg"
+            src: "athletes/1f6b6-1f3fe.svg"
           },
           {
             text: "walking6",
-            src: "activities/1f6b6-1f3ff.svg"
+            src: "athletes/1f6b6-1f3ff.svg"
           }
         ]
       },
@@ -1221,27 +1221,27 @@ var questions = [
         emojiList: [
           {
             text: "selfie1",
-            src: "activities/1f933.svg"
+            src: "athletes/1f933.svg"
           },
           {
             text: "selfie2",
-            src: "activities/1f933-1f3fb.svg"
+            src: "athletes/1f933-1f3fb.svg"
           },
           {
             text: "selfie3",
-            src: "activities/1f933-1f3fc.svg"
+            src: "athletes/1f933-1f3fc.svg"
           },
           {
             text: "selfie4",
-            src: "activities/1f933-1f3fd.svg"
+            src: "athletes/1f933-1f3fd.svg"
           },
           {
             text: "selfie5",
-            src: "activities/1f933-1f3fe.svg"
+            src: "athletes/1f933-1f3fe.svg"
           },
           {
             text: "selfie6",
-            src: "activities/1f933-1f3ff.svg"
+            src: "athletes/1f933-1f3ff.svg"
           }
         ]
       },
@@ -1251,27 +1251,27 @@ var questions = [
         emojiList: [
           {
             text: "cartwheels1",
-            src: "activities/1f938.svg"
+            src: "athletes/1f938.svg"
           },
           {
             text: "cartwheels2",
-            src: "activities/1f938-1f3fb.svg"
+            src: "athletes/1f938-1f3fb.svg"
           },
           {
             text: "cartwheels3",
-            src: "activities/1f938-1f3fc.svg"
+            src: "athletes/1f938-1f3fc.svg"
           },
           {
             text: "cartwheels4",
-            src: "activities/1f938-1f3fd.svg"
+            src: "athletes/1f938-1f3fd.svg"
           },
           {
             text: "cartwheels5",
-            src: "activities/1f938-1f3fe.svg"
+            src: "athletes/1f938-1f3fe.svg"
           },
           {
             text: "cartwheels6",
-            src: "activities/1f938-1f3ff.svg"
+            src: "athletes/1f938-1f3ff.svg"
           }
         ]
       },
@@ -1281,34 +1281,34 @@ var questions = [
         emojiList: [
           {
             text: "juggling1",
-            src: "activities/1f939.svg"
+            src: "athletes/1f939.svg"
           },
           {
             text: "juggling2",
-            src: "activities/1f939-1f3fb.svg"
+            src: "athletes/1f939-1f3fb.svg"
           },
           {
             text: "juggling3",
-            src: "activities/1f939-1f3fc.svg"
+            src: "athletes/1f939-1f3fc.svg"
           },
           {
             text: "juggling4",
-            src: "activities/1f939-1f3fd.svg"
+            src: "athletes/1f939-1f3fd.svg"
           },
           {
             text: "juggling5",
-            src: "activities/1f939-1f3fe.svg"
+            src: "athletes/1f939-1f3fe.svg"
           },
           {
             text: "juggling6",
-            src: "activities/1f939-1f3ff.svg"
+            src: "athletes/1f939-1f3ff.svg"
           }
         ]
       },
 
       {
         text: "fencer",
-        src: "activities/1f93a.svg"
+        src: "athletes/1f93a.svg"
       },
 
       {
@@ -1316,27 +1316,27 @@ var questions = [
         emojiList: [
           {
             text: "waterPolo1",
-            src: "activities/1f93d.svg"
+            src: "athletes/1f93d.svg"
           },
           {
             text: "waterPolo2",
-            src: "activities/1f93d-1f3fb.svg"
+            src: "athletes/1f93d-1f3fb.svg"
           },
           {
             text: "waterPolo3",
-            src: "activities/1f93d-1f3fc.svg"
+            src: "athletes/1f93d-1f3fc.svg"
           },
           {
             text: "waterPolo4",
-            src: "activities/1f93d-1f3fd.svg"
+            src: "athletes/1f93d-1f3fd.svg"
           },
           {
             text: "waterPolo5",
-            src: "activities/1f93d-1f3fe.svg"
+            src: "athletes/1f93d-1f3fe.svg"
           },
           {
             text: "waterPolo6",
-            src: "activities/1f93d-1f3ff.svg"
+            src: "athletes/1f93d-1f3ff.svg"
           }
         ]
       },
@@ -1346,27 +1346,27 @@ var questions = [
         emojiList: [
           {
             text: "handball1",
-            src: "activities/1f93e.svg"
+            src: "athletes/1f93e.svg"
           },
           {
             text: "handball2",
-            src: "activities/1f93e-1f3fb.svg"
+            src: "athletes/1f93e-1f3fb.svg"
           },
           {
             text: "handball3",
-            src: "activities/1f93e-1f3fc.svg"
+            src: "athletes/1f93e-1f3fc.svg"
           },
           {
             text: "handball4",
-            src: "activities/1f93e-1f3fd.svg"
+            src: "athletes/1f93e-1f3fd.svg"
           },
           {
             text: "handball5",
-            src: "activities/1f93e-1f3fe.svg"
+            src: "athletes/1f93e-1f3fe.svg"
           },
           {
             text: "handball6",
-            src: "activities/1f93e-1f3ff.svg"
+            src: "athletes/1f93e-1f3ff.svg"
           }
         ]
       },
@@ -1376,18 +1376,18 @@ var questions = [
         emojiList: [
           {
             text: "soccer1",
-            src: "activities/1f945.svg"
+            src: "athletes/1f945.svg"
           },
           {
             text: "",
-            src: "activities/26bd.svg"
+            src: "athletes/26bd.svg"
           }
         ]
       },
 
       {
         text: "baseball player",
-        src: "activities/26be.svg"
+        src: "athletes/26be.svg"
       }
     ]
   },
@@ -1399,34 +1399,34 @@ var questions = [
         emojiList: [
           {
             text: "umbrella1",
-            src: "objects/1f302.svg"
+            src: "objects1/1f302.svg"
           },
 
           {
             text: "umbrella2",
-            src: "objects/2602.svg"
+            src: "objects1/2602.svg"
           }
         ]
       },
 
       {
         text: "cutlery",
-        src: "objects/1f374.svg"
+        src: "objects1/1f374.svg"
       },
 
       {
         text: "presents",
-        src: "objects/1f381.svg"
+        src: "objects1/1f381.svg"
       },
 
       {
         text: "ballons",
-        src: "objects/1f388.svg"
+        src: "objects1/1f388.svg"
       },
 
       {
         text: "backpacks",
-        src: "objects/1f392.svg"
+        src: "objects1/1f392.svg"
       },
 
       {
@@ -1434,32 +1434,32 @@ var questions = [
         emojiList: [
           {
             text: "medals1",
-            src: "objects/1f396.svg"
+            src: "objects1/1f396.svg"
           },
           {
             text: "medal2",
-            src: "objects/1f3c5.svg"
+            src: "objects1/1f3c5.svg"
           },
           {
             text: "medal3",
-            src: "objects/1f947.svg"
+            src: "objects1/1f947.svg"
           },
 
           {
             text: "medal4",
-            src: "objects/1f948.svg"
+            src: "objects1/1f948.svg"
           },
 
           {
             text: "medal5",
-            src: "objects/1f949.svg"
+            src: "objects1/1f949.svg"
           }
         ]
       },
 
       {
         text: "microphone",
-        src: "objects/1f399.svg"
+        src: "objects1/1f399.svg"
       },
 
       {
@@ -1467,27 +1467,27 @@ var questions = [
         emojiList: [
           {
             text: "filmcamera1",
-            src: "objects/1f3a5.svg"
+            src: "objects1/1f3a5.svg"
           },
           {
             text: "filmcamera2",
-            src: "objects/1f3a6.svg"
+            src: "objects1/1f3a6.svg"
           },
           {
             text: "filmcamera3",
-            src: "objects/1f4f9.svg"
+            src: "objects1/1f4f9.svg"
           },
 
           {
             text: "filmcamera4",
-            src: "objects/1f4fd.svg"
+            src: "objects1/1f4fd.svg"
           }
         ]
       },
 
       {
         text: "headphones",
-        src: "objects/1f3a7.svg"
+        src: "objects1/1f3a7.svg"
       },
 
       {
@@ -1495,68 +1495,68 @@ var questions = [
         emojiList: [
           {
             text: "hat1",
-            src: "objects/1f3a9.svg"
+            src: "objects1/1f3a9.svg"
           },
           {
             text: "hat2",
-            src: "objects/1f452.svg"
+            src: "objects1/1f452.svg"
           }
         ]
       },
 
       {
         text: "tank tops",
-        src: "objects/1f3bd.svg"
+        src: "objects1/1f3bd.svg"
       },
 
       {
         text: "trophies",
-        src: "objects/1f3c6.svg"
+        src: "objects1/1f3c6.svg"
       },
 
       {
         text: "flowers",
-        src: "objects/1f3f5.svg"
+        src: "objects1/1f3f5.svg"
       },
 
       {
         text: "vases",
-        src: "objects/1f3fa.svg"
+        src: "objects1/1f3fa.svg"
       },
 
       {
         text: "crowns",
-        src: "objects/1f451.svg"
+        src: "objects1/1f451.svg"
       },
 
       {
         text: "glasses",
-        src: "objects/1f453.svg"
+        src: "objects1/1f453.svg"
       },
 
       {
         text: "shirts",
-        src: "objects/1f454.svg"
+        src: "objects1/1f454.svg"
       },
 
       {
         text: "t-shirts",
-        src: "objects/1f455.svg"
+        src: "objects1/1f455.svg"
       },
 
       {
         text: "pants",
-        src: "objects/1f456.svg"
+        src: "objects1/1f456.svg"
       },
 
       {
         text: "dresses",
-        src: "objects/1f457.svg"
+        src: "objects1/1f457.svg"
       },
 
       {
         text: "bikinis",
-        src: "objects/1f459.svg"
+        src: "objects1/1f459.svg"
       },
 
       {
@@ -1564,15 +1564,15 @@ var questions = [
         emojiList: [
           {
             text: "purses1",
-            src: "objects/1f45b.svg"
+            src: "objects1/1f45b.svg"
           },
           {
             text: "purses2",
-            src: "objects/1f45c.svg"
+            src: "objects1/1f45c.svg"
           },
           {
             text: "purses3",
-            src: "objects/1f45d.svg"
+            src: "objects1/1f45d.svg"
           }
         ]
       },
@@ -1582,57 +1582,57 @@ var questions = [
         emojiList: [
           {
             text: "shoes1",
-            src: "objects/1f45e.svg"
+            src: "objects1/1f45e.svg"
           },
           {
             text: "shoes2",
-            src: "objects/1f461.svg"
+            src: "objects1/1f461.svg"
           },
           {
             text: "shoes3",
-            src: "objects/1f462.svg"
+            src: "objects1/1f462.svg"
           }
         ]
       },
 
       {
         text: "sneakers",
-        src: "objects/1f45f.svg"
+        src: "objects1/1f45f.svg"
       },
 
       {
         text: "high heels",
-        src: "objects/1f460.svg"
+        src: "objects1/1f460.svg"
       },
 
       {
         text: "pills",
-        src: "objects/1f48a.svg"
+        src: "objects1/1f48a.svg"
       },
 
       {
         text: "rings",
-        src: "objects/1f48d.svg"
+        src: "objects1/1f48d.svg"
       },
 
       {
         text: "diamonds",
-        src: "objects/1f48e.svg"
+        src: "objects1/1f48e.svg"
       },
 
       {
         text: "light bulbs",
-        src: "objects/1f4a1.svg"
+        src: "objects1/1f4a1.svg"
       },
 
       {
         text: "water",
-        src: "objects/1f4a7.svg"
+        src: "objects1/1f4a7.svg"
       },
 
       {
         text: "poop",
-        src: "objects/1f4a9.svg"
+        src: "objects1/1f4a9.svg"
       },
 
       {
@@ -1640,34 +1640,34 @@ var questions = [
         emojiList: [
           {
             text: "money1",
-            src: "objects/1f4b0.svg"
+            src: "objects1/1f4b0.svg"
           },
           {
             text: "money2",
-            src: "objects/1f4b4.svg"
+            src: "objects1/1f4b4.svg"
           },
           {
             text: "money3",
-            src: "objects/1f4b5.svg"
+            src: "objects1/1f4b5.svg"
           },
           {
             text: "money4",
-            src: "objects/1f4b6.svg"
+            src: "objects1/1f4b6.svg"
           },
           {
             text: "money5",
-            src: "objects/1f4b7.svg"
+            src: "objects1/1f4b7.svg"
           },
           {
             text: "money6",
-            src: "objects/1f4b8.svg"
+            src: "objects1/1f4b8.svg"
           }
         ]
       },
 
       {
         text: "credit cards",
-        src: "objects/1f4b3.svg"
+        src: "objects1/1f4b3.svg"
       },
 
       {
@@ -1675,12 +1675,12 @@ var questions = [
         emojiList: [
           {
             text: "paper1",
-            src: "objects/1f4c3.svg"
+            src: "objects1/1f4c3.svg"
           },
 
           {
             text: "paper2",
-            src: "objects/1f4c4.svg"
+            src: "objects1/1f4c4.svg"
           }
         ]
       },
@@ -1690,24 +1690,24 @@ var questions = [
         emojiList: [
           {
             text: "calendars1",
-            src: "objects/1f4c5.svg"
+            src: "objects1/1f4c5.svg"
           },
 
           {
             text: "calendars2",
-            src: "objects/1f4c6.svg"
+            src: "objects1/1f4c6.svg"
           },
 
           {
             text: "calendars3",
-            src: "objects/1f5d3.svg"
+            src: "objects1/1f5d3.svg"
           }
         ]
       },
 
       {
         text: "thumbtacks",
-        src: "objects/1f4cc.svg"
+        src: "objects1/1f4cc.svg"
       },
 
       {
@@ -1715,19 +1715,19 @@ var questions = [
         emojiList: [
           {
             text: "paperclip1",
-            src: "objects/1f4ce.svg"
+            src: "objects1/1f4ce.svg"
           },
 
           {
             text: "paperclip2",
-            src: "objects/1f587.svg"
+            src: "objects1/1f587.svg"
           }
         ]
       },
 
       {
         text: "ruler",
-        src: "objects/1f4cf.svg"
+        src: "objects1/1f4cf.svg"
       },
 
       {
@@ -1735,42 +1735,42 @@ var questions = [
         emojiList: [
           {
             text: "book1",
-            src: "objects/1f4d3.svg"
+            src: "objects1/1f4d3.svg"
           },
 
           {
             text: "book2",
-            src: "objects/1f4d4.svg"
+            src: "objects1/1f4d4.svg"
           },
 
           {
             text: "book3",
-            src: "objects/1f4d5.svg"
+            src: "objects1/1f4d5.svg"
           },
 
           {
             text: "book4",
-            src: "objects/1f4d6.svg"
+            src: "objects1/1f4d6.svg"
           },
 
           {
             text: "book5",
-            src: "objects/1f4d7.svg"
+            src: "objects1/1f4d7.svg"
           },
 
           {
             text: "book6",
-            src: "objects/1f4d8.svg"
+            src: "objects1/1f4d8.svg"
           },
 
           {
             text: "book7",
-            src: "objects/1f4d9.svg"
+            src: "objects1/1f4d9.svg"
           },
 
           {
             text: "book8",
-            src: "objects/1f4da.svg"
+            src: "objects1/1f4da.svg"
           }
         ]
       },
@@ -1780,11 +1780,11 @@ var questions = [
         emojiList: [
           {
             text: "computer1",
-            src: "objects/1f4bb.svg"
+            src: "objects1/1f4bb.svg"
           },
           {
             text: "computer2",
-            src: "objects/1f5a5.svg"
+            src: "objects1/1f5a5.svg"
           }
         ]
       }
