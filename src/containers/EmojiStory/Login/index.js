@@ -24,6 +24,18 @@ import { setUserProgress, setReadyFor2ndLogin, setTimestamp1, setTimestamp2, set
 // Import Bootstrap Components
 import { Button, Row } from "reactstrap";
 
+let strings = {
+  en: {
+    delete: "Delete"
+  },
+  no: {
+    delete: "Slett"
+  },
+  de: {
+    delete: "Löschen"
+  }
+};
+
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -283,7 +295,7 @@ class Login extends Component {
                 onClick={() => this.onDeleteButtonClick()}
                 block
               >
-                Delete
+                {strings[this.props.language].delete}
               </Button>
             </div>
           </div>
@@ -302,7 +314,8 @@ const mapStateToProps = state => {
     timestamp1: state.timestamp1,
     timestamp2: state.timestamp2,
     loginAttempts: state.loginAttempts,
-    answers: state.answers
+    answers: state.answers,
+    language: state.language
   };
 };
 
@@ -338,7 +351,8 @@ Login.propTypes = {
   setTimestamp2: PropTypes.func,
   timestamp1: PropTypes.number,
   timestamp2: PropTypes.number,
-  answers: PropTypes.array
+  answers: PropTypes.array,
+  language: PropTypes.string
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

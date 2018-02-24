@@ -4,6 +4,19 @@ import ITBackgroundButtons from "./ITBackgroundButtons/index";
 import PropTypes from "prop-types";
 import SurveyBody from "./../SurveyBody";
 import "./../index.css";
+import { connect } from "react-redux";
+
+let strings = {
+  en: {
+    itBackgroundQuestion: "Do you have a background in IT or information security?"
+  },
+  no: {
+    itBackgroundQuestion: "Har du en bakgrunn innen IT eller informasjonssikkerhet?"
+  },
+  de: {
+    itBackgroundQuestion: "Haben Sie Erfahrung mit IT oder Informationssicherheit?"
+  }
+};
 
 class ITBackground extends Component {
   render() {
@@ -13,7 +26,7 @@ class ITBackground extends Component {
           <div className="surveyContainer">
             <div className="questionDiv">
               <h3>
-                Do you have a background in IT or security?
+                {strings[this.props.language].itBackgroundQuestion}
               </h3>
             </div>
 
@@ -30,7 +43,14 @@ class ITBackground extends Component {
 }
 
 ITBackground.propTypes = {
-  setITBackground: PropTypes.func
+  setITBackground: PropTypes.func,
+  language: PropTypes.string
 };
 
-export default ITBackground;
+const mapStateToProps = state => {
+  return {
+    language: state.language
+  };
+};
+
+export default connect(mapStateToProps)(ITBackground);

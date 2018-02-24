@@ -14,7 +14,6 @@ import { connect } from "react-redux";
 import { setUserProgress } from "../../../actions/index";
 import { setTimestamp1, setTimestamp2, setKeyboard } from "../../../actions/index";
 
-
 import { redirectUser } from "../../../services/redirectUser";
 
 // Import Bootstrap Components
@@ -23,6 +22,21 @@ import { timestampUpdateDB } from "../../../services/timestampUpdateDB";
 import { calculateTimeUsed } from "../../../services/calculateTimeUsed";
 import { createTimestamp } from "../../../services/createTimestamp";
 import { getRandomKeyboard } from "../../../services/randomizer";
+
+let strings = {
+  en: {
+    memoriseText: "Memorise this EmojiStory",
+    acceptRemember: "Ok, I remember!"
+  },
+  no: {
+    memoriseText: "Husk denne EmojiStory",
+    acceptRemember: "Ok, jeg husker den!"
+  },
+  de: {
+    memoriseText: "Merke dir diese EmojiStory",
+    acceptRemember: "Ok, Ich merke sie mir!"
+  }
+};
 
 class StorySummary extends Component {
   componentWillMount() {
@@ -120,7 +134,7 @@ class StorySummary extends Component {
             <div className="emojiDiv">
               <div className="emojiContainer justify-content-center">
                 <Row className="storyHeader justify-content-center">
-                  Memorise this EmojiStory
+                  {strings[this.props.language].memoriseText}
                 </Row>
                 <EmojiRow
                   emojiIcon_1={emojiIcons[0]}
@@ -139,7 +153,7 @@ class StorySummary extends Component {
                 onClick={() => this.onButtonClick()}
                 block
               >
-                Ok, I remember!
+                {strings[this.props.language].acceptRemember}
               </Button>
             </div>
           </div>
@@ -156,7 +170,8 @@ const mapStateToProps = state => {
     answers: state.answers,
     dbKey: state.dbKey,
     timestamp1: state.timestamp1,
-    timestamp2: state.timestamp2
+    timestamp2: state.timestamp2,
+    language: state.language
   };
 };
 
@@ -188,7 +203,8 @@ StorySummary.propTypes = {
   setTimestamp1: PropTypes.func,
   setTimestamp2: PropTypes.func,
   timestamp1: PropTypes.number,
-  timestamp2: PropTypes.number
+  timestamp2: PropTypes.number,
+  language: PropTypes.string
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(StorySummary);

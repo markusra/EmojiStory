@@ -1,4 +1,5 @@
 const initialState = {
+  language: "no",
   storyTemplate: [],
   userProgress: "",
   readyFor2ndLogin: false,

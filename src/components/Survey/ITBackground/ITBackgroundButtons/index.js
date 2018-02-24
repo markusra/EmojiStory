@@ -6,6 +6,20 @@ import "./index.css";
 import { connect } from "react-redux";
 import { setItBackground } from "../../../../actions/index";
 
+let strings = {
+  en: {
+    yes: "Yes",
+    no: "No"
+  },
+  no: {
+    yes: "Ja",
+    no: "Nei"
+  },
+  de: {
+    yes: "Ja",
+    no: "Nein"
+  }
+};
 
 class ITBackgroundButtons extends Component {
   render() {
@@ -18,7 +32,7 @@ class ITBackgroundButtons extends Component {
             this.props.setItBackground("Yes", "emojiUsage");
           }}
         >
-          Yes
+          {strings[this.props.language].yes}
         </Button>
 
         <Button
@@ -28,7 +42,7 @@ class ITBackgroundButtons extends Component {
             this.props.setItBackground("No", "emojiUsage");
           }}
         >
-          No
+          {strings[this.props.language].no}
         </Button>
       </Fragment>
     );
@@ -38,7 +52,8 @@ class ITBackgroundButtons extends Component {
 const mapStateToProps = state => {
   return {
     itBackground: state.itBackground,
-    surveyPage: state.surveyPage
+    surveyPage: state.surveyPage,
+    language: state.language
   };
 };
 
@@ -51,7 +66,8 @@ const mapDispatchToProps = dispatch => {
 };
 
 ITBackgroundButtons.propTypes = {
-  setItBackground: PropTypes.func
+  setItBackground: PropTypes.func,
+  language: PropTypes.string
 };
 
 

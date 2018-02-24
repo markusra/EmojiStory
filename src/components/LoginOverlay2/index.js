@@ -8,11 +8,26 @@ import { Button } from "reactstrap";
 // Connect to Redux store
 import { connect } from "react-redux";
 
+let strings = {
+  en: {
+    enterStoryFirstTry: "Please enter your emoji-password",
+    enterStorySecondTry: "Please try to enter your emoji-password one last time"
+  },
+  no: {
+    enterStoryFirstTry: "Skriv inn ditt emoji-passord",
+    enterStorySecondTry: "Prøv å skrive inn ditt emoji-passord en siste gang"
+  },
+  de: {
+    enterStoryFirstTry: "Gib dein Emoji-Passwort ein",
+    enterStorySecondTry: "Versuche dein Emoji-Password ein letztes Mal einzugeben"
+  }
+};
+
 class LoginOverlay2 extends Component {
   render() {
     const visible = this.props.visible ? "fade-in" : "fade-out";
     const is2ndAttempt = this.props.readyFor2ndLogin;
-    const text = is2ndAttempt ? "Please try to enter your emoji-password one last time." : "Please enter your emoji-password.";
+    const text = is2ndAttempt ? strings[this.props.language].enterStorySecondTry : strings[this.props.language].enterStoryFirstTry;
 
     const OverlayButton =
         <Button
@@ -22,7 +37,7 @@ class LoginOverlay2 extends Component {
           onClick={this.props.onOkButtonClick}
           // block
         >
-          OK
+          Ok
         </Button>
 
 
@@ -44,14 +59,16 @@ class LoginOverlay2 extends Component {
 
 const mapStateToProps = state => {
   return {
-    readyFor2ndLogin: state.readyFor2ndLogin
+    readyFor2ndLogin: state.readyFor2ndLogin,
+    language: state.language
   };
 };
 
 LoginOverlay2.propTypes = {
   visible: PropTypes.bool,
   onOkButtonClick: PropTypes.func,
-  readyFor2ndLogin: PropTypes.bool
+  readyFor2ndLogin: PropTypes.bool,
+  language: PropTypes.string
 };
 
 export default connect(mapStateToProps)(LoginOverlay2);
