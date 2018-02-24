@@ -33,7 +33,7 @@ const food = [
   },
 
   {
-    text: "tomatos",
+    text: "tomatoes",
     src: "food/1f345.svg"
   },
 

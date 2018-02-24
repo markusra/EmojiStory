@@ -732,7 +732,7 @@ var questions = [
       },
       {
         text: "wolf",
-        src: "animals1f43a.svg"
+        src: "animals/1f43a.svg"
       },
       {
         text: "bear",
@@ -743,8 +743,8 @@ var questions = [
         src: "animals/1f43c.svg"
       },
       {
-        text: "squirrelo",
-        src: "animals1f43f.svg"
+        text: "squirrel",
+        src: "animals/1f43f.svg"
       },
       {
         text: "dove",
@@ -763,7 +763,7 @@ var questions = [
           },
           {
             text: "cat3",
-            src: "animals1f63c.svg"
+            src: "animals/1f63c.svg"
           },
           {
             text: "cat4",
@@ -991,7 +991,7 @@ var questions = [
         src: "animals/1f426.svg"
       },
       {
-        text: "pengiun",
+        text: "penguin",
         src: "animals/1f427.svg"
       },
       {
@@ -1097,7 +1097,7 @@ var questions = [
       },
 
       {
-        text: "tomatos",
+        text: "tomatoes",
         src: "food/1f345.svg"
       },
 
