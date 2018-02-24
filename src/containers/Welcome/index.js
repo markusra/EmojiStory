@@ -16,7 +16,6 @@ import { sendDataToDB } from "../../services/sendDataToDB";
 
 let strings = {
   en: {
-    appTitle: "Survey – Emoji-Based Authentication",
     welcomeText: (
       <Fragment>
         <p>
@@ -39,7 +38,6 @@ let strings = {
     startSurveyText: "Start the survey"
   },
   no: {
-    appTitle: "Undersøkelse – Emoji-basert autentisering",
     welcomeText: (
       <Fragment>
         <p>
@@ -80,7 +78,7 @@ class Welcome extends Component {
 
   render() {
     return (
-      <AppContainer appTitle={strings[this.props.language].appTitle}>
+      <AppContainer appTitle="Survey – Emoji-Based Authentication">
         <AppBody>{strings[this.props.language].welcomeText}</AppBody>
 
         <AppFooter>
