@@ -14,7 +14,7 @@ import { connect } from "react-redux";
 
 import { redirectUser } from "../../services/redirectUser";
 import { timestampUpdateDB } from "../../services/timestampUpdateDB";
-import { calculateTimeUsed } from "../../services/calculateTimeUsed";
+import { calculateTimeUsed } from "../../services/timestamping";
 import { setUserProgress } from "../../actions/index";
 
 class Survey extends Component {
@@ -100,8 +100,8 @@ Survey.propTypes = {
   interpretation: PropTypes.string,
   memorization: PropTypes.string,
   surveyPage: PropTypes.string,
-  timestamp1: PropTypes.string,
-  timestamp2: PropTypes.string,
+  timestamp1: PropTypes.number,
+  timestamp2: PropTypes.number,
   loginAttempts: PropTypes.number
 };
 

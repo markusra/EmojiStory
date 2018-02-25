@@ -745,11 +745,6 @@ var questions = [
       },
 
       {
-        text: "darts player",
-        src: "athletes/1f3af.svg"
-      },
-
-      {
         text: "billard player",
         src: "athletes/1f3b1.svg"
       },

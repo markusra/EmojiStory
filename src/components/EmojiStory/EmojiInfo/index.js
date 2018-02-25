@@ -14,7 +14,7 @@ import { connect } from "react-redux";
 
 import { setTimestamp1 } from "../../../actions/index";
 
-import { createTimestamp } from "../../../services/createTimestamp";
+import { createTimestamp } from "../../../services/timestamping";
 
 class EmojiInfo extends Component {
   componentWillMount() {

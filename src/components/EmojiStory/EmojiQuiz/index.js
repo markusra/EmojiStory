@@ -11,8 +11,7 @@ import EmojiContainer from "../EmojiContainer";
 import EmojiBody from "../EmojiContainer/EmojiBody";
 import EmojiOverlay from "../EmojiOverlay/index";
 import { timestampUpdateDB } from "../../../services/timestampUpdateDB";
-import { calculateTimeUsed } from "../../../services/calculateTimeUsed";
-import { createTimestamp } from "../../../services/createTimestamp";
+import { createTimestamp, calculateTimeUsed } from "../../../services/timestamping";
 import { getRandomStory, getRandomAnswerOptions } from "../../../services/randomizer";
 
 import { addAnswer, setUserProgress, setTimestamp1, setTimestamp2, setStoryTemplate } from "../../../actions/index";

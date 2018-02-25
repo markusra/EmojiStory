@@ -81,11 +81,11 @@ const food = [
     emojiList: [
       {
         text: "redapples",
-        src: "animals/1f34e.svg"
+        src: "food/1f34e.svg"
       },
       {
         text: "greenapples",
-        src: "animals/1f34f.svg"
+        src: "food/1f34f.svg"
       }
     ]
   },

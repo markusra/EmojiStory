@@ -1,40 +1,40 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./index.css";
+import history from "../../../history";
 
 import EmojiContainer from "../../../components/EmojiStory/EmojiContainer";
 import EmojiBody from "../../../components/EmojiStory/EmojiContainer/EmojiBody";
 import EmojiRow from "../../../components/EmojiStory/EmojiRow";
-import { emojiStoryUpdateDB } from "../../../services/emojiStoryUpdateDB";
-
-import history from "../../../history";
-
-// Connect to Redux store
-import { connect } from "react-redux";
-import { setUserProgress } from "../../../actions/index";
-import { setTimestamp1, setTimestamp2, setKeyboard } from "../../../actions/index";
-
-
-import { redirectUser } from "../../../services/redirectUser";
 
 // Import Bootstrap Components
 import { Button, Row } from "reactstrap";
+
+// Connect to Redux store
+import { connect } from "react-redux";
+
+import { setUserProgress } from "../../../actions/index";
+import {setTimestamp1, setTimestamp2, setKeyboard} from "../../../actions/index";
+
+import { redirectUser } from "../../../services/redirectUser";
+import { emojiStoryUpdateDB } from "../../../services/emojiStoryUpdateDB";
 import { timestampUpdateDB } from "../../../services/timestampUpdateDB";
-import { calculateTimeUsed } from "../../../services/calculateTimeUsed";
-import { createTimestamp } from "../../../services/createTimestamp";
+import {createTimestamp, calculateTimeUsed} from "../../../services/timestamping";
 import { getRandomKeyboard } from "../../../services/randomizer";
 
 class StorySummary extends Component {
   componentWillMount() {
     redirectUser(this.props.userProgress);
     // Calculate time spent on creating the emoji-password and send it to DB
-    const timeUsed = calculateTimeUsed(this.props.timestamp1, this.props.timestamp2)
-    timestampUpdateDB(this.props.dbKey, "timestamp2", timeUsed)
+    const timeUsed = calculateTimeUsed(
+      this.props.timestamp1,
+      this.props.timestamp2
+    );
+    timestampUpdateDB(this.props.dbKey, "timestamp2", timeUsed);
 
     // Set first timestamp for time spent on memorizing
     const timestamp = createTimestamp();
     this.props.setTimestamp1(timestamp);
-
 
     this.props.setKeyboard(getRandomKeyboard(this.props.answers));
   }
@@ -87,7 +87,7 @@ class StorySummary extends Component {
 
     this.props.answers.map(answer => emojiTextArray.push(answer.text));
     // Update DB
-    emojiStoryUpdateDB(this.props.dbKey, emojiTextArray, [0,1,2], "keyboard");
+    emojiStoryUpdateDB(this.props.dbKey, emojiTextArray, [0, 1, 2], "keyboard");
 
     const url = "/login";
     this.props.setUserProgress(url);

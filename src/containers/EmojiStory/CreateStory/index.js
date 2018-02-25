@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import { redirectUser } from "../../../services/redirectUser";
-import { createTimestamp } from "../../../services/createTimestamp";
+import { createTimestamp } from "../../../services/timestamping";
 
 import { setTimestamp2 } from "../../../actions/index";
 
@@ -57,8 +57,7 @@ class CreateStory extends Component {
 
 const mapStateToProps = state => {
   return {
-    userProgress: state.userProgress,
-    dbKey: state.dbKey
+    userProgress: state.userProgress
   };
 };
 
@@ -72,7 +71,6 @@ const mapDispatchToProps = dispatch => {
 
 CreateStory.propTypes = {
   userProgress: PropTypes.string,
-  dbKey: PropTypes.string,
   setTimestamp2: PropTypes.func
 };
 

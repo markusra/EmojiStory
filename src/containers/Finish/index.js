@@ -10,7 +10,7 @@ import { redirectUser } from "../../services/redirectUser";
 import { connect } from "react-redux";
 
 import { timestampUpdateDB } from "../../services/timestampUpdateDB";
-import { calculateTimeUsed } from "../../services/calculateTimeUsed";
+import { calculateTimeUsed } from "../../services/timestamping";
 
 class Finish extends Component {
 

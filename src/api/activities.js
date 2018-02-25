@@ -39,11 +39,6 @@ const activities = [
   },
 
   {
-    text: "playing darts",
-    src: "activities/1f3af.svg"
-  },
-
-  {
     text: "gambling",
     emojiList: [
       {

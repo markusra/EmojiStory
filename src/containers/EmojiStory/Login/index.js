@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./index.css";
+import history from "../../../history";
 
 import EmojiContainer from "../../../components/EmojiStory/EmojiContainer";
 import LoginOverlay from "../../../components/LoginOverlay";
@@ -8,21 +9,17 @@ import LoginOverlay2 from "../../../components/LoginOverlay2";
 import EmojiBody from "../../../components/EmojiStory/EmojiContainer/EmojiBody";
 import EmojiRow from "../../../components/EmojiStory/EmojiRow";
 
-import { timestampUpdateDB } from "../../../services/timestampUpdateDB";
-
-import history from "../../../history";
+// Import Bootstrap Components
+import { Button, Row } from "reactstrap";
 
 // Connect to Redux store
 import { connect } from "react-redux";
 
-import { redirectUser } from "../../../services/redirectUser";
-import { calculateTimeUsed } from "../../../services/calculateTimeUsed";
-import { createTimestamp } from "../../../services/createTimestamp";
-
 import { setUserProgress, setReadyFor2ndLogin, setTimestamp1, setTimestamp2, setLoginAttempts } from "../../../actions/index";
 
-// Import Bootstrap Components
-import { Button, Row } from "reactstrap";
+import { redirectUser } from "../../../services/redirectUser";
+import { createTimestamp, calculateTimeUsed } from "../../../services/timestamping";
+import { timestampUpdateDB } from "../../../services/timestampUpdateDB";
 
 class Login extends Component {
   constructor(props) {
@@ -301,7 +298,6 @@ const mapStateToProps = state => {
     dbKey: state.dbKey,
     timestamp1: state.timestamp1,
     timestamp2: state.timestamp2,
-    loginAttempts: state.loginAttempts,
     answers: state.answers
   };
 };
