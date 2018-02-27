@@ -2,23 +2,25 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./index.css";
 import history from "../../../history";
-
 import EmojiContainer from "../../../components/EmojiStory/EmojiContainer";
 import LoginOverlay from "../../../components/LoginOverlay";
 import LoginInfoOverlay from "../../../components/LoginInfoOverlay";
 import EmojiBody from "../../../components/EmojiStory/EmojiContainer/EmojiBody";
 import EmojiRow from "../../../components/EmojiStory/EmojiRow";
-
-// Import Bootstrap Components
 import { Button, Row } from "reactstrap";
-
-// Connect to Redux store
 import { connect } from "react-redux";
-
-import { setUserProgress, setReadyFor2ndLogin, setTimestamp1, setTimestamp2, setLoginAttempts } from "../../../actions/index";
-
+import {
+  setUserProgress,
+  setReadyFor2ndLogin,
+  setTimestamp1,
+  setTimestamp2,
+  setLoginAttempts
+} from "../../../actions/index";
 import { redirectUser } from "../../../services/redirectUser";
-import { createTimestamp, calculateTimeUsed } from "../../../services/timestamping";
+import {
+  createTimestamp,
+  calculateTimeUsed
+} from "../../../services/timestamping";
 import { timestampUpdateDB } from "../../../services/databaseFunctions";
 
 class Login extends Component {
@@ -41,8 +43,11 @@ class Login extends Component {
     // We only want to send "time spent on summary page" the first time login mounts
     // Calculate time spent on memorizing and send it to DB
     if (this.props.userProgress === "/login") {
-      const timeUsed = calculateTimeUsed(this.props.timestamp1, this.props.timestamp2)
-      timestampUpdateDB("timestamp3", timeUsed)
+      const timeUsed = calculateTimeUsed(
+        this.props.timestamp1,
+        this.props.timestamp2
+      );
+      timestampUpdateDB("timestamp3", timeUsed);
     }
   }
 
@@ -86,9 +91,9 @@ class Login extends Component {
   }
 
   isCorrectPassword() {
-    for (var i = 0; i < 4; i++)  {
+    for (var i = 0; i < 4; i++) {
       if (this.props.answers[i].src !== this.state.emojis[i]) {
-        return false
+        return false;
       }
     }
     return true;

@@ -1,18 +1,18 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import Gender from "../../components/Survey/Gender/index";
 import ITBackground from "../../components/Survey/ITBackground/index";
 import EmojiUsage from "../../components/Survey/EmojiUsage";
 import Interpretation from "../../components/Survey/Interpretation";
 import Memorization from "../../components/Survey/Memorization";
 import AgeAndCountryContainer from "../../components/Survey/AgeAndCountryContainer/index";
-import PropTypes from "prop-types";
 import history from "./../../history";
-
-// Connect to Redux store
 import { connect } from "react-redux";
-
 import { redirectUser } from "../../services/redirectUser";
-import { questionsUpdateDB, timestampUpdateDB } from "../../services/databaseFunctions";
+import {
+  questionsUpdateDB,
+  timestampUpdateDB
+} from "../../services/databaseFunctions";
 import { calculateTimeUsed } from "../../services/timestamping";
 import { setUserProgress } from "../../actions/index";
 
@@ -25,7 +25,10 @@ class Survey extends Component {
   componentWillMount() {
     redirectUser(this.props.userProgress);
     // Calculate time spent on logging in the first time and send it to DB
-    const timeUsed = calculateTimeUsed(this.props.timestamp1, this.props.timestamp2);
+    const timeUsed = calculateTimeUsed(
+      this.props.timestamp1,
+      this.props.timestamp2
+    );
     timestampUpdateDB("timestamp4", timeUsed, this.props.loginAttempts);
   }
 

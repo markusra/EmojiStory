@@ -2,20 +2,13 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./index.css";
 import history from "../../../history";
-
 import EmojiContainer from "../../../components/EmojiStory/EmojiContainer";
 import EmojiBody from "../../../components/EmojiStory/EmojiContainer/EmojiBody";
 import EmojiRow from "../../../components/EmojiStory/EmojiRow";
-
-// Import Bootstrap Components
 import { Button, Row } from "reactstrap";
-
-// Connect to Redux store
 import { connect } from "react-redux";
-
 import { setUserProgress } from "../../../actions/index";
 import {setTimestamp1, setTimestamp2, setKeyboard} from "../../../actions/index";
-
 import { redirectUser } from "../../../services/redirectUser";
 import { emojiStoryUpdateDB, timestampUpdateDB } from "../../../services/databaseFunctions";
 import {createTimestamp, calculateTimeUsed} from "../../../services/timestamping";
@@ -86,7 +79,7 @@ class StorySummary extends Component {
 
     this.props.answers.map(answer => emojiTextArray.push(answer.text));
     // Update DB
-    emojiStoryUpdateDB(emojiTextArray, [0, 1, 2], "keyboard", this.props.storyID);
+    emojiStoryUpdateDB(emojiTextArray, this.props.answerIndices, this.props.keyboard, this.props.storyID);
 
     const url = "/login";
     this.props.setUserProgress(url);
@@ -155,7 +148,9 @@ const mapStateToProps = state => {
     answers: state.answers,
     timestamp1: state.timestamp1,
     timestamp2: state.timestamp2,
-    storyID: state.storyID
+    storyID: state.storyID,
+    keyboard: state.keyboard,
+    answerIndices: state.answerIndices,
   };
 };
 
@@ -187,7 +182,9 @@ StorySummary.propTypes = {
   setTimestamp2: PropTypes.func,
   timestamp1: PropTypes.number,
   timestamp2: PropTypes.number,
-  storyID: PropTypes.number
+  storyID: PropTypes.number,
+  keyboard: PropTypes.array,
+  answerIndices: PropTypes.array
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(StorySummary);

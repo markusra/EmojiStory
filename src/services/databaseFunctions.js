@@ -5,13 +5,13 @@ export const createDBEntry = () => {
     if (user) {
       // User is signed in.
       const userData = {
-        answers: [],
-        answerIndices: [],
+        answers: "",
+        answerIndices: "",
         answerOptions: "",
         keyboard: "",
         emojiStoryCreated: false,
-        loginAttempts1: 0,
-        loginAttempts2: 0,
+        loginAttempts1: "",
+        loginAttempts2: "",
         age: "",
         nationality: "",
         emojiUsage: "",
@@ -24,7 +24,7 @@ export const createDBEntry = () => {
         timestamp3: "",
         timestamp4: "",
         timestamp5: "",
-        storyID: 0,
+        storyID: "",
         surveyFinished: false
       };
 

@@ -6,13 +6,14 @@ import AppFooter from "../../components/AppFooter";
 import { Button } from "reactstrap";
 import history from "../../history";
 import { connect } from "react-redux";
-import { setUserProgress, deleteAnswers } from "../../actions/index";
+import { setUserProgress, deleteAnswers, deleteAnswerIndices } from "../../actions/index";
 import { createDBEntry } from "../../services/databaseFunctions";
 
 // TODO: Fix email address
 class Welcome extends Component {
   onButtonClick() {
     this.props.deleteAnswers();
+    this.props.deleteAnswerIndices();
 
     createDBEntry();
 
@@ -70,13 +71,17 @@ const mapDispatchToProps = dispatch => {
     },
     deleteAnswers: userStory => {
       dispatch(deleteAnswers(userStory));
+    },
+    deleteAnswerIndices: userStory => {
+      dispatch(deleteAnswerIndices(userStory));
     }
   };
 };
 
 Welcome.propTypes = {
   setUserProgress: PropTypes.func,
-  deleteAnswers: PropTypes.func
+  deleteAnswers: PropTypes.func,
+  deleteAnswerIndices: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Welcome);

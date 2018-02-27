@@ -4,6 +4,7 @@ const initialState = {
   userProgress: "",
   readyFor2ndLogin: false,
   answers: [],
+  answerIndices: [],
   keyboard: [],
   age: "",
   nationality: "",
@@ -31,6 +32,19 @@ const userData = (state = initialState, action) => {
     case "DELETE_ANSWERS": {
       return Object.assign({}, state, {
         answers: []
+      });
+    }
+    case "ADD_ANSWERINDICES": {
+      const answerIndices = state.answerIndices.slice();
+      answerIndices.push(action.answerIndex);
+
+      return Object.assign({}, state, {
+        answerIndices: answerIndices
+      });
+    }
+    case "DELETE_ANSWERINDICES": {
+      return Object.assign({}, state, {
+        answerIndices: []
       });
     }
     case "SET_USERPROGRESS":
