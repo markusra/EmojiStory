@@ -19,6 +19,13 @@ export const setStoryTemplate = storyTemplate => {
   }
 }
 
+export const setStoryID = storyID => {
+  return {
+    type: 'SET_STORYID',
+    storyID
+  }
+}
+
 export const setUserStory = userStory => {
   return {
     type: 'SET_USERSTORY',
@@ -97,13 +104,6 @@ export const setMemorization = (memorization, surveyPage) => {
     type: 'SET_MEMORIZATION',
     memorization,
     surveyPage
-  }
-}
-
-export const setDbKey = dbKey => {
-  return {
-    type: 'SET_DBKEY',
-    dbKey
   }
 }
 

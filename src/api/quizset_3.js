@@ -1,6 +1,6 @@
 var story = [
   "My ***",
-  " has ***",
+  " has a little ***",
   " that hates ***.",
   " Its favourite food is ***."
 ];
@@ -900,7 +900,7 @@ var questions = [
       },
       {
         text: "scorpion",
-        src: "animals/1f982.svgg"
+        src: "animals/1f982.svg"
       },
       {
         text: "rooster",

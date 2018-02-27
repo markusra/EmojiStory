@@ -3,16 +3,11 @@ import PropTypes from "prop-types";
 import AppContainer from "../../components/AppContainer";
 import AppBody from "../../components/AppBody";
 import AppFooter from "../../components/AppFooter";
-
-// Import Bootstrap Components
 import { Button } from "reactstrap";
-
 import history from "../../history";
-
-// Connect to Redux store
 import { connect } from "react-redux";
-import { setUserProgress, deleteAnswers, setDbKey } from "../../actions/index";
-import { sendDataToDB } from "../../services/sendDataToDB";
+import { setUserProgress, deleteAnswers } from "../../actions/index";
+import { createDBEntry } from "../../services/databaseFunctions";
 
 let strings = {
   en: {
@@ -68,8 +63,7 @@ class Welcome extends Component {
   onButtonClick() {
     this.props.deleteAnswers();
 
-    const key = sendDataToDB();
-    this.props.setDbKey(key);
+    createDBEntry();
 
     const url = "/emojiStory";
     this.props.setUserProgress(url);
@@ -110,9 +104,6 @@ const mapDispatchToProps = dispatch => {
     },
     deleteAnswers: userStory => {
       dispatch(deleteAnswers(userStory));
-    },
-    setDbKey: dbKey => {
-      dispatch(setDbKey(dbKey));
     }
   };
 };
@@ -120,7 +111,6 @@ const mapDispatchToProps = dispatch => {
 Welcome.propTypes = {
   setUserProgress: PropTypes.func,
   deleteAnswers: PropTypes.func,
-  setDbKey: PropTypes.func,
   language: PropTypes.string
 };
 

@@ -394,7 +394,7 @@ const animals = [
   },
   {
     text: "scorpion",
-    src: "animals/1f982.svgg"
+    src: "animals/1f982.svg"
   },
   {
     text: "rooster",

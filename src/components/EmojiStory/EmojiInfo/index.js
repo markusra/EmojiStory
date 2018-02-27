@@ -13,7 +13,7 @@ import { Button } from "reactstrap";
 import { connect } from "react-redux";
 
 import { setTimestamp1 } from "../../../actions/index";
-import { createTimestamp } from "../../../services/createTimestamp";
+import { createTimestamp } from "../../../services/timestamping";
 
 let strings = {
   en: {

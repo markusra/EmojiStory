@@ -9,8 +9,8 @@ import { redirectUser } from "../../services/redirectUser";
 // Connect to Redux store
 import { connect } from "react-redux";
 
-import { timestampUpdateDB } from "../../services/timestampUpdateDB";
-import { calculateTimeUsed } from "../../services/calculateTimeUsed";
+import { timestampUpdateDB } from "../../services/databaseFunctions";
+import { calculateTimeUsed } from "../../services/timestamping";
 
 class Finish extends Component {
 
@@ -18,7 +18,7 @@ class Finish extends Component {
     redirectUser(this.props.userProgress);
     // Calculate time spent on logging in the second time and send it to DB
     const timeUsed = calculateTimeUsed(this.props.timestamp1, this.props.timestamp2);
-    timestampUpdateDB(this.props.dbKey, "timestamp5", timeUsed, this.props.loginAttempts);
+    timestampUpdateDB("timestamp5", timeUsed, this.props.loginAttempts);
   }
 
   render() {
@@ -43,8 +43,7 @@ const mapStateToProps = state => {
     userProgress: state.userProgress,
     timestamp1: state.timestamp1,
     timestamp2: state.timestamp2,
-    loginAttempts: state.loginAttempts,
-    dbKey: state.dbKey
+    loginAttempts: state.loginAttempts
   };
 };
 
@@ -52,7 +51,6 @@ Finish.propTypes = {
   userProgress: PropTypes.string,
   timestamp1: PropTypes.number,
   timestamp2: PropTypes.number,
-  dbKey: PropTypes.string,
   loginAttempts: PropTypes.number
 };
 

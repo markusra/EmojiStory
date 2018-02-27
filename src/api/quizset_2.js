@@ -558,7 +558,7 @@ var questions = [
       },
       {
         text: "Italy",
-        src: "countries/1f1ee-1f1f9.svgg"
+        src: "countries/1f1ee-1f1f9.svg"
       },
       {
         text: "Jamaica",
@@ -682,7 +682,7 @@ var questions = [
       },
       {
         text: "Nicaragua",
-        src: "countries/1f1f3-1f1ee.svgg"
+        src: "countries/1f1f3-1f1ee.svg"
       },
       {
         text: "Netherlands",
@@ -1423,11 +1423,6 @@ var questions = [
             src: "activities/1f579.svg"
           }
         ]
-      },
-    
-      {
-        text: "playing darts",
-        src: "activities/1f3af.svg"
       },
     
       {

@@ -66,8 +66,6 @@ class GenderButtons extends Component {
 
 const mapStateToProps = state => {
   return {
-    gender: state.gender,
-    surveyPage: state.surveyPage,
     language: state.language
   };
 };
@@ -82,9 +80,6 @@ const mapDispatchToProps = dispatch => {
 
 GenderButtons.propTypes = {
   setGender: PropTypes.func,
-  age: PropTypes.string,
-  setNationality: PropTypes.func,
-  setAge: PropTypes.func,
   language: PropTypes.string
 };
 

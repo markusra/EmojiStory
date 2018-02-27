@@ -403,7 +403,7 @@ var questions = [
       },
       {
         text: "scorpion",
-        src: "animals/1f982.svgg"
+        src: "animals/1f982.svg"
       },
       {
         text: "rooster",
@@ -742,11 +742,6 @@ var questions = [
       {
         text: "painter",
         src: "athletes/1f3a8.svg"
-      },
-
-      {
-        text: "darts player",
-        src: "athletes/1f3af.svg"
       },
 
       {
