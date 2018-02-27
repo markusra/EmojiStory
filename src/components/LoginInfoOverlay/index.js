@@ -8,34 +8,40 @@ import { Button } from "reactstrap";
 // Connect to Redux store
 import { connect } from "react-redux";
 
-class LoginOverlay2 extends Component {
+class LoginInfoOverlay extends Component {
   render() {
     const visible = this.props.visible ? "fade-in" : "fade-out";
     const is2ndAttempt = this.props.readyFor2ndLogin;
-    const text = is2ndAttempt ? "Please try to enter your emoji-password one last time." : "Please enter your emoji-password.";
+    const infoText = is2ndAttempt
+      ? "Please try to enter your emoji-password one last time"
+      : "Please enter your emoji-password";
 
-    const OverlayButton =
-        <Button
-          className="okButton"
-          color="primary"
-          size="lg"
-          onClick={this.props.onOkButtonClick}
-          // block
-        >
-          OK
-        </Button>
-
-
+    const OverlayButton = (
+      <Button
+        color="primary"
+        size="lg"
+        onClick={this.props.onOkButtonClick}
+        block
+      >
+        Ok
+      </Button>
+    );
 
     return (
       <div className={"login-overlay2 " + visible}>
         <div className="container login-overlay-container text-center">
           <div className="row h-100">
             <div className="col-sm-12 my-auto">
-              <h3 className="result">{text}</h3>
-              <div className="okButtonContainer">{OverlayButton}</div>
+              <h2 className="result">{infoText}</h2>
             </div>
-          </div> 
+          </div>
+          <div className="footer">
+            <div className="row">
+              <div className="col-12">
+               {OverlayButton}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -48,10 +54,10 @@ const mapStateToProps = state => {
   };
 };
 
-LoginOverlay2.propTypes = {
+LoginInfoOverlay.propTypes = {
   visible: PropTypes.bool,
   onOkButtonClick: PropTypes.func,
   readyFor2ndLogin: PropTypes.bool
 };
 
-export default connect(mapStateToProps)(LoginOverlay2);
+export default connect(mapStateToProps)(LoginInfoOverlay);
