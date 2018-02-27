@@ -10,11 +10,11 @@ import EmojiQuestion from "../EmojiQuestion/index";
 import EmojiContainer from "../EmojiContainer";
 import EmojiBody from "../EmojiContainer/EmojiBody";
 import EmojiOverlay from "../EmojiOverlay/index";
-import { timestampUpdateDB } from "../../../services/timestampUpdateDB";
+import { timestampUpdateDB } from "../../../services/databaseFunctions";
 import { createTimestamp, calculateTimeUsed } from "../../../services/timestamping";
-import { getRandomStory, getRandomAnswerOptions } from "../../../services/randomizer";
+import { getRandomStory, getRandomAnswerOptions, getRandomStoryFile } from "../../../services/randomizer";
 
-import { addAnswer, setUserProgress, setTimestamp1, setTimestamp2, setStoryTemplate } from "../../../actions/index";
+import { addAnswer, setUserProgress, setTimestamp1, setTimestamp2, setStoryTemplate, setStoryID } from "../../../actions/index";
 
 class EmojiQuiz extends Component {
   constructor(props) {
@@ -49,14 +49,18 @@ class EmojiQuiz extends Component {
       this.props.timestamp1,
       this.props.timestamp2
     );
-    timestampUpdateDB(this.props.dbKey, "timestamp1", timeUsed);
+    timestampUpdateDB("timestamp1", timeUsed);
 
     // Set first timestamp for time spent on creating the emoji-password
     const timestamp = createTimestamp();
     this.props.setTimestamp1(timestamp);
 
-    const randomStory = getRandomStory();
+    const randomStoryFile = getRandomStoryFile();
+    const randomStory = getRandomStory(randomStoryFile);
+
     this.props.setStoryTemplate(randomStory.story);
+    this.props.setStoryID(randomStoryFile);
+
     const randomAnswerOptions = getRandomAnswerOptions(randomStory);
     console.log(randomAnswerOptions)
     const firstQuestion = randomStory.story[0].split(/[*]{3}/g);
@@ -126,8 +130,6 @@ class EmojiQuiz extends Component {
       question: this.state.randomStory.questions[counter].question,
       answerOptions: answerOptions
     });
-
-
   }
 
   handleAnswerClick(answer) {
@@ -192,7 +194,6 @@ class EmojiQuiz extends Component {
 const mapStateToProps = state => {
   return {
     answers: state.answers,
-    dbKey: state.dbKey,
     timestamp1: state.timestamp1,
     timestamp2: state.timestamp2
   };
@@ -215,6 +216,9 @@ const mapDispatchToProps = dispatch => {
     setStoryTemplate: storyTemplate => {
       dispatch(setStoryTemplate(storyTemplate));
     },
+    setStoryID: storyID => {
+      dispatch(setStoryID(storyID));
+    }
   };
 };
 
@@ -225,12 +229,12 @@ EmojiQuiz.propTypes = {
   addAnswer: PropTypes.func,
   setUserProgress: PropTypes.func,
   deleteAnswers: PropTypes.func,
-  dbKey: PropTypes.string,
   timestamp1: PropTypes.number,
   timestamp2: PropTypes.number,
   setTimestamp1: PropTypes.func,
   setTimestamp2: PropTypes.func,
-  setStoryTemplate: PropTypes.func
+  setStoryTemplate: PropTypes.func,
+  setStoryID: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(EmojiQuiz);

@@ -54,9 +54,12 @@ function getChosenCategories(chosenEmojis) {
   return chosenCategoryList;
 }
 
-export function getRandomStory() {
-  const randomValue = randomNumber(1, 5);
-  return require("../api/quizset_" + randomValue + ".js").default;
+export function getRandomStoryFile() {
+  return randomNumber(1, 5);
+}
+
+export function getRandomStory(randomStoryFile) {
+  return require("../api/quizset_" + randomStoryFile + ".js").default;
 }
 
 export function getRandomAnswerOptions(randomStory) {

@@ -5,7 +5,6 @@ import EmojiUsage from "../../components/Survey/EmojiUsage";
 import Interpretation from "../../components/Survey/Interpretation";
 import Memorization from "../../components/Survey/Memorization";
 import AgeAndCountryContainer from "../../components/Survey/AgeAndCountryContainer/index";
-import { questionsUpdateDB } from "../../services/questionsUpdateDB";
 import PropTypes from "prop-types";
 import history from "./../../history";
 
@@ -13,7 +12,7 @@ import history from "./../../history";
 import { connect } from "react-redux";
 
 import { redirectUser } from "../../services/redirectUser";
-import { timestampUpdateDB } from "../../services/timestampUpdateDB";
+import { questionsUpdateDB, timestampUpdateDB } from "../../services/databaseFunctions";
 import { calculateTimeUsed } from "../../services/timestamping";
 import { setUserProgress } from "../../actions/index";
 
@@ -27,12 +26,11 @@ class Survey extends Component {
     redirectUser(this.props.userProgress);
     // Calculate time spent on logging in the first time and send it to DB
     const timeUsed = calculateTimeUsed(this.props.timestamp1, this.props.timestamp2);
-    timestampUpdateDB(this.props.dbKey, "timestamp4", timeUsed, this.props.loginAttempts);
+    timestampUpdateDB("timestamp4", timeUsed, this.props.loginAttempts);
   }
 
   handleSubmit() {
     questionsUpdateDB(
-      this.props.dbKey,
       this.props.age,
       this.props.emojiUsage,
       this.props.gender,
@@ -65,7 +63,6 @@ class Survey extends Component {
 const mapStateToProps = state => {
   return {
     userProgress: state.userProgress,
-    dbKey: state.dbKey,
     age: state.age,
     nationality: state.nationality,
     emojiUsage: state.emojiUsage,
@@ -91,7 +88,6 @@ const mapDispatchToProps = dispatch => {
 Survey.propTypes = {
   userProgress: PropTypes.string,
   setUserProgress: PropTypes.func,
-  dbKey: PropTypes.string,
   age: PropTypes.string,
   nationality: PropTypes.string,
   emojiUsage: PropTypes.string,

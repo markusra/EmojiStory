@@ -17,8 +17,7 @@ import { setUserProgress } from "../../../actions/index";
 import {setTimestamp1, setTimestamp2, setKeyboard} from "../../../actions/index";
 
 import { redirectUser } from "../../../services/redirectUser";
-import { emojiStoryUpdateDB } from "../../../services/emojiStoryUpdateDB";
-import { timestampUpdateDB } from "../../../services/timestampUpdateDB";
+import { emojiStoryUpdateDB, timestampUpdateDB } from "../../../services/databaseFunctions";
 import {createTimestamp, calculateTimeUsed} from "../../../services/timestamping";
 import { getRandomKeyboard } from "../../../services/randomizer";
 
@@ -30,7 +29,7 @@ class StorySummary extends Component {
       this.props.timestamp1,
       this.props.timestamp2
     );
-    timestampUpdateDB(this.props.dbKey, "timestamp2", timeUsed);
+    timestampUpdateDB("timestamp2", timeUsed);
 
     // Set first timestamp for time spent on memorizing
     const timestamp = createTimestamp();
@@ -87,7 +86,7 @@ class StorySummary extends Component {
 
     this.props.answers.map(answer => emojiTextArray.push(answer.text));
     // Update DB
-    emojiStoryUpdateDB(this.props.dbKey, emojiTextArray, [0, 1, 2], "keyboard");
+    emojiStoryUpdateDB(emojiTextArray, [0, 1, 2], "keyboard", this.props.storyID);
 
     const url = "/login";
     this.props.setUserProgress(url);
@@ -154,9 +153,9 @@ const mapStateToProps = state => {
     userProgress: state.userProgress,
     storyTemplate: state.storyTemplate,
     answers: state.answers,
-    dbKey: state.dbKey,
     timestamp1: state.timestamp1,
-    timestamp2: state.timestamp2
+    timestamp2: state.timestamp2,
+    storyID: state.storyID
   };
 };
 
@@ -184,11 +183,11 @@ StorySummary.propTypes = {
   userStory: PropTypes.string,
   setUserProgress: PropTypes.func,
   setKeyboard: PropTypes.func,
-  dbKey: PropTypes.string,
   setTimestamp1: PropTypes.func,
   setTimestamp2: PropTypes.func,
   timestamp1: PropTypes.number,
-  timestamp2: PropTypes.number
+  timestamp2: PropTypes.number,
+  storyID: PropTypes.number
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(StorySummary);

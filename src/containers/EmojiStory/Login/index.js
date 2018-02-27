@@ -19,7 +19,7 @@ import { setUserProgress, setReadyFor2ndLogin, setTimestamp1, setTimestamp2, set
 
 import { redirectUser } from "../../../services/redirectUser";
 import { createTimestamp, calculateTimeUsed } from "../../../services/timestamping";
-import { timestampUpdateDB } from "../../../services/timestampUpdateDB";
+import { timestampUpdateDB } from "../../../services/databaseFunctions";
 
 class Login extends Component {
   constructor(props) {
@@ -42,7 +42,7 @@ class Login extends Component {
     // Calculate time spent on memorizing and send it to DB
     if (this.props.userProgress === "/login") {
       const timeUsed = calculateTimeUsed(this.props.timestamp1, this.props.timestamp2)
-      timestampUpdateDB(this.props.dbKey, "timestamp3", timeUsed)
+      timestampUpdateDB("timestamp3", timeUsed)
     }
   }
 
@@ -295,7 +295,6 @@ const mapStateToProps = state => {
     userProgress: state.userProgress,
     keyboard: state.keyboard,
     readyFor2ndLogin: state.readyFor2ndLogin,
-    dbKey: state.dbKey,
     timestamp1: state.timestamp1,
     timestamp2: state.timestamp2,
     answers: state.answers
@@ -326,7 +325,6 @@ Login.propTypes = {
   userProgress: PropTypes.string,
   keyboard: PropTypes.array,
   readyFor2ndLogin: PropTypes.bool,
-  dbKey: PropTypes.string,
   setReadyFor2ndLogin: PropTypes.func,
   setUserProgress: PropTypes.func,
   setLoginAttempts: PropTypes.func,

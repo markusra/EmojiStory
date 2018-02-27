@@ -1,5 +1,6 @@
 const initialState = {
   storyTemplate: [],
+  storyID: null,
   userProgress: "",
   readyFor2ndLogin: false,
   answers: [],
@@ -12,7 +13,6 @@ const initialState = {
   itBackground: "",
   interpretation: "",
   memorization: "",
-  dbKey: "",
   timestamp1: 0,
   timestamp2: 0,
   loginAttempts: 0
@@ -42,6 +42,11 @@ const userData = (state = initialState, action) => {
       return {
         ...state,
         storyTemplate: action.storyTemplate
+      };
+    case "SET_STORYID":
+      return {
+        ...state,
+        storyID: action.storyID
       };
     case "SET_USERSTORY":
       return {
@@ -97,11 +102,6 @@ const userData = (state = initialState, action) => {
         ...state,
         memorization: action.memorization,
         surveyPage: action.surveyPage
-      };
-    case "SET_DBKEY":
-      return {
-        ...state,
-        dbKey: action.dbKey
       };
     case "SET_TIMESTAMP1":
       return {
