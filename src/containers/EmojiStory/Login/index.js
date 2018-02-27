@@ -5,7 +5,7 @@ import history from "../../../history";
 
 import EmojiContainer from "../../../components/EmojiStory/EmojiContainer";
 import LoginOverlay from "../../../components/LoginOverlay";
-import LoginOverlay2 from "../../../components/LoginOverlay2";
+import LoginInfoOverlay from "../../../components/LoginInfoOverlay";
 import EmojiBody from "../../../components/EmojiStory/EmojiContainer/EmojiBody";
 import EmojiRow from "../../../components/EmojiStory/EmojiRow";
 
@@ -113,7 +113,7 @@ class Login extends Component {
           onTryAgainButtonClick={this.onTryAgainButtonClick}
           onContinueButtonClick={this.onContinueButtonClick}
         />
-        <LoginOverlay2
+        <LoginInfoOverlay
           visible={this.state.loginOverlay2}
           onOkButtonClick={this.onOkButtonClick}
           readyFor2ndAttempt={this.state.readyFor2ndAttempt}
