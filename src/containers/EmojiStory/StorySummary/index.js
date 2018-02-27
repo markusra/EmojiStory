@@ -169,7 +169,7 @@ const mapStateToProps = state => {
     storyTemplate: state.storyTemplate,
     answers: state.answers,
     timestamp1: state.timestamp1,
-    language: state.language
+    language: state.language,
     timestamp2: state.timestamp2,
     storyID: state.storyID
   };
@@ -203,7 +203,7 @@ StorySummary.propTypes = {
   setTimestamp2: PropTypes.func,
   timestamp1: PropTypes.number,
   timestamp2: PropTypes.number,
-  language: PropTypes.string
+  language: PropTypes.string,
   storyID: PropTypes.number
 };
 
