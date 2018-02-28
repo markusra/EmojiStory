@@ -45,23 +45,24 @@ let strings = {
   no: {
     step1: (
       <Fragment>
-        På neste skjerm vil du lage et <span className="yellow">emoji-passord</span>.
+        På neste skjerm skal du lage et <span className="yellow">emoji-passord</span>.
       </Fragment>
     ),
     step2: (
       <Fragment>
-        Dette gjør du ved å <span className="yellow">velge nøkkelord</span> som
+        Det gjør du ved å <span className="yellow">velge nøkkelord</span> som
         erstatter tomrom i en <span className="yellow">historie</span>.
       </Fragment>
     ),
     step3: (
       <Fragment>
-        Hvert nøkkelord <span className="yellow">samsvarer</span> til en emoji.
+        Hvert nøkkelord <span className="yellow">tilsvarer</span> en emoji.
       </Fragment>
     ),
     step4: (
       <Fragment>
-        Den resulterende <span className="yellow">sekvensen</span> representerer ditt emoji-passord.
+        Emojiene som oppstår basert på historien, representerer ditt emoji-passord.
+        {/* Den resulterende <span className="yellow">sekvensen</span> representerer ditt emoji-passord. */}
       </Fragment>
     ),
     next: "Neste",

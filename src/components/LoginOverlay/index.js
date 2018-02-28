@@ -70,10 +70,12 @@ class LoginOverlay extends Component {
             <div className="col-sm-12 my-auto">
               <h3 className="result">{text}</h3>
               <i className={"loginIcon " + icon} aria-hidden="true" />
-              <h5 className="answer">
-                {this.props.attemptsLeft +
-                  strings[this.props.language].attemptsLeft}
-              </h5>
+              {isCorrect ? null : (
+                <h5 className="answer">
+                  {this.props.attemptsLeft +
+                    strings[this.props.language].attemptsLeft}
+                </h5>
+              )}
             </div>
           </div>
           <div className="footer">{OverlayButton}</div>

@@ -27,8 +27,8 @@ let strings = {
     acceptRemember: "Ok, I remember!"
   },
   no: {
-    memoriseText: "Husk denne EmojiStory",
-    acceptRemember: "Ok, jeg husker den!"
+    memoriseText: "Husk emoji-passordet ditt",
+    acceptRemember: "Ok, jeg husker det!"
   },
   de: {
     memoriseText: "Merke dir diese EmojiStory",

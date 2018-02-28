@@ -17,7 +17,7 @@ let strings = {
     alternative4: "something else"
   },
   no: {
-    memoryQuestion: "Jeg husket mitt emoji-passord ved hjelp av…",
+    memoryQuestion: "Jeg husket emoji-passordet mitt ved hjelp av…",
     alternative1: "emojiene",
     alternative2: "historien",
     alternative3: "emojiene og historien",

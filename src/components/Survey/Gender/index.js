@@ -11,7 +11,7 @@ let strings = {
     genderQuestion: "What is your gender?"
   },
   no: {
-    genderQuestion: "Hva er ditt kjønn?"
+    genderQuestion: "Hvilket kjønn er du?"
   },
   de: {
     genderQuestion: "Was ist Ihr Geschlecht?"
