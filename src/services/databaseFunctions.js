@@ -85,7 +85,12 @@ export const timestampUpdateDB = (field, value, attemptsLeft) => {
   });
 };
 
-export const emojiStoryUpdateDB = (Answers, AnswerIndices, Keyboard, StoryID) => {
+export const emojiStoryUpdateDB = (
+  Answers,
+  AnswerIndices,
+  Keyboard,
+  StoryID
+) => {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       firebase

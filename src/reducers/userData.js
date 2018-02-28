@@ -15,8 +15,7 @@ const initialState = {
   interpretation: "",
   memorization: "",
   timestamp1: 0,
-  timestamp2: 0,
-  loginAttempts: 0
+  timestamp2: 0
 };
 
 const userData = (state = initialState, action) => {
@@ -128,11 +127,6 @@ const userData = (state = initialState, action) => {
         timestamp2: action.timestamp2
       };
 
-    case "SET_LOGINATTEMPTS":
-      return {
-        ...state,
-        loginAttempts: action.loginAttempts
-      };
     default:
       return state;
   }

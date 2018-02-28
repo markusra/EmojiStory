@@ -13,8 +13,7 @@ import {
   setUserProgress,
   setReadyFor2ndLogin,
   setTimestamp1,
-  setTimestamp2,
-  setLoginAttempts
+  setTimestamp2
 } from "../../../actions/index";
 import { redirectUser } from "../../../services/redirectUser";
 import {
@@ -65,7 +64,6 @@ class Login extends Component {
 
       const attempts = this.state.attemptsLeft - 1;
       this.setState({ attemptsLeft: attempts, loginOverlay: true });
-      this.props.setLoginAttempts(3 - attempts);
     }
 
     var tempArray = this.state.emojis.slice();
@@ -78,11 +76,18 @@ class Login extends Component {
   }
 
   onContinueButtonClick() {
+    const timeUsed = calculateTimeUsed(
+      this.props.timestamp1,
+      this.props.timestamp2
+    );
+
     if (this.props.readyFor2ndLogin) {
+      timestampUpdateDB("timestamp5", timeUsed, 3 - this.state.attemptsLeft);
       const url = "/finish";
       this.props.setUserProgress(url);
       history.push(url);
     } else {
+      timestampUpdateDB("timestamp4", timeUsed, 3 - this.state.attemptsLeft);
       this.props.setReadyFor2ndLogin();
       const url = "/survey";
       this.props.setUserProgress(url);
@@ -319,9 +324,6 @@ const mapDispatchToProps = dispatch => {
     },
     setTimestamp2: timestamp2 => {
       dispatch(setTimestamp2(timestamp2));
-    },
-    setLoginAttempts: loginAttempts => {
-      dispatch(setLoginAttempts(loginAttempts));
     }
   };
 };

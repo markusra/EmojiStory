@@ -133,10 +133,3 @@ export const setTimestamp2 = timestamp2 => {
     timestamp2
   }
 }
-
-export const setLoginAttempts = loginAttempts => {
-  return {
-    type: 'SET_LOGINATTEMPTS',
-    loginAttempts
-  }
-}

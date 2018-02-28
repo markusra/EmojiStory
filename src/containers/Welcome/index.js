@@ -6,11 +6,38 @@ import AppFooter from "../../components/AppFooter";
 import { Button } from "reactstrap";
 import history from "../../history";
 import { connect } from "react-redux";
-import { setUserProgress, deleteAnswers, deleteAnswerIndices } from "../../actions/index";
-import { createDBEntry } from "../../services/databaseFunctions";
+import {
+  setUserProgress,
+  deleteAnswers,
+  deleteAnswerIndices
+} from "../../actions/index";
+import {
+  createDBEntry
+} from "../../services/databaseFunctions";
+
+import firebase from "../../firebase";
 
 // TODO: Fix email address
 class Welcome extends Component {
+  componentWillMount() {
+    firebase.auth().onAuthStateChanged(user => {
+      var ref = firebase.database().ref("users/" + user.uid);
+
+      ref.once("value").then(snapshot => {
+        const userEntry = snapshot.val();
+        if (userEntry) {
+          console.log("Eksisterer allerede");
+          const url = "/finish";
+          this.props.setUserProgress(url);
+          history.push(url);
+        } else {
+          console.log("Ny entry");
+        }
+      });
+    });
+
+  }
+
   onButtonClick() {
     this.props.deleteAnswers();
     this.props.deleteAnswerIndices();
