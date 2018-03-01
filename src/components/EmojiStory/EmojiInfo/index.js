@@ -61,7 +61,7 @@ let strings = {
     ),
     step4: (
       <Fragment>
-        Emojiene som oppstår basert på historien, representerer ditt emoji-passord.
+        Emojiene som oppstår basert på historien, representerer emoji-passordet ditt.
         {/* Den resulterende <span className="yellow">sekvensen</span> representerer ditt emoji-passord. */}
       </Fragment>
     ),

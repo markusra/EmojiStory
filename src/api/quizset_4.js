@@ -1453,7 +1453,7 @@ var questions = [
       },
 
       {
-        text: "microphone",
+        text: "microphones",
         src: "objects1/1f399.svg"
       },
 
@@ -1721,7 +1721,7 @@ var questions = [
       },
 
       {
-        text: "ruler",
+        text: "rulers",
         src: "objects1/1f4cf.svg"
       },
 

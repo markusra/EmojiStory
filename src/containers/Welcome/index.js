@@ -36,8 +36,8 @@ let strings = {
     welcomeText: (
       <Fragment>
         <p>
-          Denne undersøkelsen er lagd av Martin Kjellevand og Markus Rauhut for
-          å kartlegge <b>brukervennligheten</b> og <b>sikkerheten</b> av
+          Denne undersøkelsen er laget av Martin Kjellevand og Markus Rauhut for
+          å kartlegge <b>brukervennligheten</b> og <b>sikkerheten</b> til
           emoji-basert autentisering. Dataen som blir samlet inn fra denne
           undersøkelsen blir brukt i en masteroppgave på{" "}
           <b>Norges teknisk-naturvitenskapelige universitet (NTNU)</b>.
@@ -45,7 +45,7 @@ let strings = {
 
         <p>
           Undersøkelsen er anonym og du vil ikke bli bedt om noe personlig
-          informasjon. Om du skulle ha noen spørsmål om prosjektet, kontakt oss
+          informasjon. Om du skulle ha noen spørsmål om prosjektet, kontakt (link på kontakt?) oss
           på [e-post adresse]. Undersøkelsen har blitt meldt til Norsk senter
           for forskningsdata (NSD).
         </p>

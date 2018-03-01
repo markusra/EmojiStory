@@ -17,7 +17,10 @@ let strings = {
     finishText: (
       <Fragment>
         <p>
-          You finished the survey and your answers are send to us. Thank you!
+          Thank you for participating! Your answers have been sendt to us. If
+          you have any questions or comments, please contact (link på contact?)
+          us at [EMAIL]. If you would like to help us even more with our
+          research, please share this survey:
         </p>
       </Fragment>
     )
@@ -26,7 +29,10 @@ let strings = {
     finishText: (
       <Fragment>
         <p>
-          Du er kul!
+          Tusen takk for at du deltok! Svarene dine har blitt sent til oss. Hvis
+          du har spørsmål eller kommentarer, vennligst kontakt oss. Hvis du
+          ønsker å hjelpe oss enda mer med forskningen vår, vennligst del denne
+          undersøkelsen:
         </p>
       </Fragment>
     )
