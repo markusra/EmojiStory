@@ -1173,7 +1173,7 @@ var questions = [
       },
 
       {
-        text: "sweet potatos",
+        text: "sweet potatoes",
         src: "food/1f360.svg"
       },
 

@@ -15,7 +15,8 @@ const initialState = {
   interpretation: "",
   memorization: "",
   timestamp1: 0,
-  timestamp2: 0
+  timestamp2: 0,
+  deviceType: ""
 };
 
 const userData = (state = initialState, action) => {
@@ -125,6 +126,11 @@ const userData = (state = initialState, action) => {
       return {
         ...state,
         timestamp2: action.timestamp2
+      };
+    case "SET_DEVICETYPE":
+      return {
+        ...state,
+        deviceType: action.deviceType
       };
 
     default:

@@ -133,3 +133,10 @@ export const setTimestamp2 = timestamp2 => {
     timestamp2
   }
 }
+
+export const setDeviceType = deviceType => {
+  return {
+    type: 'SET_DEVICETYPE',
+    deviceType
+  }
+}

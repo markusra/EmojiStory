@@ -2,19 +2,14 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import "./index.css";
 import OrientationOverlay from "../../OrientationOverlay/index";
+import { checkDeviceType } from "../../../services/checkDeviceType";
 
 class EmojiContainer extends Component {
-  isMobileDevice() {
-    return (
-      typeof window.orientation !== "undefined" ||
-      navigator.userAgent.indexOf("IEMobile") !== -1
-    );
-  }
-
   render() {
+    const device = checkDeviceType();
     return (
       <Fragment>
-        {this.isMobileDevice() ? <OrientationOverlay /> : null}
+        {device === "mobile" ? <OrientationOverlay /> : null}
 
         <div className={"container emoji-container"}>
           {this.props.children}

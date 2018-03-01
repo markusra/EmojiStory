@@ -79,7 +79,7 @@ class StorySummary extends Component {
 
     this.props.answers.map(answer => emojiTextArray.push(answer.text));
     // Update DB
-    emojiStoryUpdateDB(emojiTextArray, this.props.answerIndices, this.props.keyboard, this.props.storyID);
+    emojiStoryUpdateDB(emojiTextArray, this.props.answerIndices, this.props.keyboard, this.props.storyID, this.props.deviceType);
 
     const url = "/login";
     this.props.setUserProgress(url);
@@ -151,6 +151,7 @@ const mapStateToProps = state => {
     storyID: state.storyID,
     keyboard: state.keyboard,
     answerIndices: state.answerIndices,
+    deviceType: state.deviceType
   };
 };
 
@@ -184,7 +185,8 @@ StorySummary.propTypes = {
   timestamp2: PropTypes.number,
   storyID: PropTypes.number,
   keyboard: PropTypes.array,
-  answerIndices: PropTypes.array
+  answerIndices: PropTypes.array,
+  deviceType: PropTypes.string
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(StorySummary);

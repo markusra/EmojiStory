@@ -9,17 +9,19 @@ import { connect } from "react-redux";
 import {
   setUserProgress,
   deleteAnswers,
-  deleteAnswerIndices
+  deleteAnswerIndices, setDeviceType
 } from "../../actions/index";
 import {
   createDBEntry
 } from "../../services/databaseFunctions";
+import { checkDeviceType } from "../../services/checkDeviceType";
 
 import firebase from "../../firebase";
 
 // TODO: Fix email address
 class Welcome extends Component {
   componentWillMount() {
+    console.log(navigator.language)
     firebase.auth().onAuthStateChanged(user => {
       var ref = firebase.database().ref("users/" + user.uid);
 
@@ -39,10 +41,13 @@ class Welcome extends Component {
   }
 
   onButtonClick() {
+    const device = checkDeviceType();
+    this.props.setDeviceType(device);
+
     this.props.deleteAnswers();
     this.props.deleteAnswerIndices();
 
-    createDBEntry();
+    createDBEntry(this.props.deviceType);
 
     const url = "/emojiStory";
     this.props.setUserProgress(url);
@@ -87,7 +92,8 @@ class Welcome extends Component {
 
 const mapStateToProps = state => {
   return {
-    userProgress: state.userProgress
+    userProgress: state.userProgress,
+    deviceType: state.deviceType
   };
 };
 
@@ -101,6 +107,9 @@ const mapDispatchToProps = dispatch => {
     },
     deleteAnswerIndices: userStory => {
       dispatch(deleteAnswerIndices(userStory));
+    },
+    setDeviceType: deviceType => {
+      dispatch(setDeviceType(deviceType));
     }
   };
 };
@@ -108,7 +117,9 @@ const mapDispatchToProps = dispatch => {
 Welcome.propTypes = {
   setUserProgress: PropTypes.func,
   deleteAnswers: PropTypes.func,
-  deleteAnswerIndices: PropTypes.func
+  deleteAnswerIndices: PropTypes.func,
+  deviceType: PropTypes.string,
+  setDeviceType: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Welcome);

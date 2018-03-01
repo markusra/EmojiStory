@@ -7,7 +7,7 @@ export const createDBEntry = () => {
       const userData = {
         answers: "",
         answerIndices: "",
-        answerOptions: "",
+        deviceType: "",
         keyboard: "",
         emojiStoryCreated: false,
         loginAttempts1: "",
@@ -89,7 +89,8 @@ export const emojiStoryUpdateDB = (
   Answers,
   AnswerIndices,
   Keyboard,
-  StoryID
+  StoryID,
+  DeviceType
 ) => {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
@@ -100,6 +101,7 @@ export const emojiStoryUpdateDB = (
           answers: Answers,
           answerIndices: AnswerIndices,
           answerOptions: "",
+          deviceType: DeviceType,
           keyboard: Keyboard,
           emojiStoryCreated: true,
           storyID: StoryID

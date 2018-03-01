@@ -805,7 +805,7 @@ var questions = [
         src: "animals/1f411.svg"
       },
       {
-        text: "cock",
+        text: "rooster",
         src: "animals/1f413.svg"
       },
       {
@@ -903,7 +903,7 @@ var questions = [
         src: "animals/1f982.svg"
       },
       {
-        text: "rooster",
+        text: "turkey",
         src: "animals/1f983.svg"
       },
       {
@@ -1324,7 +1324,7 @@ var questions = [
       },
 
       {
-        text: "sweet potatos",
+        text: "sweet potatoes",
         src: "food/1f360.svg"
       },
 
