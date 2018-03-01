@@ -1,7 +1,7 @@
 const initialState = {
   storyTemplate: [],
   storyID: null,
-  userProgress: "",
+  userProgress: "/",
   readyFor2ndLogin: false,
   answers: [],
   answerIndices: [],
