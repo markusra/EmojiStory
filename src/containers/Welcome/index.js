@@ -142,7 +142,7 @@ Welcome.propTypes = {
   deleteAnswers: PropTypes.func,
   userProgress: PropTypes.string,
   deleteAnswerIndices: PropTypes.func,
-  setDeviceType: PropTypes.func
+  setDeviceType: PropTypes.func,
   language: PropTypes.string
 };
 

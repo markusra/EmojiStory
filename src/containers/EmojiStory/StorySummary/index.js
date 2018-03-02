@@ -202,8 +202,8 @@ StorySummary.propTypes = {
   storyID: PropTypes.number,
   keyboard: PropTypes.array,
   answerIndices: PropTypes.array,
-  deviceType: PropTypes.string
-  language: PropTypes.string,
+  deviceType: PropTypes.string,
+  language: PropTypes.string
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(StorySummary);

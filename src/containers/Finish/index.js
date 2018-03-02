@@ -1,13 +1,11 @@
 import React, { Component, Fragment } from "react";
+import PropTypes from "prop-types";
 import AppContainer from "../../components/AppContainer";
 import AppBody from "../../components/AppBody";
 import AppFooter from "../../components/AppFooter";
 import SocialButtons from "../../components/SocialButtons/index";
 import { connect } from "react-redux";
 import { redirectUser } from "../../services/redirectUser";
-
-// Connect to Redux store
-import { connect } from "react-redux";
 
 let strings = {
   en: {
@@ -59,13 +57,13 @@ class Finish extends Component {
 
 const mapStateToProps = state => {
   return {
-    userProgress: state.userProgress
+    userProgress: state.userProgress,
     language: state.language
   };
 };
 
 Finish.propTypes = {
-  userProgress: PropTypes.string
+  userProgress: PropTypes.string,
   language: PropTypes.string
 };
 
