@@ -6,8 +6,15 @@ import AppFooter from "../../components/AppFooter";
 import { Button } from "reactstrap";
 import history from "../../history";
 import { connect } from "react-redux";
-import { setUserProgress, deleteAnswers } from "../../actions/index";
+import {
+  setUserProgress,
+  deleteAnswers,
+  deleteAnswerIndices, setDeviceType
+} from "../../actions/index";
 import { createDBEntry } from "../../services/databaseFunctions";
+import { checkDeviceType } from "../../services/checkDeviceType";
+
+import { redirectUser } from "../../services/redirectUser";
 
 let strings = {
   en: {
@@ -60,8 +67,20 @@ let strings = {
 
 // TODO: Fix email address
 class Welcome extends Component {
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      willRedirect: redirectUser(this.props.userProgress)
+    }
+  }
+  
   onButtonClick() {
+    const device = checkDeviceType();
+    this.props.setDeviceType(device);
+
     this.props.deleteAnswers();
+    this.props.deleteAnswerIndices();
 
     createDBEntry();
 
@@ -72,6 +91,8 @@ class Welcome extends Component {
 
   render() {
     return (
+      <Fragment>
+      {this.state.willRedirect ? null : (
       <AppContainer appTitle="Survey – Emoji-Based Authentication">
         <AppBody>{strings[this.props.language].welcomeText}</AppBody>
 
@@ -86,7 +107,9 @@ class Welcome extends Component {
           </Button>
         </AppFooter>
       </AppContainer>
-    );
+    ) }
+    </Fragment>
+  );
   }
 }
 
@@ -104,6 +127,12 @@ const mapDispatchToProps = dispatch => {
     },
     deleteAnswers: userStory => {
       dispatch(deleteAnswers(userStory));
+    },
+    deleteAnswerIndices: userStory => {
+      dispatch(deleteAnswerIndices(userStory));
+    },
+    setDeviceType: deviceType => {
+      dispatch(setDeviceType(deviceType));
     }
   };
 };
@@ -111,6 +140,9 @@ const mapDispatchToProps = dispatch => {
 Welcome.propTypes = {
   setUserProgress: PropTypes.func,
   deleteAnswers: PropTypes.func,
+  userProgress: PropTypes.string,
+  deleteAnswerIndices: PropTypes.func,
+  setDeviceType: PropTypes.func
   language: PropTypes.string
 };
 

@@ -5,6 +5,13 @@ export const addAnswer = answer => {
   }
 }
 
+export const addAnswerIndex = answerIndex => {
+  return {
+    type: 'ADD_ANSWERINDICES',
+    answerIndex
+  }
+}
+
 export const setUserProgress = userProgress => {
   return {
     type: 'SET_USERPROGRESS',
@@ -43,6 +50,12 @@ export const setKeyboard = keyboard => {
 export const deleteAnswers = () => {
   return {
     type: 'DELETE_ANSWERS'
+  }
+}
+
+export const deleteAnswerIndices = () => {
+  return {
+    type: 'DELETE_ANSWERINDICES'
   }
 }
 
@@ -121,9 +134,9 @@ export const setTimestamp2 = timestamp2 => {
   }
 }
 
-export const setLoginAttempts = loginAttempts => {
+export const setDeviceType = deviceType => {
   return {
-    type: 'SET_LOGINATTEMPTS',
-    loginAttempts
+    type: 'SET_DEVICETYPE',
+    deviceType
   }
 }

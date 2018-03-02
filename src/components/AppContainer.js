@@ -1,16 +1,14 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import OrientationOverlay from "./OrientationOverlay/index";
+import { checkDeviceType } from "../services/checkDeviceType";
 
-class AppContent extends Component {
-  isMobileDevice() {
-    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
-  }
-  
+class AppContainer extends Component {
   render() {
+    const device = checkDeviceType();
     return (
       <Fragment>
-        {this.isMobileDevice() ? <OrientationOverlay /> : null }
+        {device === "mobile" ? <OrientationOverlay /> : null}
 
         <div className={"container app-container"}>
           <nav className={"navbar app-header sticky-top"}>
@@ -25,10 +23,10 @@ class AppContent extends Component {
   }
 }
 
-AppContent.propTypes = {
+AppContainer.propTypes = {
   appTitle: PropTypes.string,
   appStyle: PropTypes.string,
   children: PropTypes.any
 };
 
-export default AppContent;
+export default (AppContainer);

@@ -2,9 +2,10 @@ const initialState = {
   language: "no",
   storyTemplate: [],
   storyID: null,
-  userProgress: "",
+  userProgress: "/",
   readyFor2ndLogin: false,
   answers: [],
+  answerIndices: [],
   keyboard: [],
   age: "",
   nationality: "",
@@ -16,7 +17,7 @@ const initialState = {
   memorization: "",
   timestamp1: 0,
   timestamp2: 0,
-  loginAttempts: 0
+  deviceType: ""
 };
 
 const userData = (state = initialState, action) => {
@@ -32,6 +33,19 @@ const userData = (state = initialState, action) => {
     case "DELETE_ANSWERS": {
       return Object.assign({}, state, {
         answers: []
+      });
+    }
+    case "ADD_ANSWERINDICES": {
+      const answerIndices = state.answerIndices.slice();
+      answerIndices.push(action.answerIndex);
+
+      return Object.assign({}, state, {
+        answerIndices: answerIndices
+      });
+    }
+    case "DELETE_ANSWERINDICES": {
+      return Object.assign({}, state, {
+        answerIndices: []
       });
     }
     case "SET_USERPROGRESS":
@@ -114,12 +128,12 @@ const userData = (state = initialState, action) => {
         ...state,
         timestamp2: action.timestamp2
       };
-
-    case "SET_LOGINATTEMPTS":
+    case "SET_DEVICETYPE":
       return {
         ...state,
-        loginAttempts: action.loginAttempts
+        deviceType: action.deviceType
       };
+
     default:
       return state;
   }

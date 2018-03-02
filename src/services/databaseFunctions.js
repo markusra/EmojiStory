@@ -5,13 +5,13 @@ export const createDBEntry = () => {
     if (user) {
       // User is signed in.
       const userData = {
-        answers: [],
-        answerIndices: [],
-        answerOptions: "",
+        answers: "",
+        answerIndices: "",
+        deviceType: "",
         keyboard: "",
         emojiStoryCreated: false,
-        loginAttempts1: 0,
-        loginAttempts2: 0,
+        loginAttempts1: "",
+        loginAttempts2: "",
         age: "",
         nationality: "",
         emojiUsage: "",
@@ -24,7 +24,7 @@ export const createDBEntry = () => {
         timestamp3: "",
         timestamp4: "",
         timestamp5: "",
-        storyID: 0,
+        storyID: "",
         surveyFinished: false
       };
 
@@ -85,7 +85,13 @@ export const timestampUpdateDB = (field, value, attemptsLeft) => {
   });
 };
 
-export const emojiStoryUpdateDB = (Answers, AnswerIndices, Keyboard, StoryID) => {
+export const emojiStoryUpdateDB = (
+  Answers,
+  AnswerIndices,
+  Keyboard,
+  StoryID,
+  DeviceType
+) => {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       firebase
@@ -95,6 +101,7 @@ export const emojiStoryUpdateDB = (Answers, AnswerIndices, Keyboard, StoryID) =>
           answers: Answers,
           answerIndices: AnswerIndices,
           answerOptions: "",
+          deviceType: DeviceType,
           keyboard: Keyboard,
           emojiStoryCreated: true,
           storyID: StoryID

@@ -2,13 +2,9 @@ import React, { Component } from "react";
 import EmojiQuiz from "../../../components/EmojiStory/EmojiQuiz/index";
 import EmojiInfo from "../../../components/EmojiStory/EmojiInfo/index";
 import PropTypes from "prop-types";
-
-// Connect to Redux store
 import { connect } from "react-redux";
-
 import { redirectUser } from "../../../services/redirectUser";
 import { createTimestamp } from "../../../services/timestamping";
-
 import { setTimestamp2 } from "../../../actions/index";
 
 class CreateStory extends Component {

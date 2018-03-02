@@ -1,12 +1,12 @@
 import firebase from "firebase";
 
 var config = {
-  apiKey: "AIzaSyCIDBmK2YtK9l-dvfXy4CUt1pNhXYf4p3s",
-  authDomain: "emoji-master.firebaseapp.com",
-  databaseURL: "https://emoji-master.firebaseio.com",
-  projectId: "emoji-master",
-  storageBucket: "emoji-master.appspot.com",
-  messagingSenderId: "264449652430"
+  apiKey: "AIzaSyDI5VXNRIYYRtn9MxtHVhq4iiz-b76ArqU",
+  authDomain: "emojistory-60208.firebaseapp.com",
+  databaseURL: "https://emojistory-60208.firebaseio.com",
+  projectId: "emojistory-60208",
+  storageBucket: "emojistory-60208.appspot.com",
+  messagingSenderId: "454636857662"
 };
 
 firebase.initializeApp(config);

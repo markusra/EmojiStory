@@ -1,20 +1,15 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-
 import history from "../../../history";
-
-// Connect to Redux store
-import { connect } from "react-redux";
-
 import EmojiQuestion from "../EmojiQuestion/index";
 import EmojiContainer from "../EmojiContainer";
 import EmojiBody from "../EmojiContainer/EmojiBody";
 import EmojiOverlay from "../EmojiOverlay/index";
+import { connect } from "react-redux";
 import { timestampUpdateDB } from "../../../services/databaseFunctions";
 import { createTimestamp, calculateTimeUsed } from "../../../services/timestamping";
 import { getRandomStory, getRandomAnswerOptions, getRandomStoryFile } from "../../../services/randomizer";
-
-import { addAnswer, setUserProgress, setTimestamp1, setTimestamp2, setStoryTemplate, setStoryID } from "../../../actions/index";
+import { addAnswer, addAnswerIndex, setUserProgress, setTimestamp1, setTimestamp2, setStoryTemplate, setStoryID } from "../../../actions/index";
 
 class EmojiQuiz extends Component {
   constructor(props) {
@@ -30,7 +25,8 @@ class EmojiQuiz extends Component {
       chosenAnswer: [],
       userStory: [],
       randomStory: [],
-      randomAnswerOptions: []
+      randomAnswerOptions: [],
+      chosenAndwerIndex: null
     };
 
     this.handleAnswerClick = this.handleAnswerClick.bind(this);
@@ -62,7 +58,6 @@ class EmojiQuiz extends Component {
     this.props.setStoryID(randomStoryFile);
 
     const randomAnswerOptions = getRandomAnswerOptions(randomStory);
-    console.log(randomAnswerOptions)
     const firstQuestion = randomStory.story[0].split(/[*]{3}/g);
     firstQuestion.splice(
       1,
@@ -132,11 +127,12 @@ class EmojiQuiz extends Component {
     });
   }
 
-  handleAnswerClick(answer) {
+  handleAnswerClick(answer, index) {
     this.setState({
       overlayQuestion: this.state.question,
       answerOverlay: true,
-      chosenAnswer: answer
+      chosenAnswer: answer,
+      chosenAndwerIndex: index
     });
   }
 
@@ -146,6 +142,7 @@ class EmojiQuiz extends Component {
 
   handleContinueClick() {
     this.props.addAnswer(this.state.chosenAnswer);
+    this.props.addAnswerIndex(this.state.chosenAndwerIndex);
 
     this.setState({
       userStory: this.fillPlaceholder(this.state.counter + 1)
@@ -204,6 +201,9 @@ const mapDispatchToProps = dispatch => {
     addAnswer: answer => {
       dispatch(addAnswer(answer));
     },
+    addAnswerIndex: answerIndex => {
+      dispatch(addAnswerIndex(answerIndex));
+    },
     setUserProgress: userProgress => {
       dispatch(setUserProgress(userProgress));
     },
@@ -234,7 +234,8 @@ EmojiQuiz.propTypes = {
   setTimestamp1: PropTypes.func,
   setTimestamp2: PropTypes.func,
   setStoryTemplate: PropTypes.func,
-  setStoryID: PropTypes.func
+  setStoryID: PropTypes.func,
+  addAnswerIndex: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(EmojiQuiz);
