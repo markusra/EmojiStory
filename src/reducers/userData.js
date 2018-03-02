@@ -1,5 +1,6 @@
 const initialState = {
-  language: "no",
+  language: "en",
+  languageOverlay: false,
   storyTemplate: [],
   storyID: null,
   userProgress: "/",
@@ -132,6 +133,18 @@ const userData = (state = initialState, action) => {
       return {
         ...state,
         deviceType: action.deviceType
+      };
+
+    case "SET_LANGUAGE":
+      return {
+        ...state,
+        language: action.language
+      };
+
+    case "SET_LANGUAGEOVERLAY":
+      return {
+        ...state,
+        languageOverlay: true
       };
 
     default:
