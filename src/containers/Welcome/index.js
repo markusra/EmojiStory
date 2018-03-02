@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import AppContainer from "../../components/AppContainer";
 import AppBody from "../../components/AppBody";
@@ -11,35 +11,21 @@ import {
   deleteAnswers,
   deleteAnswerIndices, setDeviceType
 } from "../../actions/index";
-import {
-  createDBEntry
-} from "../../services/databaseFunctions";
+import { createDBEntry } from "../../services/databaseFunctions";
 import { checkDeviceType } from "../../services/checkDeviceType";
 
-import firebase from "../../firebase";
+import { redirectUser } from "../../services/redirectUser";
 
 // TODO: Fix email address
 class Welcome extends Component {
-  componentWillMount() {
-    console.log(navigator.language)
-    firebase.auth().onAuthStateChanged(user => {
-      var ref = firebase.database().ref("users/" + user.uid);
-
-      ref.once("value").then(snapshot => {
-        const userEntry = snapshot.val();
-        if (userEntry) {
-          console.log("Eksisterer allerede");
-          const url = "/finish";
-          this.props.setUserProgress(url);
-          history.push(url);
-        } else {
-          console.log("Ny entry");
-        }
-      });
-    });
-
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      willRedirect: redirectUser(this.props.userProgress)
+    }
   }
-
+  
   onButtonClick() {
     const device = checkDeviceType();
     this.props.setDeviceType(device);
@@ -56,6 +42,8 @@ class Welcome extends Component {
 
   render() {
     return (
+      <Fragment>
+      {this.state.willRedirect ? null : (
       <AppContainer appTitle="Survey – Emoji-Based Authentication">
         <AppBody>
           <p>
@@ -86,7 +74,9 @@ class Welcome extends Component {
           </Button>
         </AppFooter>
       </AppContainer>
-    );
+    ) }
+    </Fragment>
+  );
   }
 }
 
@@ -117,6 +107,7 @@ const mapDispatchToProps = dispatch => {
 Welcome.propTypes = {
   setUserProgress: PropTypes.func,
   deleteAnswers: PropTypes.func,
+  userProgress: PropTypes.string
   deleteAnswerIndices: PropTypes.func,
   deviceType: PropTypes.string,
   setDeviceType: PropTypes.func
