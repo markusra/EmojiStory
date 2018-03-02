@@ -33,7 +33,7 @@ class Welcome extends Component {
     this.props.deleteAnswers();
     this.props.deleteAnswerIndices();
 
-    createDBEntry(this.props.deviceType);
+    createDBEntry();
 
     const url = "/emojiStory";
     this.props.setUserProgress(url);
@@ -82,8 +82,7 @@ class Welcome extends Component {
 
 const mapStateToProps = state => {
   return {
-    userProgress: state.userProgress,
-    deviceType: state.deviceType
+    userProgress: state.userProgress
   };
 };
 
@@ -107,9 +106,8 @@ const mapDispatchToProps = dispatch => {
 Welcome.propTypes = {
   setUserProgress: PropTypes.func,
   deleteAnswers: PropTypes.func,
-  userProgress: PropTypes.string
+  userProgress: PropTypes.string,
   deleteAnswerIndices: PropTypes.func,
-  deviceType: PropTypes.string,
   setDeviceType: PropTypes.func
 };
 
