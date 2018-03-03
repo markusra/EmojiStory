@@ -25,9 +25,12 @@ let strings = {
       <Fragment>
         <p>
           Tusen takk for at du deltok! Svarene dine har blitt sent til oss. Hvis
-          du har spørsmål eller kommentarer, vennligst kontakt oss. Hvis du
-          ønsker å hjelpe oss enda mer med forskningen vår, vennligst del denne
-          undersøkelsen:
+          du har spørsmål eller kommentarer, vennligst{" "}
+          <a href="mailto:questions@emojistory.site" target="_top">
+            kontakt
+          </a>{" "}
+          oss. Hvis du ønsker å hjelpe oss ytterligere med denne forskningen,
+          vennligst del denne undersøkelsen:
         </p>
       </Fragment>
     )

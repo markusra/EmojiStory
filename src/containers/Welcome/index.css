@@ -1,3 +1,7 @@
 .flagStyle {
-    width: 3rem;
-  }
+  width: 3rem;
+}
+
+.bottomMargin {
+  margin-bottom: 20px;
+}

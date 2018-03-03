@@ -53,16 +53,19 @@ let strings = {
         <p>
           Denne undersøkelsen er laget av Martin Kjellevand og Markus Rauhut for
           å kartlegge <b>brukervennligheten</b> og <b>sikkerheten</b> til
-          emoji-basert autentisering. Dataen som blir samlet inn fra denne
-          undersøkelsen blir brukt i en masteroppgave på{" "}
+          emoji-passord. Undersøkelsen tar 3-4 minutter. Dataen som blir samlet
+          inn vil bli brukt i en masteroppgave på{" "}
           <b>Norges teknisk-naturvitenskapelige universitet (NTNU)</b>.
         </p>
 
         <p>
           Undersøkelsen er anonym og du vil ikke bli bedt om noe personlig
-          informasjon. Om du skulle ha noen spørsmål om prosjektet, kontakt
-          (link på kontakt?) oss på [e-post adresse]. Undersøkelsen har blitt
-          meldt til Norsk senter for forskningsdata (NSD).
+          informasjon. Om du skulle ha noen spørsmål om prosjektet, vennligst{" "}
+          <a href="mailto:questions@emojistory.site" target="_top">
+            kontakt
+          </a>{" "}
+          oss. Undersøkelsen har blitt meldt til Norsk senter for forskningsdata
+          (NSD).
         </p>
       </Fragment>
     ),
@@ -133,24 +136,26 @@ class Welcome extends Component {
 
               {strings[this.props.language].languageText}
 
-              <img
-                src={ukFlag}
-                alt="English"
-                className="flagStyle"
-                onClick={() => this.props.setLanguage("en")}
-              />
-              <img
-                src={germanFlag}
-                alt="German"
-                className="flagStyle"
-                onClick={() => this.props.setLanguage("de")}
-              />
-              <img
-                src={norwegianFlag}
-                alt="Norwegian"
-                className="flagStyle"
-                onClick={() => this.props.setLanguage("no")}
-              />
+              <div className="bottomMargin">
+                <img
+                  src={ukFlag}
+                  alt="English"
+                  className="flagStyle"
+                  onClick={() => this.props.setLanguage("en")}
+                />
+                <img
+                  src={germanFlag}
+                  alt="German"
+                  className="flagStyle"
+                  onClick={() => this.props.setLanguage("de")}
+                />
+                <img
+                  src={norwegianFlag}
+                  alt="Norwegian"
+                  className="flagStyle"
+                  onClick={() => this.props.setLanguage("no")}
+                />
+              </div>
             </AppBody>
 
             <AppFooter>
