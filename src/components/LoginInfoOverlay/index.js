@@ -8,13 +8,30 @@ import { Button } from "reactstrap";
 // Connect to Redux store
 import { connect } from "react-redux";
 
+let strings = {
+  en: {
+    firstInfo: "Please enter your emoji-password",
+    secondInfo: "Please try to enter your emoji-password one last time"
+  },
+  no: {
+    firstInfo: "Vennligst skriv inn emoji-passordet ditt",
+    secondInfo: "Vennligst skriv inn emoji-passordet ditt en gang til"
+  },
+  de: {
+    firstInfo: "",
+    secondInfo: ""
+  }
+};
+
+
 class LoginInfoOverlay extends Component {
   render() {
     const visible = this.props.visible ? "fade-in" : "fade-out";
     const is2ndAttempt = this.props.readyFor2ndLogin;
+
     const infoText = is2ndAttempt
-      ? "Please try to enter your emoji-password one last time"
-      : "Please enter your emoji-password";
+      ? strings[this.props.language].secondInfo
+      : strings[this.props.language].firstInfo;
 
     const OverlayButton = (
       <Button
@@ -50,14 +67,16 @@ class LoginInfoOverlay extends Component {
 
 const mapStateToProps = state => {
   return {
-    readyFor2ndLogin: state.readyFor2ndLogin
+    readyFor2ndLogin: state.readyFor2ndLogin,
+    language: state.language
   };
 };
 
 LoginInfoOverlay.propTypes = {
   visible: PropTypes.bool,
   onOkButtonClick: PropTypes.func,
-  readyFor2ndLogin: PropTypes.bool
+  readyFor2ndLogin: PropTypes.bool,
+  language: PropTypes.string
 };
 
 export default connect(mapStateToProps)(LoginInfoOverlay);

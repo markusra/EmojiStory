@@ -63,7 +63,7 @@ const objects1 = [
   },
 
   {
-    text: "microphone",
+    text: "microphones",
     src: "objects1/1f399.svg"
   },
 
@@ -331,7 +331,7 @@ const objects1 = [
   },
 
   {
-    text: "ruler",
+    text: "rulers",
     src: "objects1/1f4cf.svg"
   },
 

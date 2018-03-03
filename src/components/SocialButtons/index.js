@@ -1,12 +1,27 @@
 import React, { Component, Fragment } from "react";
+import PropTypes from "prop-types";
 import "./index.css";
+import { connect } from "react-redux";
+
+let strings = {
+  en: {
+    shareText: "Share this survey"
+  },
+  no: {
+    shareText: "Del denne undersøkelsen"
+  },
+  de: {
+    shareText: ""
+  }
+};
+
 
 class SocialButtons extends Component {
   render() {
     return (
       <Fragment>
         <div className="row social-row justify-content-center">
-          <b>Share the survey</b>
+          <b>{strings[this.props.language].shareText}</b>
         </div>
         <div className="row social-row justify-content-center">
             <a
@@ -51,4 +66,14 @@ class SocialButtons extends Component {
   }
 }
 
-export default SocialButtons;
+const mapStateToProps = state => {
+  return {
+    language: state.language
+  };
+};
+
+SocialButtons.propTypes = {
+  language: PropTypes.string
+};
+
+export default connect(mapStateToProps)(SocialButtons);

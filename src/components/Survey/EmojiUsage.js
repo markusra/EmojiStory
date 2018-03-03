@@ -8,6 +8,33 @@ import "./index.css";
 import { connect } from "react-redux";
 import { setEmojiUsage } from "../../actions/index";
 
+let strings = {
+  en: {
+    emojisQuestion: "How often do you use emojis?",
+    alternative1: "Several times a day",
+    alternative2: "Once a day",
+    alternative3: "Several times a week",
+    alternative4: "Once a week",
+    alternative5: "Never"
+  },
+  no: {
+    emojisQuestion: "Hvor ofte bruker du emojis?",
+    alternative1: "Flere ganger daglig",
+    alternative2: "Én gang daglig",
+    alternative3: "Flere ganger i uken",
+    alternative4: "Én gang i uken",
+    alternative5: "Aldri"
+  },
+  de: {
+    emojisQuestion: "Wie oft benutzen Sie Emojis?",
+    alternative1: "Mehrmals täglich",
+    alternative2: "Einmal täglich",
+    alternative3: "Mehrmals in der Woche",
+    alternative4: "Einmal in der Woche",
+    alternative5: "Nie"
+  }
+};
+
 class EmojiUsage extends Component {
   render() {
     return (
@@ -15,7 +42,7 @@ class EmojiUsage extends Component {
         <SurveyBody>
           <div className="surveyContainer">
             <div className="questionDiv">
-              <h3 className="story">How often do you use emojis?</h3>
+              <h3 className="story">{strings[this.props.language].emojisQuestion}</h3>
             </div>
             <div className="options2">
               <Button
@@ -28,7 +55,7 @@ class EmojiUsage extends Component {
                   )
                 }
               >
-                Several times a day
+                {strings[this.props.language].alternative1}
               </Button>
               <Button
                 className="surveyAnswerButton mid"
@@ -37,7 +64,7 @@ class EmojiUsage extends Component {
                   this.props.setEmojiUsage("Once a day", "interpretation")
                 }
               >
-                Once a day
+                {strings[this.props.language].alternative2}
               </Button>
               <Button
                 className="surveyAnswerButton mid"
@@ -49,7 +76,7 @@ class EmojiUsage extends Component {
                   )
                 }
               >
-                Several times a week
+                {strings[this.props.language].alternative3}
               </Button>
               <Button
                 className="surveyAnswerButton mid"
@@ -58,7 +85,7 @@ class EmojiUsage extends Component {
                   this.props.setEmojiUsage("Once a week", "interpretation")
                 }
               >
-                Once a week
+                {strings[this.props.language].alternative4}
               </Button>
               <Button
                 className="surveyAnswerButton bottom"
@@ -67,7 +94,7 @@ class EmojiUsage extends Component {
                   this.props.setEmojiUsage("Never", "interpretation")
                 }
               >
-                Never
+                {strings[this.props.language].alternative5}
               </Button>
             </div>
           </div>
@@ -80,7 +107,8 @@ class EmojiUsage extends Component {
 const mapStateToProps = state => {
   return {
     emojiUsage: state.emojiUsage,
-    surveyPage: state.surveyPage
+    surveyPage: state.surveyPage,
+    language: state.language
   };
 };
 
@@ -93,7 +121,8 @@ const mapDispatchToProps = dispatch => {
 };
 
 EmojiUsage.propTypes = {
-  setEmojiUsage: PropTypes.func
+  setEmojiUsage: PropTypes.func,
+  language: PropTypes.string
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(EmojiUsage);

@@ -4,9 +4,20 @@ import AgeAndCountry from "./AgeAndCountry/index";
 import AppContainer from "../../AppContainer";
 import AppFooter from "../../AppFooter";
 import "./index.css";
-
-// Import Bootstrap Components
+import { connect } from "react-redux";
 import { Button, Form } from "reactstrap";
+
+let strings = {
+  en: {
+    buttonText: "Submit"
+  },
+  no: {
+    buttonText: "Send"
+  },
+  de: {
+    buttonText: "Sende"
+  }
+};
 
 class AgeAndCountryContainer extends Component {
   render() {
@@ -34,7 +45,7 @@ class AgeAndCountryContainer extends Component {
                 backgroundColor: "#1b212c"
               }}
             >
-              Submit
+              {strings[this.props.language].buttonText}
             </Button>
           </AppFooter>
         </Form>
@@ -43,8 +54,15 @@ class AgeAndCountryContainer extends Component {
   }
 }
 
-AgeAndCountryContainer.propTypes = {
-  onSubmitForm: PropTypes.func
+const mapStateToProps = state => {
+  return {
+    language: state.language
+  };
 };
 
-export default AgeAndCountryContainer;
+AgeAndCountryContainer.propTypes = {
+  onSubmitForm: PropTypes.func,
+  language: PropTypes.string
+};
+
+export default connect(mapStateToProps)(AgeAndCountryContainer);

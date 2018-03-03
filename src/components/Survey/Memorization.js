@@ -8,6 +8,30 @@ import "./index.css";
 import { connect } from "react-redux";
 import { setMemorization } from "../../actions/index";
 
+let strings = {
+  en: {
+    memoryQuestion: "I remembered my emoji-password by memorizing…",
+    alternative1: "the emojis",
+    alternative2: "the story",
+    alternative3: "the emojis and the story",
+    alternative4: "something else"
+  },
+  no: {
+    memoryQuestion: "Jeg husket emoji-passordet mitt ved hjelp av…",
+    alternative1: "emojiene",
+    alternative2: "historien",
+    alternative3: "emojiene og historien",
+    alternative4: "noe annet"
+  },
+  de: {
+    memoryQuestion: "Ich merkte mir das Emoji-Passwort mit Hilfe von…",
+    alternative1: "den Emojis",
+    alternative2: "der Geschichte",
+    alternative3: "den Emojis und der Geschichte",
+    alternative4: "etwas anderem"
+  }
+};
+
 class Memorization extends Component {
   render() {
     return (
@@ -15,7 +39,7 @@ class Memorization extends Component {
         <SurveyBody>
           <div className="surveyContainer">
             <div className="questionDiv">
-              <h3 className="story">I remembered my emoji-password by memorizing...</h3>
+              <h3 className="story">{strings[this.props.language].memoryQuestion}</h3>
             </div>
             <div className="options2">
               <Button
@@ -23,28 +47,28 @@ class Memorization extends Component {
                 size="lg"
                 onClick={() => this.props.setMemorization("the emojis", "questions")}
               >
-                the emojis 
+                {strings[this.props.language].alternative1}
               </Button>
               <Button
                 className="surveyAnswerButton mid"
                 size="lg"
                 onClick={() => this.props.setMemorization("the story", "questions")}
               >
-                the story
+                {strings[this.props.language].alternative2}
               </Button>
               <Button
                 className="surveyAnswerButton mid"
                 size="lg"
                 onClick={() => this.props.setMemorization("the emojis and the story", "questions")}
               >
-                the emojis and the story
+                {strings[this.props.language].alternative3}
               </Button>
               <Button
                 className="surveyAnswerButton bottom"
                 size="lg"
                 onClick={() => this.props.setMemorization("something else", "questions")}
               >
-                something else
+                {strings[this.props.language].alternative4}
               </Button>
             </div>
           </div>
@@ -57,7 +81,8 @@ class Memorization extends Component {
 const mapStateToProps = state => {
   return {
     memorization: state.memorization,
-    surveyPage: state.surveyPage
+    surveyPage: state.surveyPage,
+    language: state.language
   };
 };
 
@@ -71,7 +96,7 @@ const mapDispatchToProps = dispatch => {
 
 Memorization.propTypes = {
   setMemorization: PropTypes.func,
-
+  language: PropTypes.string
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Memorization);

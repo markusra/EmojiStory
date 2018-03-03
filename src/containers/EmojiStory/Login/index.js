@@ -22,6 +22,18 @@ import {
 } from "../../../services/timestamping";
 import { timestampUpdateDB } from "../../../services/databaseFunctions";
 
+let strings = {
+  en: {
+    delete: "Delete"
+  },
+  no: {
+    delete: "Slett"
+  },
+  de: {
+    delete: "Löschen"
+  }
+};
+
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -43,7 +55,7 @@ class Login extends Component {
   componentWillMount() {
     // We only want to send "time spent on summary page" the first time login mounts
     // Calculate time spent on memorizing and send it to DB
-    if (!this.state.willRedirect) {
+    if (!this.state.willRedirect && this.props.userProgress === "/login") {
       const timeUsed = calculateTimeUsed(
         this.props.timestamp1,
         this.props.timestamp2
@@ -58,7 +70,7 @@ class Login extends Component {
     this.setState({ emojis: tempArray });
   }
 
-  isCorrectPassword(emojiArray) { 
+  isCorrectPassword(emojiArray) {
     for (var i = 0; i < 4; i++) {
       if (this.props.answers[i].src !== emojiArray[i]) {
         return false;
@@ -71,7 +83,7 @@ class Login extends Component {
     var tempArray = this.state.emojis.slice();
     tempArray.push(this.props.keyboard[id].src);
     this.setState({ emojis: tempArray });
-    
+
     if (tempArray.length === 4) {
       // Set second timestamp for time spent on logging in
       const timestamp = createTimestamp();
@@ -79,7 +91,11 @@ class Login extends Component {
 
       const isCorrect = this.isCorrectPassword(tempArray);
       const attempts = this.state.attemptsLeft - 1;
-      this.setState({ attemptsLeft: attempts, loginOverlay: true, isCorrect: isCorrect});
+      this.setState({
+        attemptsLeft: attempts,
+        loginOverlay: true,
+        isCorrect: isCorrect
+      });
     }
   }
 
@@ -106,7 +122,6 @@ class Login extends Component {
       history.push(url);
     }
   }
-
 
   onOkButtonClick() {
     // Set first timestamp for time spent on logging in
@@ -296,7 +311,7 @@ class Login extends Component {
                     onClick={() => this.onDeleteButtonClick()}
                     block
                   >
-                    Delete
+                    {strings[this.props.language].delete}
                   </Button>
                 </div>
               </div>
@@ -315,7 +330,8 @@ const mapStateToProps = state => {
     readyFor2ndLogin: state.readyFor2ndLogin,
     timestamp1: state.timestamp1,
     timestamp2: state.timestamp2,
-    answers: state.answers
+    answers: state.answers,
+    language: state.language
   };
 };
 
@@ -347,7 +363,8 @@ Login.propTypes = {
   setTimestamp2: PropTypes.func,
   timestamp1: PropTypes.number,
   timestamp2: PropTypes.number,
-  answers: PropTypes.array
+  answers: PropTypes.array,
+  language: PropTypes.string
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

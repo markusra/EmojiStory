@@ -2,9 +2,20 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Button } from "reactstrap";
 import "./index.css";
-
 import { connect } from "react-redux";
 import { setGender } from "../../../../actions/index";
+
+let strings = {
+  en: {
+    other: "Other"
+  },
+  no: {
+    other: "Annet"
+  },
+  de: {
+    other: "Anderes"
+  }
+};
 
 class GenderButtons extends Component {
   render() {
@@ -45,7 +56,7 @@ class GenderButtons extends Component {
               this.props.setGender("other", "itBackground");
             }}
           >
-            Other
+            {strings[this.props.language].other}
           </Button>
         </div>
       </div>
@@ -55,6 +66,7 @@ class GenderButtons extends Component {
 
 const mapStateToProps = state => {
   return {
+    language: state.language
   };
 };
 
@@ -68,6 +80,7 @@ const mapDispatchToProps = dispatch => {
 
 GenderButtons.propTypes = {
   setGender: PropTypes.func,
+  language: PropTypes.string
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(GenderButtons);

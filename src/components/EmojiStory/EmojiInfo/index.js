@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 
 import EmojiContainer from "../../../components/EmojiStory/EmojiContainer";
@@ -13,8 +13,63 @@ import { Button } from "reactstrap";
 import { connect } from "react-redux";
 
 import { setTimestamp1 } from "../../../actions/index";
-
 import { createTimestamp } from "../../../services/timestamping";
+
+let strings = {
+  en: {
+    step1: (
+      <Fragment>
+        Next you will create an <span className="yellow">emoji-password</span>.
+      </Fragment>
+    ),
+    step2: (
+      <Fragment>
+        You do this by <span className="yellow">selecting keywords</span> to
+        substitute for blanks in a <span className="yellow">story</span>.
+      </Fragment>
+    ),
+    step3: (
+      <Fragment>
+        Each keyword <span className="yellow">corresponds</span> to an emoji.
+      </Fragment>
+    ),
+    step4: (
+      <Fragment>
+        The <span className="yellow">sequence of emojis</span> that occurs from
+        the story, will form your emoji-password.
+      </Fragment>
+    ),
+    next: "Next",
+    continue: "Continue"
+  },
+  no: {
+    step1: (
+      <Fragment>
+        På neste skjerm skal du lage et <span className="yellow">emoji-passord</span>.
+      </Fragment>
+    ),
+    step2: (
+      <Fragment>
+        Det gjør du ved å <span className="yellow">velge nøkkelord</span> som
+        erstatter tomrom i en <span className="yellow">historie</span>.
+      </Fragment>
+    ),
+    step3: (
+      <Fragment>
+        Hvert nøkkelord <span className="yellow">tilsvarer</span> en emoji.
+      </Fragment>
+    ),
+    step4: (
+      <Fragment>
+        Emojiene som oppstår basert på historien, representerer emoji-passordet ditt.
+        {/* Den resulterende <span className="yellow">sekvensen</span> representerer ditt emoji-passord. */}
+      </Fragment>
+    ),
+    next: "Neste",
+    continue: "Fortsett"
+  },
+  de: {}
+};
 
 class EmojiInfo extends Component {
   componentWillMount() {
@@ -22,9 +77,7 @@ class EmojiInfo extends Component {
     // Set first timestamp for time spent on the "instructions page"
     this.props.setTimestamp1(timestamp);
     this.props.infoList.push(
-      <li key={this.props.clicks}>
-        Next you will create an <span className="yellow">emoji-password</span>.
-      </li>
+      <li key={this.props.clicks}>{strings[this.props.language].step1}</li>
     );
   }
 
@@ -33,36 +86,27 @@ class EmojiInfo extends Component {
       infoList.pop();
       infoList.push(
         <li key={clicks - 1} style={liStyle}>
-          Next you will create an <span className="yellow">emoji-password</span>.
+          {strings[this.props.language].step1}
         </li>,
-        <li key={clicks}>
-          You do this by <span className="yellow">selecting keywords</span> to
-          substitute for blanks in a <span className="yellow">story</span>.
-        </li>
+        <li key={clicks}>{strings[this.props.language].step2}</li>
       );
     }
     if (clicks === 2) {
       infoList.pop();
       infoList.push(
         <li key={clicks - 1} style={liStyle}>
-          You do this by <span className="yellow">selecting keywords</span> to
-          substitute for blanks in a <span className="yellow">story</span>.
+          {strings[this.props.language].step2}
         </li>,
-        <li key={clicks}>
-          Each keyword <span className="yellow">corresponds</span> to an emoji.
-        </li>
+        <li key={clicks}>{strings[this.props.language].step3}</li>
       );
     }
     if (clicks === 3) {
       infoList.pop();
       infoList.push(
         <li key={clicks - 1} style={liStyle}>
-          Each keyword <span className="yellow">corresponds</span> to an emoji.
+          {strings[this.props.language].step3}
         </li>,
-        <li key={clicks}>
-          The <span className="yellow">sequence of emojis</span> that occurs
-          from the story, will form your emoji-password.
-        </li>
+        <li key={clicks}>{strings[this.props.language].step4}</li>
       );
     }
     return infoList;
@@ -94,7 +138,7 @@ class EmojiInfo extends Component {
               onClick={this.props.onContinueClick}
               block
             >
-              Next
+              {strings[this.props.language].next}
             </Button>
           )}
           {this.props.clicks === 3 && (
@@ -104,7 +148,7 @@ class EmojiInfo extends Component {
               onClick={this.props.onContinueClick}
               block
             >
-              Begin
+              {strings[this.props.language].continue}
             </Button>
           )}
         </EmojiFooter>
@@ -115,7 +159,8 @@ class EmojiInfo extends Component {
 
 const mapStateToProps = state => {
   return {
-    timestamp1: state.timestamp1
+    timestamp1: state.timestamp1,
+    language: state.language
   };
 };
 
@@ -132,7 +177,8 @@ EmojiInfo.propTypes = {
   clicks: PropTypes.number,
   infoList: PropTypes.array,
   timestamp1: PropTypes.number,
-  setTimestamp1: PropTypes.func
+  setTimestamp1: PropTypes.func,
+  language: PropTypes.string
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(EmojiInfo);

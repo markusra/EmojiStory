@@ -14,6 +14,21 @@ import { emojiStoryUpdateDB, timestampUpdateDB } from "../../../services/databas
 import {createTimestamp, calculateTimeUsed} from "../../../services/timestamping";
 import { getRandomKeyboard } from "../../../services/randomizer";
 
+let strings = {
+  en: {
+    memoriseText: "Memorise this EmojiStory",
+    acceptRemember: "Ok, I remember!"
+  },
+  no: {
+    memoriseText: "Husk emoji-passordet ditt",
+    acceptRemember: "Ok, jeg husker det!"
+  },
+  de: {
+    memoriseText: "Merke dir diese EmojiStory",
+    acceptRemember: "Ok, Ich merke sie mir!"
+  }
+};
+
 class StorySummary extends Component {
   componentWillMount() {
     redirectUser(this.props.userProgress);
@@ -112,7 +127,7 @@ class StorySummary extends Component {
             <div className="emojiDiv">
               <div className="emojiContainer justify-content-center">
                 <Row className="storyHeader justify-content-center">
-                  Memorise this EmojiStory
+                  {strings[this.props.language].memoriseText}
                 </Row>
                 <EmojiRow
                   emojiIcon_1={emojiIcons[0]}
@@ -131,7 +146,7 @@ class StorySummary extends Component {
                 onClick={() => this.onButtonClick()}
                 block
               >
-                Ok, I remember!
+                {strings[this.props.language].acceptRemember}
               </Button>
             </div>
           </div>
@@ -147,6 +162,7 @@ const mapStateToProps = state => {
     storyTemplate: state.storyTemplate,
     answers: state.answers,
     timestamp1: state.timestamp1,
+    language: state.language,
     timestamp2: state.timestamp2,
     storyID: state.storyID,
     keyboard: state.keyboard,
@@ -186,7 +202,8 @@ StorySummary.propTypes = {
   storyID: PropTypes.number,
   keyboard: PropTypes.array,
   answerIndices: PropTypes.array,
-  deviceType: PropTypes.string
+  deviceType: PropTypes.string,
+  language: PropTypes.string
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(StorySummary);

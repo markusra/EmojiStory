@@ -2,12 +2,32 @@ import React, { Component } from "react";
 import { FormGroup, Label, Input } from "reactstrap";
 import PropTypes from "prop-types";
 import "./index.css";
-
 import { setAge } from "../../../../actions/index";
 import { setNationality } from "../../../../actions/index";
-
-// Connect to Redux store
 import { connect } from "react-redux";
+
+let strings = {
+  en: {
+    ageQuestion: "What is your gender?",
+    agePlaceholder: "Age",
+    nationalityQuestion: "Where du you come from?",
+    nationalityPlaceholder: "Choose..."
+
+  },
+  no: {
+    ageQuestion: "Hvor gammel er du?",
+    agePlaceholder: "Alder",
+    nationalityQuestion: "Hvor kommer du fra?",
+    nationalityPlaceholder: "Velg..."
+
+  },
+  de: {
+    ageQuestion: "",
+    agePlaceholder: "",
+    nationalityQuestion: "",
+    nationalityPlaceholder: ""
+  }
+};
 
 class AgeAndCountry extends Component {
   constructor(props) {
@@ -21,7 +41,7 @@ class AgeAndCountry extends Component {
     var countries = [];
     countries[0] = (
       <option key={0} value="" disabled hidden>
-        Choose...
+      {strings[this.props.language].nationalityPlaceholder}
       </option>
     );
 
@@ -53,7 +73,7 @@ class AgeAndCountry extends Component {
       <div>
         <FormGroup style={{ marginTop: "10px" }}>
           <Label for="age" className="labelSize">
-            What is your age?
+          {strings[this.props.language].ageQuestion}
           </Label>
           <Input
             type="number"
@@ -61,7 +81,7 @@ class AgeAndCountry extends Component {
             max="120"
             name="age"
             id="age"
-            placeholder="Age"
+            placeholder={strings[this.props.language].agePlaceholder}
             value={this.props.age}
             onChange={e => {
               this.props.setAge(e.target.value);
@@ -71,7 +91,7 @@ class AgeAndCountry extends Component {
         </FormGroup>
         <FormGroup style={{ marginTop: "30px" }}>
           <Label for="nationality" className="labelSize">
-            Where do you come from?
+          {strings[this.props.language].nationalityQuestion}
           </Label>
           <Input
             type="select"
@@ -94,7 +114,8 @@ class AgeAndCountry extends Component {
 const mapStateToProps = state => {
   return {
     age: state.age,
-    nationality: state.nationality
+    nationality: state.nationality,
+    language: state.language
   };
 };
 
@@ -113,7 +134,8 @@ AgeAndCountry.propTypes = {
   nationality: PropTypes.string,
   age: PropTypes.string,
   setNationality: PropTypes.func,
-  setAge: PropTypes.func
+  setAge: PropTypes.func,
+  language: PropTypes.string
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AgeAndCountry);

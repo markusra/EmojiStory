@@ -1,8 +1,22 @@
 import React, { Component } from "react";
+import "./index.css";
+import PropTypes from "prop-types";
 import AppContainer from "../../AppContainer";
 import GenderButtons from "./GenderButtons/index";
 import SurveyBody from "./../SurveyBody";
-import "./index.css";
+import { connect } from "react-redux";
+
+let strings = {
+  en: {
+    genderQuestion: "What is your gender?"
+  },
+  no: {
+    genderQuestion: "Hvilket kjønn er du?"
+  },
+  de: {
+    genderQuestion: "Was ist Ihr Geschlecht?"
+  }
+};
 
 class Gender extends Component {
   render() {
@@ -11,7 +25,7 @@ class Gender extends Component {
         <SurveyBody>
           <div className="d-flex genderContainer">
             <div className="p-2 text-center bottom-margin">
-              <h3>What is your gender?</h3>
+              <h3>{strings[this.props.language].genderQuestion}</h3>
             </div>
             <GenderButtons />
           </div>
@@ -21,4 +35,14 @@ class Gender extends Component {
   }
 }
 
-export default Gender;
+const mapStateToProps = state => {
+  return {
+    language: state.language
+  };
+};
+
+Gender.propTypes = {
+  language: PropTypes.string
+};
+
+export default connect(mapStateToProps)(Gender);

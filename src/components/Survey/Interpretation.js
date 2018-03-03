@@ -9,6 +9,27 @@ import "./index.css";
 import { connect } from "react-redux";
 import { setInterpretation } from "../../actions/index";
 
+let strings = {
+  en: {
+    interpretationQuestion: "Did you understand the meaning of all the emojis you encountered?",
+    alternative1: "Yes",
+    alternative2: "No",
+    alternative3: "I don‘t kow"
+  },
+  no: {
+    interpretationQuestion: "Forstod du betydningen til alle emojiene du så?",
+    alternative1: "Ja",
+    alternative2: "Nei",
+    alternative3: "Vet ikke"
+  },
+  de: {
+    interpretationQuestion: "",
+    alternative1: "",
+    alternative2: "",
+    alternative3: ""
+  }
+};
+
 class Interpretation extends Component {
   render() {
     return (
@@ -17,7 +38,7 @@ class Interpretation extends Component {
           <div className="surveyContainer">
             <div className="questionDiv">
               <h3 className="story">
-                Were you able to interpret all the emojis you encountered?
+              {strings[this.props.language].interpretationQuestion}
               </h3>
             </div>
             <div className="options2">
@@ -26,21 +47,21 @@ class Interpretation extends Component {
                 size="lg"
                 onClick={() => this.props.setInterpretation("Yes", "memorization")}
               >
-                Yes
+                {strings[this.props.language].alternative1}
               </Button>
               <Button
                 className="surveyAnswerButton mid"
                 size="lg"
                 onClick={() => this.props.setInterpretation("No", "memorization")}
               >
-                No
+                {strings[this.props.language].alternative2}
               </Button>
               <Button
                 className="surveyAnswerButton bottom"
                 size="lg"
                 onClick={() => this.props.setInterpretation("I don't know", "memorization")}
               >
-                I don‘t know
+                {strings[this.props.language].alternative3}
               </Button>
             </div>
           </div>
@@ -53,7 +74,8 @@ class Interpretation extends Component {
 const mapStateToProps = state => {
   return {
     interpretation: state.interpretation,
-    surveyPage: state.surveyPage
+    surveyPage: state.surveyPage,
+    language: state.language
   };
 };
 
@@ -66,7 +88,8 @@ const mapDispatchToProps = dispatch => {
 };
 
 Interpretation.propTypes = {
-  setInterpretation: PropTypes.func
+  setInterpretation: PropTypes.func,
+  language: PropTypes.string
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Interpretation);

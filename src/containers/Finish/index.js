@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import AppContainer from "../../components/AppContainer";
 import AppBody from "../../components/AppBody";
@@ -7,6 +7,39 @@ import SocialButtons from "../../components/SocialButtons/index";
 import { connect } from "react-redux";
 import { redirectUser } from "../../services/redirectUser";
 
+let strings = {
+  en: {
+    finishText: (
+      <Fragment>
+        <p>
+          Thank you for participating! Your answers have been sendt to us. If
+          you have any questions or comments, please contact (link på contact?)
+          us at [EMAIL]. If you would like to help us even more with our
+          research, please share this survey:
+        </p>
+      </Fragment>
+    )
+  },
+  no: {
+    finishText: (
+      <Fragment>
+        <p>
+          Tusen takk for at du deltok! Svarene dine har blitt sent til oss. Hvis
+          du har spørsmål eller kommentarer, vennligst{" "}
+          <a href="mailto:questions@emojistory.site" target="_top">
+            kontakt
+          </a>{" "}
+          oss. Hvis du ønsker å hjelpe oss ytterligere med denne forskningen,
+          vennligst del denne undersøkelsen:
+        </p>
+      </Fragment>
+    )
+  },
+  de: {
+    finishText: ""
+  }
+};
+
 class Finish extends Component {
   componentWillMount() {
     redirectUser(this.props.userProgress);
@@ -14,12 +47,8 @@ class Finish extends Component {
 
   render() {
     return (
-      <AppContainer appTitle="Survey Finished!">
-        <AppBody>
-          <p>
-            You finished the survey and your answers are send to us. Thank you!
-          </p>
-        </AppBody>
+      <AppContainer appTitle="Survey – Emoji-Based Authentication">
+        <AppBody>{strings[this.props.language].finishText}</AppBody>
 
         <AppFooter>
           <SocialButtons />
@@ -31,12 +60,14 @@ class Finish extends Component {
 
 const mapStateToProps = state => {
   return {
-    userProgress: state.userProgress
+    userProgress: state.userProgress,
+    language: state.language
   };
 };
 
 Finish.propTypes = {
-  userProgress: PropTypes.string
+  userProgress: PropTypes.string,
+  language: PropTypes.string
 };
 
 export default connect(mapStateToProps)(Finish);
