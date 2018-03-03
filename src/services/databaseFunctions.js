@@ -100,7 +100,6 @@ export const emojiStoryUpdateDB = (
         .update({
           answers: Answers,
           answerIndices: AnswerIndices,
-          answerOptions: "",
           deviceType: DeviceType,
           keyboard: Keyboard,
           emojiStoryCreated: true,

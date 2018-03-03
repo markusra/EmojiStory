@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import "./index.css";
 import history from "../../../history";
@@ -8,10 +8,20 @@ import EmojiRow from "../../../components/EmojiStory/EmojiRow";
 import { Button, Row } from "reactstrap";
 import { connect } from "react-redux";
 import { setUserProgress } from "../../../actions/index";
-import {setTimestamp1, setTimestamp2, setKeyboard} from "../../../actions/index";
+import {
+  setTimestamp1,
+  setTimestamp2,
+  setKeyboard
+} from "../../../actions/index";
 import { redirectUser } from "../../../services/redirectUser";
-import { emojiStoryUpdateDB, timestampUpdateDB } from "../../../services/databaseFunctions";
-import {createTimestamp, calculateTimeUsed} from "../../../services/timestamping";
+import {
+  emojiStoryUpdateDB,
+  timestampUpdateDB
+} from "../../../services/databaseFunctions";
+import {
+  createTimestamp,
+  calculateTimeUsed
+} from "../../../services/timestamping";
 import { getRandomKeyboard } from "../../../services/randomizer";
 
 let strings = {
@@ -30,20 +40,29 @@ let strings = {
 };
 
 class StorySummary extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      willRedirect: redirectUser(this.props.userProgress)
+    };
+  }
+
   componentWillMount() {
-    redirectUser(this.props.userProgress);
-    // Calculate time spent on creating the emoji-password and send it to DB
-    const timeUsed = calculateTimeUsed(
-      this.props.timestamp1,
-      this.props.timestamp2
-    );
-    timestampUpdateDB("timestamp2", timeUsed);
+    if (!this.state.willRedirect && this.props.userProgress === "/summary") {
+      // Calculate time spent on creating the emoji-password and send it to DB
+      const timeUsed = calculateTimeUsed(
+        this.props.timestamp1,
+        this.props.timestamp2
+      );
+      timestampUpdateDB("timestamp2", timeUsed);
 
-    // Set first timestamp for time spent on memorizing
-    const timestamp = createTimestamp();
-    this.props.setTimestamp1(timestamp);
+      // Set first timestamp for time spent on memorizing
+      const timestamp = createTimestamp();
+      this.props.setTimestamp1(timestamp);
 
-    this.props.setKeyboard(getRandomKeyboard(this.props.answers));
+      this.props.setKeyboard(getRandomKeyboard(this.props.answers));
+    }
   }
 
   fillPlaceholders(storyTemplate, emojis) {
@@ -94,7 +113,13 @@ class StorySummary extends Component {
 
     this.props.answers.map(answer => emojiTextArray.push(answer.text));
     // Update DB
-    emojiStoryUpdateDB(emojiTextArray, this.props.answerIndices, this.props.keyboard, this.props.storyID, this.props.deviceType);
+    emojiStoryUpdateDB(
+      emojiTextArray,
+      this.props.answerIndices,
+      this.props.keyboard,
+      this.props.storyID,
+      this.props.deviceType
+    );
 
     const url = "/login";
     this.props.setUserProgress(url);
@@ -110,48 +135,52 @@ class StorySummary extends Component {
     const emojiIcons = this.getEmojiIconArray();
 
     return (
-      <EmojiContainer>
-        <EmojiBody>
-          <div className="storyContainer">
-            <div className="storyDiv">
-              <h3
-                style={{
-                  padding: "15px",
-                  border: "1px solid white",
-                  borderRadius: "8px"
-                }}
-              >
-                {userStory}
-              </h3>
-            </div>
-            <div className="emojiDiv">
-              <div className="emojiContainer justify-content-center">
-                <Row className="storyHeader justify-content-center">
-                  {strings[this.props.language].memoriseText}
-                </Row>
-                <EmojiRow
-                  emojiIcon_1={emojiIcons[0]}
-                  emojiIcon_2={emojiIcons[1]}
-                  emojiIcon_3={emojiIcons[2]}
-                  emojiIcon_4={emojiIcons[3]}
-                />
-              </div>
-            </div>
+      <Fragment>
+        {this.state.willRedirect ? null : (
+          <EmojiContainer>
+            <EmojiBody>
+              <div className="storyContainer">
+                <div className="storyDiv">
+                  <h3
+                    style={{
+                      padding: "15px",
+                      border: "1px solid white",
+                      borderRadius: "8px"
+                    }}
+                  >
+                    {userStory}
+                  </h3>
+                </div>
+                <div className="emojiDiv">
+                  <div className="emojiContainer justify-content-center">
+                    <Row className="storyHeader justify-content-center">
+                      {strings[this.props.language].memoriseText}
+                    </Row>
+                    <EmojiRow
+                      emojiIcon_1={emojiIcons[0]}
+                      emojiIcon_2={emojiIcons[1]}
+                      emojiIcon_3={emojiIcons[2]}
+                      emojiIcon_4={emojiIcons[3]}
+                    />
+                  </div>
+                </div>
 
-            <div className="rememberButton">
-              <Button
-                color="primary"
-                className="emojiStoryAccept"
-                size="lg"
-                onClick={() => this.onButtonClick()}
-                block
-              >
-                {strings[this.props.language].acceptRemember}
-              </Button>
-            </div>
-          </div>
-        </EmojiBody>
-      </EmojiContainer>
+                <div className="rememberButton">
+                  <Button
+                    color="primary"
+                    className="emojiStoryAccept"
+                    size="lg"
+                    onClick={() => this.onButtonClick()}
+                    block
+                  >
+                    {strings[this.props.language].acceptRemember}
+                  </Button>
+                </div>
+              </div>
+            </EmojiBody>
+          </EmojiContainer>
+        )}
+      </Fragment>
     );
   }
 }
