@@ -42,6 +42,20 @@ body {
 
   .app-footer {
     position: fixed !important;
+    left: 0 !important;
+    bottom: 0 !important;
+  }
+
+  .languageLinks {
+    display: none !important;
+  }
+
+  .btn-default:hover {
+    background-color: #ffffff !important;
+  }
+
+  .btn-secondary:hover {
+    background-color: #1b212c !important;
   }
 }
 
@@ -93,7 +107,7 @@ body {
   left: 2px;
   width: 99%;
   background-color: white;
-  box-shadow: 0px -2px 20px 0px white;
+  /*box-shadow: 0px -2px 20px 0px white;*/
 }
 
 .padding-h-5 {
@@ -189,6 +203,5 @@ fieldset[disabled] .btn-default.active {
 
 .languageLinks a:hover {
   text-decoration: underline !important;
-  cursor: pointer
+  cursor: pointer;
 }
-

@@ -6,10 +6,9 @@ function randomNumber(min, max) {
   return Math.floor(rng() * max + min);
 }
 
-function getRandomAmountOfAnswers(allAnswers, amount) {
+function getRandomAmountOfAnswers(answerSrcList, allAnswers, amount) {
   var counter = 0;
   var sameEmojiFamily;
-  var answerSrcList = [];
   var randomAnswerOptions = [];
 
   while (counter < amount) {
@@ -67,11 +66,20 @@ export function getRandomAnswerOptions(randomStory) {
 
   for (var question of randomStory.questions) {
     const allAnswers = question.answers;
-    randomAnswerOptions.push(getRandomAmountOfAnswers(allAnswers, 5));
+    var answerSrcList = [];
+    randomAnswerOptions.push(
+      getRandomAmountOfAnswers(answerSrcList, allAnswers, 5)
+    );
   }
 
   return randomAnswerOptions;
 }
+
+Array.prototype.diff = function(a) {
+  return this.filter(function(i) {
+    return a.indexOf(i) < 0;
+  });
+};
 
 export function getRandomKeyboard(chosenEmojis) {
   const categoryList = [
@@ -89,13 +97,10 @@ export function getRandomKeyboard(chosenEmojis) {
     "weather"
   ];
   const chosenCategories = getChosenCategories(chosenEmojis);
-  var remainingCategories = categoryList
-    .filter(category => !chosenCategories.includes(category))
-    .concat(
-      chosenCategories.filter(category => !categoryList.includes(category))
-    );
+  const remainingCategories = categoryList.diff(chosenCategories);
 
   var randomKeyboardEmojis = [];
+  let randomKeyboardEmojisSrc = [];
 
   for (var category of remainingCategories) {
     const allCategoryEmojis = require("../api/" + category + ".js").default[
@@ -103,7 +108,11 @@ export function getRandomKeyboard(chosenEmojis) {
     ];
 
     randomKeyboardEmojis = randomKeyboardEmojis.concat(
-      getRandomAmountOfAnswers(allCategoryEmojis, 1)
+      getRandomAmountOfAnswers(randomKeyboardEmojisSrc, allCategoryEmojis, 1)
+    );
+
+    randomKeyboardEmojisSrc = randomKeyboardEmojis.map(
+      item => item.src.split("/")[1]
     );
   }
   const finalKeyboard = chosenEmojis.concat(randomKeyboardEmojis);

@@ -1,17 +1,12 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
-import OrientationOverlay from "./OrientationOverlay/index";
-import { checkDeviceType } from "../services/checkDeviceType";
 import { connect } from "react-redux";
 import { setLanguage } from "../actions/index";
 
 class AppContainer extends Component {
   render() {
-    const device = checkDeviceType();
     return (
       <Fragment>
-        {device === "mobile" ? <OrientationOverlay /> : null}
-
         <div className={"container app-container"}>
           <nav className={"navbar app-header sticky-top"}>
             <h1 className={"navbar-brand mb-0 app-title"}>

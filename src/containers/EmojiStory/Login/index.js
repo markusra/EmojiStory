@@ -13,14 +13,13 @@ import {
   setUserProgress,
   setReadyFor2ndLogin,
   setTimestamp1,
-  setTimestamp2
+  setTimestamp2,
+  setAttemptsLeft
 } from "../../../actions/index";
 import { redirectUser } from "../../../services/redirectUser";
 import {
   createTimestamp,
-  calculateTimeUsed
 } from "../../../services/timestamping";
-import { timestampUpdateDB } from "../../../services/databaseFunctions";
 
 let strings = {
   en: {
@@ -38,11 +37,12 @@ class Login extends Component {
   constructor(props) {
     super(props);
 
+
+
     this.state = {
       emojis: [],
       loginOverlay: false,
-      attemptsLeft: 3,
-      loginOverlay2: true,
+      loginOverlay2: this.props.attemptsLeft === 3,
       isCorrect: false,
       willRedirect: redirectUser(this.props.userProgress)
     };
@@ -50,18 +50,6 @@ class Login extends Component {
     this.onOkButtonClick = this.onOkButtonClick.bind(this);
     this.onContinueButtonClick = this.onContinueButtonClick.bind(this);
     this.isCorrectPassword = this.isCorrectPassword.bind(this);
-  }
-
-  componentWillMount() {
-    // We only want to send "time spent on summary page" the first time login mounts
-    // Calculate time spent on memorizing and send it to DB
-    if (!this.state.willRedirect && this.props.userProgress === "/login") {
-      const timeUsed = calculateTimeUsed(
-        this.props.timestamp1,
-        this.props.timestamp2
-      );
-      timestampUpdateDB("timestamp3", timeUsed);
-    }
   }
 
   onDeleteButtonClick() {
@@ -90,9 +78,18 @@ class Login extends Component {
       this.props.setTimestamp2(timestamp);
 
       const isCorrect = this.isCorrectPassword(tempArray);
-      const attempts = this.state.attemptsLeft - 1;
+      const attempts = this.props.attemptsLeft - 1;
+      this.props.setAttemptsLeft(attempts);
+
+      if (attempts <= 0) {
+        if (this.props.readyFor2ndLogin) {
+          this.props.setUserProgress("/finish");
+        } else {
+          this.props.setUserProgress("/survey");
+        }
+      }
+
       this.setState({
-        attemptsLeft: attempts,
         loginOverlay: true,
         isCorrect: isCorrect
       });
@@ -104,18 +101,12 @@ class Login extends Component {
   }
 
   onContinueButtonClick() {
-    const timeUsed = calculateTimeUsed(
-      this.props.timestamp1,
-      this.props.timestamp2
-    );
-
     if (this.props.readyFor2ndLogin) {
-      timestampUpdateDB("timestamp5", timeUsed, 3 - this.state.attemptsLeft);
       const url = "/finish";
       this.props.setUserProgress(url);
       history.push(url);
     } else {
-      timestampUpdateDB("timestamp4", timeUsed, 3 - this.state.attemptsLeft);
+      //timestampUpdateDB("timestamp4", timeUsed, 3 - this.props.attemptsLeft);
       this.props.setReadyFor2ndLogin();
       const url = "/survey";
       this.props.setUserProgress(url);
@@ -140,7 +131,7 @@ class Login extends Component {
             <LoginOverlay
               visible={this.state.loginOverlay}
               isCorrect={this.state.isCorrect}
-              attemptsLeft={this.state.attemptsLeft}
+              attemptsLeft={this.props.attemptsLeft}
               onTryAgainButtonClick={this.onTryAgainButtonClick}
               onContinueButtonClick={this.onContinueButtonClick}
             />
@@ -331,7 +322,8 @@ const mapStateToProps = state => {
     timestamp1: state.timestamp1,
     timestamp2: state.timestamp2,
     answers: state.answers,
-    language: state.language
+    language: state.language,
+    attemptsLeft: state.attemptsLeft
   };
 };
 
@@ -348,6 +340,9 @@ const mapDispatchToProps = dispatch => {
     },
     setTimestamp2: timestamp2 => {
       dispatch(setTimestamp2(timestamp2));
+    },
+    setAttemptsLeft: attemptsLeft => {
+      dispatch(setAttemptsLeft(attemptsLeft));
     }
   };
 };
@@ -364,7 +359,9 @@ Login.propTypes = {
   timestamp1: PropTypes.number,
   timestamp2: PropTypes.number,
   answers: PropTypes.array,
-  language: PropTypes.string
+  language: PropTypes.string,
+  attemptsLeft: PropTypes.number,
+  setAttemptsLeft: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -9,7 +9,7 @@ import history from "./history";
 
 import Welcome from "./containers/Welcome";
 import CreateEmojiStory from "./containers/EmojiStory/CreateStory";
-import StorySummary from "./containers/EmojiStory/StorySummary/";
+import StorySummary from "./containers/EmojiStory/StorySummary";
 import Login from "./containers/EmojiStory/Login";
 import Finish from "./containers/Finish";
 import Survey from "./containers/Survey";
@@ -30,7 +30,6 @@ ReactDOM.render(
           <Route exact path="/emojiStory" component={CreateEmojiStory} />
           <Route exact path="/summary" component={StorySummary} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/login2" component={Login} />
           <Route exact path="/finish" component={Finish} />
           <Route exact path="/survey" component={Survey} />
           <Route exact path="/loading" component={LoadingScreen} />

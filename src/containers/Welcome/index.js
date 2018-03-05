@@ -17,6 +17,7 @@ import {
 import { createDBEntry } from "../../services/databaseFunctions";
 import { checkDeviceType } from "../../services/checkDeviceType";
 import { redirectUser } from "../../services/redirectUser";
+var locale = require("browser-locale")();
 
 let strings = {
   en: {
@@ -86,10 +87,7 @@ class Welcome extends Component {
   }
 
   detectLanguage() {
-    var browserLanguage =
-      navigator.languages[0] || navigator.language || navigator.userLanguage;
-    // All current browsers and IE >= 11 support navigator.language
-    // navigator.userLanguage is for IE browsers lower than version 11
+    var browserLanguage = locale;
     browserLanguage = browserLanguage.toLowerCase();
     if (
       browserLanguage.includes("nb") ||
@@ -145,8 +143,7 @@ class Welcome extends Component {
 const mapStateToProps = state => {
   return {
     userProgress: state.userProgress,
-    language: state.language,
-    languageOverlay: state.languageOverlay
+    language: state.language
   };
 };
 

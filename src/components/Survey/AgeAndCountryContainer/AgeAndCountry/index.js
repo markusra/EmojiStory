@@ -77,7 +77,7 @@ class AgeAndCountry extends Component {
           </Label>
           <Input
             type="number"
-            min="10"
+            min="6"
             max="120"
             name="age"
             id="age"

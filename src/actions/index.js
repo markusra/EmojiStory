@@ -147,3 +147,12 @@ export const setLanguage = language => {
     language
   };
 };
+
+export const setAttemptsLeft = attemptsLeft => {
+  return {
+    type: "SET_ATTEMPTSLEFT",
+    attemptsLeft
+  };
+};
+
+

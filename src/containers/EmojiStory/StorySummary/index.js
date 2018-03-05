@@ -44,8 +44,10 @@ class StorySummary extends Component {
     super(props);
 
     this.state = {
-      willRedirect: redirectUser(this.props.userProgress)
+      willRedirect: redirectUser(this.props.userProgress),
+      startTimestamp: 0
     };
+
   }
 
   componentWillMount() {
@@ -58,8 +60,7 @@ class StorySummary extends Component {
       timestampUpdateDB("timestamp2", timeUsed);
 
       // Set first timestamp for time spent on memorizing
-      const timestamp = createTimestamp();
-      this.props.setTimestamp1(timestamp);
+      this.setState({startTimestamp: createTimestamp()});
 
       this.props.setKeyboard(getRandomKeyboard(this.props.answers));
     }
@@ -106,8 +107,12 @@ class StorySummary extends Component {
 
   onButtonClick() {
     // Set second timestamp for time spent on memorizing
-    const timestamp = createTimestamp();
-    this.props.setTimestamp2(timestamp);
+    const stopTimestamp = createTimestamp();
+    const timeUsed = calculateTimeUsed(
+      this.state.startTimestamp,
+      stopTimestamp
+    );
+    timestampUpdateDB("timestamp3", timeUsed);
 
     var emojiTextArray = [];
 
@@ -136,7 +141,7 @@ class StorySummary extends Component {
 
     return (
       <Fragment>
-        {this.state.willRedirect ? null : (
+        {this.state.willRedirect ? <div>Test</div> : (
           <EmojiContainer>
             <EmojiBody>
               <div className="storyContainer">

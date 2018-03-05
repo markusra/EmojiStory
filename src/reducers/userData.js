@@ -17,7 +17,8 @@ const initialState = {
   memorization: "",
   timestamp1: 0,
   timestamp2: 0,
-  deviceType: ""
+  deviceType: "",
+  attemptsLeft: 3
 };
 
 const userData = (state = initialState, action) => {
@@ -140,6 +141,11 @@ const userData = (state = initialState, action) => {
         language: action.language
       };
 
+    case "SET_ATTEMPTSLEFT":
+      return {
+        ...state,
+        attemptsLeft: action.attemptsLeft
+      };
     default:
       return state;
   }
