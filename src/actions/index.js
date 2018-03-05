@@ -155,4 +155,12 @@ export const setAttemptsLeft = attemptsLeft => {
   };
 };
 
+export const setStrategy = (strategy, surveyPage) => {
+  return {
+    type: "SET_STRATEGY",
+    strategy,
+    surveyPage
+  };
+};
+
 

@@ -25,6 +25,7 @@ export const createDBEntry = () => {
         timestamp4: "",
         timestamp5: "",
         storyID: "",
+        strategy: "",
         surveyFinished: false
       };
 
@@ -116,7 +117,8 @@ export const questionsUpdateDB = (
   Interpretation,
   ItBackground,
   Memorization,
-  Nationality
+  Nationality,
+  Strategy
 ) => {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
@@ -130,7 +132,8 @@ export const questionsUpdateDB = (
           interpretation: Interpretation,
           itBackground: ItBackground,
           memorization: Memorization,
-          nationality: Nationality
+          nationality: Nationality,
+          strategy: Strategy
         });
     }
   });

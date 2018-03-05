@@ -5,6 +5,7 @@ import ITBackground from "../../components/Survey/ITBackground";
 import EmojiUsage from "../../components/Survey/EmojiUsage";
 import Interpretation from "../../components/Survey/Interpretation";
 import Memorization from "../../components/Survey/Memorization";
+import Strategy from "../../components/Survey/Strategy";
 import AgeAndCountryContainer from "../../components/Survey/AgeAndCountryContainer/index";
 import history from "./../../history";
 import { connect } from "react-redux";
@@ -39,7 +40,8 @@ class Survey extends Component {
       this.props.interpretation,
       this.props.itBackground,
       this.props.memorization,
-      this.props.nationality
+      this.props.nationality,
+      this.props.strategy
     );
 
     this.props.setAttemptsLeft(3);
@@ -56,6 +58,7 @@ class Survey extends Component {
         {this.props.surveyPage === "emojiUsage" && <EmojiUsage />}
         {this.props.surveyPage === "interpretation" && <Interpretation />}
         {this.props.surveyPage === "memorization" && <Memorization />}
+        {this.props.surveyPage === "strategy" && <Strategy />}
         {this.props.surveyPage === "questions" && (
           <AgeAndCountryContainer onSubmitForm={this.handleSubmit} />
         )}
@@ -77,7 +80,8 @@ const mapStateToProps = state => {
     surveyPage: state.surveyPage,
     timestamp1: state.timestamp1,
     timestamp2: state.timestamp2,
-    attemptsLeft: state.attemptsLeft
+    attemptsLeft: state.attemptsLeft,
+    strategy: state.strategy
   };
 };
 
@@ -106,7 +110,8 @@ Survey.propTypes = {
   setAttemptsLeft: PropTypes.func,
   timestamp1: PropTypes.number,
   timestamp2: PropTypes.number,
-  attemptsLeft: PropTypes.number
+  attemptsLeft: PropTypes.number,
+  strategy: PropTypes.string
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Survey);

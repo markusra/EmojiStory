@@ -3,70 +3,73 @@ import PropTypes from "prop-types";
 import { Button } from "reactstrap";
 import AppContainer from "./../AppContainer";
 import SurveyBody from "./SurveyBody";
+
 import "./index.css";
 
 import { connect } from "react-redux";
-import { setMemorization } from "../../actions/index";
+import { setStrategy } from "../../actions/index";
 
 let strings = {
   en: {
-    memoryQuestion: "I remembered my emoji-password by memorizing…",
-    alternative1: "the emojis",
-    alternative2: "the story",
-    alternative3: "the emojis and the story",
-    alternative4: "something else"
+    interpretationQuestion: "What strategy did you use when you created your story?",
+    alternative1: "I chose the words that fitted the story the best",
+    alternative2: "I tried to create a story that had personal meaning",
+    alternative3: "I created a crazy story that didn't make sense",
+    alternative4: "I chose the words at random"
   },
   no: {
-    memoryQuestion: "Jeg husket emoji-passordet mitt ved hjelp av…",
-    alternative1: "emojiene",
-    alternative2: "historien",
-    alternative3: "emojiene og historien",
-    alternative4: "noe annet"
+    interpretationQuestion: "Hvilken strategi brukte du da du lagde historien din?",
+    alternative1: "Jeg valgte ord som passet best til historien",
+    alternative2: "Jeg prøvde å lage en historie som hadde personlig betydning",
+    alternative3: "Jeg lagde en sprø historie som ikke gav mening",
+    alternative4: "Jeg valgte ordene tilfeldig"
   },
   de: {
-    memoryQuestion: "Ich merkte mir das Emoji-Passwort mit Hilfe von…",
-    alternative1: "den Emojis",
-    alternative2: "der Geschichte",
-    alternative3: "den Emojis und der Geschichte",
-    alternative4: "etwas anderem"
+    interpretationQuestion: "",
+    alternative1: "",
+    alternative2: "",
+    alternative3: "",
+    alternative4: ""
   }
 };
 
-class Memorization extends Component {
+class Strategy extends Component {
   render() {
     return (
       <AppContainer appTitle="Survey – Emoji-Based Authentication">
         <SurveyBody>
           <div className="surveyContainer">
             <div className="questionDiv">
-              <h3 className="story">{strings[this.props.language].memoryQuestion}</h3>
+              <h3 className="story">
+              {strings[this.props.language].interpretationQuestion}
+              </h3>
             </div>
             <div className="options2">
               <Button
                 className="surveyAnswerButton top"
                 size="lg"
-                onClick={() => this.props.setMemorization("the emojis", "strategy")}
+                onClick={() => this.props.setStrategy("Best fit", "questions")}
               >
                 {strings[this.props.language].alternative1}
               </Button>
               <Button
                 className="surveyAnswerButton mid"
                 size="lg"
-                onClick={() => this.props.setMemorization("the story", "strategy")}
+                onClick={() => this.props.setStrategy("Personal", "questions")}
               >
                 {strings[this.props.language].alternative2}
               </Button>
               <Button
                 className="surveyAnswerButton mid"
                 size="lg"
-                onClick={() => this.props.setMemorization("the emojis and the story", "strategy")}
+                onClick={() => this.props.setStrategy("Crazy", "questions")}
               >
                 {strings[this.props.language].alternative3}
               </Button>
               <Button
                 className="surveyAnswerButton bottom"
                 size="lg"
-                onClick={() => this.props.setMemorization("something else", "strategy")}
+                onClick={() => this.props.setStrategy("Random", "questions")}
               >
                 {strings[this.props.language].alternative4}
               </Button>
@@ -80,7 +83,6 @@ class Memorization extends Component {
 
 const mapStateToProps = state => {
   return {
-    memorization: state.memorization,
     surveyPage: state.surveyPage,
     language: state.language
   };
@@ -88,15 +90,15 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setMemorization: (memorization, surveyPage) => {
-      dispatch(setMemorization(memorization, surveyPage));
+    setStrategy: (strategy, surveyPage) => {
+      dispatch(setStrategy(strategy, surveyPage));
     }
   };
 };
 
-Memorization.propTypes = {
-  setMemorization: PropTypes.func,
+Strategy.propTypes = {
+  setStrategy: PropTypes.func,
   language: PropTypes.string
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Memorization);
+export default connect(mapStateToProps, mapDispatchToProps)(Strategy);

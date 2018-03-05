@@ -15,6 +15,7 @@ const initialState = {
   itBackground: "",
   interpretation: "",
   memorization: "",
+  strategy: "",
   timestamp1: 0,
   timestamp2: 0,
   deviceType: "",
@@ -145,6 +146,12 @@ const userData = (state = initialState, action) => {
       return {
         ...state,
         attemptsLeft: action.attemptsLeft
+      };
+    case "SET_STRATEGY":
+      return {
+        ...state,
+        strategy: action.strategy,
+        surveyPage: action.surveyPage
       };
     default:
       return state;
