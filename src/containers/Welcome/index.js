@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
+import "./index.css";
 import AppContainer from "../../components/AppContainer";
 import AppBody from "../../components/AppBody";
 import AppFooter from "../../components/AppFooter";
-import LanguageOverlay from "../../components/LanguageOverlay";
 import { Button } from "reactstrap";
 import history from "../../history";
 import { connect } from "react-redux";
@@ -12,16 +12,11 @@ import {
   deleteAnswers,
   deleteAnswerIndices,
   setDeviceType,
-  setLanguage,
-  setLanguageOverlay
+  setLanguage
 } from "../../actions/index";
 import { createDBEntry } from "../../services/databaseFunctions";
 import { checkDeviceType } from "../../services/checkDeviceType";
 import { redirectUser } from "../../services/redirectUser";
-import "./index.css";
-import ukFlag from "../../images/1f1ec-1f1e7.svg";
-import germanFlag from "../../images/1f1e9-1f1ea.svg";
-import norwegianFlag from "../../images/1f1e7-1f1fb.svg";
 
 let strings = {
   en: {
@@ -85,28 +80,27 @@ class Welcome extends Component {
     super(props);
 
     this.state = {
-      willRedirect: redirectUser(this.props.userProgress),
-      languageOverlay: false
+      willRedirect: redirectUser(this.props.userProgress)
     };
+    this.detectLanguage();
+  }
 
+  detectLanguage() {
     var browserLanguage =
       navigator.languages[0] || navigator.language || navigator.userLanguage;
     // All current browsers and IE >= 11 support navigator.language
     // navigator.userLanguage is for IE browsers lower than version 11
-
+    browserLanguage = browserLanguage.toLowerCase();
     if (
-      browserLanguage === "nb" ||
-      browserLanguage === "no" ||
-      browserLanguage === "nn" ||
-      browserLanguage === "nb-NO" ||
-      browserLanguage === "nn-NO"
+      browserLanguage.includes("nb") ||
+      browserLanguage.includes("no") ||
+      browserLanguage.includes("nn")
     ) {
       this.props.setLanguage("no");
-    } else if (browserLanguage === "de" || browserLanguage === "de-de") {
+    } else if (browserLanguage.includes("de")) {
       this.props.setLanguage("de");
     } else {
       this.props.setLanguage("en");
-      // this.props.setLanguageOverlay();
     }
   }
 
@@ -129,34 +123,7 @@ class Welcome extends Component {
       <Fragment>
         {this.state.willRedirect ? null : (
           <AppContainer appTitle="Survey – Emoji-Based Authentication">
-            <LanguageOverlay visible={this.state.languageOverlay} />
-
-            <AppBody>
-              {strings[this.props.language].welcomeText}
-
-              {strings[this.props.language].languageText}
-
-              <div className="bottomMargin">
-                <img
-                  src={ukFlag}
-                  alt="English"
-                  className="flagStyle"
-                  onClick={() => this.props.setLanguage("en")}
-                />
-                <img
-                  src={germanFlag}
-                  alt="German"
-                  className="flagStyle"
-                  onClick={() => this.props.setLanguage("de")}
-                />
-                <img
-                  src={norwegianFlag}
-                  alt="Norwegian"
-                  className="flagStyle"
-                  onClick={() => this.props.setLanguage("no")}
-                />
-              </div>
-            </AppBody>
+            <AppBody>{strings[this.props.language].welcomeText}</AppBody>
 
             <AppFooter>
               <Button
@@ -199,9 +166,6 @@ const mapDispatchToProps = dispatch => {
     },
     setLanguage: language => {
       dispatch(setLanguage(language));
-    },
-    setLanguageOverlay: languageOverlay => {
-      dispatch(setLanguageOverlay(languageOverlay));
     }
   };
 };
@@ -213,8 +177,7 @@ Welcome.propTypes = {
   deleteAnswerIndices: PropTypes.func,
   setDeviceType: PropTypes.func,
   language: PropTypes.string,
-  setLanguage: PropTypes.func,
-  setLanguageOverlay: PropTypes.func
+  setLanguage: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Welcome);

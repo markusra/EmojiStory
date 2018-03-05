@@ -186,3 +186,9 @@ fieldset[disabled] .btn-default.active {
   color: #ffffff;
   background-color: #1b212c;
 }
+
+.languageLinks a:hover {
+  text-decoration: underline !important;
+  cursor: pointer
+}
+

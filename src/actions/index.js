@@ -147,10 +147,3 @@ export const setLanguage = language => {
     language
   };
 };
-
-export const setLanguageOverlay = languageOverlay => {
-  return {
-    type: "SET_LANGUAGEOVERLAY",
-    languageOverlay
-  };
-};
