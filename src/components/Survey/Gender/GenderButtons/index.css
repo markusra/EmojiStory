@@ -1,24 +1,14 @@
 @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
 
 @media (max-width: 500px) {
-  .female-styling {
-    font-size: 35vh;
-    color: #1b212c;
-  }
-
-  .male-styling {
+  .gender-styling {
     font-size: 35vh;
     color: #1b212c;
   }
 }
 
 @media (min-width: 499px) {
-  .female-styling {
-    font-size: 250px;
-    color: #1b212c;
-  }
-
-  .male-styling {
+  .gender-styling {
     font-size: 250px;
     color: #1b212c;
   }
@@ -31,4 +21,8 @@ h4 {
 
 .pointer {
   cursor: pointer;
+}
+
+.gender-styling:hover {
+  color: #3B4961;
 }

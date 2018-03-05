@@ -77,6 +77,10 @@ body {
   .h3 {
     font-size: 1.3rem !important;
   }
+
+  .btn-lg, .btn-group-lg > .btn {
+    font-size: 1rem !important;
+  }
 }
 
 .navbar-brand {

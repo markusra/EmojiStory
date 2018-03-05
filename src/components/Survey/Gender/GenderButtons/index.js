@@ -29,7 +29,7 @@ class GenderButtons extends Component {
               }}
             >
               <i
-                className="fa fa-female female-styling pointer"
+                className="fa fa-female gender-styling pointer"
                 aria-hidden="true"
               />
             </div>
@@ -41,7 +41,7 @@ class GenderButtons extends Component {
               }}
             >
               <i
-                className="fa fa-male male-styling pointer"
+                className="fa fa-male gender-styling pointer"
                 aria-hidden="true"
               />
             </div>

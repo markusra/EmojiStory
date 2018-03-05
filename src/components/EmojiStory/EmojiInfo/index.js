@@ -17,6 +17,7 @@ import { createTimestamp } from "../../../services/timestamping";
 
 let strings = {
   en: {
+    title: "Instructions",
     step1: (
       <Fragment>
         Next you will create an <span className="yellow">emoji-password</span>.
@@ -43,32 +44,33 @@ let strings = {
     continue: "Continue"
   },
   no: {
+    title: "Instruksjoner",
     step1: (
       <Fragment>
-        På neste skjerm skal du lage et <span className="yellow">emoji-passord</span>.
+        Du vil nå opprette ditt eget <span className="yellow">emoji-passord</span>.
       </Fragment>
     ),
     step2: (
       <Fragment>
-        Det gjør du ved å <span className="yellow">velge nøkkelord</span> som
-        erstatter tomrom i en <span className="yellow">historie</span>.
+        Dette gjør du ved å <span className="yellow">sette inn ord</span> i en <span className="yellow">historie</span>. Historien trenger ikke å være sann.
       </Fragment>
     ),
     step3: (
       <Fragment>
-        Hvert nøkkelord <span className="yellow">tilsvarer</span> en emoji.
+        Ordene du setter inn <span className="yellow">tilsvarer</span> forskjellige emojis.
       </Fragment>
     ),
     step4: (
       <Fragment>
-        Emojiene som oppstår basert på historien, representerer emoji-passordet ditt.
-        {/* Den resulterende <span className="yellow">sekvensen</span> representerer ditt emoji-passord. */}
+        Til slutt har du <span className="yellow">fire emojis</span> som danner ditt emoji-passord.
       </Fragment>
     ),
     next: "Neste",
     continue: "Fortsett"
   },
-  de: {}
+  de: {
+    title: "Anleitung"
+  }
 };
 
 class EmojiInfo extends Component {
@@ -126,6 +128,7 @@ class EmojiInfo extends Component {
     return (
       <EmojiContainer appTitle="Creating an emoji-password">
         <EmojiBody>
+          <div className="instructionHeader"> {strings[this.props.language].title}</div>
           <div className="instructionList">
             <ul>{instructions}</ul>
           </div>

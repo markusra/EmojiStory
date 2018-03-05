@@ -38,12 +38,9 @@ class AgeAndCountryContainer extends Component {
           </div>
           <AppFooter className="age-country-body">
             <Button
+              className="surveyAnswerButton"
               block
               size="lg"
-              style={{
-                color: "white",
-                backgroundColor: "#1b212c"
-              }}
             >
               {strings[this.props.language].buttonText}
             </Button>

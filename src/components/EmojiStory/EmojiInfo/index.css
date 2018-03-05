@@ -1,10 +1,22 @@
 li {
-  margin-top: 15px
+  margin-bottom: 15px;
 }
 
 .instructionList {
   font-size: 1.2rem;
-
   padding: 15px 20px 15px 10px;
-  
+}
+
+.instructionHeader {
+  font-size: 1.4rem;
+  padding: 20px 0px 0px 25px;
+}
+
+@media (max-width: 320px) {
+  .instructionHeader {
+    font-size: 1.3rem;
+  }
+  .instructionList {
+    font-size: 1.1rem !important;
+  }
 }
