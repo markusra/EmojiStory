@@ -19,7 +19,7 @@ let strings = {
     no: "Nei"
   },
   de: {
-    itBackgroundQuestion: "Hast du Erfahrung mit IT oder Informationssicherheit?",
+    itBackgroundQuestion: "Hast du Erfahrung mit Informationstechnologie oder Informationssicherheit?",
     yes: "Ja",
     no: "Nein"
   }

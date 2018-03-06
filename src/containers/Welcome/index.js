@@ -82,7 +82,7 @@ let strings = {
         </p>
 
         <p>
-          Die Umfrage ist <b>anonym</b> und fragt nicht nach sensitiven Daten.
+          Die Umfrage ist <b>anonym</b> und bittet nicht um das Eingeben von sensiblen Daten.
           Solltest du irgendwelche Fragen über das Projekt haben, dann{" "}
           <a className="hyperlink" href="mailto:mail@emojistory.site" target="_top">
             sende uns eine Mail

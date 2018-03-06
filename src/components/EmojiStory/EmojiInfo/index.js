@@ -80,14 +80,14 @@ let strings = {
     title: "Anleitung",
     step1: (
       <Fragment>
-        Du wirst nun dein eigenes <span className="yellow">Emoji-Password</span>{" "}
+        Du wirst nun dein eigenes <span className="yellow">Emoji-Passwort</span>{" "}
         erstellen.
       </Fragment>
     ),
     step2: (
       <Fragment>
-        Dies tust du, indem du <span className="yellow">Wörter</span> in eine{" "}
-        <span className="yellow">Geschichte</span> einfügst. Die Geschichte muss
+        Als erstes fügst du <span className="yellow">Wörter</span> in eine{" "}
+        <span className="yellow">Geschichte</span> ein. Die Geschichte muss
         nicht unbedingt einen Sinn ergeben.
       </Fragment>
     ),
