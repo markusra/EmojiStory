@@ -7,9 +7,11 @@ export const createDBEntry = () => {
       const userData = {
         answers: "",
         answerIndices: "",
+        confusion: "",
         deviceType: "",
         keyboard: "",
         emojiStoryCreated: false,
+        fun: "",
         loginAttempts1: "",
         loginAttempts2: "",
         age: "",
@@ -118,7 +120,9 @@ export const questionsUpdateDB = (
   ItBackground,
   Memorization,
   Nationality,
-  Strategy
+  Strategy,
+  Confusion,
+  Fun
 ) => {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
@@ -133,7 +137,9 @@ export const questionsUpdateDB = (
           itBackground: ItBackground,
           memorization: Memorization,
           nationality: Nationality,
-          strategy: Strategy
+          strategy: Strategy,
+          confusion: Confusion,
+          fun: Fun
         });
     }
   });

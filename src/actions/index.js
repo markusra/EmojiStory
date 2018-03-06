@@ -163,4 +163,20 @@ export const setStrategy = (strategy, surveyPage) => {
   };
 };
 
+export const setConfusion = (confusion, surveyPage) => {
+  return {
+    type: "SET_CONFUSION",
+    confusion,
+    surveyPage
+  };
+};
+
+export const setFun = (fun, surveyPage) => {
+  return {
+    type: "SET_FUN",
+    fun,
+    surveyPage
+  };
+};
+
 

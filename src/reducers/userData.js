@@ -19,7 +19,9 @@ const initialState = {
   timestamp1: 0,
   timestamp2: 0,
   deviceType: "",
-  attemptsLeft: 3
+  attemptsLeft: 3,
+  confusion: "",
+  fun: ""
 };
 
 const userData = (state = initialState, action) => {
@@ -151,6 +153,18 @@ const userData = (state = initialState, action) => {
       return {
         ...state,
         strategy: action.strategy,
+        surveyPage: action.surveyPage
+      };
+    case "SET_CONFUSION":
+      return {
+        ...state,
+        confusion: action.confusion,
+        surveyPage: action.surveyPage
+      };
+    case "SET_FUN":
+      return {
+        ...state,
+        fun: action.fun,
         surveyPage: action.surveyPage
       };
     default:

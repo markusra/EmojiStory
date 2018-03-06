@@ -11,7 +11,7 @@ import { setStrategy } from "../../actions/index";
 
 let strings = {
   en: {
-    interpretationQuestion: (<Fragment><p>What strategy did you use when you created your story?</p> <p>I used...</p></Fragment>),
+    strategyQuestion: (<Fragment><p>What strategy did you use when you created your story?</p> <p>I used...</p></Fragment>),
     alternative1: "words that suited the story",
     alternative2: "words that had personal meaning",
     alternative3: "words that formed a crazy story",
@@ -19,14 +19,14 @@ let strings = {
     alternative5: "a different strategy"
   },
   no: {
-    interpretationQuestion: "Hvilken strategi brukte du da du lagde historien din? Jeg brukte...",
+    strategyQuestion: "Hvilken strategi brukte du da du lagde historien din? Jeg brukte...",
     alternative1: "Jeg valgte ord som passet best til historien",
     alternative2: "Jeg prøvde å lage en historie som hadde personlig betydning",
     alternative3: "Jeg lagde en sprø historie som ikke gav mening",
     alternative4: "Jeg valgte ordene tilfeldig"
   },
   de: {
-    interpretationQuestion: "",
+    strategyQuestion: "",
     alternative1: "",
     alternative2: "",
     alternative3: "",
@@ -42,35 +42,35 @@ class Strategy extends Component {
           <div className="surveyContainer">
             <div className="questionDiv">
               <h3 className="story">
-              {strings[this.props.language].interpretationQuestion}
+              {strings[this.props.language].strategyQuestion}
               </h3>
             </div>
             <div className="options2">
               <Button
                 className="surveyAnswerButton top"
                 size="lg"
-                onClick={() => this.props.setStrategy("Best fit", "questions")}
+                onClick={() => this.props.setStrategy("Best fit", "fun")}
               >
                 {strings[this.props.language].alternative1}
               </Button>
               <Button
                 className="surveyAnswerButton mid"
                 size="lg"
-                onClick={() => this.props.setStrategy("Personal", "questions")}
+                onClick={() => this.props.setStrategy("Personal", "fun")}
               >
                 {strings[this.props.language].alternative2}
               </Button>
               <Button
                 className="surveyAnswerButton mid"
                 size="lg"
-                onClick={() => this.props.setStrategy("Crazy", "questions")}
+                onClick={() => this.props.setStrategy("Crazy", "fun")}
               >
                 {strings[this.props.language].alternative3}
               </Button>
               <Button
                 className="surveyAnswerButton mid"
                 size="lg"
-                onClick={() => this.props.setStrategy("Random", "questions")}
+                onClick={() => this.props.setStrategy("Random", "fun")}
               >
                 {strings[this.props.language].alternative4}
               </Button>

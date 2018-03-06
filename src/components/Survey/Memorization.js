@@ -45,28 +45,28 @@ class Memorization extends Component {
               <Button
                 className="surveyAnswerButton top"
                 size="lg"
-                onClick={() => this.props.setMemorization("the emojis", "strategy")}
+                onClick={() => this.props.setMemorization("the emojis", "confusion")}
               >
                 {strings[this.props.language].alternative1}
               </Button>
               <Button
                 className="surveyAnswerButton mid"
                 size="lg"
-                onClick={() => this.props.setMemorization("the story", "strategy")}
+                onClick={() => this.props.setMemorization("the story", "confusion")}
               >
                 {strings[this.props.language].alternative2}
               </Button>
               <Button
                 className="surveyAnswerButton mid"
                 size="lg"
-                onClick={() => this.props.setMemorization("the emojis and the story", "strategy")}
+                onClick={() => this.props.setMemorization("the emojis and the story", "confusion")}
               >
                 {strings[this.props.language].alternative3}
               </Button>
               <Button
                 className="surveyAnswerButton bottom"
                 size="lg"
-                onClick={() => this.props.setMemorization("something else", "strategy")}
+                onClick={() => this.props.setMemorization("something else", "confusion")}
               >
                 {strings[this.props.language].alternative4}
               </Button>

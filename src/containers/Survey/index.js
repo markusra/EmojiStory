@@ -6,6 +6,8 @@ import EmojiUsage from "../../components/Survey/EmojiUsage";
 import Interpretation from "../../components/Survey/Interpretation";
 import Memorization from "../../components/Survey/Memorization";
 import Strategy from "../../components/Survey/Strategy";
+import Confusion from "../../components/Survey/Confusion";
+import Fun from "../../components/Survey/Fun";
 import AgeAndCountryContainer from "../../components/Survey/AgeAndCountryContainer/index";
 import history from "./../../history";
 import { connect } from "react-redux";
@@ -41,7 +43,9 @@ class Survey extends Component {
       this.props.itBackground,
       this.props.memorization,
       this.props.nationality,
-      this.props.strategy
+      this.props.strategy,
+      this.props.confusion,
+      this.props.fun
     );
 
     this.props.setAttemptsLeft(3);
@@ -58,7 +62,9 @@ class Survey extends Component {
         {this.props.surveyPage === "emojiUsage" && <EmojiUsage />}
         {this.props.surveyPage === "interpretation" && <Interpretation />}
         {this.props.surveyPage === "memorization" && <Memorization />}
+        {this.props.surveyPage === "confusion" && <Confusion />}
         {this.props.surveyPage === "strategy" && <Strategy />}
+        {this.props.surveyPage === "fun" && <Fun />}
         {this.props.surveyPage === "questions" && (
           <AgeAndCountryContainer onSubmitForm={this.handleSubmit} />
         )}
@@ -81,7 +87,9 @@ const mapStateToProps = state => {
     timestamp1: state.timestamp1,
     timestamp2: state.timestamp2,
     attemptsLeft: state.attemptsLeft,
-    strategy: state.strategy
+    strategy: state.strategy,
+    confusion: state.confusion,
+    fun: state.fun
   };
 };
 
@@ -111,7 +119,9 @@ Survey.propTypes = {
   timestamp1: PropTypes.number,
   timestamp2: PropTypes.number,
   attemptsLeft: PropTypes.number,
-  strategy: PropTypes.string
+  strategy: PropTypes.string,
+  confusion: PropTypes.string,
+  fun: PropTypes.string
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Survey);
