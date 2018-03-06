@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { Button } from "reactstrap";
 import AppContainer from "./../AppContainer";
@@ -11,14 +11,15 @@ import { setStrategy } from "../../actions/index";
 
 let strings = {
   en: {
-    interpretationQuestion: "What strategy did you use when you created your story?",
-    alternative1: "I chose the words that fitted the story the best",
-    alternative2: "I tried to create a story that had personal meaning",
-    alternative3: "I created a crazy story that didn't make sense",
-    alternative4: "I chose the words at random"
+    interpretationQuestion: (<Fragment><p>What strategy did you use when you created your story?</p> <p>I used...</p></Fragment>),
+    alternative1: "words that suited the story",
+    alternative2: "words that had personal meaning",
+    alternative3: "words that formed a crazy story",
+    alternative4: "random words",
+    alternative5: "a different strategy"
   },
   no: {
-    interpretationQuestion: "Hvilken strategi brukte du da du lagde historien din?",
+    interpretationQuestion: "Hvilken strategi brukte du da du lagde historien din? Jeg brukte...",
     alternative1: "Jeg valgte ord som passet best til historien",
     alternative2: "Jeg prøvde å lage en historie som hadde personlig betydning",
     alternative3: "Jeg lagde en sprø historie som ikke gav mening",
@@ -67,11 +68,18 @@ class Strategy extends Component {
                 {strings[this.props.language].alternative3}
               </Button>
               <Button
-                className="surveyAnswerButton bottom"
+                className="surveyAnswerButton mid"
                 size="lg"
                 onClick={() => this.props.setStrategy("Random", "questions")}
               >
                 {strings[this.props.language].alternative4}
+              </Button>
+              <Button
+                className="surveyAnswerButton bottom"
+                size="lg"
+                onClick={() => this.props.setStrategy("Random", "questions")}
+              >
+                {strings[this.props.language].alternative5}
               </Button>
             </div>
           </div>

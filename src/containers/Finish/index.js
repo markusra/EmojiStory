@@ -15,9 +15,12 @@ let strings = {
       <Fragment>
         <p>
           Thank you for participating! Your answers have been sendt to us. If
-          you have any questions or comments, please contact (link på contact?)
-          us at [EMAIL]. If you would like to help us even more with our
-          research, please share this survey:
+          you have any questions or comments, please{" "}
+          <a href="mailto:mail@emojistory.site" target="_top">
+            contact
+          </a>{" "}
+          us. If you would like to help us even more with our research, please
+          share this survey:
         </p>
       </Fragment>
     )
@@ -26,12 +29,12 @@ let strings = {
     finishText: (
       <Fragment>
         <p>
-          Tusen takk for at du deltok! Svarene dine har blitt sent til oss. Hvis
-          du har spørsmål eller kommentarer, vennligst{" "}
-          <a href="mailto:questions@emojistory.site" target="_top">
+          Tusen takk for at du tok undersøkelsen! Svarene dine har blitt sent
+          til oss. Hvis du har spørsmål eller kommentarer, vennligst{" "}
+          <a href="mailto:mail@emojistory.site" target="_top">
             kontakt
           </a>{" "}
-          oss. Hvis du ønsker å hjelpe oss ytterligere med denne forskningen,
+          oss. Hvis du ønsker å hjelpe oss ytterligere med forskningen vår,
           vennligst del denne undersøkelsen:
         </p>
       </Fragment>
