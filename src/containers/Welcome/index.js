@@ -33,15 +33,16 @@ let strings = {
 
         <p>
           The survey is anonymous and you will not be asked for any personal
-          information. If you have any questions concerning the project, please
-          contact us at [email address]. The study has been notified to the Data
-          Protection Official for Research, NSD - Norwegian Centre for Research
-          Data.
+          information. If you have any questions concerning the project, please{" "}
+          <a href="mailto:mail@emojistory.site" target="_top">
+            contact
+          </a>{" "}
+          us. The study has been notified to the Data Protection Official for
+          Research (Norwegian Centre for Research Data)
         </p>
       </Fragment>
     ),
-    startSurveyText: "Start the survey",
-    languageText: <p>Please select your preferred language:</p>
+    startSurveyText: "Start the survey"
   },
   no: {
     welcomeText: (
@@ -56,8 +57,8 @@ let strings = {
 
         <p>
           Undersøkelsen er anonym og du vil ikke bli bedt om noe personlig
-          informasjon. Om du skulle ha noen spørsmål om prosjektet, vennligst{" "}
-          <a href="mailto:questions@emojistory.site" target="_top">
+          informasjon. Om du skulle ha spørsmål om prosjektet, vennligst{" "}
+          <a href="mailto:mail@emojistory.site" target="_top">
             kontakt
           </a>{" "}
           oss. Undersøkelsen har blitt meldt til Norsk senter for forskningsdata
@@ -65,13 +66,11 @@ let strings = {
         </p>
       </Fragment>
     ),
-    startSurveyText: "Start undersøkelsen",
-    languageText: <p>Velg språk:</p>
+    startSurveyText: "Start undersøkelsen"
   },
   de: {
     welcomeText: "",
-    startSurveyText: "",
-    languageText: <p />
+    startSurveyText: ""
   }
 };
 
