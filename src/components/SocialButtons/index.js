@@ -11,7 +11,7 @@ let strings = {
     shareText: "Del denne undersøkelsen"
   },
   de: {
-    shareText: ""
+    shareText: "Teile diese Umfrage"
   }
 };
 
@@ -39,7 +39,7 @@ class SocialButtons extends Component {
             </a>
 
             <a
-              href="https://twitter.com/home?status=Can%20emojis%20replace%20passwords?%20Take%20this%20survey%20to%20help%20the%20research%20on%20emoji-based%20authentication!%20Go%20to%20emojistory.site!"
+              href="https://twitter.com/intent/tweet?url=https%3A%2F%2Femojistory.site%2F&via=markusrauhut%20%40makjellevand&text=Can%20emojis%20replace%20passwords%3F%20Take%20this%20survey%20to%20help%20the%20research%20on%20emoji%20passwords.&hashtags=emojis%2C%20passwords%2C%20security%2C%20usability"
               className="btn-social btn-twitter"
             >
               <i className="fa fa-twitter" />

@@ -16,16 +16,6 @@ class AppContainer extends Component {
           {this.props.children}
         </div>
         <div
-          style={{
-            width: "250px",
-            margin: "0 auto",
-            flexDirection: "row",
-            display: "flex",
-            textAlign: "center",
-            fontSize: 14,
-            color: "grey",
-            marginTop: 5
-          }}
           className="languageLinks"
         >
           <div style={{ flex: 1 }}>
@@ -42,20 +32,20 @@ class AppContainer extends Component {
             <a
               onClick={e => {
                 e.preventDefault();
-                this.props.setLanguage("de");
+                this.props.setLanguage("no");
               }}
             >
-              Deutsch
+              Norsk
             </a>
           </div>
           <div style={{ flex: 1 }}>
             <a
               onClick={e => {
                 e.preventDefault();
-                this.props.setLanguage("no");
+                this.props.setLanguage("de");
               }}
             >
-              Norsk
+              Deutsch
             </a>
           </div>
         </div>

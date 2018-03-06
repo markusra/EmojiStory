@@ -71,8 +71,6 @@ let strings = {
       <Fragment>
         Til slutt ender du opp med <span className="yellow">fire emojis</span>{" "}
         som danner emoji-passordet ditt.
-        
-        
       </Fragment>
     ),
     next: "Neste",
@@ -101,7 +99,7 @@ let strings = {
     ),
     step4: (
       <Fragment>
-       Letztendlich hast du <span className="yellow">vier Emojis</span>{" "}
+        Letztendlich hast du <span className="yellow">vier Emojis</span>{" "}
         generiert. Diese bilden dein Emoji-Passwort.
       </Fragment>
     ),

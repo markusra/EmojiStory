@@ -14,13 +14,12 @@ let strings = {
     finishText: (
       <Fragment>
         <p>
-          Thank you for participating! Your answers have been sendt to us. If
-          you have any questions or comments, please{" "}
+          Thank you for participating! If you have any questions or comments,
+          please{" "}
           <a href="mailto:mail@emojistory.site" target="_top">
-            contact
-          </a>{" "}
-          us. If you would like to help us even more with our research, please
-          share this survey:
+            send us an email
+          </a>. We would appreciate if you could take a moment to share our
+          survey (see below).
         </p>
       </Fragment>
     )
@@ -29,19 +28,29 @@ let strings = {
     finishText: (
       <Fragment>
         <p>
-          Tusen takk for at du tok undersøkelsen! Svarene dine har blitt sent
-          til oss. Hvis du har spørsmål eller kommentarer, vennligst{" "}
+          Tusen takk for at du tok undersøkelsen! Hvis du har spørsmål eller
+          kommentarer, vennligst{" "}
           <a href="mailto:mail@emojistory.site" target="_top">
-            kontakt
-          </a>{" "}
-          oss. Hvis du ønsker å hjelpe oss ytterligere med forskningen vår,
-          vennligst del denne undersøkelsen:
+            send oss en e-post
+          </a>. Hvis du ønsker å hjelpe oss ytterligere med forskningen vår,
+          vennligst del undersøkelsen vår (se under).
         </p>
       </Fragment>
     )
   },
   de: {
-    finishText: ""
+    finishText: (
+      <Fragment>
+        <p>
+          Vielen Dank, dass du unsere Umfrage beantwortet hast! Solltest du
+          Fragen oder Kommentare haben, dann{" "}
+          <a href="mailto:mail@emojistory.site" target="_top">
+            schicke uns eine Mail
+          </a>. Wenn du uns noch mehr helfen möchtest, kannst du unsere Umfrage
+          mit deinem Netzwerk teilen (siehe unten).
+        </p>
+      </Fragment>
+    )
   }
 };
 
@@ -61,7 +70,6 @@ class Finish extends Component {
     return (
       <AppContainer appTitle="Survey – Emoji-Based Authentication">
         <AppBody>{strings[this.props.language].finishText}</AppBody>
-
         <AppFooter>
           <SocialButtons />
         </AppFooter>

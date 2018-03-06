@@ -78,7 +78,8 @@ body {
     font-size: 1.3rem !important;
   }
 
-  .btn-lg, .btn-group-lg > .btn {
+  .btn-lg,
+  .btn-group-lg > .btn {
     font-size: 1rem !important;
   }
 }
@@ -205,9 +206,20 @@ fieldset[disabled] .btn-default.active {
   background-color: #1b212c;
 }
 
+.languageLinks {
+  width: 250px;
+  margin: 0 auto;
+  flex-direction: row;
+  display: flex;
+  text-align: center;
+  font-size: 14;
+  color: grey;
+  margin-top: 5;
+}
+
 .languageLinks a:hover {
-  text-decoration: underline !important;
   cursor: pointer;
+  color: #1b212c !important;
 }
 
 .hyperlink {

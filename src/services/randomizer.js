@@ -105,7 +105,6 @@ export function getRandomKeyboard(chosenEmojis) {
     item => item.src.split("/")[1]
   );
 
-
   for (var category of remainingCategories) {
     const allCategoryEmojis = require("../api/" + category + ".js").default[
       category
@@ -118,7 +117,6 @@ export function getRandomKeyboard(chosenEmojis) {
     randomKeyboardEmojisSrc.concat(
       randomKeyboardEmojis.map(item => item.src.split("/")[1])
     );
-
   }
   const finalKeyboard = chosenEmojis.concat(randomKeyboardEmojis);
   return shuffle(finalKeyboard);

@@ -26,19 +26,19 @@ let strings = {
         <p>
           This survey is created by Martin Kjellevand and Markus Rauhut in order
           to research the <b>usability</b> and <b>security</b> of emoji-based
-          authentication. The data from this survey is collected for a master
-          thesis conducted at the{" "}
-          <b>Norwegian University of Science and Technology</b>.
+          authentication. The survey will take approximately 3-5 minutes. The
+          data from this survey is collected for a master thesis conducted at
+          the <b>Norwegian University of Science and Technology</b>.
         </p>
 
         <p>
-          The survey is anonymous and you will not be asked for any personal
-          information. If you have any questions concerning the project, please{" "}
-          <a href="mailto:mail@emojistory.site" target="_top">
-            contact
-          </a>{" "}
-          us. The study has been notified to the Data Protection Official for
-          Research (Norwegian Centre for Research Data)
+          The survey is <b>anonymous</b> and you will not be asked for any
+          sensitive personal information. If you have any questions concerning
+          the project, please{" "}
+          <a className="hyperlink" href="mailto:mail@emojistory.site" target="_top">
+            send us an email
+          </a>. The study has been notified to the{" "}
+          <i>Data Protection Official for Research (NSD)</i>.
         </p>
       </Fragment>
     ),
@@ -50,27 +50,48 @@ let strings = {
         <p>
           Denne undersøkelsen er laget av Martin Kjellevand og Markus Rauhut for
           å kartlegge <b>brukervennligheten</b> og <b>sikkerheten</b> til
-          emoji-passord. Undersøkelsen tar 3-4 minutter. Dataen som blir samlet
+          emoji-passord. Undersøkelsen tar 3-5 minutter. Dataen som blir samlet
           inn vil bli brukt i en masteroppgave på{" "}
           <b>Norges teknisk-naturvitenskapelige universitet (NTNU)</b>.
         </p>
 
         <p>
-          Undersøkelsen er anonym og du vil ikke bli bedt om noe personlig
-          informasjon. Om du skulle ha spørsmål om prosjektet, vennligst{" "}
-          <a href="mailto:mail@emojistory.site" target="_top">
-            kontakt
-          </a>{" "}
-          oss. Undersøkelsen har blitt meldt til Norsk senter for forskningsdata
-          (NSD).
+          Undersøkelsen er <b>anonym</b> og du vil ikke bli bedt om å oppgi
+          sensitive personopplysninger. Om du skulle ha spørsmål om prosjektet,
+          vennligst{" "}
+          <a className="hyperlink" href="mailto:mail@emojistory.site" target="_top">
+            send oss en e-post
+          </a>. Undersøkelsen har blitt meldt til{" "}
+          <i>Norsk senter for forskningsdata (NSD)</i>.
         </p>
       </Fragment>
     ),
     startSurveyText: "Start undersøkelsen"
   },
   de: {
-    welcomeText: "",
-    startSurveyText: ""
+    welcomeText: (
+      <Fragment>
+        <p>
+          Die folgende Online-Umfrage wurde von Martin Kjellevand und Markus
+          Rauhut erstellt, um die <b>Benutzerfreundlichkeit</b> und{" "}
+          <b>Sicherheit</b> von Emoji-Passwörtern zu ermitteln. Die Umfrage
+          dauert ca. 3-5 Minuten. Alle gesammelten Daten werden in einer
+          Masterarbeit an der{" "}
+          <b>Norwegian University of Science and Technology (NTNU)</b>{" "}
+          verwertet.
+        </p>
+
+        <p>
+          Die Umfrage ist <b>anonym</b> und fragt nicht nach sensitiven Daten.
+          Solltest du irgendwelche Fragen über das Projekt haben, dann{" "}
+          <a className="hyperlink" href="mailto:mail@emojistory.site" target="_top">
+            sende uns eine Mail
+          </a>. Das <i>Norwegian Centre for Research Data (NSD)</i> wurde über
+          dieses Projekt benachrichtigt.
+        </p>
+      </Fragment>
+    ),
+    startSurveyText: "Starte die Umfrage "
   }
 };
 
