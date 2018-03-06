@@ -101,7 +101,10 @@ export function getRandomKeyboard(chosenEmojis) {
   const remainingCategories = categoryList.diff(chosenCategories);
 
   var randomKeyboardEmojis = [];
-  let randomKeyboardEmojisSrc = [];
+  let randomKeyboardEmojisSrc = chosenEmojis.map(
+    item => item.src.split("/")[1]
+  );
+
 
   for (var category of remainingCategories) {
     const allCategoryEmojis = require("../api/" + category + ".js").default[
@@ -112,9 +115,10 @@ export function getRandomKeyboard(chosenEmojis) {
       getRandomAmountOfAnswers(randomKeyboardEmojisSrc, allCategoryEmojis, 1)
     );
 
-    randomKeyboardEmojisSrc = randomKeyboardEmojis.map(
-      item => item.src.split("/")[1]
+    randomKeyboardEmojisSrc.concat(
+      randomKeyboardEmojis.map(item => item.src.split("/")[1])
     );
+
   }
   const finalKeyboard = chosenEmojis.concat(randomKeyboardEmojis);
   return shuffle(finalKeyboard);
