@@ -18,8 +18,8 @@ let strings = {
     secondInfo: "Vennligst skriv inn emoji-passordet ditt en gang til"
   },
   de: {
-    firstInfo: "",
-    secondInfo: ""
+    firstInfo: "Bitte gebe dein Emoji-Passwort ein",
+    secondInfo: "Bitte gebe dein Emoji-Passwort erneut ein"
   }
 };
 

@@ -15,7 +15,7 @@ let strings = {
     buttonText: "Send"
   },
   de: {
-    buttonText: "Sende"
+    buttonText: "Senden"
   }
 };
 

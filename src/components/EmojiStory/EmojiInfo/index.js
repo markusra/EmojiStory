@@ -20,24 +20,27 @@ let strings = {
     title: "Instructions",
     step1: (
       <Fragment>
-        Next you will create an <span className="yellow">emoji-password</span>.
+        You will now create your own{" "}
+        <span className="yellow">emoji-password</span>.
       </Fragment>
     ),
     step2: (
       <Fragment>
-        You do this by <span className="yellow">selecting keywords</span> to
-        substitute for blanks in a <span className="yellow">story</span>.
+        You do this by <span className="yellow">inserting words</span> into a{" "}
+        <span className="yellow">story</span>. The story does not have to be
+        true.
       </Fragment>
     ),
     step3: (
       <Fragment>
-        Each keyword <span className="yellow">corresponds</span> to an emoji.
+        The words you insert <span className="yellow">correspond</span> to
+        various emojis.
       </Fragment>
     ),
     step4: (
       <Fragment>
-        The <span className="yellow">sequence of emojis</span> that occurs from
-        the story, will form your emoji-password.
+        Finally, you end up with <span className="yellow">four emojis</span>{" "}
+        which form your emoji-password.
       </Fragment>
     ),
     next: "Next",
@@ -47,29 +50,63 @@ let strings = {
     title: "Instruksjoner",
     step1: (
       <Fragment>
-        Du vil nå opprette ditt eget <span className="yellow">emoji-passord</span>.
+        Du vil nå opprette ditt eget{" "}
+        <span className="yellow">emoji-passord</span>.
       </Fragment>
     ),
     step2: (
       <Fragment>
-        Dette gjør du ved å <span className="yellow">sette inn ord</span> i en <span className="yellow">historie</span>. Historien trenger ikke å være sann.
+        Dette gjør du ved å <span className="yellow">sette inn ord</span> i en{" "}
+        <span className="yellow">historie</span>. Historien trenger ikke å være
+        sann.
       </Fragment>
     ),
     step3: (
       <Fragment>
-        Ordene du setter inn <span className="yellow">tilsvarer</span> forskjellige emojis.
+        Ordene du setter inn <span className="yellow">tilsvarer</span>{" "}
+        forskjellige emojis.
       </Fragment>
     ),
     step4: (
       <Fragment>
-        Til slutt har du <span className="yellow">fire emojis</span> som danner ditt emoji-passord.
+        Til slutt ender du opp med <span className="yellow">fire emojis</span>{" "}
+        som danner emoji-passordet ditt.
+        
+        
       </Fragment>
     ),
     next: "Neste",
     continue: "Fortsett"
   },
   de: {
-    title: "Anleitung"
+    title: "Anleitung",
+    step1: (
+      <Fragment>
+        Du wirst nun dein eigenes <span className="yellow">Emoji-Password</span>{" "}
+        erstellen.
+      </Fragment>
+    ),
+    step2: (
+      <Fragment>
+        Dies tust du, indem du <span className="yellow">Wörter</span> in eine{" "}
+        <span className="yellow">Geschichte</span> einfügst. Die Geschichte muss
+        nicht unbedingt einen Sinn ergeben.
+      </Fragment>
+    ),
+    step3: (
+      <Fragment>
+        Die eingefügten Wörter <span className="yellow">symbolisieren</span>{" "}
+        verschiedene Emojis.
+      </Fragment>
+    ),
+    step4: (
+      <Fragment>
+       Letztendlich hast du <span className="yellow">vier Emojis</span>{" "}
+        generiert. Diese bilden dein Emoji-Passwort.
+      </Fragment>
+    ),
+    next: "Weiter",
+    continue: "Fortfahren"
   }
 };
 
@@ -128,7 +165,10 @@ class EmojiInfo extends Component {
     return (
       <EmojiContainer appTitle="Creating an emoji-password">
         <EmojiBody>
-          <div className="instructionHeader"> {strings[this.props.language].title}</div>
+          <div className="instructionHeader">
+            {" "}
+            {strings[this.props.language].title}
+          </div>
           <div className="instructionList">
             <ul>{instructions}</ul>
           </div>
