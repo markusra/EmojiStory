@@ -25,21 +25,21 @@ class SocialButtons extends Component {
         </div>
         <div className="row social-row justify-content-center">
             <a
-              href="https://www.facebook.com/sharer/sharer.php?u=https://emoji.rauhut.no/"
+              href="https://www.facebook.com/sharer/sharer.php?u=https://emojistory.site/"
               className="btn-social btn-facebook"
             >
               <i className="fa fa-facebook" />
             </a>
 
             <a
-              href="https://plus.google.com/share?url=https://emoji.rauhut.no/"
+              href="https://plus.google.com/share?url=https://emojistory.site/"
               className="btn-social btn-google-plus"
             >
               <i className="fa fa-google-plus" />
             </a>
 
             <a
-              href="https://twitter.com/home?status=Can%20emojis%20replace%20passwords?%20Take%20this%20survey%20to%20help%20the%20research%20on%20emoji-based%20authentication!%20Go%20to%20emoji.rauhut.no!"
+              href="https://twitter.com/home?status=Can%20emojis%20replace%20passwords?%20Take%20this%20survey%20to%20help%20the%20research%20on%20emoji-based%20authentication!%20Go%20to%20emojistory.site!"
               className="btn-social btn-twitter"
             >
               <i className="fa fa-twitter" />
@@ -49,13 +49,13 @@ class SocialButtons extends Component {
             </a>
 
             <a
-              href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//emoji.rauhut.no/&title=Emoji-Based%20Authentication&summary=&source="
+              href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//emojistory.site/&title=Emoji-Based%20Authentication&summary=&source="
               className="btn-social btn-linkedin"
             >
               <i className="fa fa-linkedin" />
             </a>
             <a
-              href="mailto:?subject=Emoji-Based Authentication&amp;body=Check out this site https://emoji.rauhut.no/."
+              href="mailto:mail@emojistory.site?subject=Emoji-Based Authentication&amp;body=Check out this site https://emojistory.site/."
               className="btn-social btn-email"
             >
               <i className="fa fa-envelope" />
