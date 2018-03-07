@@ -57,7 +57,7 @@ class SocialButtons extends Component {
             <i className="fa fa-linkedin" />
           </a>
           <a
-            href="mailto:mail@emojistory.site?subject=Survey on emoji passwords&amp;body=Can emojis replace passwords? In order to support research on emoji passwords, take the survey on this link: https://emojistory.site/."
+            href="mailto:mail@emojistory.site?subject=Survey on emoji passwords&amp;body=Can emojis replace passwords? In order to support research on emoji passwords, take this survey: https://emojistory.site/."
             className="btn-social btn-email"
           >
             <i className="fa fa-envelope" />
