@@ -45,21 +45,21 @@ class Confusion extends Component {
               <Button
                 className="surveyAnswerButton top"
                 size="lg"
-                onClick={() => this.props.setConfusion("Not confused", "strategy")}
+                onClick={() => this.props.setConfusion("not confused", "strategy")}
               >
                 {strings[this.props.language].alternative1}
               </Button>
               <Button
                 className="surveyAnswerButton mid"
                 size="lg"
-                onClick={() => this.props.setConfusion("Confused", "strategy")}
+                onClick={() => this.props.setConfusion("confused", "strategy")}
               >
                 {strings[this.props.language].alternative2}
               </Button>
               <Button
                 className="surveyAnswerButton bottom"
                 size="lg"
-                onClick={() => this.props.setConfusion("Don't know", "strategy")}
+                onClick={() => this.props.setConfusion("don't know", "strategy")}
               >
                 {strings[this.props.language].alternative3}
               </Button>

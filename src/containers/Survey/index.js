@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import Gender from "../../components/Survey/Gender/index";
 import ITBackground from "../../components/Survey/ITBackground";
 import EmojiUsage from "../../components/Survey/EmojiUsage";
-import Interpretation from "../../components/Survey/Interpretation";
 import Memorization from "../../components/Survey/Memorization";
 import Strategy from "../../components/Survey/Strategy";
 import Confusion from "../../components/Survey/Confusion";

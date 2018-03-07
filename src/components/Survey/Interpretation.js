@@ -45,21 +45,21 @@ class Interpretation extends Component {
               <Button
                 className="surveyAnswerButton top"
                 size="lg"
-                onClick={() => this.props.setInterpretation("Yes", "memorization")}
+                onClick={() => this.props.setInterpretation("yes", "memorization")}
               >
                 {strings[this.props.language].alternative1}
               </Button>
               <Button
                 className="surveyAnswerButton mid"
                 size="lg"
-                onClick={() => this.props.setInterpretation("No", "memorization")}
+                onClick={() => this.props.setInterpretation("no", "memorization")}
               >
                 {strings[this.props.language].alternative2}
               </Button>
               <Button
                 className="surveyAnswerButton bottom"
                 size="lg"
-                onClick={() => this.props.setInterpretation("I don't know", "memorization")}
+                onClick={() => this.props.setInterpretation("don't know", "memorization")}
               >
                 {strings[this.props.language].alternative3}
               </Button>

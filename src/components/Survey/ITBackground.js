@@ -42,7 +42,7 @@ class ITBackground extends Component {
           className="surveyAnswerButton top"
           size="lg"
           onClick={() => {
-            this.props.setItBackground("Yes", "gender");
+            this.props.setItBackground("yes", "gender");
           }}
         >
           {strings[this.props.language].yes}
@@ -52,7 +52,7 @@ class ITBackground extends Component {
           className="surveyAnswerButton buttom"
           size="lg"
           onClick={() => {
-            this.props.setItBackground("No", "gender");
+            this.props.setItBackground("no", "gender");
           }}
         >
           {strings[this.props.language].no}

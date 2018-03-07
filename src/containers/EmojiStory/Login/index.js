@@ -14,7 +14,8 @@ import {
   setReadyFor2ndLogin,
   setTimestamp1,
   setTimestamp2,
-  setAttemptsLeft
+  setAttemptsLeft,
+  setCorrectPassword
 } from "../../../actions/index";
 import { redirectUser } from "../../../services/redirectUser";
 import {
@@ -64,6 +65,7 @@ class Login extends Component {
         return false;
       }
     }
+    this.props.setCorrectPassword();
     return true;
   }
 
@@ -343,6 +345,9 @@ const mapDispatchToProps = dispatch => {
     },
     setAttemptsLeft: attemptsLeft => {
       dispatch(setAttemptsLeft(attemptsLeft));
+    },
+    setCorrectPassword: correctPassword => {
+      dispatch(setCorrectPassword(correctPassword));
     }
   };
 };
@@ -361,7 +366,8 @@ Login.propTypes = {
   answers: PropTypes.array,
   language: PropTypes.string,
   attemptsLeft: PropTypes.number,
-  setAttemptsLeft: PropTypes.func
+  setAttemptsLeft: PropTypes.func,
+  setCorrectPassword: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

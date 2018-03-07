@@ -37,6 +37,13 @@ let strings = {
 
 class EmojiUsage extends Component {
   render() {
+    var page = "";
+    if (this.props.correctPassword) {
+      page = "memorization"
+    } else {
+      page = "confusion"
+    }
+
     return (
       <AppContainer appTitle="Survey – Emoji-Based Authentication">
         <SurveyBody>
@@ -50,8 +57,8 @@ class EmojiUsage extends Component {
                 size="lg"
                 onClick={() =>
                   this.props.setEmojiUsage(
-                    "Several times a day",
-                    "memorization"
+                    "several times a day",
+                    page
                   )
                 }
               >
@@ -61,7 +68,7 @@ class EmojiUsage extends Component {
                 className="surveyAnswerButton mid"
                 size="lg"
                 onClick={() =>
-                  this.props.setEmojiUsage("Once a day", "memorization")
+                  this.props.setEmojiUsage("once a day", page)
                 }
               >
                 {strings[this.props.language].alternative2}
@@ -71,8 +78,8 @@ class EmojiUsage extends Component {
                 size="lg"
                 onClick={() =>
                   this.props.setEmojiUsage(
-                    "Several times a week",
-                    "memorization"
+                    "several times a week",
+                    page
                   )
                 }
               >
@@ -82,7 +89,7 @@ class EmojiUsage extends Component {
                 className="surveyAnswerButton mid"
                 size="lg"
                 onClick={() =>
-                  this.props.setEmojiUsage("Once a week", "memorization")
+                  this.props.setEmojiUsage("once a week", page)
                 }
               >
                 {strings[this.props.language].alternative4}
@@ -91,7 +98,7 @@ class EmojiUsage extends Component {
                 className="surveyAnswerButton bottom"
                 size="lg"
                 onClick={() =>
-                  this.props.setEmojiUsage("Never", "memorization")
+                  this.props.setEmojiUsage("never", page)
                 }
               >
                 {strings[this.props.language].alternative5}
@@ -108,7 +115,8 @@ const mapStateToProps = state => {
   return {
     emojiUsage: state.emojiUsage,
     surveyPage: state.surveyPage,
-    language: state.language
+    language: state.language,
+    correctPassword: state.correctPassword
   };
 };
 
@@ -122,7 +130,8 @@ const mapDispatchToProps = dispatch => {
 
 EmojiUsage.propTypes = {
   setEmojiUsage: PropTypes.func,
-  language: PropTypes.string
+  language: PropTypes.string,
+  correctPassword: PropTypes.bool
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(EmojiUsage);

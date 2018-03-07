@@ -45,21 +45,21 @@ class Fun extends Component {
               <Button
                 className="surveyAnswerButton top"
                 size="lg"
-                onClick={() => this.props.setFun("Yes", "itBackground")}
+                onClick={() => this.props.setFun("yes", "itBackground")}
               >
                 {strings[this.props.language].alternative1}
               </Button>
               <Button
                 className="surveyAnswerButton mid"
                 size="lg"
-                onClick={() => this.props.setFun("No", "itBackground")}
+                onClick={() => this.props.setFun("no", "itBackground")}
               >
                 {strings[this.props.language].alternative2}
               </Button>
               <Button
                 className="surveyAnswerButton bottom"
                 size="lg"
-                onClick={() => this.props.setFun("Don't know", "itBackground")}
+                onClick={() => this.props.setFun("don't know", "itBackground")}
               >
                 {strings[this.props.language].alternative3}
               </Button>

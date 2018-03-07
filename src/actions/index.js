@@ -184,3 +184,10 @@ export const increaseBackButtonCounter = () => {
     type: "INCREASE_BACKBUTTONCOUNTER"
   };
 };
+
+export const setCorrectPassword = correctPassword => {
+  return {
+    type: "SET_CORRECTPASSWORD",
+    correctPassword
+  };
+};

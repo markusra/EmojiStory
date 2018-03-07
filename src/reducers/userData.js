@@ -22,7 +22,8 @@ const initialState = {
   memorization: "",
   strategy: "",
   confusion: "",
-  fun: ""
+  fun: "",
+  correctPassword: false
 };
 
 const userData = (state = initialState, action) => {
@@ -172,6 +173,11 @@ const userData = (state = initialState, action) => {
       return {
         ...state,
         backButtonCounter: state.backButtonCounter + 1
+      };
+    case "SET_CORRECTPASSWORD":
+      return {
+        ...state,
+        correctPassword: true
       };
     default:
       return state;

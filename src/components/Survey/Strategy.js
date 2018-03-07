@@ -49,28 +49,28 @@ class Strategy extends Component {
               <Button
                 className="surveyAnswerButton top"
                 size="lg"
-                onClick={() => this.props.setStrategy("Personal", "fun")}
+                onClick={() => this.props.setStrategy("personal", "fun")}
               >
                 {strings[this.props.language].alternative1}
               </Button>
               <Button
                 className="surveyAnswerButton mid"
                 size="lg"
-                onClick={() => this.props.setStrategy("Crazy", "fun")}
+                onClick={() => this.props.setStrategy("crazy", "fun")}
               >
                 {strings[this.props.language].alternative2}
               </Button>
               <Button
                 className="surveyAnswerButton mid"
                 size="lg"
-                onClick={() => this.props.setStrategy("Random", "fun")}
+                onClick={() => this.props.setStrategy("random", "fun")}
               >
                 {strings[this.props.language].alternative3}
               </Button>
               <Button
                 className="surveyAnswerButton bottom"
                 size="lg"
-                onClick={() => this.props.setStrategy("Different", "fun")}
+                onClick={() => this.props.setStrategy("different", "fun")}
               >
                 {strings[this.props.language].alternative4}
               </Button>

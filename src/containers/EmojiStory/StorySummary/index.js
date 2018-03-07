@@ -123,7 +123,8 @@ class StorySummary extends Component {
       this.props.answerIndices,
       this.props.keyboard,
       this.props.storyID,
-      this.props.deviceType
+      this.props.deviceType,
+      this.props.backButtonCounter
     );
 
     const url = "/login";
@@ -201,7 +202,8 @@ const mapStateToProps = state => {
     storyID: state.storyID,
     keyboard: state.keyboard,
     answerIndices: state.answerIndices,
-    deviceType: state.deviceType
+    deviceType: state.deviceType,
+    backButtonCounter: state.backButtonCounter
   };
 };
 
@@ -237,7 +239,8 @@ StorySummary.propTypes = {
   keyboard: PropTypes.array,
   answerIndices: PropTypes.array,
   deviceType: PropTypes.string,
-  language: PropTypes.string
+  language: PropTypes.string,
+  backButtonCounter: PropTypes.number
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(StorySummary);
