@@ -29,7 +29,7 @@ class Survey extends Component {
         this.props.timestamp1,
         this.props.timestamp2
       );
-      timestampUpdateDB("timestamp4", timeUsed, 3 - this.props.attemptsLeft);
+      timestampUpdateDB("timestamp4", timeUsed, 3 - this.props.attemptsLeft, this.props.correctPassword);
     }
   }
 
@@ -45,6 +45,7 @@ class Survey extends Component {
       this.props.confusion,
       this.props.fun
     );
+    // this.props.setCorrectPassword("false");
 
     this.props.setAttemptsLeft(3);
     const url = "/login";
@@ -86,7 +87,8 @@ const mapStateToProps = state => {
     attemptsLeft: state.attemptsLeft,
     strategy: state.strategy,
     confusion: state.confusion,
-    fun: state.fun
+    fun: state.fun,
+    correctPassword: state.correctPassword
   };
 };
 
@@ -118,7 +120,8 @@ Survey.propTypes = {
   attemptsLeft: PropTypes.number,
   strategy: PropTypes.string,
   confusion: PropTypes.string,
-  fun: PropTypes.string
+  fun: PropTypes.string,
+  correctPassword: PropTypes.string
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Survey);

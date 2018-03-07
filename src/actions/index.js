@@ -104,14 +104,6 @@ export const setItBackground = (itBackground, surveyPage) => {
   };
 };
 
-export const setInterpretation = (interpretation, surveyPage) => {
-  return {
-    type: "SET_INTERPRETATION",
-    interpretation,
-    surveyPage
-  };
-};
-
 export const setMemorization = (memorization, surveyPage) => {
   return {
     type: "SET_MEMORIZATION",

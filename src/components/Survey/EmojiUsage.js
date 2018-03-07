@@ -38,7 +38,7 @@ let strings = {
 class EmojiUsage extends Component {
   render() {
     var page = "";
-    if (this.props.correctPassword) {
+    if (this.props.correctPassword === "true") {
       page = "memorization"
     } else {
       page = "confusion"
@@ -131,7 +131,7 @@ const mapDispatchToProps = dispatch => {
 EmojiUsage.propTypes = {
   setEmojiUsage: PropTypes.func,
   language: PropTypes.string,
-  correctPassword: PropTypes.bool
+  correctPassword: PropTypes.string
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(EmojiUsage);

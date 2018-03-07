@@ -51,6 +51,7 @@ class Login extends Component {
     this.onOkButtonClick = this.onOkButtonClick.bind(this);
     this.onContinueButtonClick = this.onContinueButtonClick.bind(this);
     this.isCorrectPassword = this.isCorrectPassword.bind(this);
+    this.props.setCorrectPassword("");
   }
 
   onDeleteButtonClick() {
@@ -62,10 +63,11 @@ class Login extends Component {
   isCorrectPassword(emojiArray) {
     for (var i = 0; i < 4; i++) {
       if (this.props.answers[i].src !== emojiArray[i]) {
+        this.props.setCorrectPassword("false");
         return false;
       }
     }
-    this.props.setCorrectPassword();
+    this.props.setCorrectPassword("true");
     return true;
   }
 

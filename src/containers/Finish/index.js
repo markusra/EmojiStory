@@ -62,7 +62,7 @@ class Finish extends Component {
         this.props.timestamp1,
         this.props.timestamp2
       );
-      timestampUpdateDB("timestamp5", timeUsed, 3 - this.props.attemptsLeft);
+      timestampUpdateDB("timestamp5", timeUsed, 3 - this.props.attemptsLeft, this.props.correctPassword);
     }
   }
 
@@ -84,7 +84,8 @@ const mapStateToProps = state => {
     language: state.language,
     timestamp1: state.timestamp1,
     timestamp2: state.timestamp2,
-    attemptsLeft: state.attemptsLeft
+    attemptsLeft: state.attemptsLeft,
+    correctPassword: state.correctPassword
   };
 };
 
@@ -93,7 +94,8 @@ Finish.propTypes = {
   language: PropTypes.string,
   timestamp1: PropTypes.number,
   timestamp2: PropTypes.number,
-  attemptsLeft: PropTypes.number
+  attemptsLeft: PropTypes.number,
+  correctPassword: PropTypes.string
 };
 
 export default connect(mapStateToProps)(Finish);

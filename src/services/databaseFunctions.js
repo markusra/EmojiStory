@@ -42,7 +42,7 @@ export const createDBEntry = () => {
   });
 };
 
-export const timestampUpdateDB = (field, value, attemptsLeft) => {
+export const timestampUpdateDB = (field, value, attemptsLeft, CorrectPassword) => {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       const userID = user.uid;
@@ -71,7 +71,7 @@ export const timestampUpdateDB = (field, value, attemptsLeft) => {
         firebase
           .database()
           .ref("users/" + userID)
-          .update({ timestamp4: value, loginAttempts1: attemptsLeft });
+          .update({ timestamp4: value, loginAttempts1: attemptsLeft, correctPassword1: CorrectPassword });
       }
 
       if (field === "timestamp5") {
@@ -81,7 +81,8 @@ export const timestampUpdateDB = (field, value, attemptsLeft) => {
           .update({
             timestamp5: value,
             loginAttempts2: attemptsLeft,
-            surveyFinished: true
+            surveyFinished: true,
+            correctPassword2: CorrectPassword
           });
       }
     }

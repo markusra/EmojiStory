@@ -23,7 +23,7 @@ const initialState = {
   strategy: "",
   confusion: "",
   fun: "",
-  correctPassword: false
+  correctPassword: ""
 };
 
 const userData = (state = initialState, action) => {
@@ -112,12 +112,6 @@ const userData = (state = initialState, action) => {
         itBackground: action.itBackground,
         surveyPage: action.surveyPage
       };
-    case "SET_INTERPRETATION":
-      return {
-        ...state,
-        interpretation: action.interpretation,
-        surveyPage: action.surveyPage
-      };
     case "SET_MEMORIZATION":
       return {
         ...state,
@@ -177,7 +171,7 @@ const userData = (state = initialState, action) => {
     case "SET_CORRECTPASSWORD":
       return {
         ...state,
-        correctPassword: true
+        correctPassword: action.correctPassword
       };
     default:
       return state;
