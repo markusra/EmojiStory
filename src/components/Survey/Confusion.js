@@ -14,13 +14,13 @@ let strings = {
     confusionQuestion: "Did you understand the process of creating emoji passwords?",
     alternative1: "Yes",
     alternative2: "No",
-    alternative3: "I don't know"
+    alternative3: "Don't know"
   },
   no: {
-    confusionQuestion: "Forstod du hvordan du skulle lage emoji passordet ditt?",
+    confusionQuestion: "Forstod du prosessen for å lage emoji passord?",
     alternative1: "Ja",
     alternative2: "Nei",
-    alternative3: "Usikker"
+    alternative3: "Vet ikke"
   },
   de: {
     confusionQuestion: "",

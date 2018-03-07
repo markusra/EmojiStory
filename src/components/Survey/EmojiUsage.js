@@ -51,7 +51,7 @@ class EmojiUsage extends Component {
                 onClick={() =>
                   this.props.setEmojiUsage(
                     "Several times a day",
-                    "interpretation"
+                    "memorization"
                   )
                 }
               >
@@ -61,7 +61,7 @@ class EmojiUsage extends Component {
                 className="surveyAnswerButton mid"
                 size="lg"
                 onClick={() =>
-                  this.props.setEmojiUsage("Once a day", "interpretation")
+                  this.props.setEmojiUsage("Once a day", "memorization")
                 }
               >
                 {strings[this.props.language].alternative2}
@@ -72,7 +72,7 @@ class EmojiUsage extends Component {
                 onClick={() =>
                   this.props.setEmojiUsage(
                     "Several times a week",
-                    "interpretation"
+                    "memorization"
                   )
                 }
               >
@@ -82,7 +82,7 @@ class EmojiUsage extends Component {
                 className="surveyAnswerButton mid"
                 size="lg"
                 onClick={() =>
-                  this.props.setEmojiUsage("Once a week", "interpretation")
+                  this.props.setEmojiUsage("Once a week", "memorization")
                 }
               >
                 {strings[this.props.language].alternative4}
@@ -91,7 +91,7 @@ class EmojiUsage extends Component {
                 className="surveyAnswerButton bottom"
                 size="lg"
                 onClick={() =>
-                  this.props.setEmojiUsage("Never", "interpretation")
+                  this.props.setEmojiUsage("Never", "memorization")
                 }
               >
                 {strings[this.props.language].alternative5}

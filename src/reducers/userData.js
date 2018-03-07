@@ -14,7 +14,7 @@ const initialState = {
   backButtonCounter: 0,
   age: "",
   nationality: "",
-  surveyPage: "gender",
+  surveyPage: "emojiUsage",
   emojiUsage: "",
   gender: "",
   itBackground: "",

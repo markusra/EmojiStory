@@ -25,7 +25,7 @@ class GenderButtons extends Component {
           <div className="p-2">
             <div
               onClick={() => {
-                this.props.setGender("female", "itBackground");
+                this.props.setGender("female", "questions");
               }}
             >
               <i
@@ -37,7 +37,7 @@ class GenderButtons extends Component {
           <div className="p-2">
             <div
               onClick={() => {
-                this.props.setGender("male", "itBackground");
+                this.props.setGender("male", "questions");
               }}
             >
               <i
@@ -53,7 +53,7 @@ class GenderButtons extends Component {
             color="link"
             style={{ color: "#1b212c", marginTop: "15px" }}
             onClick={() => {
-              this.props.setGender("other", "itBackground");
+              this.props.setGender("other", "questions");
             }}
           >
             {strings[this.props.language].other}

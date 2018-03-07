@@ -12,18 +12,18 @@ import { setStrategy } from "../../actions/index";
 let strings = {
   en: {
     strategyQuestion: (<Fragment><p>What strategy did you use when you created your story?</p> <p>I used...</p></Fragment>),
-    alternative1: "words that suited the story",
-    alternative2: "words that had personal meaning",
-    alternative3: "words that formed a crazy story",
-    alternative4: "random words",
-    alternative5: "a different strategy"
+    alternative1: "words that had personal meaning",
+    alternative2: "words that formed a crazy story",
+    alternative3: "random words", 
+    alternative4: "a different strategy",
+
   },
   no: {
-    strategyQuestion: "Hvilken strategi brukte du da du lagde historien din? Jeg brukte...",
-    alternative1: "Jeg valgte ord som passet best til historien",
-    alternative2: "Jeg prøvde å lage en historie som hadde personlig betydning",
-    alternative3: "Jeg lagde en sprø historie som ikke gav mening",
-    alternative4: "Jeg valgte ordene tilfeldig"
+    strategyQuestion: (<Fragment><p>Hvilken strategi brukte du da du lagde historien din?</p> <p>Jeg valgte...</p></Fragment>),
+    alternative1: "ord med personlig betydning",
+    alternative2: "ord som formet en sprø historie",
+    alternative3: "tilfeldige ord",
+    alternative4: "å bruke en annen strategi"
   },
   de: {
     strategyQuestion: "",
@@ -49,37 +49,30 @@ class Strategy extends Component {
               <Button
                 className="surveyAnswerButton top"
                 size="lg"
-                onClick={() => this.props.setStrategy("Best fit", "fun")}
+                onClick={() => this.props.setStrategy("Personal", "fun")}
               >
                 {strings[this.props.language].alternative1}
               </Button>
               <Button
                 className="surveyAnswerButton mid"
                 size="lg"
-                onClick={() => this.props.setStrategy("Personal", "fun")}
+                onClick={() => this.props.setStrategy("Crazy", "fun")}
               >
                 {strings[this.props.language].alternative2}
               </Button>
               <Button
                 className="surveyAnswerButton mid"
                 size="lg"
-                onClick={() => this.props.setStrategy("Crazy", "fun")}
+                onClick={() => this.props.setStrategy("Random", "fun")}
               >
                 {strings[this.props.language].alternative3}
               </Button>
               <Button
-                className="surveyAnswerButton mid"
-                size="lg"
-                onClick={() => this.props.setStrategy("Random", "fun")}
-              >
-                {strings[this.props.language].alternative4}
-              </Button>
-              <Button
                 className="surveyAnswerButton bottom"
                 size="lg"
-                onClick={() => this.props.setStrategy("Random", "questions")}
+                onClick={() => this.props.setStrategy("Different", "fun")}
               >
-                {strings[this.props.language].alternative5}
+                {strings[this.props.language].alternative4}
               </Button>
             </div>
           </div>

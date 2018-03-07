@@ -14,13 +14,13 @@ let strings = {
     funQuestion: "Did you enjoy creating your emoji password?",
     alternative1: "Yes",
     alternative2: "No",
-    alternative3: "To some extent"
+    alternative3: "Don't know"
   },
   no: {
     funQuestion: "Var det gøy å lage emoji-passordet ditt?",
     alternative1: "Ja",
     alternative2: "Nei",
-    alternative3: "Litt"
+    alternative3: "Vet ikke"
   },
   de: {
     funQuestion: "",
@@ -45,21 +45,21 @@ class Fun extends Component {
               <Button
                 className="surveyAnswerButton top"
                 size="lg"
-                onClick={() => this.props.setFun("Yes", "questions")}
+                onClick={() => this.props.setFun("Yes", "itBackground")}
               >
                 {strings[this.props.language].alternative1}
               </Button>
               <Button
                 className="surveyAnswerButton mid"
                 size="lg"
-                onClick={() => this.props.setFun("No", "questions")}
+                onClick={() => this.props.setFun("No", "itBackground")}
               >
                 {strings[this.props.language].alternative2}
               </Button>
               <Button
                 className="surveyAnswerButton bottom"
                 size="lg"
-                onClick={() => this.props.setFun("Don't know", "questions")}
+                onClick={() => this.props.setFun("Don't know", "itBackground")}
               >
                 {strings[this.props.language].alternative3}
               </Button>

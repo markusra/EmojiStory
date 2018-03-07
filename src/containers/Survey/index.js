@@ -39,7 +39,6 @@ class Survey extends Component {
       this.props.age,
       this.props.emojiUsage,
       this.props.gender,
-      this.props.interpretation,
       this.props.itBackground,
       this.props.memorization,
       this.props.nationality,
@@ -57,14 +56,13 @@ class Survey extends Component {
   render() {
     return (
       <div>
-        {this.props.surveyPage === "gender" && <Gender />}
-        {this.props.surveyPage === "itBackground" && <ITBackground />}
         {this.props.surveyPage === "emojiUsage" && <EmojiUsage />}
-        {this.props.surveyPage === "interpretation" && <Interpretation />}
         {this.props.surveyPage === "memorization" && <Memorization />}
         {this.props.surveyPage === "confusion" && <Confusion />}
         {this.props.surveyPage === "strategy" && <Strategy />}
         {this.props.surveyPage === "fun" && <Fun />}
+        {this.props.surveyPage === "itBackground" && <ITBackground />}
+        {this.props.surveyPage === "gender" && <Gender />}
         {this.props.surveyPage === "questions" && (
           <AgeAndCountryContainer onSubmitForm={this.handleSubmit} />
         )}
