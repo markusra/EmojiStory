@@ -9,7 +9,7 @@ import { connect } from "react-redux";
 import { timestampUpdateDB } from "../../../services/databaseFunctions";
 import { createTimestamp, calculateTimeUsed } from "../../../services/timestamping";
 import { getRandomStory, getRandomAnswerOptions, getRandomStoryFile } from "../../../services/randomizer";
-import { addAnswer, addAnswerIndex, setUserProgress, setTimestamp1, setTimestamp2, setStoryTemplate, setStoryID } from "../../../actions/index";
+import { addAnswer, addAnswerIndex, setUserProgress, setTimestamp1, setTimestamp2, setStoryTemplate, setStoryID, increaseBackButtonCounter } from "../../../actions/index";
 
 class EmojiQuiz extends Component {
   constructor(props) {
@@ -138,6 +138,7 @@ class EmojiQuiz extends Component {
 
   handleBackClick() {
     this.setState({ answerOverlay: false });
+    this.props.increaseBackButtonCounter();
   }
 
   handleContinueClick() {
@@ -218,6 +219,9 @@ const mapDispatchToProps = dispatch => {
     },
     setStoryID: storyID => {
       dispatch(setStoryID(storyID));
+    },
+    increaseBackButtonCounter: () => {
+      dispatch(increaseBackButtonCounter());
     }
   };
 };
@@ -235,7 +239,8 @@ EmojiQuiz.propTypes = {
   setTimestamp2: PropTypes.func,
   setStoryTemplate: PropTypes.func,
   setStoryID: PropTypes.func,
-  addAnswerIndex: PropTypes.func
+  addAnswerIndex: PropTypes.func,
+  increaseBackButtonCounter: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(EmojiQuiz);

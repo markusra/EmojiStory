@@ -179,4 +179,8 @@ export const setFun = (fun, surveyPage) => {
   };
 };
 
-
+export const increaseBackButtonCounter = () => {
+  return {
+    type: "INCREASE_BACKBUTTONCOUNTER"
+  };
+};

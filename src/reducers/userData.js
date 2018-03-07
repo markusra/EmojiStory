@@ -7,6 +7,11 @@ const initialState = {
   answers: [],
   answerIndices: [],
   keyboard: [],
+  deviceType: "",
+  attemptsLeft: 3,
+  timestamp1: 0,
+  timestamp2: 0,
+  backButtonCounter: 0,
   age: "",
   nationality: "",
   surveyPage: "gender",
@@ -16,10 +21,6 @@ const initialState = {
   interpretation: "",
   memorization: "",
   strategy: "",
-  timestamp1: 0,
-  timestamp2: 0,
-  deviceType: "",
-  attemptsLeft: 3,
   confusion: "",
   fun: ""
 };
@@ -166,6 +167,11 @@ const userData = (state = initialState, action) => {
         ...state,
         fun: action.fun,
         surveyPage: action.surveyPage
+      };
+    case "INCREASE_BACKBUTTONCOUNTER":
+      return {
+        ...state,
+        backButtonCounter: state.backButtonCounter + 1
       };
     default:
       return state;
