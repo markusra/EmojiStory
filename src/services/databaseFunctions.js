@@ -42,7 +42,12 @@ export const createDBEntry = () => {
   });
 };
 
-export const timestampUpdateDB = (field, value, attemptsLeft, CorrectPassword) => {
+export const timestampUpdateDB = (
+  field,
+  value,
+  attemptsLeft,
+  CorrectPassword
+) => {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       const userID = user.uid;
@@ -71,7 +76,11 @@ export const timestampUpdateDB = (field, value, attemptsLeft, CorrectPassword) =
         firebase
           .database()
           .ref("users/" + userID)
-          .update({ timestamp4: value, loginAttempts1: attemptsLeft, correctPassword1: CorrectPassword });
+          .update({
+            timestamp4: value,
+            loginAttempts1: attemptsLeft,
+            correctPassword1: CorrectPassword
+          });
       }
 
       if (field === "timestamp5") {
@@ -142,6 +151,59 @@ export const questionsUpdateDB = (
           confusion: Confusion,
           fun: Fun
         });
+    }
+  });
+};
+
+export const loginAttemptUpdateDB = (field, value) => {
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      const userID = user.uid;
+      if (field === "login1_1") {
+        firebase
+          .database()
+          .ref("users/" + userID)
+          .update({ login1_1: value });
+      }
+
+      if (field === "login1_2") {
+        firebase
+          .database()
+          .ref("users/" + userID)
+          .update({ login1_2: value });
+      }
+
+      if (field === "login1_3") {
+        firebase
+          .database()
+          .ref("users/" + userID)
+          .update({ login1_3: value });
+      }
+
+      if (field === "login2_1") {
+        firebase
+          .database()
+          .ref("users/" + userID)
+          .update({ login2_1: value });
+      }
+
+      if (field === "login2_2") {
+        firebase
+          .database()
+          .ref("users/" + userID)
+          .update({
+            login2_2: value
+          });
+      }
+
+      if (field === "login2_3") {
+        firebase
+          .database()
+          .ref("users/" + userID)
+          .update({
+            login2_3: value
+          });
+      }
     }
   });
 };
