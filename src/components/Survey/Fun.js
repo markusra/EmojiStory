@@ -23,10 +23,10 @@ let strings = {
     alternative3: "Vet ikke"
   },
   de: {
-    funQuestion: "",
-    alternative1: "",
-    alternative2: "",
-    alternative3: ""
+    funQuestion: "Fandest du es spaßig dein Emoji-Passwort zu erstellen?",
+    alternative1: "Ja",
+    alternative2: "Nein",
+    alternative3: "Weiß nicht"
   }
 };
 

@@ -10,7 +10,7 @@ class AppContainer extends Component {
         <div className={"container app-container"}>
           <nav className={"navbar app-header sticky-top"}>
             <h1 className={"navbar-brand mb-0 app-title"}>
-              {this.props.appTitle}
+              Survey on Emoji Passwords
             </h1>
           </nav>
           {this.props.children}

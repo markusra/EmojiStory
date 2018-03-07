@@ -11,21 +11,19 @@ let strings = {
     ageQuestion: "What is your gender?",
     agePlaceholder: "Age",
     nationalityQuestion: "Where du you come from?",
-    nationalityPlaceholder: "Choose..."
-
+    nationalityPlaceholder: "Choose…"
   },
   no: {
     ageQuestion: "Hvor gammel er du?",
     agePlaceholder: "Alder",
     nationalityQuestion: "Hvor kommer du fra?",
-    nationalityPlaceholder: "Velg..."
-
+    nationalityPlaceholder: "Velg…"
   },
   de: {
-    ageQuestion: "",
-    agePlaceholder: "",
-    nationalityQuestion: "",
-    nationalityPlaceholder: ""
+    ageQuestion: "Wie alt bist du?",
+    agePlaceholder: "Alter",
+    nationalityQuestion: "Wo kommst du her?",
+    nationalityPlaceholder: "Wähle…"
   }
 };
 

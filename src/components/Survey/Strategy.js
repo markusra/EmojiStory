@@ -11,26 +11,35 @@ import { setStrategy } from "../../actions/index";
 
 let strings = {
   en: {
-    strategyQuestion: (<Fragment><p>What strategy did you use when you created your story?</p> <p>I used...</p></Fragment>),
-    alternative1: "words that had personal meaning",
-    alternative2: "words that formed a crazy story",
-    alternative3: "random words", 
-    alternative4: "a different strategy",
-
+    // strategyQuestion: (<Fragment><p>What strategy did you use when you created your story?</p> <p>I used...</p></Fragment>),
+    // alternative1: "words that had personal meaning",
+    // alternative2: "words that formed a crazy story",
+    // alternative3: "random words", 
+    // alternative4: "a different strategy"
+    strategyQuestion: (<Fragment><p>Select the most accurate statement:</p> <p>My story...</p></Fragment>),
+    alternative1: "has a personal meaning",
+    alternative2: "is crazy",
+    alternative3: "contains random emojis", 
+    alternative4: "uses a different strategy",
   },
   no: {
-    strategyQuestion: (<Fragment><p>Hvilken strategi brukte du da du lagde historien din?</p> <p>Jeg valgte...</p></Fragment>),
-    alternative1: "ord med personlig betydning",
-    alternative2: "ord som formet en sprø historie",
-    alternative3: "tilfeldige ord",
-    alternative4: "å bruke en annen strategi"
+    // strategyQuestion: (<Fragment><p>Hvilken strategi brukte du da du lagde historien din?</p> <p>Jeg valgte...</p></Fragment>),
+    // alternative1: "ord med personlig betydning",
+    // alternative2: "ord som formet en sprø historie",
+    // alternative3: "tilfeldige ord",
+    // alternative4: "å bruke en annen strategi"
+    strategyQuestion: (<Fragment><p>Velg den mest korrekte påstanden:</p> <p>Min historie...</p></Fragment>),
+    alternative1: "har en personlig betydning",
+    alternative2: "er sprø/absurd",
+    alternative3: "inneholder tilfeldige emojis",
+    alternative4: "bruker en annen strategi"
   },
   de: {
-    strategyQuestion: "",
-    alternative1: "",
-    alternative2: "",
-    alternative3: "",
-    alternative4: ""
+    strategyQuestion: (<Fragment><p>Welche Strategie hast du benutzt um deine Geschichte zu erzeugen?</p> <p>Meine Geschichte...</p></Fragment>),
+    alternative1: "hat eine persönliche Bedeutung",
+    alternative2: "ist absurd/skurril",
+    alternative3: "besteht aus zufälligen Emojis",
+    alternative4: "benutzt eine andere Strategie"
   }
 };
 

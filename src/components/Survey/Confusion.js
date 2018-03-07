@@ -11,22 +11,22 @@ import { setConfusion } from "../../actions/index";
 
 let strings = {
   en: {
-    confusionQuestion: "Did you understand the process of creating emoji passwords?",
+    confusionQuestion: "Did you understand the process of creating your emoji password?",
     alternative1: "Yes",
     alternative2: "No",
     alternative3: "Don't know"
   },
   no: {
-    confusionQuestion: "Forstod du prosessen for å lage emoji passord?",
+    confusionQuestion: "Forstod du fremgangsmåten for å lage emoji-passordet ditt?",
     alternative1: "Ja",
     alternative2: "Nei",
     alternative3: "Vet ikke"
   },
   de: {
-    confusionQuestion: "",
-    alternative1: "",
-    alternative2: "",
-    alternative3: ""
+    confusionQuestion: "Verstandst du das Verfahren für die Erstellung deines Emoji-Passwortes? ",
+    alternative1: "Ja",
+    alternative2: "Nein",
+    alternative3: "Weiß nicht"
   }
 };
 
