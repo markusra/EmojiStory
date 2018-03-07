@@ -121,3 +121,12 @@ export function getRandomKeyboard(chosenEmojis) {
   const finalKeyboard = chosenEmojis.concat(randomKeyboardEmojis);
   return shuffle(finalKeyboard);
 }
+
+
+export function getKeyboardWords(keyboard) {
+  var keyboardWords = [];
+  for (var emoji of keyboard) {
+    keyboardWords.push(emoji.text)
+  }
+  return keyboardWords;
+}

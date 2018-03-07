@@ -9,8 +9,11 @@ export const createDBEntry = () => {
         answerIndices: "",
         backButtonCounter: "",
         confusion: "",
+        correctPassword1: "",
+        correctPassword2: "",
         deviceType: "",
         keyboard: "",
+        keyboardWords: "",
         emojiStoryCreated: false,
         fun: "",
         loginAttempts1: "",
@@ -28,7 +31,13 @@ export const createDBEntry = () => {
         timestamp5: "",
         storyID: "",
         strategy: "",
-        surveyFinished: false
+        surveyFinished: false,
+        login1_1: "",
+        login1_2: "",
+        login1_3: "",
+        login2_1: "",
+        login2_2: "",
+        login2_3: "",
       };
 
       const update = {};
@@ -102,6 +111,7 @@ export const emojiStoryUpdateDB = (
   Answers,
   AnswerIndices,
   Keyboard,
+  KeyboardWords,
   StoryID,
   DeviceType,
   BackButtonCounter
@@ -116,6 +126,7 @@ export const emojiStoryUpdateDB = (
           answerIndices: AnswerIndices,
           deviceType: DeviceType,
           keyboard: Keyboard,
+          keyboardWords: KeyboardWords,
           emojiStoryCreated: true,
           storyID: StoryID,
           backButtonCounter: BackButtonCounter
