@@ -9,7 +9,7 @@ const initialState = {
   keyboard: [],
   age: "",
   nationality: "",
-  surveyPage: "gender",
+  surveyPage: "emojiUsage",
   emojiUsage: "",
   gender: "",
   itBackground: "",
