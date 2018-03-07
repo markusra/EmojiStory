@@ -29,7 +29,12 @@ class Survey extends Component {
         this.props.timestamp1,
         this.props.timestamp2
       );
-      timestampUpdateDB("timestamp4", timeUsed, 3 - this.props.attemptsLeft, this.props.correctPassword);
+      timestampUpdateDB(
+        "timestamp4",
+        timeUsed,
+        3 - this.props.attemptsLeft,
+        this.props.correctPassword
+      );
     }
   }
 
@@ -54,20 +59,38 @@ class Survey extends Component {
   }
 
   render() {
-    return (
-      <div>
-        {this.props.surveyPage === "emojiUsage" && <EmojiUsage />}
-        {this.props.surveyPage === "memorization" && <Memorization />}
-        {this.props.surveyPage === "confusion" && <Confusion />}
-        {this.props.surveyPage === "strategy" && <Strategy />}
-        {this.props.surveyPage === "fun" && <Fun />}
-        {this.props.surveyPage === "itBackground" && <ITBackground />}
-        {this.props.surveyPage === "gender" && <Gender />}
-        {this.props.surveyPage === "questions" && (
+    let surveyPage;
+    switch (this.props.surveyPage) {
+      case "strategy":
+        surveyPage = <Strategy />;
+        break;
+      case "memorization":
+        surveyPage = <Memorization />;
+        break;
+      case "confusion":
+        surveyPage = <Confusion />;
+        break;
+      case "fun":
+        surveyPage = <Fun />;
+        break;
+      case "emojiUsage":
+        surveyPage = <EmojiUsage />;
+        break;
+      case "itBackground":
+        surveyPage = <ITBackground />;
+        break;
+      case "gender":
+        surveyPage = <Gender />;
+        break;
+      case "questions":
+        surveyPage = (
           <AgeAndCountryContainer onSubmitForm={this.handleSubmit} />
-        )}
-      </div>
-    );
+        );
+        break;
+      default:
+        surveyPage = <EmojiUsage />;
+    }
+    return <div>{surveyPage}</div>;
   }
 }
 

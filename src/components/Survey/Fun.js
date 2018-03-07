@@ -4,8 +4,6 @@ import { Button } from "reactstrap";
 import AppContainer from "./../AppContainer";
 import SurveyBody from "./SurveyBody";
 
-import "./index.css";
-
 import { connect } from "react-redux";
 import { setFun } from "../../actions/index";
 
@@ -35,35 +33,33 @@ class Fun extends Component {
     return (
       <AppContainer appTitle="Survey – Emoji-Based Authentication">
         <SurveyBody>
-          <div className="surveyContainer">
-            <div className="questionDiv">
-              <h3 className="story">
+          <div className="questionDiv">
+            <h3 className="story">
               {strings[this.props.language].funQuestion}
-              </h3>
-            </div>
-            <div className="options2">
-              <Button
-                className="surveyAnswerButton top"
-                size="lg"
-                onClick={() => this.props.setFun("yes", "itBackground")}
-              >
-                {strings[this.props.language].alternative1}
-              </Button>
-              <Button
-                className="surveyAnswerButton mid"
-                size="lg"
-                onClick={() => this.props.setFun("no", "itBackground")}
-              >
-                {strings[this.props.language].alternative2}
-              </Button>
-              <Button
-                className="surveyAnswerButton bottom"
-                size="lg"
-                onClick={() => this.props.setFun("don't know", "itBackground")}
-              >
-                {strings[this.props.language].alternative3}
-              </Button>
-            </div>
+            </h3>
+          </div>
+          <div className="options2">
+            <Button
+              className="surveyAnswerButton top"
+              size="lg"
+              onClick={() => this.props.setFun("yes", "emojiUsage")}
+            >
+              {strings[this.props.language].alternative1}
+            </Button>
+            <Button
+              className="surveyAnswerButton mid"
+              size="lg"
+              onClick={() => this.props.setFun("no", "emojiUsage")}
+            >
+              {strings[this.props.language].alternative2}
+            </Button>
+            <Button
+              className="surveyAnswerButton bottom"
+              size="lg"
+              onClick={() => this.props.setFun("don't know", "emojiUsage")}
+            >
+              {strings[this.props.language].alternative3}
+            </Button>
           </div>
         </SurveyBody>
       </AppContainer>

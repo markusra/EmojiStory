@@ -35,7 +35,11 @@ let strings = {
           The survey is <b>anonymous</b> and you will not be asked for any
           sensitive personal information. If you have any questions concerning
           the project, please{" "}
-          <a className="hyperlink" href="mailto:mail@emojistory.site?subject=Survey on Emoji Passwords" target="_top">
+          <a
+            className="hyperlink"
+            href="mailto:mail@emojistory.site?subject=Survey on Emoji Passwords"
+            target="_top"
+          >
             send us an email
           </a>. The study has been notified to the{" "}
           <i>Data Protection Official for Research (NSD)</i>.
@@ -59,7 +63,11 @@ let strings = {
           Undersøkelsen er <b>anonym</b> og du vil ikke bli bedt om å oppgi
           sensitive personopplysninger. Om du skulle ha spørsmål om prosjektet,
           vennligst{" "}
-          <a className="hyperlink" href="mailto:mail@emojistory.site?subject=Survey on Emoji Passwords" target="_top">
+          <a
+            className="hyperlink"
+            href="mailto:mail@emojistory.site?subject=Survey on Emoji Passwords"
+            target="_top"
+          >
             send oss en e-post
           </a>. Undersøkelsen har blitt meldt til{" "}
           <i>Norsk senter for forskningsdata (NSD)</i>.
@@ -82,9 +90,14 @@ let strings = {
         </p>
 
         <p>
-          Die Umfrage ist <b>anonym</b> und bittet nicht um das Eingeben von sensiblen Daten.
-          Solltest du irgendwelche Fragen über das Projekt haben, dann{" "}
-          <a className="hyperlink" href="mailto:mail@emojistory.site?subject=Survey on Emoji Passwords" target="_top">
+          Die Umfrage ist <b>anonym</b> und bittet nicht um das Eingeben von
+          sensiblen Daten. Solltest du irgendwelche Fragen über das Projekt
+          haben, dann{" "}
+          <a
+            className="hyperlink"
+            href="mailto:mail@emojistory.site?subject=Survey on Emoji Passwords"
+            target="_top"
+          >
             sende uns eine Mail
           </a>. Das <i>Norwegian Centre for Research Data (NSD)</i> wurde über
           dieses Projekt benachrichtigt.
@@ -141,7 +154,28 @@ class Welcome extends Component {
       <Fragment>
         {this.state.willRedirect ? null : (
           <AppContainer appTitle="Survey – Emoji-Based Authentication">
-            <AppBody>{strings[this.props.language].welcomeText}</AppBody>
+            <AppBody>
+              {strings[this.props.language].welcomeText}
+
+              <p className="attributionMobile">
+                Emoji artwork is provided by{" "}
+                <a
+                  href="https://www.emojione.com"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  EmojiOne
+                </a>{" "}
+                and is licensed under{" "}
+                <a
+                  href="https://creativecommons.org/licenses/by/4.0/legalcode"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  CC-BY 4.0
+                </a>
+              </p>
+            </AppBody>
 
             <AppFooter>
               <Button
