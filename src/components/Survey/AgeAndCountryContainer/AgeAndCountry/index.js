@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 
 let strings = {
   en: {
-    ageQuestion: "What is your gender?",
+    ageQuestion: "What is your age?",
     agePlaceholder: "Age",
     nationalityQuestion: "Where du you come from?",
     nationalityPlaceholder: "Choose..."
