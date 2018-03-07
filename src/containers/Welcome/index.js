@@ -35,7 +35,7 @@ let strings = {
           The survey is <b>anonymous</b> and you will not be asked for any
           sensitive personal information. If you have any questions concerning
           the project, please{" "}
-          <a className="hyperlink" href="mailto:mail@emojistory.site" target="_top">
+          <a className="hyperlink" href="mailto:mail@emojistory.site?subject=Survey on Emoji Passwords" target="_top">
             send us an email
           </a>. The study has been notified to the{" "}
           <i>Data Protection Official for Research (NSD)</i>.
@@ -59,7 +59,7 @@ let strings = {
           Undersøkelsen er <b>anonym</b> og du vil ikke bli bedt om å oppgi
           sensitive personopplysninger. Om du skulle ha spørsmål om prosjektet,
           vennligst{" "}
-          <a className="hyperlink" href="mailto:mail@emojistory.site" target="_top">
+          <a className="hyperlink" href="mailto:mail@emojistory.site?subject=Survey on Emoji Passwords" target="_top">
             send oss en e-post
           </a>. Undersøkelsen har blitt meldt til{" "}
           <i>Norsk senter for forskningsdata (NSD)</i>.
@@ -84,7 +84,7 @@ let strings = {
         <p>
           Die Umfrage ist <b>anonym</b> und bittet nicht um das Eingeben von sensiblen Daten.
           Solltest du irgendwelche Fragen über das Projekt haben, dann{" "}
-          <a className="hyperlink" href="mailto:mail@emojistory.site" target="_top">
+          <a className="hyperlink" href="mailto:mail@emojistory.site?subject=Survey on Emoji Passwords" target="_top">
             sende uns eine Mail
           </a>. Das <i>Norwegian Centre for Research Data (NSD)</i> wurde über
           dieses Projekt benachrichtigt.
