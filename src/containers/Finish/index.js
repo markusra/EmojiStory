@@ -16,7 +16,7 @@ let strings = {
         <p>
           Thank you for participating! If you have any questions or comments,
           please{" "}
-          <a href="mailto:mail@emojistory.site" target="_top">
+          <a href="mailto:mail@emojistory.site?subject=Survey on Emoji Passwords" target="_top">
             send us an email
           </a>. We would appreciate if you could take a moment to share our
           survey (see below).
@@ -30,7 +30,7 @@ let strings = {
         <p>
           Tusen takk for at du tok undersøkelsen! Hvis du har spørsmål eller
           kommentarer, vennligst{" "}
-          <a href="mailto:mail@emojistory.site" target="_top">
+          <a href="mailto:mail@emojistory.site?subject=Survey on Emoji Passwords" target="_top">
             send oss en e-post
           </a>. Hvis du ønsker å hjelpe oss ytterligere med forskningen vår,
           vennligst del undersøkelsen vår (se under).
@@ -44,7 +44,7 @@ let strings = {
         <p>
           Vielen Dank, dass du unsere Umfrage beantwortet hast! Solltest du
           Fragen oder Kommentare haben, dann{" "}
-          <a href="mailto:mail@emojistory.site" target="_top">
+          <a href="mailto:mail@emojistory.site?subject=Survey on Emoji Passwords" target="_top">
             schicke uns eine Mail
           </a>. Wenn du uns noch mehr helfen möchtest, kannst du unsere Umfrage
           mit deinem Netzwerk teilen (siehe unten).

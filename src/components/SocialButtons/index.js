@@ -15,7 +15,6 @@ let strings = {
   }
 };
 
-
 class SocialButtons extends Component {
   render() {
     return (
@@ -24,42 +23,45 @@ class SocialButtons extends Component {
           <b>{strings[this.props.language].shareText}</b>
         </div>
         <div className="row social-row justify-content-center">
-            <a
-              href="https://www.facebook.com/sharer/sharer.php?u=https://emojistory.site/"
-              className="btn-social btn-facebook"
-            >
-              <i className="fa fa-facebook" />
-            </a>
+          <a
+            href="https://www.facebook.com/sharer/sharer.php?u=https://emojistory.site/"
+            className="btn-social btn-facebook"
+          >
+            <i className="fa fa-facebook" />
+          </a>
 
-            <a
-              href="https://plus.google.com/share?url=https://emojistory.site/"
-              className="btn-social btn-google-plus"
-            >
-              <i className="fa fa-google-plus" />
-            </a>
+          <a
+            href="https://plus.google.com/share?url=https://emojistory.site/"
+            className="btn-social btn-google-plus"
+          >
+            <i className="fa fa-google-plus" />
+          </a>
 
-            <a
-              href="https://twitter.com/intent/tweet?url=https%3A%2F%2Femojistory.site%2F&via=markusrauhut%20%40makjellevand&text=Can%20emojis%20replace%20passwords%3F%20Take%20this%20survey%20to%20help%20the%20research%20on%20emoji%20passwords.&hashtags=emojis%2C%20passwords%2C%20security%2C%20usability"
-              className="btn-social btn-twitter"
-            >
-              <i className="fa fa-twitter" />
-            </a>
-            <a href="https://emoji.rauhut.no" className="btn-social btn-reddit">
-              <i className="fa fa-reddit" />
-            </a>
+          <a
+            href="https://twitter.com/intent/tweet?url=https%3A%2F%2Femojistory.site%2F&via=markusrauhut%20%40makjellevand&text=Can%20emojis%20replace%20passwords%3F%20Take%20this%20survey%20to%20help%20the%20research%20on%20emoji%20passwords.&hashtags=emojis%2C%20passwords%2C%20security%2C%20usability"
+            className="btn-social btn-twitter"
+          >
+            <i className="fa fa-twitter" />
+          </a>
+          <a
+            href="http://reddit.com/submit?url=https://emojistory.site&amp;title=Survey%20on%20Emoji%20Passwords"
+            className="btn-social btn-reddit"
+          >
+            <i className="fa fa-reddit" />
+          </a>
 
-            <a
-              href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//emojistory.site/&title=Emoji-Based%20Authentication&summary=&source="
-              className="btn-social btn-linkedin"
-            >
-              <i className="fa fa-linkedin" />
-            </a>
-            <a
-              href="mailto:mail@emojistory.site?subject=Emoji-Based Authentication&amp;body=Check out this site https://emojistory.site/."
-              className="btn-social btn-email"
-            >
-              <i className="fa fa-envelope" />
-            </a>
+          <a
+            href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//emojistory.site/&title=Survey%20on%20Emoji%20Passwords&summary=&source="
+            className="btn-social btn-linkedin"
+          >
+            <i className="fa fa-linkedin" />
+          </a>
+          <a
+            href="mailto:mail@emojistory.site?subject=Survey on emoji passwords&amp;body=Can emojis replace passwords? In order to support research on emoji passwords, take this survey: https://emojistory.site/."
+            className="btn-social btn-email"
+          >
+            <i className="fa fa-envelope" />
+          </a>
         </div>
       </Fragment>
     );

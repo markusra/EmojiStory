@@ -1,5 +1,50 @@
 const objects2 = [
   {
+    text: "water",
+    src: "objects2/1f4a7.svg"
+  },
+
+  {
+    text: "poop",
+    src: "objects2/1f4a9.svg"
+  },
+
+  {
+    text: "money",
+    emojiList: [
+      {
+        text: "money1",
+        src: "objects2/1f4b0.svg"
+      },
+      {
+        text: "money2",
+        src: "objects2/1f4b4.svg"
+      },
+      {
+        text: "money3",
+        src: "objects2/1f4b5.svg"
+      },
+      {
+        text: "money4",
+        src: "objects2/1f4b6.svg"
+      },
+      {
+        text: "money5",
+        src: "objects2/1f4b7.svg"
+      },
+      {
+        text: "money6",
+        src: "objects2/1f4b8.svg"
+      }
+    ]
+  },
+
+  {
+    text: "cutlery",
+    src: "objects2/1f374.svg"
+  },
+  
+  {
     text: "briefcases",
     src: "objects2/1f4bc.svg"
   },

@@ -29,6 +29,10 @@ body {
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
   }
+
+  .attributionMobile {
+    display: none !important;
+  }
 }
 
 @media (max-width: 499px) {
@@ -47,6 +51,10 @@ body {
   }
 
   .languageLinks {
+    display: none !important;
+  }
+
+  .attribution {
     display: none !important;
   }
 
@@ -212,9 +220,9 @@ fieldset[disabled] .btn-default.active {
   flex-direction: row;
   display: flex;
   text-align: center;
-  font-size: 14;
+  font-size: 16px;
   color: grey;
-  margin-top: 5;
+  margin-top: 5px;
 }
 
 .languageLinks a:hover {
@@ -224,4 +232,15 @@ fieldset[disabled] .btn-default.active {
 
 .hyperlink {
   /* color: #212529; */
+}
+
+.attribution {
+  width: 300px;
+  margin: 0 auto;
+  flex-direction: row;
+  display: flex;
+  text-align: center;
+  font-size: 15px;
+  color: grey;
+  margin-top: 10px;
 }

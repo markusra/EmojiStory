@@ -18,9 +18,8 @@ import {
   setCorrectPassword
 } from "../../../actions/index";
 import { redirectUser } from "../../../services/redirectUser";
-import {
-  createTimestamp,
-} from "../../../services/timestamping";
+import { createTimestamp } from "../../../services/timestamping";
+import { loginAttemptUpdateDB } from "../../../services/databaseFunctions";
 
 let strings = {
   en: {
@@ -37,8 +36,6 @@ let strings = {
 class Login extends Component {
   constructor(props) {
     super(props);
-
-
 
     this.state = {
       emojis: [],
@@ -85,11 +82,34 @@ class Login extends Component {
       const attempts = this.props.attemptsLeft - 1;
       this.props.setAttemptsLeft(attempts);
 
-      if (attempts <= 0) {
+      if (attempts === 2 && !isCorrect) {
         if (this.props.readyFor2ndLogin) {
+          // Send fourth try
+          loginAttemptUpdateDB("login2_1", tempArray);
+        } else {
+          // Send first try
+          loginAttemptUpdateDB("login1_1", tempArray);
+        }
+      }
+
+      if (attempts === 1 && !isCorrect) {
+        if (this.props.readyFor2ndLogin) {
+          // Send fifth try
+          loginAttemptUpdateDB("login2_2", tempArray);
+        } else {
+          // Send second try
+          loginAttemptUpdateDB("login1_2", tempArray);
+        }
+      }
+      if (attempts <= 0) {
+        if (this.props.readyFor2ndLogin && !isCorrect) {
           this.props.setUserProgress("/finish");
+          // Send sixth try
+          loginAttemptUpdateDB("login2_3", tempArray);
         } else {
           this.props.setUserProgress("/survey");
+          // Send third try
+          loginAttemptUpdateDB("login1_3", tempArray);
         }
       }
 
@@ -110,7 +130,6 @@ class Login extends Component {
       this.props.setUserProgress(url);
       history.push(url);
     } else {
-      //timestampUpdateDB("timestamp4", timeUsed, 3 - this.props.attemptsLeft);
       this.props.setReadyFor2ndLogin();
       const url = "/survey";
       this.props.setUserProgress(url);

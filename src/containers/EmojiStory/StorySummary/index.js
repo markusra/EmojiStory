@@ -22,7 +22,10 @@ import {
   createTimestamp,
   calculateTimeUsed
 } from "../../../services/timestamping";
-import { getRandomKeyboard } from "../../../services/randomizer";
+import {
+  getRandomKeyboard,
+  getKeyboardWords
+} from "../../../services/randomizer";
 
 let strings = {
   en: {
@@ -47,7 +50,6 @@ class StorySummary extends Component {
       willRedirect: redirectUser(this.props.userProgress),
       startTimestamp: 0
     };
-
   }
 
   componentWillMount() {
@@ -60,7 +62,7 @@ class StorySummary extends Component {
       timestampUpdateDB("timestamp2", timeUsed);
 
       // Set first timestamp for time spent on memorizing
-      this.setState({startTimestamp: createTimestamp()});
+      this.setState({ startTimestamp: createTimestamp() });
 
       this.props.setKeyboard(getRandomKeyboard(this.props.answers));
     }
@@ -106,6 +108,8 @@ class StorySummary extends Component {
   }
 
   onButtonClick() {
+    let keyboardWords = getKeyboardWords(this.props.keyboard);
+
     // Set second timestamp for time spent on memorizing
     const stopTimestamp = createTimestamp();
     const timeUsed = calculateTimeUsed(
@@ -122,6 +126,7 @@ class StorySummary extends Component {
       emojiTextArray,
       this.props.answerIndices,
       this.props.keyboard,
+      keyboardWords,
       this.props.storyID,
       this.props.deviceType,
       this.props.backButtonCounter
@@ -142,7 +147,9 @@ class StorySummary extends Component {
 
     return (
       <Fragment>
-        {this.state.willRedirect ? <div>Test</div> : (
+        {this.state.willRedirect ? (
+          <div>Test</div>
+        ) : (
           <EmojiContainer>
             <EmojiBody>
               <div className="storyContainer">

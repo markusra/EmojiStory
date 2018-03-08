@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { Button } from "reactstrap";
 import AppContainer from "./../AppContainer";
 import SurveyBody from "./SurveyBody";
-import "./index.css";
 
 import { connect } from "react-redux";
 import { setEmojiUsage } from "../../actions/index";
@@ -37,73 +36,56 @@ let strings = {
 
 class EmojiUsage extends Component {
   render() {
-    var page = "";
-    if (this.props.correctPassword === "true") {
-      page = "memorization"
-    } else {
-      page = "confusion"
-    }
+    var page = "itBackground";
 
     return (
       <AppContainer appTitle="Survey – Emoji-Based Authentication">
         <SurveyBody>
-          <div className="surveyContainer">
-            <div className="questionDiv">
-              <h3 className="story">{strings[this.props.language].emojisQuestion}</h3>
-            </div>
-            <div className="options2">
-              <Button
-                className="surveyAnswerButton top"
-                size="lg"
-                onClick={() =>
-                  this.props.setEmojiUsage(
-                    "several times a day",
-                    page
-                  )
-                }
-              >
-                {strings[this.props.language].alternative1}
-              </Button>
-              <Button
-                className="surveyAnswerButton mid"
-                size="lg"
-                onClick={() =>
-                  this.props.setEmojiUsage("once a day", page)
-                }
-              >
-                {strings[this.props.language].alternative2}
-              </Button>
-              <Button
-                className="surveyAnswerButton mid"
-                size="lg"
-                onClick={() =>
-                  this.props.setEmojiUsage(
-                    "several times a week",
-                    page
-                  )
-                }
-              >
-                {strings[this.props.language].alternative3}
-              </Button>
-              <Button
-                className="surveyAnswerButton mid"
-                size="lg"
-                onClick={() =>
-                  this.props.setEmojiUsage("once a week", page)
-                }
-              >
-                {strings[this.props.language].alternative4}
-              </Button>
-              <Button
-                className="surveyAnswerButton bottom"
-                size="lg"
-                onClick={() =>
-                  this.props.setEmojiUsage("never", page)
-                }
-              >
-                {strings[this.props.language].alternative5}
-              </Button>
-            </div>
+          <div className="questionDiv">
+            <h3 className="story">
+              {strings[this.props.language].emojisQuestion}
+            </h3>
+          </div>
+          <div className="options2">
+            <Button
+              className="surveyAnswerButton top"
+              size="lg"
+              onClick={() =>
+                this.props.setEmojiUsage("several times a day", page)
+              }
+            >
+              {strings[this.props.language].alternative1}
+            </Button>
+            <Button
+              className="surveyAnswerButton mid"
+              size="lg"
+              onClick={() => this.props.setEmojiUsage("once a day", page)}
+            >
+              {strings[this.props.language].alternative2}
+            </Button>
+            <Button
+              className="surveyAnswerButton mid"
+              size="lg"
+              onClick={() =>
+                this.props.setEmojiUsage("several times a week", page)
+              }
+            >
+              {strings[this.props.language].alternative3}
+            </Button>
+            <Button
+              className="surveyAnswerButton mid"
+              size="lg"
+              onClick={() => this.props.setEmojiUsage("once a week", page)}
+            >
+              {strings[this.props.language].alternative4}
+            </Button>
+            <Button
+              className="surveyAnswerButton bottom"
+              size="lg"
+              onClick={() => this.props.setEmojiUsage("never", page)}
+            >
+              {strings[this.props.language].alternative5}
+            </Button>
           </div>
         </SurveyBody>
       </AppContainer>

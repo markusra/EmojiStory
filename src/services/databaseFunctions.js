@@ -9,8 +9,11 @@ export const createDBEntry = () => {
         answerIndices: "",
         backButtonCounter: "",
         confusion: "",
+        correctPassword1: "",
+        correctPassword2: "",
         deviceType: "",
         keyboard: "",
+        keyboardWords: "",
         emojiStoryCreated: false,
         fun: "",
         loginAttempts1: "",
@@ -28,7 +31,13 @@ export const createDBEntry = () => {
         timestamp5: "",
         storyID: "",
         strategy: "",
-        surveyFinished: false
+        surveyFinished: false,
+        login1_1: "",
+        login1_2: "",
+        login1_3: "",
+        login2_1: "",
+        login2_2: "",
+        login2_3: "",
       };
 
       const update = {};
@@ -42,7 +51,12 @@ export const createDBEntry = () => {
   });
 };
 
-export const timestampUpdateDB = (field, value, attemptsLeft, CorrectPassword) => {
+export const timestampUpdateDB = (
+  field,
+  value,
+  attemptsLeft,
+  CorrectPassword
+) => {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       const userID = user.uid;
@@ -71,7 +85,11 @@ export const timestampUpdateDB = (field, value, attemptsLeft, CorrectPassword) =
         firebase
           .database()
           .ref("users/" + userID)
-          .update({ timestamp4: value, loginAttempts1: attemptsLeft, correctPassword1: CorrectPassword });
+          .update({
+            timestamp4: value,
+            loginAttempts1: attemptsLeft,
+            correctPassword1: CorrectPassword
+          });
       }
 
       if (field === "timestamp5") {
@@ -93,6 +111,7 @@ export const emojiStoryUpdateDB = (
   Answers,
   AnswerIndices,
   Keyboard,
+  KeyboardWords,
   StoryID,
   DeviceType,
   BackButtonCounter
@@ -107,6 +126,7 @@ export const emojiStoryUpdateDB = (
           answerIndices: AnswerIndices,
           deviceType: DeviceType,
           keyboard: Keyboard,
+          keyboardWords: KeyboardWords,
           emojiStoryCreated: true,
           storyID: StoryID,
           backButtonCounter: BackButtonCounter
@@ -142,6 +162,59 @@ export const questionsUpdateDB = (
           confusion: Confusion,
           fun: Fun
         });
+    }
+  });
+};
+
+export const loginAttemptUpdateDB = (field, value) => {
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      const userID = user.uid;
+      if (field === "login1_1") {
+        firebase
+          .database()
+          .ref("users/" + userID)
+          .update({ login1_1: value });
+      }
+
+      if (field === "login1_2") {
+        firebase
+          .database()
+          .ref("users/" + userID)
+          .update({ login1_2: value });
+      }
+
+      if (field === "login1_3") {
+        firebase
+          .database()
+          .ref("users/" + userID)
+          .update({ login1_3: value });
+      }
+
+      if (field === "login2_1") {
+        firebase
+          .database()
+          .ref("users/" + userID)
+          .update({ login2_1: value });
+      }
+
+      if (field === "login2_2") {
+        firebase
+          .database()
+          .ref("users/" + userID)
+          .update({
+            login2_2: value
+          });
+      }
+
+      if (field === "login2_3") {
+        firebase
+          .database()
+          .ref("users/" + userID)
+          .update({
+            login2_3: value
+          });
+      }
     }
   });
 };

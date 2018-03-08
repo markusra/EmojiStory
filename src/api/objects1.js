@@ -15,11 +15,6 @@ const objects1 = [
   },
 
   {
-    text: "cutlery",
-    src: "objects1/1f374.svg"
-  },
-
-  {
     text: "presents",
     src: "objects1/1f381.svg"
   },
@@ -228,46 +223,6 @@ const objects1 = [
   {
     text: "light bulbs",
     src: "objects1/1f4a1.svg"
-  },
-
-  {
-    text: "water",
-    src: "objects1/1f4a7.svg"
-  },
-
-  {
-    text: "poop",
-    src: "objects1/1f4a9.svg"
-  },
-
-  {
-    text: "money",
-    emojiList: [
-      {
-        text: "money1",
-        src: "objects1/1f4b0.svg"
-      },
-      {
-        text: "money2",
-        src: "objects1/1f4b4.svg"
-      },
-      {
-        text: "money3",
-        src: "objects1/1f4b5.svg"
-      },
-      {
-        text: "money4",
-        src: "objects1/1f4b6.svg"
-      },
-      {
-        text: "money5",
-        src: "objects1/1f4b7.svg"
-      },
-      {
-        text: "money6",
-        src: "objects1/1f4b8.svg"
-      }
-    ]
   },
 
   {
