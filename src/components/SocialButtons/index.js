@@ -26,6 +26,8 @@ class SocialButtons extends Component {
           <a
             href="https://www.facebook.com/sharer/sharer.php?u=https://emojistory.site/"
             className="btn-social btn-facebook"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             <i className="fa fa-facebook" />
           </a>
@@ -33,19 +35,25 @@ class SocialButtons extends Component {
           <a
             href="https://plus.google.com/share?url=https://emojistory.site/"
             className="btn-social btn-google-plus"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             <i className="fa fa-google-plus" />
           </a>
 
           <a
-            href="https://twitter.com/intent/tweet?url=https%3A%2F%2Femojistory.site%2F&via=markusrauhut%20%40makjellevand&text=Can%20emojis%20replace%20passwords%3F%20Take%20this%20survey%20to%20help%20the%20research%20on%20emoji%20passwords.&hashtags=emojis%2C%20passwords%2C%20security%2C%20usability"
+            href="https://twitter.com/intent/tweet?url=https%3A%2F%2Femojistory.site%2F&via=markusrauhut%20%40makjellevand&text=Can%20emojis%20replace%20passwords%3F%20Take%20this%20survey%20in%20order%20to%20support%20research%20on%20emoji%20passwords.&hashtags=emojis%2C%20passwords%2C%20security%2C"
             className="btn-social btn-twitter"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             <i className="fa fa-twitter" />
           </a>
           <a
             href="http://reddit.com/submit?url=https://emojistory.site&amp;title=Survey%20on%20Emoji%20Passwords"
             className="btn-social btn-reddit"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             <i className="fa fa-reddit" />
           </a>
@@ -53,6 +61,8 @@ class SocialButtons extends Component {
           <a
             href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//emojistory.site/&title=Survey%20on%20Emoji%20Passwords&summary=&source="
             className="btn-social btn-linkedin"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             <i className="fa fa-linkedin" />
           </a>
