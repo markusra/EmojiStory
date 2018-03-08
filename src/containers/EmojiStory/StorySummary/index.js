@@ -26,7 +26,7 @@ import { getRandomKeyboard } from "../../../services/randomizer";
 
 let strings = {
   en: {
-    memoriseText: "Memorise this EmojiStory",
+    memoriseText: "Memorise your emoji password",
     acceptRemember: "Ok, I remember!"
   },
   no: {
@@ -34,8 +34,8 @@ let strings = {
     acceptRemember: "Ok, jeg husker det!"
   },
   de: {
-    memoriseText: "Merke dir diese EmojiStory",
-    acceptRemember: "Ok, Ich merke sie mir!"
+    memoriseText: "Merke dir dein Emoji-Passwort",
+    acceptRemember: "Ok, Ich merke es mir!"
   }
 };
 
