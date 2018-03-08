@@ -24,7 +24,7 @@ let strings = {
   },
   de: {
     confusionQuestion:
-      "Verstandst du das Verfahren für die Erstellung deines Emoji-Passwortes? ",
+      "Fandest du das Verfahren für die Erstellung deines Emoji-Passwortes verständlich? ",
     alternative1: "Ja",
     alternative2: "Nein",
     alternative3: "Weiß nicht"
