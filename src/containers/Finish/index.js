@@ -62,7 +62,7 @@ class Finish extends Component {
         this.props.timestamp1,
         this.props.timestamp2
       );
-      timestampUpdateDB("timestamp5", timeUsed, 3 - this.props.attemptsLeft, this.props.correctPassword);
+      timestampUpdateDB("timestamp5", timeUsed, 3 - this.props.attemptsLeft, this.props.correctPassword, this.props.language);
     }
   }
 

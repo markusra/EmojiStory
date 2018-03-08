@@ -38,6 +38,7 @@ export const createDBEntry = () => {
         login2_1: "",
         login2_2: "",
         login2_3: "",
+        language: ""
       };
 
       const update = {};
@@ -55,7 +56,8 @@ export const timestampUpdateDB = (
   field,
   value,
   attemptsLeft,
-  CorrectPassword
+  CorrectPassword,
+  Language
 ) => {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
@@ -100,7 +102,8 @@ export const timestampUpdateDB = (
             timestamp5: value,
             loginAttempts2: attemptsLeft,
             surveyFinished: true,
-            correctPassword2: CorrectPassword
+            correctPassword2: CorrectPassword,
+            language: Language
           });
       }
     }
