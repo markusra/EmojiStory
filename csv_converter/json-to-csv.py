@@ -6,4 +6,4 @@ with open ("test.json") as data_file:
 
 df = pd.DataFrame(data)
 df = df.T
-df.to_csv("csv-example.csv")
+df.to_csv("csv-example.csv", encoding="utf-8")
