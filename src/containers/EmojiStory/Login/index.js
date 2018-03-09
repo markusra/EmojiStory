@@ -397,7 +397,8 @@ Login.propTypes = {
   language: PropTypes.string,
   attemptsLeft: PropTypes.number,
   setAttemptsLeft: PropTypes.func,
-  setCorrectPassword: PropTypes.func
+  setCorrectPassword: PropTypes.func,
+  correctPassword: PropTypes.string
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
