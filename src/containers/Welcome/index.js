@@ -38,7 +38,8 @@ let strings = {
           <a
             className="hyperlink"
             href="mailto:mail@emojistory.site?subject=Survey on Emoji Passwords"
-            target="_top"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             send us an email
           </a>. The study has been notified to the{" "}
@@ -66,7 +67,8 @@ let strings = {
           <a
             className="hyperlink"
             href="mailto:mail@emojistory.site?subject=Survey on Emoji Passwords"
-            target="_top"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             send oss en e-post
           </a>. Undersøkelsen har blitt meldt til{" "}
@@ -96,7 +98,8 @@ let strings = {
           <a
             className="hyperlink"
             href="mailto:mail@emojistory.site?subject=Survey on Emoji Passwords"
-            target="_top"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             sende uns eine Mail
           </a>. Das <i>Norwegian Centre for Research Data (NSD)</i> wurde über
