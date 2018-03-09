@@ -105,12 +105,6 @@ class Login extends Component {
       }
       if (attempts <= 0) {
         if (this.props.readyFor2ndLogin && !isCorrect) {
-          const timeUsed = calculateTimeUsed(
-            this.props.timestamp1,
-            this.props.timestamp2
-          );
-          timestampUpdateDB("timestamp5", timeUsed, 3 - this.props.attemptsLeft, this.props.correctPassword, this.props.language);
-
           this.props.setUserProgress("/finish");
           // Send sixth try
           loginAttemptUpdateDB("login2_3", tempArray);
