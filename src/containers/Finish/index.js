@@ -6,8 +6,6 @@ import AppFooter from "../../components/AppFooter";
 import SocialButtons from "../../components/SocialButtons/index";
 import { connect } from "react-redux";
 import { redirectUser } from "../../services/redirectUser";
-import { calculateTimeUsed } from "../../services/timestamping";
-import { timestampUpdateDB } from "../../services/databaseFunctions";
 
 let strings = {
   en: {
@@ -57,13 +55,6 @@ let strings = {
 class Finish extends Component {
   componentWillMount() {
     redirectUser(this.props.userProgress);
-    if (this.props.userProgress === "/finish") {
-      const timeUsed = calculateTimeUsed(
-        this.props.timestamp1,
-        this.props.timestamp2
-      );
-      timestampUpdateDB("timestamp5", timeUsed, 3 - this.props.attemptsLeft, this.props.correctPassword, this.props.language);
-    }
   }
 
   render() {

@@ -20,6 +20,8 @@ import {
 import { redirectUser } from "../../../services/redirectUser";
 import { createTimestamp } from "../../../services/timestamping";
 import { loginAttemptUpdateDB } from "../../../services/databaseFunctions";
+import { calculateTimeUsed } from "../../../services/timestamping";
+import { timestampUpdateDB } from "../../../services/databaseFunctions";
 
 let strings = {
   en: {
@@ -103,6 +105,12 @@ class Login extends Component {
       }
       if (attempts <= 0) {
         if (this.props.readyFor2ndLogin && !isCorrect) {
+          const timeUsed = calculateTimeUsed(
+            this.props.timestamp1,
+            this.props.timestamp2
+          );
+          timestampUpdateDB("timestamp5", timeUsed, 3 - this.props.attemptsLeft, this.props.correctPassword, this.props.language);
+
           this.props.setUserProgress("/finish");
           // Send sixth try
           loginAttemptUpdateDB("login2_3", tempArray);
@@ -126,6 +134,12 @@ class Login extends Component {
 
   onContinueButtonClick() {
     if (this.props.readyFor2ndLogin) {
+      const timeUsed = calculateTimeUsed(
+        this.props.timestamp1,
+        this.props.timestamp2
+      );
+      timestampUpdateDB("timestamp5", timeUsed, 3 - this.props.attemptsLeft, this.props.correctPassword, this.props.language);
+
       const url = "/finish";
       this.props.setUserProgress(url);
       history.push(url);
@@ -346,7 +360,8 @@ const mapStateToProps = state => {
     timestamp2: state.timestamp2,
     answers: state.answers,
     language: state.language,
-    attemptsLeft: state.attemptsLeft
+    attemptsLeft: state.attemptsLeft,
+    correctPassword: state.correctPassword
   };
 };
 
