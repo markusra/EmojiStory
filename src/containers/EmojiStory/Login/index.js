@@ -50,7 +50,7 @@ class Login extends Component {
     this.onOkButtonClick = this.onOkButtonClick.bind(this);
     this.onContinueButtonClick = this.onContinueButtonClick.bind(this);
     this.isCorrectPassword = this.isCorrectPassword.bind(this);
-    this.props.setCorrectPassword("");
+    this.props.setCorrectPassword("false");
   }
 
   onDeleteButtonClick() {
