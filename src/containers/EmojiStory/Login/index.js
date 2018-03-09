@@ -104,14 +104,18 @@ class Login extends Component {
         }
       }
       if (attempts <= 0) {
-        if (this.props.readyFor2ndLogin && !isCorrect) {
+        if (this.props.readyFor2ndLogin) {
           this.props.setUserProgress("/finish");
-          // Send sixth try
-          loginAttemptUpdateDB("login2_3", tempArray);
+          if (!isCorrect) {
+            // Send sixth try
+            loginAttemptUpdateDB("login2_3", tempArray);
+          }
         } else {
           this.props.setUserProgress("/survey");
-          // Send third try
-          loginAttemptUpdateDB("login1_3", tempArray);
+          if (!isCorrect) {
+            // Send third try
+            loginAttemptUpdateDB("login1_3", tempArray);
+          }
         }
       }
 
@@ -132,7 +136,13 @@ class Login extends Component {
         this.props.timestamp1,
         this.props.timestamp2
       );
-      timestampUpdateDB("timestamp5", timeUsed, 3 - this.props.attemptsLeft, this.props.correctPassword, this.props.language);
+      timestampUpdateDB(
+        "timestamp5",
+        timeUsed,
+        3 - this.props.attemptsLeft,
+        this.props.correctPassword,
+        this.props.language
+      );
 
       const url = "/finish";
       this.props.setUserProgress(url);
