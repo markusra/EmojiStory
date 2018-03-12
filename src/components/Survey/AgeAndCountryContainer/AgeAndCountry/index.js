@@ -10,7 +10,7 @@ let strings = {
   en: {
     ageQuestion: "What is your age?",
     agePlaceholder: "Age",
-    nationalityQuestion: "Where du you come from?",
+    nationalityQuestion: "Where do you come from?",
     nationalityPlaceholder: "Choose…"
   },
   no: {
