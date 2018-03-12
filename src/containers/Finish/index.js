@@ -43,7 +43,7 @@ let strings = {
           Vielen Dank, dass du an unserer Umfrage teilgenommen hast! Solltest du
           Fragen oder Kommentare haben, dann{" "}
           <a href="mailto:mail@emojistory.site?subject=Survey on Emoji Passwords" target="_top">
-            schicke uns eine Mail
+            schicke uns bitte eine Mail
           </a>. Wenn du uns noch mehr helfen möchtest, kannst du unsere Umfrage
           in deinem Netzwerk teilen (siehe unten).
         </p>

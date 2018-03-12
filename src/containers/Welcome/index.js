@@ -85,7 +85,7 @@ let strings = {
           Die folgende Online-Umfrage wurde von Martin Kjellevand und Markus
           Rauhut erstellt, um die <b>Benutzerfreundlichkeit</b> und{" "}
           <b>Sicherheit</b> von Emoji-Passwörtern zu ermitteln. Die Umfrage
-          dauert ca. 3-5 Minuten. Alle gesammelten Daten werden in einer
+          dauert ca. 3–5 Minuten. Alle gesammelten Daten werden in einer
           Masterarbeit an der{" "}
           <b>Norwegian University of Science and Technology (NTNU)</b>{" "}
           verwertet.
@@ -93,7 +93,7 @@ let strings = {
 
         <p>
           Die Umfrage ist <b>anonym</b> und bittet nicht um das Eingeben von
-          sensiblen Daten. Solltest du irgendwelche Fragen über das Projekt
+          sensiblen Daten. Solltest du irgendwelche Fragen zu unserem Projekt
           haben, dann{" "}
           <a
             className="hyperlink"
@@ -101,7 +101,7 @@ let strings = {
             rel="noopener noreferrer"
             target="_blank"
           >
-            sende uns eine Mail
+            sende uns bitte eine Mail
           </a>. Das <i>Norwegian Centre for Research Data (NSD)</i> wurde über
           dieses Projekt benachrichtigt.
         </p>

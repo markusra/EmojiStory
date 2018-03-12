@@ -23,10 +23,10 @@ let strings = {
     alternative4: "noe annet"
   },
   de: {
-    memoryQuestion: "Ich merkte mir das Emoji-Passwort mit Hilfe von…",
-    alternative1: "den Emojis",
+    memoryQuestion: "Ich merkte mir das Emoji-Passwort mit Hilfe…",
+    alternative1: "der Emojis",
     alternative2: "der Geschichte",
-    alternative3: "den Emojis und der Geschichte",
+    alternative3: "der Emojis und der Geschichte",
     alternative4: "etwas anderem"
   }
 };

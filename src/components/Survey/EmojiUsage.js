@@ -25,7 +25,7 @@ let strings = {
     alternative5: "Aldri"
   },
   de: {
-    emojisQuestion: "Wie oft benutzen Sie Emojis?",
+    emojisQuestion: "Wie oft benutzt du Emojis?",
     alternative1: "Mehrmals täglich",
     alternative2: "Einmal täglich",
     alternative3: "Mehrmals in der Woche",

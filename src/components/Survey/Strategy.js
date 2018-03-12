@@ -42,7 +42,7 @@ let strings = {
   de: {
     strategyQuestion: (
       <Fragment>
-        <p>Welche Strategie hast du benutzt um deine Geschichte zu erzeugen?</p>{" "}
+        <p>Welche Strategie hast du benutzt, um deine Geschichte zu erzeugen?</p>{" "}
         <p>Meine Geschichte...</p>
       </Fragment>
     ),
