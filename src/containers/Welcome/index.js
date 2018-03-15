@@ -144,7 +144,7 @@ class Welcome extends Component {
     this.props.setDeviceType(device);
 
     const nrkReferrer =
-      document.referrer.indexOf("nrkbeta.no") != -1 ? true : false;
+      document.referrer.indexOf("nrkbeta.no") !== -1 ? true : false;
     if (nrkReferrer) {
       this.props.setNRKReferrer();
     }
