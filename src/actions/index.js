@@ -183,3 +183,9 @@ export const setCorrectPassword = correctPassword => {
     correctPassword
   };
 };
+
+export const setNRKReferrer = () => {
+  return {
+    type: "SET_NRKREFERRER"
+  };
+};

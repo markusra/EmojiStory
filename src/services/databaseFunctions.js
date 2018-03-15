@@ -38,7 +38,8 @@ export const createDBEntry = () => {
         login2_1: "",
         login2_2: "",
         login2_3: "",
-        language: ""
+        language: "",
+        nrkReferrer: false
       };
 
       const update = {};
@@ -57,7 +58,8 @@ export const timestampUpdateDB = (
   value,
   attemptsLeft,
   CorrectPassword,
-  Language
+  Language,
+  NrkReferrer
 ) => {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
@@ -66,7 +68,7 @@ export const timestampUpdateDB = (
         firebase
           .database()
           .ref("users/" + userID)
-          .update({ timestamp1: value });
+          .update({ timestamp1: value, nrkReferrer: NrkReferrer });
       }
 
       if (field === "timestamp2") {

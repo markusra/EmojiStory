@@ -12,7 +12,8 @@ import {
   deleteAnswers,
   deleteAnswerIndices,
   setDeviceType,
-  setLanguage
+  setLanguage,
+  setNRKReferrer
 } from "../../actions/index";
 import { createDBEntry } from "../../services/databaseFunctions";
 import { checkDeviceType } from "../../services/checkDeviceType";
@@ -142,6 +143,12 @@ class Welcome extends Component {
     const device = checkDeviceType();
     this.props.setDeviceType(device);
 
+    const nrkReferrer =
+      document.referrer.indexOf("nrkbeta.no") != -1 ? true : false;
+    if (nrkReferrer) {
+      this.props.setNRKReferrer();
+    }
+
     this.props.deleteAnswers();
     this.props.deleteAnswerIndices();
 
@@ -220,6 +227,9 @@ const mapDispatchToProps = dispatch => {
     },
     setLanguage: language => {
       dispatch(setLanguage(language));
+    },
+    setNRKReferrer: () => {
+      dispatch(setNRKReferrer());
     }
   };
 };
@@ -231,7 +241,8 @@ Welcome.propTypes = {
   deleteAnswerIndices: PropTypes.func,
   setDeviceType: PropTypes.func,
   language: PropTypes.string,
-  setLanguage: PropTypes.func
+  setLanguage: PropTypes.func,
+  setNRKReferrer: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Welcome);

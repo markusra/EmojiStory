@@ -7,9 +7,25 @@ import EmojiBody from "../EmojiContainer/EmojiBody";
 import EmojiOverlay from "../EmojiOverlay/index";
 import { connect } from "react-redux";
 import { timestampUpdateDB } from "../../../services/databaseFunctions";
-import { createTimestamp, calculateTimeUsed } from "../../../services/timestamping";
-import { getRandomStory, getRandomAnswerOptions, getRandomStoryFile } from "../../../services/randomizer";
-import { addAnswer, addAnswerIndex, setUserProgress, setTimestamp1, setTimestamp2, setStoryTemplate, setStoryID, increaseBackButtonCounter } from "../../../actions/index";
+import {
+  createTimestamp,
+  calculateTimeUsed
+} from "../../../services/timestamping";
+import {
+  getRandomStory,
+  getRandomAnswerOptions,
+  getRandomStoryFile
+} from "../../../services/randomizer";
+import {
+  addAnswer,
+  addAnswerIndex,
+  setUserProgress,
+  setTimestamp1,
+  setTimestamp2,
+  setStoryTemplate,
+  setStoryID,
+  increaseBackButtonCounter
+} from "../../../actions/index";
 
 class EmojiQuiz extends Component {
   constructor(props) {
@@ -45,7 +61,14 @@ class EmojiQuiz extends Component {
       this.props.timestamp1,
       this.props.timestamp2
     );
-    timestampUpdateDB("timestamp1", timeUsed);
+    timestampUpdateDB(
+      "timestamp1",
+      timeUsed,
+      null,
+      null,
+      null,
+      this.props.nrkReferrer
+    );
 
     // Set first timestamp for time spent on creating the emoji-password
     const timestamp = createTimestamp();
@@ -66,9 +89,9 @@ class EmojiQuiz extends Component {
         ___
       </span>
     );
-    
+
     const answerOptions = randomAnswerOptions[0];
-    
+
     // Preload images
     answerOptions.map(this.preloadImage);
 
@@ -116,7 +139,7 @@ class EmojiQuiz extends Component {
 
     const answerOptions = this.state.randomAnswerOptions[counter];
 
-   // Preload images
+    // Preload images
     answerOptions.map(this.preloadImage);
 
     this.setState({
@@ -193,7 +216,8 @@ const mapStateToProps = state => {
   return {
     answers: state.answers,
     timestamp1: state.timestamp1,
-    timestamp2: state.timestamp2
+    timestamp2: state.timestamp2,
+    nrkReferrer: state.nrkReferrer
   };
 };
 
@@ -240,7 +264,8 @@ EmojiQuiz.propTypes = {
   setStoryTemplate: PropTypes.func,
   setStoryID: PropTypes.func,
   addAnswerIndex: PropTypes.func,
-  increaseBackButtonCounter: PropTypes.func
+  increaseBackButtonCounter: PropTypes.func,
+  nrkReferrer: PropTypes.bool
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(EmojiQuiz);

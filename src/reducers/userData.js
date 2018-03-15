@@ -23,7 +23,8 @@ const initialState = {
   strategy: "",
   confusion: "",
   fun: "",
-  correctPassword: ""
+  correctPassword: "",
+  nrkReferrer: false
 };
 
 const userData = (state = initialState, action) => {
@@ -172,6 +173,11 @@ const userData = (state = initialState, action) => {
       return {
         ...state,
         correctPassword: action.correctPassword
+      };
+    case "SET_NRKREFERRER":
+      return {
+        ...state,
+        nrkReferrer: true
       };
     default:
       return state;
