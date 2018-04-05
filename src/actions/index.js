@@ -112,20 +112,6 @@ export const setMemorization = (memorization, surveyPage) => {
   };
 };
 
-export const setTimestamp1 = timestamp1 => {
-  return {
-    type: "SET_TIMESTAMP1",
-    timestamp1
-  };
-};
-
-export const setTimestamp2 = timestamp2 => {
-  return {
-    type: "SET_TIMESTAMP2",
-    timestamp2
-  };
-};
-
 export const setDeviceType = deviceType => {
   return {
     type: "SET_DEVICETYPE",

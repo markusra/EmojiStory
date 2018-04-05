@@ -2,22 +2,20 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import AppContainer from "../../components/AppContainer";
 import AppBody from "../../components/AppBody";
-import AppFooter from "../../components/AppFooter";
-import SocialButtons from "../../components/SocialButtons/index";
 import { connect } from "react-redux";
-import { redirectUser } from "../../services/redirectUser";
 
 let strings = {
   en: {
     finishText: (
       <Fragment>
         <p>
-          Thank you for participating! If you have any questions or comments,
-          please{" "}
-          <a href="mailto:mail@emojistory.site?subject=Survey on Emoji Passwords" target="_top">
+          If you have any questions or comments, please{" "}
+          <a
+            href="mailto:mail@emojistory.site?subject=Survey on Emoji Passwords"
+            target="_top"
+          >
             send us an email
-          </a>. We would appreciate if you could take a moment to share our
-          survey (see below).
+          </a>.
         </p>
       </Fragment>
     )
@@ -26,12 +24,13 @@ let strings = {
     finishText: (
       <Fragment>
         <p>
-          Tusen takk for at du tok undersøkelsen! Hvis du har spørsmål eller
-          kommentarer, vennligst{" "}
-          <a href="mailto:mail@emojistory.site?subject=Survey on Emoji Passwords" target="_top">
+          Hvis du har spørsmål eller kommentarer, vennligst{" "}
+          <a
+            href="mailto:mail@emojistory.site?subject=Survey on Emoji Passwords"
+            target="_top"
+          >
             send oss en e-post
-          </a>. Hvis du ønsker å hjelpe oss ytterligere med forskningen vår,
-          vennligst del undersøkelsen vår (se under).
+          </a>.
         </p>
       </Fragment>
     )
@@ -40,12 +39,13 @@ let strings = {
     finishText: (
       <Fragment>
         <p>
-          Vielen Dank, dass du an unserer Umfrage teilgenommen hast! Solltest du
-          Fragen oder Kommentare haben, dann{" "}
-          <a href="mailto:mail@emojistory.site?subject=Survey on Emoji Passwords" target="_top">
+          Solltest du Fragen oder Kommentare haben, dann{" "}
+          <a
+            href="mailto:mail@emojistory.site?subject=Survey on Emoji Passwords"
+            target="_top"
+          >
             schicke uns bitte eine Mail
-          </a>. Wenn du uns noch mehr helfen möchtest, kannst du unsere Umfrage
-          in deinem Netzwerk teilen (siehe unten).
+          </a>.
         </p>
       </Fragment>
     )
@@ -53,17 +53,10 @@ let strings = {
 };
 
 class Finish extends Component {
-  componentWillMount() {
-    redirectUser(this.props.userProgress);
-  }
-
   render() {
     return (
       <AppContainer appTitle="Survey – Emoji-Based Authentication">
         <AppBody>{strings[this.props.language].finishText}</AppBody>
-        <AppFooter>
-          <SocialButtons />
-        </AppFooter>
       </AppContainer>
     );
   }

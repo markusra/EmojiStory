@@ -1,0 +1,73 @@
+.flex-container {
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #1b212c;
+}
+
+.flex-item {
+  margin: 20px;
+}
+
+.attributionMobile {
+  bottom: 0px;
+  font-size: 0.7em;
+  margin: 30px 30px 20px;
+  z-index: 999;
+  color: white;
+  text-align: center;
+  position: fixed;
+}
+
+@media (min-width: 500px) {
+  .flex-item {
+    width: 400px;
+  }
+
+  .attributionMobile {
+    display: none !important;
+  }
+}
+
+.flex-item h1 {
+  color: white;
+  text-align: center;
+}
+
+.flex-item p {
+  margin-top: 30px;
+  color: white;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+/* .flex-item h1 {
+  padding: 5px;
+  margin: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 16em;
+  text-align: center;
+  font-family: "Arial", Verdana, sans-serif;
+} */
+
+.flex-item h2 {
+  font-size: 3vw;
+  color: white;
+  padding: 5px;
+  margin: 0;
+  text-align: center;
+  font-family: "Arial", Verdana, sans-serif;
+}
+
+.flex-item #goButton {
+  margin-top: 10px;
+}

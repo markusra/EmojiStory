@@ -10,18 +10,10 @@ import EmojiRow from "../../../components/EmojiStory/EmojiRow";
 import { Button, Row } from "reactstrap";
 import { connect } from "react-redux";
 import {
-  setUserProgress,
   setReadyFor2ndLogin,
-  setTimestamp1,
-  setTimestamp2,
   setAttemptsLeft,
   setCorrectPassword
 } from "../../../actions/index";
-import { redirectUser } from "../../../services/redirectUser";
-import { createTimestamp } from "../../../services/timestamping";
-import { loginAttemptUpdateDB } from "../../../services/databaseFunctions";
-import { calculateTimeUsed } from "../../../services/timestamping";
-import { timestampUpdateDB } from "../../../services/databaseFunctions";
 
 let strings = {
   en: {
@@ -43,8 +35,7 @@ class Login extends Component {
       emojis: [],
       loginOverlay: false,
       loginOverlay2: this.props.attemptsLeft === 3,
-      isCorrect: false,
-      willRedirect: redirectUser(this.props.userProgress)
+      isCorrect: false
     };
     this.onTryAgainButtonClick = this.onTryAgainButtonClick.bind(this);
     this.onOkButtonClick = this.onOkButtonClick.bind(this);
@@ -76,48 +67,9 @@ class Login extends Component {
     this.setState({ emojis: tempArray });
 
     if (tempArray.length === 4) {
-      // Set second timestamp for time spent on logging in
-      const timestamp = createTimestamp();
-      this.props.setTimestamp2(timestamp);
-
       const isCorrect = this.isCorrectPassword(tempArray);
       const attempts = this.props.attemptsLeft - 1;
       this.props.setAttemptsLeft(attempts);
-
-      if (attempts === 2 && !isCorrect) {
-        if (this.props.readyFor2ndLogin) {
-          // Send fourth try
-          loginAttemptUpdateDB("login2_1", tempArray);
-        } else {
-          // Send first try
-          loginAttemptUpdateDB("login1_1", tempArray);
-        }
-      }
-
-      if (attempts === 1 && !isCorrect) {
-        if (this.props.readyFor2ndLogin) {
-          // Send fifth try
-          loginAttemptUpdateDB("login2_2", tempArray);
-        } else {
-          // Send second try
-          loginAttemptUpdateDB("login1_2", tempArray);
-        }
-      }
-      if (attempts <= 0) {
-        if (this.props.readyFor2ndLogin) {
-          this.props.setUserProgress("/finish");
-          if (!isCorrect) {
-            // Send sixth try
-            loginAttemptUpdateDB("login2_3", tempArray);
-          }
-        } else {
-          this.props.setUserProgress("/survey");
-          if (!isCorrect) {
-            // Send third try
-            loginAttemptUpdateDB("login1_3", tempArray);
-          }
-        }
-      }
 
       this.setState({
         loginOverlay: true,
@@ -131,35 +83,12 @@ class Login extends Component {
   }
 
   onContinueButtonClick() {
-    if (this.props.readyFor2ndLogin) {
-      const timeUsed = calculateTimeUsed(
-        this.props.timestamp1,
-        this.props.timestamp2
-      );
-      timestampUpdateDB(
-        "timestamp5",
-        timeUsed,
-        3 - this.props.attemptsLeft,
-        this.props.correctPassword,
-        this.props.language
-      );
-
-      const url = "/finish";
-      this.props.setUserProgress(url);
-      history.push(url);
-    } else {
-      this.props.setReadyFor2ndLogin();
-      const url = "/survey";
-      this.props.setUserProgress(url);
-      history.push(url);
-    }
+    this.props.setReadyFor2ndLogin();
+    const url = "/finish";
+    history.push(url);
   }
 
   onOkButtonClick() {
-    // Set first timestamp for time spent on logging in
-    const timestamp = createTimestamp();
-    this.props.setTimestamp1(timestamp);
-
     this.setState({ loginOverlay2: false });
   }
 
@@ -374,15 +303,6 @@ const mapDispatchToProps = dispatch => {
     setReadyFor2ndLogin: readyFor2ndLogin => {
       dispatch(setReadyFor2ndLogin(readyFor2ndLogin));
     },
-    setUserProgress: userProgress => {
-      dispatch(setUserProgress(userProgress));
-    },
-    setTimestamp1: timestamp1 => {
-      dispatch(setTimestamp1(timestamp1));
-    },
-    setTimestamp2: timestamp2 => {
-      dispatch(setTimestamp2(timestamp2));
-    },
     setAttemptsLeft: attemptsLeft => {
       dispatch(setAttemptsLeft(attemptsLeft));
     },
@@ -397,12 +317,7 @@ Login.propTypes = {
   keyboard: PropTypes.array,
   readyFor2ndLogin: PropTypes.bool,
   setReadyFor2ndLogin: PropTypes.func,
-  setUserProgress: PropTypes.func,
   setLoginAttempts: PropTypes.func,
-  setTimestamp1: PropTypes.func,
-  setTimestamp2: PropTypes.func,
-  timestamp1: PropTypes.number,
-  timestamp2: PropTypes.number,
   answers: PropTypes.array,
   language: PropTypes.string,
   attemptsLeft: PropTypes.number,

@@ -8,16 +8,13 @@ import { Button } from "reactstrap";
 import history from "../../history";
 import { connect } from "react-redux";
 import {
-  setUserProgress,
   deleteAnswers,
   deleteAnswerIndices,
   setDeviceType,
   setLanguage,
   setNRKReferrer
 } from "../../actions/index";
-import { createDBEntry } from "../../services/databaseFunctions";
 import { checkDeviceType } from "../../services/checkDeviceType";
-import { redirectUser } from "../../services/redirectUser";
 var locale = require("browser-locale")();
 
 let strings = {
@@ -116,10 +113,6 @@ let strings = {
 class Welcome extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      willRedirect: redirectUser(this.props.userProgress)
-    };
     this.detectLanguage();
   }
 
@@ -152,10 +145,7 @@ class Welcome extends Component {
     this.props.deleteAnswers();
     this.props.deleteAnswerIndices();
 
-    createDBEntry();
-
     const url = "/emojiStory";
-    this.props.setUserProgress(url);
     history.push(url);
   }
 
@@ -213,9 +203,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setUserProgress: userProgress => {
-      dispatch(setUserProgress(userProgress));
-    },
     deleteAnswers: userStory => {
       dispatch(deleteAnswers(userStory));
     },
@@ -235,7 +222,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 Welcome.propTypes = {
-  setUserProgress: PropTypes.func,
   deleteAnswers: PropTypes.func,
   userProgress: PropTypes.string,
   deleteAnswerIndices: PropTypes.func,

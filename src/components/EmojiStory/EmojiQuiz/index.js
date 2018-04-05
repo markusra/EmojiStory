@@ -6,11 +6,6 @@ import EmojiContainer from "../EmojiContainer";
 import EmojiBody from "../EmojiContainer/EmojiBody";
 import EmojiOverlay from "../EmojiOverlay/index";
 import { connect } from "react-redux";
-import { timestampUpdateDB } from "../../../services/databaseFunctions";
-import {
-  createTimestamp,
-  calculateTimeUsed
-} from "../../../services/timestamping";
 import {
   getRandomStory,
   getRandomAnswerOptions,
@@ -19,9 +14,6 @@ import {
 import {
   addAnswer,
   addAnswerIndex,
-  setUserProgress,
-  setTimestamp1,
-  setTimestamp2,
   setStoryTemplate,
   setStoryID,
   increaseBackButtonCounter
@@ -56,24 +48,6 @@ class EmojiQuiz extends Component {
   }
 
   componentWillMount() {
-    // Calculate time spent on the "instructions page" and send it to DB
-    const timeUsed = calculateTimeUsed(
-      this.props.timestamp1,
-      this.props.timestamp2
-    );
-    timestampUpdateDB(
-      "timestamp1",
-      timeUsed,
-      null,
-      null,
-      null,
-      this.props.nrkReferrer
-    );
-
-    // Set first timestamp for time spent on creating the emoji-password
-    const timestamp = createTimestamp();
-    this.props.setTimestamp1(timestamp);
-
     const randomStoryFile = getRandomStoryFile();
     const randomStory = getRandomStory(randomStoryFile);
 
@@ -173,12 +147,7 @@ class EmojiQuiz extends Component {
     });
 
     if (this.state.questionId === this.state.randomStory.questions.length) {
-      // Set second timestamp for time spent on creating the emoji-password
-      const timestamp = createTimestamp();
-      this.props.setTimestamp2(timestamp);
-
       const url = "/summary";
-      this.props.setUserProgress(url);
       history.push(url);
     } else {
       this.setState({ answerOverlay: false });
@@ -229,15 +198,6 @@ const mapDispatchToProps = dispatch => {
     addAnswerIndex: answerIndex => {
       dispatch(addAnswerIndex(answerIndex));
     },
-    setUserProgress: userProgress => {
-      dispatch(setUserProgress(userProgress));
-    },
-    setTimestamp1: timestamp1 => {
-      dispatch(setTimestamp1(timestamp1));
-    },
-    setTimestamp2: timestamp2 => {
-      dispatch(setTimestamp2(timestamp2));
-    },
     setStoryTemplate: storyTemplate => {
       dispatch(setStoryTemplate(storyTemplate));
     },
@@ -255,12 +215,7 @@ EmojiQuiz.propTypes = {
   answers: PropTypes.array,
   test: PropTypes.string,
   addAnswer: PropTypes.func,
-  setUserProgress: PropTypes.func,
   deleteAnswers: PropTypes.func,
-  timestamp1: PropTypes.number,
-  timestamp2: PropTypes.number,
-  setTimestamp1: PropTypes.func,
-  setTimestamp2: PropTypes.func,
   setStoryTemplate: PropTypes.func,
   setStoryID: PropTypes.func,
   addAnswerIndex: PropTypes.func,

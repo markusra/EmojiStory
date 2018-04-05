@@ -7,25 +7,9 @@ import EmojiBody from "../../../components/EmojiStory/EmojiContainer/EmojiBody";
 import EmojiRow from "../../../components/EmojiStory/EmojiRow";
 import { Button, Row } from "reactstrap";
 import { connect } from "react-redux";
-import { setUserProgress } from "../../../actions/index";
-import {
-  setTimestamp1,
-  setTimestamp2,
-  setKeyboard
-} from "../../../actions/index";
-import { redirectUser } from "../../../services/redirectUser";
-import {
-  emojiStoryUpdateDB,
-  timestampUpdateDB
-} from "../../../services/databaseFunctions";
-import {
-  createTimestamp,
-  calculateTimeUsed
-} from "../../../services/timestamping";
-import {
-  getRandomKeyboard,
-  getKeyboardWords
-} from "../../../services/randomizer";
+import { setKeyboard } from "../../../actions/index";
+
+import { getRandomKeyboard } from "../../../services/randomizer";
 
 let strings = {
   en: {
@@ -47,25 +31,12 @@ class StorySummary extends Component {
     super(props);
 
     this.state = {
-      willRedirect: redirectUser(this.props.userProgress),
       startTimestamp: 0
     };
   }
 
   componentWillMount() {
-    if (!this.state.willRedirect && this.props.userProgress === "/summary") {
-      // Calculate time spent on creating the emoji-password and send it to DB
-      const timeUsed = calculateTimeUsed(
-        this.props.timestamp1,
-        this.props.timestamp2
-      );
-      timestampUpdateDB("timestamp2", timeUsed);
-
-      // Set first timestamp for time spent on memorizing
-      this.setState({ startTimestamp: createTimestamp() });
-
-      this.props.setKeyboard(getRandomKeyboard(this.props.answers));
-    }
+    this.props.setKeyboard(getRandomKeyboard(this.props.answers));
   }
 
   fillPlaceholders(storyTemplate, emojis) {
@@ -108,32 +79,10 @@ class StorySummary extends Component {
   }
 
   onButtonClick() {
-    let keyboardWords = getKeyboardWords(this.props.keyboard);
-
-    // Set second timestamp for time spent on memorizing
-    const stopTimestamp = createTimestamp();
-    const timeUsed = calculateTimeUsed(
-      this.state.startTimestamp,
-      stopTimestamp
-    );
-    timestampUpdateDB("timestamp3", timeUsed);
-
     var emojiTextArray = [];
-
     this.props.answers.map(answer => emojiTextArray.push(answer.text));
-    // Update DB
-    emojiStoryUpdateDB(
-      emojiTextArray,
-      this.props.answerIndices,
-      this.props.keyboard,
-      keyboardWords,
-      this.props.storyID,
-      this.props.deviceType,
-      this.props.backButtonCounter
-    );
 
     const url = "/login";
-    this.props.setUserProgress(url);
     history.push(url);
   }
 
@@ -216,17 +165,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setUserProgress: userProgress => {
-      dispatch(setUserProgress(userProgress));
-    },
     setKeyboard: keyboard => {
       dispatch(setKeyboard(keyboard));
-    },
-    setTimestamp1: timestamp1 => {
-      dispatch(setTimestamp1(timestamp1));
-    },
-    setTimestamp2: timestamp2 => {
-      dispatch(setTimestamp2(timestamp2));
     }
   };
 };
@@ -236,12 +176,7 @@ StorySummary.propTypes = {
   storyTemplate: PropTypes.array,
   answers: PropTypes.array,
   userStory: PropTypes.string,
-  setUserProgress: PropTypes.func,
   setKeyboard: PropTypes.func,
-  setTimestamp1: PropTypes.func,
-  setTimestamp2: PropTypes.func,
-  timestamp1: PropTypes.number,
-  timestamp2: PropTypes.number,
   storyID: PropTypes.number,
   keyboard: PropTypes.array,
   answerIndices: PropTypes.array,

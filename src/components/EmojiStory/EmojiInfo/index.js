@@ -12,9 +12,6 @@ import { Button } from "reactstrap";
 // Connect to Redux store
 import { connect } from "react-redux";
 
-import { setTimestamp1 } from "../../../actions/index";
-import { createTimestamp } from "../../../services/timestamping";
-
 let strings = {
   en: {
     title: "Instructions",
@@ -110,9 +107,6 @@ let strings = {
 
 class EmojiInfo extends Component {
   componentWillMount() {
-    const timestamp = createTimestamp();
-    // Set first timestamp for time spent on the "instructions page"
-    this.props.setTimestamp1(timestamp);
     this.props.infoList.push(
       <li key={this.props.clicks}>{strings[this.props.language].step1}</li>
     );
@@ -205,21 +199,12 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    setTimestamp1: timestamp1 => {
-      dispatch(setTimestamp1(timestamp1));
-    }
-  };
-};
-
 EmojiInfo.propTypes = {
   onContinueClick: PropTypes.func,
   clicks: PropTypes.number,
   infoList: PropTypes.array,
   timestamp1: PropTypes.number,
-  setTimestamp1: PropTypes.func,
   language: PropTypes.string
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EmojiInfo);
+export default connect(mapStateToProps)(EmojiInfo);

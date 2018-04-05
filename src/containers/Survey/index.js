@@ -10,11 +10,7 @@ import Fun from "../../components/Survey/Fun";
 import AgeAndCountryContainer from "../../components/Survey/AgeAndCountryContainer/index";
 import history from "./../../history";
 import { connect } from "react-redux";
-import { redirectUser } from "../../services/redirectUser";
-import { questionsUpdateDB } from "../../services/databaseFunctions";
-import { setUserProgress, setAttemptsLeft } from "../../actions/index";
-import { calculateTimeUsed } from "../../services/timestamping";
-import { timestampUpdateDB } from "../../services/databaseFunctions";
+import { setAttemptsLeft } from "../../actions/index";
 
 class Survey extends Component {
   constructor(props) {
@@ -22,39 +18,11 @@ class Survey extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentWillMount() {
-    redirectUser(this.props.userProgress);
-    if (this.props.userProgress === "/survey") {
-      const timeUsed = calculateTimeUsed(
-        this.props.timestamp1,
-        this.props.timestamp2
-      );
-      timestampUpdateDB(
-        "timestamp4",
-        timeUsed,
-        3 - this.props.attemptsLeft,
-        this.props.correctPassword
-      );
-    }
-  }
-
   handleSubmit() {
-    questionsUpdateDB(
-      this.props.age,
-      this.props.emojiUsage,
-      this.props.gender,
-      this.props.itBackground,
-      this.props.memorization,
-      this.props.nationality,
-      this.props.strategy,
-      this.props.confusion,
-      this.props.fun
-    );
     // this.props.setCorrectPassword("false");
 
     this.props.setAttemptsLeft(3);
     const url = "/login";
-    this.props.setUserProgress(url);
     history.push(url);
   }
 
@@ -117,9 +85,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setUserProgress: userProgress => {
-      dispatch(setUserProgress(userProgress));
-    },
     setAttemptsLeft: attemptsLeft => {
       dispatch(setAttemptsLeft(attemptsLeft));
     }
@@ -128,7 +93,6 @@ const mapDispatchToProps = dispatch => {
 
 Survey.propTypes = {
   userProgress: PropTypes.string,
-  setUserProgress: PropTypes.func,
   age: PropTypes.string,
   nationality: PropTypes.string,
   emojiUsage: PropTypes.string,

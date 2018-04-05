@@ -3,9 +3,6 @@ import EmojiQuiz from "../../../components/EmojiStory/EmojiQuiz/index";
 import EmojiInfo from "../../../components/EmojiStory/EmojiInfo/index";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { redirectUser } from "../../../services/redirectUser";
-import { createTimestamp } from "../../../services/timestamping";
-import { setTimestamp2 } from "../../../actions/index";
 
 class CreateStory extends Component {
   constructor(props) {
@@ -22,17 +19,10 @@ class CreateStory extends Component {
   incrementClick() {
     this.setState({ clicks: this.state.clicks + 1 });
     if (this.state.clicks === 3) {
-      const timestamp = createTimestamp();
-      // Set second timestamp for time spent on the "instructions page"
-      this.props.setTimestamp2(timestamp);
       this.setState({
         page: "create"
       });
     }
-  }
-
-  componentWillMount() {
-    redirectUser(this.props.userProgress);
   }
 
   render() {
@@ -57,17 +47,8 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    setTimestamp2: timestamp2 => {
-      dispatch(setTimestamp2(timestamp2));
-    }
-  };
-};
-
 CreateStory.propTypes = {
-  userProgress: PropTypes.string,
-  setTimestamp2: PropTypes.func
+  userProgress: PropTypes.string
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateStory);
+export default connect(mapStateToProps)(CreateStory);
