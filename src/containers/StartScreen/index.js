@@ -23,8 +23,8 @@ let strings = {
     question: "Vil du lage et emoji-passord?",
     info: (
       <Fragment>
-        Dette er bare for moro skyld. <br />Du kan ikke bruke passordet du har
-        lagd.
+        Dette er bare for moro skyld. <br />Du kan ikke bruke passordet du
+        lager.
       </Fragment>
     ),
     yes: "Ja"
