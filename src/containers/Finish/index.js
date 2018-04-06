@@ -1,17 +1,16 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
-import AppContainer from "../../components/AppContainer";
-import AppBody from "../../components/AppBody";
 import { connect } from "react-redux";
 
 let strings = {
   en: {
+    finish: "Done",
     finishText: (
       <Fragment>
         <p>
           If you have any questions or comments, please{" "}
           <a
-            href="mailto:mail@emojistory.site?subject=Survey on Emoji Passwords"
+            href="mailto:mail@emojistory.site?subject=Feedback on EmojiStory"
             target="_top"
           >
             send us an email
@@ -21,12 +20,13 @@ let strings = {
     )
   },
   no: {
+    finish: "Ferdig",
     finishText: (
       <Fragment>
         <p>
           Hvis du har spørsmål eller kommentarer, vennligst{" "}
           <a
-            href="mailto:mail@emojistory.site?subject=Survey on Emoji Passwords"
+            href="mailto:mail@emojistory.site?subject=Feedback on EmojiStory"
             target="_top"
           >
             send oss en e-post
@@ -36,12 +36,13 @@ let strings = {
     )
   },
   de: {
+    finish: "Das war's",
     finishText: (
       <Fragment>
         <p>
           Solltest du Fragen oder Kommentare haben, dann{" "}
           <a
-            href="mailto:mail@emojistory.site?subject=Survey on Emoji Passwords"
+            href="mailto:mail@emojistory.site?subject=Feedback on EmojiStory"
             target="_top"
           >
             schicke uns bitte eine Mail
@@ -55,9 +56,16 @@ let strings = {
 class Finish extends Component {
   render() {
     return (
-      <AppContainer appTitle="Survey – Emoji-Based Authentication">
-        <AppBody>{strings[this.props.language].finishText}</AppBody>
-      </AppContainer>
+      <div className="flex-container">
+        <div id="startContainer">
+          <div className="flex-item">
+            <h1>{strings[this.props.language].finish}</h1>
+          </div>
+          <div className="flex-item">
+            <h2>{strings[this.props.language].finishText}</h2>
+          </div>
+        </div>
+      </div>
     );
   }
 }

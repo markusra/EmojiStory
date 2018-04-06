@@ -3,18 +3,18 @@ import "./index.css";
 import PropTypes from "prop-types";
 import history from "../../history";
 
-// Connect to Redux store
 import { connect } from "react-redux";
-
-// Import Bootstrap Components
 import { Button } from "reactstrap";
+import { setLanguage } from "../../actions/index";
+
+var locale = require("browser-locale")();
 
 let strings = {
   en: {
     question: "Do you want to create an emoji password?",
     info: (
       <Fragment>
-        This is just for fun. <br />You can't use the password you create.
+        This is just for fun. <br />You cannot use the password you create.
       </Fragment>
     ),
     yes: "Yes"
@@ -42,6 +42,27 @@ let strings = {
 };
 
 class StartScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.detectLanguage();
+  }
+
+  detectLanguage() {
+    var browserLanguage = locale;
+    browserLanguage = browserLanguage.toLowerCase();
+    if (
+      browserLanguage.includes("nb") ||
+      browserLanguage.includes("no") ||
+      browserLanguage.includes("nn")
+    ) {
+      this.props.setLanguage("no");
+    } else if (browserLanguage.includes("de")) {
+      this.props.setLanguage("de");
+    } else {
+      this.props.setLanguage("en");
+    }
+  }
+
   startEmojiStory() {
     const url = "/emojiStory";
     history.push(url);
@@ -100,8 +121,17 @@ const mapStateToProps = state => {
   };
 };
 
-StartScreen.propTypes = {
-  language: PropTypes.string
+const mapDispatchToProps = dispatch => {
+  return {
+    setLanguage: language => {
+      dispatch(setLanguage(language));
+    }
+  };
 };
 
-export default connect(mapStateToProps)(StartScreen);
+StartScreen.propTypes = {
+  language: PropTypes.string,
+  setLanguage: PropTypes.func
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(StartScreen);

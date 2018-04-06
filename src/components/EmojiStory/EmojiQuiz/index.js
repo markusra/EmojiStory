@@ -15,8 +15,7 @@ import {
   addAnswer,
   addAnswerIndex,
   setStoryTemplate,
-  setStoryID,
-  increaseBackButtonCounter
+  setStoryID
 } from "../../../actions/index";
 
 class EmojiQuiz extends Component {
@@ -135,7 +134,6 @@ class EmojiQuiz extends Component {
 
   handleBackClick() {
     this.setState({ answerOverlay: false });
-    this.props.increaseBackButtonCounter();
   }
 
   handleContinueClick() {
@@ -203,9 +201,6 @@ const mapDispatchToProps = dispatch => {
     },
     setStoryID: storyID => {
       dispatch(setStoryID(storyID));
-    },
-    increaseBackButtonCounter: () => {
-      dispatch(increaseBackButtonCounter());
     }
   };
 };
@@ -218,9 +213,7 @@ EmojiQuiz.propTypes = {
   deleteAnswers: PropTypes.func,
   setStoryTemplate: PropTypes.func,
   setStoryID: PropTypes.func,
-  addAnswerIndex: PropTypes.func,
-  increaseBackButtonCounter: PropTypes.func,
-  nrkReferrer: PropTypes.bool
+  addAnswerIndex: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(EmojiQuiz);

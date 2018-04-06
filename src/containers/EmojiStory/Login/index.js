@@ -9,11 +9,7 @@ import EmojiBody from "../../../components/EmojiStory/EmojiContainer/EmojiBody";
 import EmojiRow from "../../../components/EmojiStory/EmojiRow";
 import { Button, Row } from "reactstrap";
 import { connect } from "react-redux";
-import {
-  setReadyFor2ndLogin,
-  setAttemptsLeft,
-  setCorrectPassword
-} from "../../../actions/index";
+import { setAttemptsLeft } from "../../../actions/index";
 
 let strings = {
   en: {
@@ -41,7 +37,6 @@ class Login extends Component {
     this.onOkButtonClick = this.onOkButtonClick.bind(this);
     this.onContinueButtonClick = this.onContinueButtonClick.bind(this);
     this.isCorrectPassword = this.isCorrectPassword.bind(this);
-    this.props.setCorrectPassword("false");
   }
 
   onDeleteButtonClick() {
@@ -53,11 +48,9 @@ class Login extends Component {
   isCorrectPassword(emojiArray) {
     for (var i = 0; i < 4; i++) {
       if (this.props.answers[i].src !== emojiArray[i]) {
-        this.props.setCorrectPassword("false");
         return false;
       }
     }
-    this.props.setCorrectPassword("true");
     return true;
   }
 
@@ -83,7 +76,6 @@ class Login extends Component {
   }
 
   onContinueButtonClick() {
-    this.props.setReadyFor2ndLogin();
     const url = "/finish";
     history.push(url);
   }
@@ -300,14 +292,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setReadyFor2ndLogin: readyFor2ndLogin => {
-      dispatch(setReadyFor2ndLogin(readyFor2ndLogin));
-    },
     setAttemptsLeft: attemptsLeft => {
       dispatch(setAttemptsLeft(attemptsLeft));
-    },
-    setCorrectPassword: correctPassword => {
-      dispatch(setCorrectPassword(correctPassword));
     }
   };
 };
@@ -315,14 +301,11 @@ const mapDispatchToProps = dispatch => {
 Login.propTypes = {
   userProgress: PropTypes.string,
   keyboard: PropTypes.array,
-  readyFor2ndLogin: PropTypes.bool,
-  setReadyFor2ndLogin: PropTypes.func,
   setLoginAttempts: PropTypes.func,
   answers: PropTypes.array,
   language: PropTypes.string,
   attemptsLeft: PropTypes.number,
   setAttemptsLeft: PropTypes.func,
-  setCorrectPassword: PropTypes.func,
   correctPassword: PropTypes.string
 };
 
