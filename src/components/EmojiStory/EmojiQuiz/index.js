@@ -61,14 +61,6 @@ class EmojiQuiz extends Component {
       this.props.timestamp1,
       this.props.timestamp2
     );
-    timestampUpdateDB(
-      "timestamp1",
-      timeUsed,
-      null,
-      null,
-      null,
-      this.props.nrkReferrer
-    );
 
     // Set first timestamp for time spent on creating the emoji-password
     const timestamp = createTimestamp();

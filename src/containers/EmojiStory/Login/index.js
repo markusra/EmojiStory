@@ -84,41 +84,6 @@ class Login extends Component {
       const attempts = this.props.attemptsLeft - 1;
       this.props.setAttemptsLeft(attempts);
 
-      if (attempts === 2 && !isCorrect) {
-        if (this.props.readyFor2ndLogin) {
-          // Send fourth try
-          loginAttemptUpdateDB("login2_1", tempArray);
-        } else {
-          // Send first try
-          loginAttemptUpdateDB("login1_1", tempArray);
-        }
-      }
-
-      if (attempts === 1 && !isCorrect) {
-        if (this.props.readyFor2ndLogin) {
-          // Send fifth try
-          loginAttemptUpdateDB("login2_2", tempArray);
-        } else {
-          // Send second try
-          loginAttemptUpdateDB("login1_2", tempArray);
-        }
-      }
-      if (attempts <= 0) {
-        if (this.props.readyFor2ndLogin) {
-          this.props.setUserProgress("/finish");
-          if (!isCorrect) {
-            // Send sixth try
-            loginAttemptUpdateDB("login2_3", tempArray);
-          }
-        } else {
-          this.props.setUserProgress("/survey");
-          if (!isCorrect) {
-            // Send third try
-            loginAttemptUpdateDB("login1_3", tempArray);
-          }
-        }
-      }
-
       this.setState({
         loginOverlay: true,
         isCorrect: isCorrect
@@ -135,13 +100,6 @@ class Login extends Component {
       const timeUsed = calculateTimeUsed(
         this.props.timestamp1,
         this.props.timestamp2
-      );
-      timestampUpdateDB(
-        "timestamp5",
-        timeUsed,
-        3 - this.props.attemptsLeft,
-        this.props.correctPassword,
-        this.props.language
       );
 
       const url = "/finish";

@@ -59,7 +59,6 @@ class StorySummary extends Component {
         this.props.timestamp1,
         this.props.timestamp2
       );
-      timestampUpdateDB("timestamp2", timeUsed);
 
       // Set first timestamp for time spent on memorizing
       this.setState({ startTimestamp: createTimestamp() });
@@ -116,21 +115,11 @@ class StorySummary extends Component {
       this.state.startTimestamp,
       stopTimestamp
     );
-    timestampUpdateDB("timestamp3", timeUsed);
 
     var emojiTextArray = [];
 
     this.props.answers.map(answer => emojiTextArray.push(answer.text));
     // Update DB
-    emojiStoryUpdateDB(
-      emojiTextArray,
-      this.props.answerIndices,
-      this.props.keyboard,
-      keyboardWords,
-      this.props.storyID,
-      this.props.deviceType,
-      this.props.backButtonCounter
-    );
 
     const url = "/login";
     this.props.setUserProgress(url);

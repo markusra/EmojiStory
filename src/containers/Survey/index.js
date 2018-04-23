@@ -29,27 +29,10 @@ class Survey extends Component {
         this.props.timestamp1,
         this.props.timestamp2
       );
-      timestampUpdateDB(
-        "timestamp4",
-        timeUsed,
-        3 - this.props.attemptsLeft,
-        this.props.correctPassword
-      );
     }
   }
 
   handleSubmit() {
-    questionsUpdateDB(
-      this.props.age,
-      this.props.emojiUsage,
-      this.props.gender,
-      this.props.itBackground,
-      this.props.memorization,
-      this.props.nationality,
-      this.props.strategy,
-      this.props.confusion,
-      this.props.fun
-    );
     // this.props.setCorrectPassword("false");
 
     this.props.setAttemptsLeft(3);

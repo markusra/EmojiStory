@@ -2,8 +2,19 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { setLanguage } from "../actions/index";
+import { Button } from "reactstrap";
+import html2canvas from "html2canvas";
 
 class AppContainer extends Component {
+  html2canvasFunction() {
+    html2canvas(document.querySelector(".emoji-container")).then(canvas => {
+      var a = document.createElement("a");
+      a.href = canvas.toDataURL("image/png");
+      a.download = "somefilename.png";
+      a.click();
+    });
+  }
+
   render() {
     return (
       <Fragment>
@@ -15,9 +26,7 @@ class AppContainer extends Component {
           </nav>
           {this.props.children}
         </div>
-        <div
-          className="languageLinks"
-        >
+        <div className="languageLinks">
           <div style={{ flex: 1 }}>
             <a
               onClick={e => {
@@ -48,6 +57,16 @@ class AppContainer extends Component {
               Deutsch
             </a>
           </div>
+        </div>
+        <div align="center">
+          <Button
+            size="lg"
+            style={{ marginTop: "15px" }}
+            color="warning"
+            onClick={() => this.html2canvasFunction()}
+          >
+            Take screenshot
+          </Button>
         </div>
       </Fragment>
     );

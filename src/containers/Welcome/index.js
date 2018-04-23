@@ -152,7 +152,7 @@ class Welcome extends Component {
     this.props.deleteAnswers();
     this.props.deleteAnswerIndices();
 
-    createDBEntry();
+    // createDBEntry();
 
     const url = "/emojiStory";
     this.props.setUserProgress(url);
