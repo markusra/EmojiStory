@@ -7,7 +7,7 @@ import html2canvas from "html2canvas";
 
 class AppContainer extends Component {
   html2canvasFunction() {
-    html2canvas(document.querySelector(".emoji-container")).then(canvas => {
+    html2canvas(document.querySelector(".app-container")).then(canvas => {
       var a = document.createElement("a");
       a.href = canvas.toDataURL("image/png");
       a.download = "somefilename.png";
